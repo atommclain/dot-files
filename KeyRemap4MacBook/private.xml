@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<root>
+	<devicevendordef>
+	<vendorname>DECK</vendorname>
+	    <vendorid>0x0a34</vendorid>
+	  </devicevendordef>
+	  <deviceproductdef>
+	    <productname>DECK_KB</productname>
+	    <productid>0x0110</productid>
+	  </deviceproductdef>
+	
+	<!nothing> ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L<!nothing>
+	
+	<item>
+	    <name>Code Behavior in Xcode</name>
+	    <identifier>private.XCODEBCode</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F1, KeyCode::F1, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	<item>
+	    <name>Navigate Behavior in Xcode</name>
+	    <identifier>private.XCODEBNavigate</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F2, KeyCode::F2, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	<item>
+	    <name>IB Behavior in Xcode</name>
+	    <identifier>private.XCODEBIB</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F3, KeyCode::F3, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Move to beginning of paragraph</name>
+	    <identifier>private.lineStart</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::A, KeyCode::A, ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Move to end of paragraph</name>
+	    <identifier>private.lineEnd</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::D, KeyCode::E, ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Copy</name>
+	    <identifier>private.copy</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::C, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>paste</name>
+	    <identifier>private.paste</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::V, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>cut</name>
+	    <identifier>private.cut</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::X, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>undo</name>
+	    <identifier>private.undo</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::Z, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>select paragraph</name>
+	    <identifier>private.selectParagraph</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::S, KeyCode::P, ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>set mark</name>
+	    <identifier>private.setMark</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_2, KeyCode::KEY_2, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>swap mark</name>
+	    <identifier>private.swapMark</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_3, KeyCode::KEY_3, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>jump to mark</name>
+	    <identifier>private.jumpToMark</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_4,  KeyCode::L, ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Show Counterpart in assistant editor</name>
+	    <identifier>private.counterpartAssistant</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::SLASH, KeyCode:: CURSOR_DOWN, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Tab Right</name>
+	    <identifier>private.tabRight</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::MINUS, KeyCode:: BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Tab Left</name>
+	    <identifier>private.tabLeft</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_0, KeyCode:: BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Back</name>
+	    <identifier>private.back</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_8, KeyCode:: CURSOR_LEFT, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L</autogen>
+	</item>
+
+	<item>
+	    <name>Forward</name>
+	    <identifier>private.forward</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_9, KeyCode:: CURSOR_RIGHT, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L</autogen>
+	</item>	
+	
+	<item>
+	    <name>Disable Breakpoints</name>
+	    <identifier>private.disableBreakpoints</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F13, KeyCode:: F13,  ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Toggle Time Out</name>
+	    <identifier>private.toggleTimeOut</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F12, KeyCode:: F12,  ModifierFlag::COMMAND_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Fix Indentation</name>
+	    <identifier>private.fixIndntation</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::I, KeyCode:: I,  ModifierFlag::CONTROL_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Open Quickly</name>
+	    <identifier>private.openQuickly</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::O, KeyCode:: O,  ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L </autogen>
+	</item>
+	
+	<item>
+	    <name>Select Word</name>
+	    <identifier>private.selectWord</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::W, KeyCode:: W,  ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Select Word Left</name>
+	    <identifier>private.selectWordLeft</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::Q, KeyCode:: CURSOR_LEFT,  ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Select Word Right</name>
+	    <identifier>private.selectWordRight</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::E, KeyCode:: CURSOR_RIGHT,  ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>kill Line</name>
+	    <identifier>private.killLine</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::K, KeyCode:: K,  ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L</autogen>
+	</item>
+	
+	<item>
+	    <name>Mouse Click</name>
+	    <identifier>private.mouseClick</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_1, KeyCode::VK_MOUSEKEY_BUTTON_LEFT </autogen>
+	</item>
+	
+	<item>
+	    <name>Backquote to Command</name>
+	    <identifier>private.backquoteToCommand</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::BACKQUOTE, KeyCode::COMMAND_R </autogen>
+	</item>
+	<item>
+	    <name>Find</name>
+	    <identifier>private.find</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::F, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	<item>
+	    <name>Find Next</name>
+	    <identifier>private.findNext</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::G, KeyCode::G, ModifierFlag::COMMAND_L</autogen>
+	</item>
+	<item>
+	    <name>Show Document Items</name>
+	    <identifier>private.showDocumentItems</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::KEY_6, ModifierFlag::CONTROL_L</autogen>
+	</item>
+</root>
+
+
