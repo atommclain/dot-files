@@ -1,16 +1,45 @@
 <?xml version="1.0"?>
 <root>
+	<!Deck keyboard at work>
 	<devicevendordef>
-	<vendorname>DECK</vendorname>
-	    <vendorid>0x0a34</vendorid>
-	  </devicevendordef>
-	  <deviceproductdef>
-	    <productname>DECK_KB</productname>
-	    <productid>0x0110</productid>
-	  </deviceproductdef>
+		<vendorname>DECK</vendorname>
+		<vendorid>0x0a34</vendorid>
+	</devicevendordef>
+	<deviceproductdef>
+		<productname>DECK_KB</productname>
+		<productid>0x0110</productid>
+	</deviceproductdef>
 	
+	<!PS/2 adapter>
+	<devicevendordef>
+		<vendorname>PS2</vendorname>
+		<vendorid>0x0d3d</vendorid>
+	</devicevendordef>
+	<deviceproductdef>
+		<productname>PS2_KB</productname>
+		<productid>0x0001</productid>
+	</deviceproductdef>
+
 	<!nothing> ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L<!nothing>
 	
+<!org.vim.MacVim>
+
+	<item>
+	    <name>Disable arrow keys</name>
+	    <identifier>private.vi.disableArrowKeys</identifier>
+		<only>VI</only>
+		<autogen>--KeyToKey-- KeyCode::CURSOR_UP, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::CURSOR_DOWN, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, KeyCode::COMMAND_L</autogen>
+	</item>
+
+	<item>
+	    <name>Insert to back tick</name>
+	    <identifier>private.PS2.backtick2insert</identifier>
+	    <device_only>DeviceVendor::PS2, DeviceProduct::PS2_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::HELP, KeyCode::BACKQUOTE</autogen>
+	</item>
 	<item>
 	    <name>Code Behavior in Xcode</name>
 	    <identifier>private.XCODEBCode</identifier>
@@ -223,5 +252,3 @@
 	    <autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::KEY_6, ModifierFlag::CONTROL_L</autogen>
 	</item>
 </root>
-
-
