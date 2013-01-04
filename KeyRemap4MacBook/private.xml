@@ -24,6 +24,8 @@
 	
 <!org.vim.MacVim>
 
+<item>
+<name>MacVIM</name>
 	<item>
 	    <name>Disable arrow keys</name>
 	    <identifier>private.vi.disableArrowKeys</identifier>
@@ -33,13 +35,20 @@
 		<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, KeyCode::COMMAND_L</autogen>
 		<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, KeyCode::COMMAND_L</autogen>
 	</item>
+</item>
 
+<item>
+<name>PS2 Adapter</name>
 	<item>
 	    <name>Insert to back tick</name>
 	    <identifier>private.PS2.backtick2insert</identifier>
 	    <device_only>DeviceVendor::PS2, DeviceProduct::PS2_KB</device_only>
 	    <autogen>--KeyToKey-- KeyCode::HELP, KeyCode::BACKQUOTE</autogen>
 	</item>
+</item>
+
+<item>
+<name>Deck KB</name>
 	<item>
 	    <name>Code Behavior in Xcode</name>
 	    <identifier>private.XCODEBCode</identifier>
@@ -251,4 +260,5 @@
 	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
 	    <autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::KEY_6, ModifierFlag::CONTROL_L</autogen>
 	</item>
+</item>
 </root>
