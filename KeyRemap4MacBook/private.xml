@@ -260,5 +260,21 @@
 	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
 	    <autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::KEY_6, ModifierFlag::CONTROL_L</autogen>
 	</item>
+	
+	<item>
+	<name>Inspectors</name>
+	<item>
+	    <name>Show Attributes Inspector</name>
+	    <identifier>private.showAttributes</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::B, KeyCode::KEY_4, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L</autogen>
+	</item>
+	<item>
+	    <name>Show Size Inspector</name>
+	    <identifier>private.showSize</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::N, KeyCode::KEY_5, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L</autogen>
+	</item>
+	</item>
 </item>
 </root>
