@@ -159,7 +159,7 @@ nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Edit .vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>ve :tabedit $MYVIMRC<CR>
 nmap <leader>vr :so $MYVIMRC<CR>
 
 " Run marco stored in q register
