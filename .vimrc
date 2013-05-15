@@ -106,9 +106,6 @@ let g:Powerline_symbols = 'fancy'
 set backupdir=~/.tmp
 set number
 
-" map escape to jj in insert mode 
-imap jj <Esc>
-
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -132,23 +129,48 @@ set clipboard=unnamed
 " highlight searches
 set hlsearch
 
-" set leader key
+"
+" LEADER KEY!!!
+"
+" set leader key to spacebar
 let mapleader = "\<space>"
-
-" Insert new line above and return to line
-nmap <LEADER><S-Enter> O<Esc>j
 
 " Insert new line below and return to line
 nmap <LEADER><CR> o<Esc>k
 
-" Split line before cursor
-nmap <LEADER>s hmzli<Enter><Esc>`z
-nmap <LEADER>q @q
+" Insert new line above and return to line
+nmap <LEADER><S-Enter> O<Esc>j
+
+" Setup command for unnamed register
+nmap <LEADER>- "_
+vmap <LEADER>- "_
+
+" Add semi colon to the end of current line
+nmap <LEADER>; mzA;<ESC>`z
 
 " :so $MYVIMRC
 
-nmap <leader>v :e $MYVIMRC<CR>
-
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" git conflict seperator search
 nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+
+" toggle VIM hardmode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Edit .vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>vr :so $MYVIMRC<CR>
+
+" Run marco stored in q register
+nmap <LEADER>q @q
+
+" Split line before cursor
+nmap <LEADER>s hmzli<Enter><Esc>`z
+
+" take previously deleted text, create line above current line, paste text,
+" user sets variable
+nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
+" Script moves to begining of word then yanks variable name then
+" pastes it at previous yark
+nmap <LEADER>aa <ESC>bye`zP
