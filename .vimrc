@@ -30,6 +30,9 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set ignorecase
+set smartcase
+nmap \q :nohlsearch<CR>	" clear search highlighting
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -129,6 +132,8 @@ set clipboard=unnamed
 " highlight searches
 set hlsearch
 
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 "
 " LEADER KEY!!!
 "
@@ -148,15 +153,21 @@ vmap <LEADER>- "_
 " Add semi colon to the end of current line
 nmap <LEADER>; mzA;<ESC>`z
 
-" :so $MYVIMRC
-
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" take previously deleted text, create line above current line, paste text,
+" user sets variable
+nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
+" Script moves to begining of word then yanks variable name then
+" pastes it at previous yark
+nmap <LEADER>aa <ESC>bye`zP
 
 " git conflict seperator search
 nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
 
 " toggle VIM hardmode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" NSLog object
+nmap <leader>lo iNSLog(@"%@", );<ESC>F)
 
 " Edit .vimrc
 nmap <leader>ve :tabedit $MYVIMRC<CR>
@@ -167,10 +178,3 @@ nmap <LEADER>q @q
 
 " Split line before cursor
 nmap <LEADER>s hmzli<Enter><Esc>`z
-
-" take previously deleted text, create line above current line, paste text,
-" user sets variable
-nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
-" Script moves to begining of word then yanks variable name then
-" pastes it at previous yark
-nmap <LEADER>aa <ESC>bye`zP
