@@ -32,7 +32,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set ignorecase
 set smartcase
-nmap \q :nohlsearch<CR>	" clear search highlighting
+set number
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -47,13 +47,6 @@ inoremap <C-U> <C-G>u<C-U>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -101,13 +94,51 @@ endif
 " pathogen
 execute pathogen#infect()
 
+filetype off                   " required!
+
+" Setting up Vundle - the vim plugin bundler
+    let iCanHazVundle=1
+    let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+    if !filereadable(vundle_readme)
+        echo "Installing Vundle.."
+        echo ""
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+        let iCanHazVundle=0
+    endif
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    Bundle 'gmarik/vundle'
+    "Add your bundles here
+    Bundle 'Syntastic'
+    Bundle 'altercation/vim-colors-solarized'
+    " Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal
+" Bundle 'https://github.com/tpope/vim-fugitive' "for git https://github.com/tpope/vim-fugitive
+ Bundle 'YouCompleteMe'
+    "...All your other bundles...
+    if iCanHazVundle == 0
+        echo "Installing Bundles, please ignore key map error messages"
+        echo ""
+        :BundleInstall
+    endif
+" Setting up Vundle - the vim plugin bundler end
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+"if &t_Co > 2 || has("gui_running")
+  set hlsearch
+  nmap \q :nohlsearch<CR>	" clear search highlighting
+  "syntax on
+  set background=dark
+  colorscheme solarized
+"endif
+let g:ycm_collect_identifiers_from_tags_files = 1
 " powerline
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols = 'fancy'
 
 set backupdir=~/.tmp
-set number
 
 " disable arrow keys
 map <up> <nop>
@@ -126,11 +157,7 @@ au InsertLeave * let &updatetime=updaterestore
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
 
-" use system clipboard
-set clipboard=unnamed
-
-" highlight searches
-set hlsearch
+set clipboard=unnamed " use system clipboard
 
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
@@ -140,18 +167,13 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " set leader key to spacebar
 let mapleader = "\<space>"
 
-" Insert new line below and return to line
-nmap <LEADER><CR> o<Esc>k
-
-" Insert new line above and return to line
-nmap <LEADER><S-Enter> O<Esc>j
-
-" Setup command for unnamed register
+nmap <LEADER><CR> o<Esc>k		 " Insert new line below and return to line
+nmap <LEADER><S-Enter> O<Esc>j		 " Insert new line above and return to line
 nmap <LEADER>- "_
+" Setup command for unnamed register
 vmap <LEADER>- "_
-
-" Add semi colon to the end of current line
-nmap <LEADER>; mzA;<ESC>`z
+" Setup command for unnamed register
+nmap <LEADER>; mzA;<ESC>`z		 " Add semi colon to the end of current line
 
 " take previously deleted text, create line above current line, paste text,
 " user sets variable
@@ -160,21 +182,23 @@ nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
 " pastes it at previous yark
 nmap <LEADER>aa <ESC>bye`zP
 
-" git conflict seperator search
-nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR> " git conflict seperator search
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>  " toggle VIM hardmode
+nmap <leader>lo iNSLog(@"%@", );<ESC>F)	 " NSLog object
+nmap <leader>ve :tabedit $MYVIMRC<CR>	 " Edit .vimrc
+nmap <leader>vr :so $MYVIMRC<CR>	 " Reload .vimrc
+nmap <LEADER>q @q			 " Run marco stored in q register
+nmap <LEADER>s hmzli<Enter><Esc>`z 	 " Split line before cursor
+nmap <LEADER>{ mz0f{r<Enter>i{<Esc>`z		" Move beginning brace to next line
 
-" toggle VIM hardmode
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" The best way to get filetype-specific indentation is to use filetype plugin indent on in your vimrc. Then you can specify things like set sw=4 sts=4 et in .vim/ftplugin/c.vim, for example, without having to make those global for all files being edited and other non-C type syntaxes will get indented correctly, too (even lisps).
+" You can replace all the tabs with whitespace in the entire file with :%retab
+" set cindent
+" set tabstop=4
+" set shiftwidth=4
+" set expandtab
 
-" NSLog object
-nmap <leader>lo iNSLog(@"%@", );<ESC>F)
-
-" Edit .vimrc
-nmap <leader>ve :tabedit $MYVIMRC<CR>
-nmap <leader>vr :so $MYVIMRC<CR>
-
-" Run marco stored in q register
-nmap <LEADER>q @q
-
-" Split line before cursor
-nmap <LEADER>s hmzli<Enter><Esc>`z
+" Remove trailing whitespace
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Show trailing whitespace only after some text (ignores empty lines):
+" /\(\S\+\)\@<=\s\+$
