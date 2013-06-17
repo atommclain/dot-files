@@ -1,19 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -25,7 +9,10 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
+  set backupdir=~/.tmp,~/
+  set directory=~/.tmp,~/
 endif
+
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -33,9 +20,17 @@ set incsearch		" do incremental searching
 set ignorecase
 set smartcase
 set number
+set hidden " allow buffers to be hidden without write
+set scrolloff=4		" keep at least 4 lines of context
+syntax enable
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" current directory is always matching the
+" content of the active window
+set autochdir
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -56,8 +51,6 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -127,8 +120,7 @@ filetype off                   " required!
 " Also switch on highlighting the last used search pattern.
 "if &t_Co > 2 || has("gui_running")
   set hlsearch
-  nmap \q :nohlsearch<CR>	" clear search highlighting
-  "syntax on
+  syntax on
   set background=dark
   colorscheme solarized
 "endif
@@ -137,8 +129,6 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols = 'fancy'
-
-set backupdir=~/.tmp
 
 " disable arrow keys
 map <up> <nop>
@@ -161,19 +151,31 @@ set clipboard=unnamed " use system clipboard
 
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+" Leave insert mode when vim loses focus
+autocmd FocusLost * nested silent! wa
+autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
+
 "
 " LEADER KEY!!!
 "
 " set leader key to spacebar
 let mapleader = "\<space>"
 
-nmap <LEADER><CR> o<Esc>k		 " Insert new line below and return to line
-nmap <LEADER><S-Enter> O<Esc>j		 " Insert new line above and return to line
+nmap <LEADER><CR> mzo<Esc>`z		 " Insert new line below and return to line
+nmap <LEADER><S-Enter> mzO<Esc>`z		 " Insert new line above and return to line
+
+" Setup command for unnamed register
 nmap <LEADER>- "_
-" Setup command for unnamed register
 vmap <LEADER>- "_
-" Setup command for unnamed register
+
 nmap <LEADER>; mzA;<ESC>`z		 " Add semi colon to the end of current line
+
+" clear search highlighting
+nmap <silent> <LEADER>/ :nohlsearch<CR>
+
+" toggle viewing whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>. :set nolist!<CR>
 
 " take previously deleted text, create line above current line, paste text,
 " user sets variable
@@ -202,3 +204,4 @@ nmap <LEADER>{ mz0f{r<Enter>i{<Esc>`z		" Move beginning brace to next line
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Show trailing whitespace only after some text (ignores empty lines):
 " /\(\S\+\)\@<=\s\+$
+" try control e and y in insert mode, writes char by char above or below line
