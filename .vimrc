@@ -161,14 +161,17 @@ autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
 " set leader key to spacebar
 let mapleader = "\<space>"
 
-nmap <LEADER><CR> mzo<Esc>`z		 " Insert new line below and return to line
-nmap <LEADER><S-Enter> mzO<Esc>`z		 " Insert new line above and return to line
+" Insert new line below and return to line
+nmap <LEADER><CR> mzo<Esc>`z
+" Insert new line above and return to line
+nmap <LEADER><S-Enter> mzO<Esc>`z
 
 " Setup command for unnamed register
 nmap <LEADER>- "_
 vmap <LEADER>- "_
 
-nmap <LEADER>; mzA;<ESC>`z		 " Add semi colon to the end of current line
+" Add semi colon to the end of current line
+nmap <LEADER>; mzA;<ESC>`z
 
 " clear search highlighting
 nmap <silent> <LEADER>/ :nohlsearch<CR>
@@ -184,21 +187,32 @@ nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
 " pastes it at previous yark
 nmap <LEADER>aa <ESC>bye`zP
 
-nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR> " git conflict seperator search
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>  " toggle VIM hardmode
-nmap <leader>lo iNSLog(@"%@", );<ESC>F)	 " NSLog object
-nmap <leader>ve :tabedit $MYVIMRC<CR>	 " Edit .vimrc
-nmap <leader>vr :so $MYVIMRC<CR>	 " Reload .vimrc
-nmap <LEADER>q @q			 " Run marco stored in q register
-nmap <LEADER>s hmzli<Enter><Esc>`z 	 " Split line before cursor
-nmap <LEADER>{ mz0f{r<Enter>i{<Esc>`z		" Move beginning brace to next line
+" git conflict seperator search
+nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+" toggle VIM hardmode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" NSLog object
+nmap <leader>lo iNSLog(@"%@", );<ESC>F)
+" Edit .vimrc
+nmap <leader>ve :tabedit $MYVIMRC<CR>
+" Reload .vimrc
+nmap <leader>vr :so $MYVIMRC<CR>
+" Run marco stored in q register
+nmap <LEADER>q @q
+" Split line before cursor
+nmap <LEADER>s hmzli<Enter><Esc>`z
+" Split line before cursor
+nmap <LEADER>S i<Enter><Esc>ddkP
+" Move beginning brace to next line
+nmap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
 
 " The best way to get filetype-specific indentation is to use filetype plugin indent on in your vimrc. Then you can specify things like set sw=4 sts=4 et in .vim/ftplugin/c.vim, for example, without having to make those global for all files being edited and other non-C type syntaxes will get indented correctly, too (even lisps).
-" You can replace all the tabs with whitespace in the entire file with :%retab
-" set cindent
-" set tabstop=4
-" set shiftwidth=4
-" set expandtab
+ "You can replace all the tabs with whitespace in the entire file with :%retab
+set cindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
 
 " Remove trailing whitespace
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
