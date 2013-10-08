@@ -58,4 +58,4 @@ if version >= 500
 
 endif
 
-set guifont=Menlo\ Regular:h14
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14

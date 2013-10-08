@@ -1,7 +1,8 @@
 # reload profile
 # source ~/.bash_profileu
 
-export EDITOR='mate -w'
+#export EDITOR='mate -w'
+export EDITOR='vim'
 
 source ~/.bashrc 
 
@@ -16,34 +17,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 export PATH=~/bin:$PATH
 
-
 alias svn=colorsvn
-
-#git alias
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit -m '
-alias gcam='git commit -a -m '
-alias gd='git diff'
-alias go='git checkout '
-alias gom='git checkout master '
-alias gp='git pull '
-alias gpu='git push'
-alias gk='gitk --all&'
-alias gx='gitx --all'
-alias gcp='git cherry-pick '
-alias grb='git rebase -i'
-alias grbc='git rebase --continue'
-alias grba='git rebase --abort'
-alias grb1='git reset --soft HEAD^'
-alias grb2='git reset HEAD .'
-alias grh='git reset --hard'
-alias gmt='git mergetool '
-
-# for repeating the last command
-# see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
-alias r='fc -s'
+source ~/.alias
 
 # git autocomplete
 #if [ -f ~/.git-completion.bash ]; then

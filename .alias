@@ -1,0 +1,42 @@
+alias ez
+alias l='ls'
+
+#git alias
+alias eb='echo $BRANCH'
+alias ebc='echo $BRANCH | tr -d '\n' | pbcopy'
+alias gs='git status '
+alias ga='git add '
+alias gai='git add -i '
+alias gb='git branch '
+alias gbc='git rev-parse --abbrev-ref HEAD '
+alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD`'
+alias gc='git commit -m '
+alias gcam='git commit -a -m '
+alias gd='git diff'
+alias go='git checkout '
+alias gom='git checkout master '
+alias gob='git checkout $BRANCH '
+alias gp='git pull '
+alias gpu='git push'
+alias gm='git merge '
+alias gms='git merge --squash '
+alias gmsb='git merge --squash $BRANCH '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias gcp='git cherry-pick '
+alias grm='git rebase master'
+alias grb='git rebase -i'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
+# alias grbs='git rebase --skip'
+alias grb1='git reset --soft HEAD^'
+alias grb2='git reset HEAD .'
+alias grbs='git reset HEAD^'
+alias grh='git reset --hard'
+alias gmt='git mergetool '
+alias gmsha='git rev-parse --short origin/master | tr -d '\n' | pbcopy'
+
+# forrepeating the last command
+# see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
+alias r='fc -s'
+
