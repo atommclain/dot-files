@@ -1,3 +1,5 @@
+source ~/.workalias 
+
 alias ez
 alias l='ls'
 
@@ -36,7 +38,7 @@ alias grh='git reset --hard'
 alias gmt='git mergetool '
 alias gmsha='git rev-parse --short origin/master | tr -d '\n' | pbcopy'
 
-# forrepeating the last command
+# for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
 alias r='fc -s'
 
