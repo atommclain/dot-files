@@ -32,5 +32,6 @@ alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
+alias g='git '
 alias got='git '
 alias get='git '

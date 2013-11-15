@@ -1,7 +1,3 @@
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -22,9 +18,9 @@ set incsearch		" do incremental searching
 set ignorecase
 set smartcase
 set number
-set relativenumber
+set number
 set hidden " allow buffers to be hidden without write
-set scrolloff=4		" keep at least 4 lines of context
+set scrolloff=6		" keep at least 4 lines of context
 syntax enable
 syntax on
 filetype on
@@ -49,11 +45,6 @@ inoremap <C-U> <C-G>u<C-U>
 " will buffer screen updates instead of updating all the time
 set lazyredraw
 set ttyfast
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -96,7 +87,7 @@ endif " has("autocmd")
 endif
 
 " pathogen
-execute pathogen#infect()
+ execute pathogen#infect()
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -107,7 +98,7 @@ filetype off                   " required!
  call vundle#rc()
 
  " let Vundle manage Vundle
- " required! 
+ " required!
     Bundle 'gmarik/vundle'
     "Add your bundles here
     Bundle 'a.vim'
@@ -115,9 +106,8 @@ filetype off                   " required!
     Bundle 'scrooloose/syntastic'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'amiorin/ctrlp-z'
-    " Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal
-    " Bundle 'https://github.com/tpope/vim-fugitive' "for git https://github.com/tpope/vim-fugitive
-    Bundle 'YouCompleteMe'
+    Bundle 'tpope/vim-fugitive'
+    "Bundle 'YouCompleteMe'
     "...All your other bundles...
 
 filetype plugin indent on     " required!
@@ -139,27 +129,23 @@ set hlsearch
 syntax on
 let g:solarized_termcolors=256
 set background=dark
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set clipboard=unnamed " use system clipboard
+set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 colorscheme solarized
 "endif
 
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_confirm_extra_conf = 0
 " powerline
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|png|html)$'
 
-" disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " set 'updatetime' to 4 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=4000
@@ -167,10 +153,6 @@ au InsertLeave * let &updatetime=updaterestore
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
-
-set clipboard=unnamed " use system clipboard
-
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Leave insert mode when vim loses focus
 autocmd FocusLost * nested silent! wa
@@ -188,6 +170,19 @@ augroup CursorLine
     au WinLeave * setlocal nocursorcolumn
 augroup END
 
+
+" disable arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
 "
 " LEADER KEY!!!
 "
@@ -195,74 +190,77 @@ augroup END
 let mapleader = "\<space>"
 
 " Insert new line below and return to line
-nmap <LEADER><CR> mzo<Esc>`z
+nnoremap <LEADER><CR> mzo<Esc>`z
 " Insert new line above and return to line
-nmap <LEADER><S-CR> mzO<Esc>`z
+nnoremap <LEADER><S-CR> mzO<Esc>`z
 
 " Setup command for unnamed register
-nmap <LEADER>- "_
-vmap <LEADER>- "_
+nnoremap <LEADER>- "_
+vnoremap <LEADER>- "_
 
 " Add semi colon to the end of current line
-nmap <LEADER>; mzA;<ESC>`z
+nnoremap <LEADER>; mzA;<ESC>`z
 
 " clear search highlighting
-nmap <silent> <LEADER>/ :nohlsearch<CR>
+nnoremap <silent> <LEADER>/ :nohlsearch<CR>
 
 " toggle viewing whitespace
-set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>. :set nolist!<CR>
-nmap <leader>lw :CtrlP<CR><C-\>w
+set listchars=trail:·,tab:▸\ ,eol:¬
+nnoremap <silent> <leader>. :set nolist!<CR>
+nnoremap <leader>lw :CtrlP<CR><C-\>w
 " take previously deleted text, create line above current line, paste text,
 " user sets variable
-" nmap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
+" nnoremap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
 " Script moves to begining of word then yanks variable name then
 " pastes it at previous yark
-" nmap <LEADER>aa <ESC>bye`zP
-nmap <LEADER>a <ESC>:A<CR>
-
+" nnoremap <LEADER>aa <ESC>bye`zP
+" A.vim alternative file
+nnoremap <LEADER>a <ESC>:A<CR>
+" Buffer management: list buffers
+nnoremap <LEADER>b :buffers<CR>:buffer<Space>
+" Buffer management: delete current buffer
+nnoremap <LEADER>d :bd<CR>
 " git conflict seperator search
-nmap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
-" NSLog object
-nmap <leader>lo iNSLog(@"%@", );<ESC>F)
+nnoremap <leader>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+" edit Foo.m
+nnoremap <leader>em :e ~/objctest/Foo.m<CR>
 " Edit .vimrc
-nmap <leader>ve :e $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
+" NSLog object
+nnoremap <leader>lo iNSLog(@"%@", );<ESC>F)
+" NSLog string
+nnoremap <leader>ls iNSLog(@"");<ESC>F"i
+"Fugitive
+nnoremap <LEADER>gd :Gdiff<CR>
+nnoremap <LEADER>go <C-W><C-O>:diffoff<CR>
+nnoremap <LEADER>gs :Gstatus<CR>
+" Buffer management: next buffer
+nnoremap <LEADER>n :bn<CR>
 " Reload .vimrc
-nmap <leader>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echo ".vrimrc sourced"<CR>
-" Install Vundle Bundles
-nmap <leader>vv :BundleInstall<CR>
-nmap <leader>y :%s/'-/-/<CR>:%s/',//<CR>
+nnoremap <leader>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echom ".vrimrc sourced"<CR>
+" Buffer management: previous buffer
+nnoremap <LEADER>p :bp<CR>
 " Run marco stored in q register
-nmap <LEADER>q @q
+nnoremap <LEADER>q @q
 " Split line before cursor
-nmap <LEADER>s hmzli<Enter><Esc>`z
+nnoremap <LEADER>s hmzli<Enter><Esc>`z
 " Split line before cursor
-nmap <LEADER>S i<Enter><Esc>ddkP
+nnoremap <LEADER>S i<Enter><Esc>ddkP
 " Move beginning brace to next line
-nmap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
+nnoremap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
 " Move end brace to next line
-nmap <LEADER>} mz0f}r<Enter>i}<Esc>`z
+nnoremap <LEADER>} mz0f}r<Enter>i}<Esc>`z
 " Append '.0f' to flaot
-nmap <LEADER>f ea.0f<Esc>
+nnoremap <LEADER>f ea.0f<Esc>
 
-" The best way to get filetype-specific indentation is to use filetype plugin indent on in your vimrc. Then you can specify things like set sw=4 sts=4 et in .vim/ftplugin/c.vim, for example, without having to make those global for all files being edited and other non-C type syntaxes will get indented correctly, too (even lisps).
- "You can replace all the tabs with whitespace in the entire file with :%retab
-set cindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
-set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
-set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-" set showmatch                  " show matching brackets
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Remove trailing whitespace
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Remove trailing whitespace from line
+" nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Remove trailing whitespace from line, and convert tabs to spaces
+nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 " Show trailing whitespace only after some text (ignores empty lines):
 " /\(\S\+\)\@<=\s\+$
 " try control e and y in insert mode, writes char by char above or below line
-" Vim lets you define an indentexpr which defines the behaviour of the = operator 
+" Vim lets you define an indentexpr which defines the behaviour of the = operator
+" :`<,`>diffget "perform diffget on highlighted lines

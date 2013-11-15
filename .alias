@@ -1,44 +1,90 @@
 source ~/.workalias 
 
-alias ez
+alias ea='vim ~/.alias'
+
 alias l='ls'
+alias tcopy="tr -d '\n' | pbcopy"
+
+function gcb {
+~/bin/gcb "$1";
+gbsb;
+}
+export -f gcb
+
+function gdelb {
+~/bin/gdelb "$1";
+}
+export -f gdelb
 
 #git alias
 alias eb='echo $BRANCH'
 alias ebc='echo $BRANCH | tr -d '\n' | pbcopy'
+alias g='git '
 alias gs='git status '
 alias ga='git add '
+alias gaa='git add .'
+alias gap='git add -p'
 alias gai='git add -i '
+alias gpm='cdp && gom && gp'
 alias gb='git branch '
 alias gbc='git rev-parse --abbrev-ref HEAD '
-alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD`'
+#alias gcb='~/bin/gcb '
+alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD` && export B=$BRANCH && pbw "Set branchName $B"'
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
+alias gf='git fetch '
 alias gd='git diff'
+alias gdc='git diff --cached'
+#alias gdelbb='gdelb $BRANCH'
 alias go='git checkout '
 alias gom='git checkout master '
 alias gob='git checkout $BRANCH '
+alias gorc='git checkout $RC '
 alias gp='git pull '
 alias gpu='git push'
 alias gm='git merge '
+alias gmm='git merge origin master '
 alias gms='git merge --squash '
 alias gmsb='git merge --squash $BRANCH '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gcp='git cherry-pick '
 alias grm='git rebase master'
+alias grrc='git rebase $RC '
 alias grb='git rebase -i'
+alias grbh='git rebase -i $H'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 # alias grbs='git rebase --skip'
 alias grb1='git reset --soft HEAD^'
 alias grb2='git reset HEAD .'
+# git rebase split
 alias grbs='git reset HEAD^'
 alias grh='git reset --hard'
 alias gmt='git mergetool '
-alias gmsha='git rev-parse --short origin/master | tr -d '\n' | pbcopy'
+alias gshortsham='git rev-parse --short origin/master'
+alias gshortshab='git rev-parse --short origin/$BRANCH'
+alias gsham='export MASTERSHA=`gshortsham` && gshortsham | tcopy && pbw "Set masterCommitSHA $MASTERSHA"'
+alias gshab='export BRANCHSHA=`gshortshab` && gshortshab | tcopy && pbw "Set branchCommitSHA $BRANCHSHA"'
+alias gshas='gsham && gshab'
+#alias gsham='git rev-parse --short origin/master | tcopy && git rev-parse --short origin/master'
+alias gst='git stash'
+alias gstp='git stash pop'
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
 alias r='fc -s'
 
+# read -p "Are you sure? " -n 1 -r
+# echo    # (optional) move to a new line
+# if [[ $REPLY =~ ^[Yy]$ ]]
+# then
+#   # do dangerous stuff
+# fi
+
+# alias tail_ls="ls -l $1 | tail"
+
+# plistpuddy
+alias pb='/usr/libexec/PlistBuddy'
+alias pbw='pb ~/workflow.plist -c '
+alias pbp='pbw Print'
