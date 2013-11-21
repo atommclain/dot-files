@@ -1,3 +1,7 @@
+"================
+" Junk
+"================
+"{{{
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -18,14 +22,22 @@ set incsearch		" do incremental searching
 set ignorecase
 set smartcase
 set number
-set number
 set hidden " allow buffers to be hidden without write
-set scrolloff=6		" keep at least 4 lines of context
+set scrolloff=6
 syntax enable
 syntax on
 filetype on
 filetype indent on
 filetype plugin on
+set hlsearch
+syntax on
+set background=dark
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set clipboard=unnamed " use system clipboard
+set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
+set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
 
 " Change cursor shape in different modesFor iTerm2 on OS X
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -86,6 +98,35 @@ endif " has("autocmd")
 		  \ | wincmd p | diffthis
 endif
 
+
+" set 'updatetime' to 4 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=4000
+au InsertLeave * let &updatetime=updaterestore
+
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+au CursorHoldI * stopinsert
+
+" Leave insert mode when vim loses focus
+autocmd FocusLost * nested silent! wa
+autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
+
+augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au VimEnter * setlocal cursorcolumn
+    au WinEnter * setlocal cursorline
+    au WinEnter * setlocal cursorcolumn
+    au BufWinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorcolumn
+    au WinLeave * setlocal nocursorline
+    au WinLeave * setlocal nocursorcolumn
+augroup END
+"}}}
+
+"================
+" Plugins
+"================
+""{{{
 " pathogen
  execute pathogen#infect()
 
@@ -125,15 +166,7 @@ filetype plugin indent on     " required!
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 "if &t_Co > 2 || has("gui_running")
-set hlsearch
-syntax on
 let g:solarized_termcolors=256
-set background=dark
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set clipboard=unnamed " use system clipboard
-set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 colorscheme solarized
 "endif
 
@@ -144,34 +177,19 @@ let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|png|html)$'
 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|png|html|js|py|mobileprovision|plist)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+"}}}
 
-" set 'updatetime' to 4 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=4000
-au InsertLeave * let &updatetime=updaterestore
-
-" automatically leave insert mode after 'updatetime' milliseconds of inaction
-au CursorHoldI * stopinsert
-
-" Leave insert mode when vim loses focus
-autocmd FocusLost * nested silent! wa
-autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
-
-augroup CursorLine
-    au!
-    au VimEnter * setlocal cursorline
-    au VimEnter * setlocal cursorcolumn
-    au WinEnter * setlocal cursorline
-    au WinEnter * setlocal cursorcolumn
-    au BufWinEnter * setlocal cursorline
-    au BufWinEnter * setlocal cursorcolumn
-    au WinLeave * setlocal nocursorline
-    au WinLeave * setlocal nocursorcolumn
-augroup END
-
-
+"================
 " disable arrow keys
+"================
+"{{{
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -182,10 +200,12 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
+"}}}
 
-"
+"================
 " LEADER KEY!!!
-"
+"================
+""{{{
 " set leader key to spacebar
 let mapleader = "\<space>"
 
@@ -205,7 +225,7 @@ nnoremap <LEADER>; mzA;<ESC>`z
 nnoremap <silent> <LEADER>/ :nohlsearch<CR>
 
 " toggle viewing whitespace
-set listchars=trail:·,tab:▸\ ,eol:¬
+set listchars=nbsp:·,tab:⟶\ ,trail:·,eol:¬
 nnoremap <silent> <leader>. :set nolist!<CR>
 nnoremap <leader>lw :CtrlP<CR><C-\>w
 " take previously deleted text, create line above current line, paste text,
@@ -260,7 +280,4 @@ nnoremap <LEADER>f ea.0f<Esc>
 " Remove trailing whitespace from line, and convert tabs to spaces
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 " Show trailing whitespace only after some text (ignores empty lines):
-" /\(\S\+\)\@<=\s\+$
-" try control e and y in insert mode, writes char by char above or below line
-" Vim lets you define an indentexpr which defines the behaviour of the = operator
-" :`<,`>diffget "perform diffget on highlighted lines
+" /\(\S\+\)\@<=\s\+$"}}}
