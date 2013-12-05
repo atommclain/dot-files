@@ -15,6 +15,7 @@ function gdelb {
 ~/bin/gdelb "$1";
 }
 export -f gdelb
+alias lsa='ls -goah'
 
 #git alias
 alias eb='echo $BRANCH'

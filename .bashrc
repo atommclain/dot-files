@@ -14,6 +14,7 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+source ~/.alias
 
 # Put your fun stuff here.
 # Enables ^s and ^q in rTorrent, when running in screen
