@@ -50,6 +50,12 @@
 <item>
 <name>Deck KB</name>
 	<item>
+	    <name>Insert to back tick</name>
+	    <identifier>private.backtick2insert</identifier>
+	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
+	    <autogen>--KeyToKey-- KeyCode::HELP, KeyCode::BACKQUOTE</autogen>
+	</item>
+	<item>
 	    <name>Code Behavior in Xcode</name>
 	    <identifier>private.XCODEBCode</identifier>
 	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
