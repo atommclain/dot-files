@@ -33,6 +33,7 @@ alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD` && export B=$BRANCH 
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
 alias gf='git fetch '
+alias gfp='git fetch --prune'
 alias gd='git diff'
 alias gdc='git diff --cached'
 #alias gdelbb='gdelb $BRANCH'
