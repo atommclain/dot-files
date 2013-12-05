@@ -16,6 +16,8 @@ fi
 
 source ~/.alias
 
+export PS1="\[\033[01;34m\] \w \$\[\033[00m\] "
+
 # Put your fun stuff here.
 # Enables ^s and ^q in rTorrent, when running in screen
 stty -ixon -ixoff
