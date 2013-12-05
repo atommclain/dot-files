@@ -178,7 +178,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|png|html|js|py|mobileprovision|plist)$',
@@ -279,5 +278,6 @@ nnoremap <LEADER>f ea.0f<Esc>
 " nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Remove trailing whitespace from line, and convert tabs to spaces
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Show trailing whitespace only after some text (ignores empty lines):
 " /\(\S\+\)\@<=\s\+$"}}}
