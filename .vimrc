@@ -126,7 +126,7 @@ augroup END
 "================
 " Plugins
 "================
-""{{{
+"{{{
 " pathogen
  execute pathogen#infect()
 
@@ -186,6 +186,11 @@ let g:ctrlp_custom_ignore = {
 "}}}
 
 "================
+" Mappings
+"================
+"{{{
+
+"================
 " disable arrow keys
 "================
 "{{{
@@ -197,14 +202,12 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
 "}}}
 
 "================
 " LEADER KEY!!!
 "================
-""{{{
+"{{{
 " set leader key to spacebar
 let mapleader = "\<space>"
 
@@ -280,4 +283,7 @@ nnoremap <LEADER>f ea.0f<Esc>
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Show trailing whitespace only after some text (ignores empty lines):
-" /\(\S\+\)\@<=\s\+$"}}}
+" /\(\S\+\)\@<=\s\+$
+"}}}
+
+"}}}
