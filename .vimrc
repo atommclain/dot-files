@@ -174,7 +174,13 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 " powerline
 let g:Powerline_symbols = 'fancy'
+if has("macunix")
 let g:airline_powerline_fonts = 1
+endif
+"if !exists('g:airline_powerline_fonts')
+"    let g:airline_left_sep='›'
+"    let g:airline_right_sep='‹'
+"endif
 let g:airline#extensions#tabline#enabled = 1
 
 
@@ -202,6 +208,13 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+"}}}
+
+"================
+" Command
+"================
+"{{{
+cnoremap <C-a> <Home>
 "}}}
 
 "================
