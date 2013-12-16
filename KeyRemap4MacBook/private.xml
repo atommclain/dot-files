@@ -52,7 +52,6 @@
 	<item>
 		<name>Disable right navigation keys (pg up/down, home/end)</name>
 	    <identifier>private.disableNavigationKeys</identifier>
-		<only>VI</only>
 		<autogen>--KeyToKey-- KeyCode::HOME, KeyCode::COMMAND_L</autogen>
 		<autogen>--KeyToKey-- KeyCode::END, KeyCode::COMMAND_L</autogen>
 		<autogen>--KeyToKey-- KeyCode::PAGEUP, KeyCode::COMMAND_L</autogen>
