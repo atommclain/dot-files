@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim
-[submodule ".vim/bundle/ctrlp-z"]
-	path = .vim/bundle/ctrlp-z
-	url = git://github.com/amiorin/ctrlp-z
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive
