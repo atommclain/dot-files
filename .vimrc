@@ -56,7 +56,6 @@ inoremap <C-U> <C-G>u<C-U>
 
 " will buffer screen updates instead of updating all the time
 set lazyredraw
-set ttyfast
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -95,12 +94,11 @@ endif " has("autocmd")
 " Only define it when not defined already.
  if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+\ | wincmd p | diffthis
 endif
 
-
-" set 'updatetime' to 4 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=4000
+" set 'updatetime' to 3 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=3000
 au InsertLeave * let &updatetime=updaterestore
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
@@ -129,27 +127,10 @@ augroup END
 "{{{
 " pathogen
  execute pathogen#infect()
+ syntax on
+ filetype plugin indent on
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Setting up Vundle - the vim plugin bundler
-filetype off                   " required!
-
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
-
- " let Vundle manage Vundle
- " required!
-    Bundle 'gmarik/vundle'
-    "Add your bundles here
-    Bundle 'a.vim'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'scrooloose/syntastic'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'amiorin/ctrlp-z'
-    Bundle 'tpope/vim-fugitive'
-    "Bundle 'YouCompleteMe'
-    "...All your other bundles...
 
 filetype plugin indent on     " required!
  "
@@ -195,6 +176,16 @@ let g:ctrlp_custom_ignore = {
 " Mappings
 "================
 "{{{
+
+"================
+" disable arrow keys
+"================
+"{{{
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <M-b> <S-Left>
+cnoremap <M-r> <S-Right>
+"}}}
 
 "================
 " disable arrow keys
