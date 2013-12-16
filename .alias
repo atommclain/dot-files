@@ -5,21 +5,11 @@ alias ea='vim ~/.alias'
 alias l='ls'
 alias tcopy="tr -d '\n' | pbcopy"
 
-function gcb {
-~/bin/gcb "$1";
-gbsb;
-}
-export -f gcb
-
-function gdelb {
-~/bin/gdelb "$1";
-}
-export -f gdelb
-
 #general
 alias lsa='ls -goah'
 alias c='clear'
 alias v='vim'
+alias cdd='cd ~/git/dot-files/'
 
 #git alias
 alias eb='echo $BRANCH'
@@ -94,3 +84,15 @@ alias r='fc -s'
 alias pb='/usr/libexec/PlistBuddy'
 alias pbw='pb ~/workflow.plist -c '
 alias pbp='pbw Print'
+
+function gcb {
+~/bin/gcb "$1";
+gbsb;
+}
+export -f gcb
+
+function gdelb {
+~/bin/gdelb "$1";
+}
+export -f gdelb
+

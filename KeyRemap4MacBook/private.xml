@@ -50,6 +50,15 @@
 <item>
 <name>Deck KB</name>
 	<item>
+		<name>Disable right navigation keys (pg up/down, home/end)</name>
+	    <identifier>private.disableNavigationKeys</identifier>
+		<only>VI</only>
+		<autogen>--KeyToKey-- KeyCode::HOME, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::END, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::PAGEUP, KeyCode::COMMAND_L</autogen>
+		<autogen>--KeyToKey-- KeyCode::PAGEDOWN, KeyCode::COMMAND_L</autogen>
+	</item>
+	<item>
 	    <name>Insert to back tick</name>
 	    <identifier>private.backtick2insert</identifier>
 	    <device_only>DeviceVendor::DECK, DeviceProduct::DECK_KB</device_only>
