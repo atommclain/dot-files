@@ -215,6 +215,8 @@ cnoremap <C-a> <Home>
 " set leader key to spacebar
 let mapleader = "\<space>"
 
+" Insert space
+nnoremap <LEADER><SPACE> i <Esc>l
 " Insert new line below and return to line
 nnoremap <LEADER><CR> mzo<Esc>`z
 " Insert new line above and return to line
