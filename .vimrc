@@ -278,6 +278,8 @@ nnoremap <LEADER>S i<Enter><Esc>ddkP
 nnoremap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
 " Move end brace to next line
 nnoremap <LEADER>} mz0f}r<Enter>i}<Esc>`z
+" Write buffer and return to shell
+nnoremap <LEADER>z :w<Enter><C-z>
 " Append '.0f' to flaot
 nnoremap <LEADER>f ea.0f<Esc>
 
