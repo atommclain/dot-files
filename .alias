@@ -4,6 +4,7 @@ alias ea='vim ~/.alias'
 
 alias l='ls'
 alias tcopy="tr -d '\n' | pbcopy"
+alias e='vim'
 
 #general
 alias lsa='ls -goah'

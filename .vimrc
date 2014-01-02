@@ -278,8 +278,11 @@ nnoremap <LEADER>S i<Enter><Esc>ddkP
 nnoremap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
 " Move end brace to next line
 nnoremap <LEADER>} mz0f}r<Enter>i}<Esc>`z
+" Terminal run current line as command
+nnoremap <LEADER>tb yy:!<C-r>"<BS><Enter>
 " Write buffer and return to shell
-nnoremap <LEADER>z :w<Enter><C-z>
+nnoremap <LEADER>tz :w<Enter><C-z>
+#nnoremap <LEADER>tr :read !./imgur.sh <C-r><C-W><Enter>
 " Append '.0f' to flaot
 nnoremap <LEADER>f ea.0f<Esc>
 
