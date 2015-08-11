@@ -1,18 +1,28 @@
 source ~/.workalias 
 
-alias ea='vim ~/.alias'
-
+##general
 alias l='ls'
-alias tcopy="tr -d '\n' | pbcopy"
-alias e='vim'
-
-#general
 alias lsa='ls -goah'
 alias c='clear'
 alias v='vim'
+alias e='vim'
+alias mvim='mvim -v'
 alias cdd='cd ~/git/dot-files/'
 
-#git alias
+alias ea='vim ~/.alias'
+alias sa='source ~/.alias'
+
+alias tcopy="tr -d '\n' | pbcopy"
+
+##set $H (hash) for grbh
+function grbsh {
+export H="$1";
+}
+export -f grbsh
+
+##git alias
+alias eg='git config -e'
+alias egg='git config --global -e'
 alias eb='echo $BRANCH'
 alias ebc='echo $BRANCH | tr -d '\n' | pbcopy'
 alias g='git '
@@ -21,22 +31,27 @@ alias ga='git add '
 alias gaa='git add .'
 alias gap='git add -p'
 alias gai='git add -i '
-alias gpm='cdp && gom && gp'
+alias gpm='cdp && git checkout master && git pull'
 alias gb='git branch '
 alias gbc='git rev-parse --abbrev-ref HEAD '
 #alias gcb='~/bin/gcb '
 alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD` && export B=$BRANCH && pbw "Set branchName $B"'
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
+alias gcamt='git commit -a -m `pbw "Print jiraTicketNum"` -m '
+alias gca='git commit --amend'
 alias gf='git fetch '
 alias gfp='git fetch --prune'
 alias gd='git diff'
+# alias gdc='git diff --word-diff-regex=.'
 alias gdc='git diff --cached'
-#alias gdelbb='gdelb $BRANCH'
+alias gdelbb='gdelb $BRANCH'
 alias go='git checkout '
 alias gom='git checkout master '
+alias god='git checkout develop '
 alias gob='git checkout $BRANCH '
 alias gorc='git checkout $RC '
+alias gorcu='git checkout $RCU '
 alias gp='git pull '
 alias gpu='git push'
 alias gm='git merge '
@@ -46,6 +61,8 @@ alias gmsb='git merge --squash $BRANCH '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gcp='git cherry-pick '
+alias gcpc='git cherry-pick --continue'
+alias gcpa='git cherry-pick --abort'
 alias grm='git rebase master'
 alias grrc='git rebase $RC '
 alias grb='git rebase -i'
@@ -53,8 +70,8 @@ alias grbh='git rebase -i $H'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 # alias grbs='git rebase --skip'
-alias grb1='git reset --soft HEAD^'
-alias grb2='git reset HEAD .'
+# alias grb1='git reset --soft HEAD^'
+# alias grb2='git reset HEAD .'
 # git rebase split
 alias grbs='git reset HEAD^'
 alias grh='git reset --hard'
@@ -66,7 +83,14 @@ alias gshab='export BRANCHSHA=`gshortshab` && gshortshab | tcopy && pbw "Set bra
 alias gshas='gsham && gshab'
 #alias gsham='git rev-parse --short origin/master | tcopy && git rev-parse --short origin/master'
 alias gst='git stash'
+alias gstn='git stash save'
+alias gstl='git stash list'
 alias gstp='git stash pop'
+alias gstd='git stash drop'
+alias gg='git grep '
+alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
+
+alias myip='ifconfig en0'
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
@@ -81,11 +105,19 @@ alias r='fc -s'
 
 # alias tail_ls="ls -l $1 | tail"
 
-# plistpuddy
+## plistpuddy
 alias pb='/usr/libexec/PlistBuddy'
 alias pbw='pb ~/workflow.plist -c '
 alias pbp='pbw Print'
 
+## create branch then set $BRANCH
+function gcbt {
+~/bin/gcb `pbw "Print jiraTicketNum"`_"$1";
+gbsb;
+}
+export -f gcbt
+
+## create branch then set $BRANCH
 function gcb {
 ~/bin/gcb "$1";
 gbsb;
@@ -97,3 +129,25 @@ function gdelb {
 }
 export -f gdelb
 
+# perform ls after cd
+function cl () {
+    cd "$@" && ls
+    }
+
+# http://unix.stackexchange.com/questions/97920/how-to-cd-automatically-after-git-clone
+# if cloning, cd into directory after clone is completed
+# git()
+# {
+#    local tmp=$(mktemp)
+#    local repo_name
+# 
+#    if [ "$1" = clone ] ; then
+#      /usr/bin/git "$@" | tee $tmp
+#      repo_name=$(awk -F\' '/Cloning into/ {print $2}' $tmp)
+#      rm $tmp
+#      printf "changing to directory %s\n" "$repo_name"
+#      cd "$repo_name"
+#    else
+#      /usr/bin/git "$@"
+#    fi
+# }

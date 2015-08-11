@@ -1,7 +1,10 @@
 # Path to your oh-my-zsh configuration.
+source ~/.alias
+
 ZSH=$HOME/.oh-my-zsh
 
-source ~/.alias
+alias vim ='/Applications/MacVim.app/Contents/MacOS/Vim'
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -15,8 +18,6 @@ HISTFILE=~/.zsh_history
 
 bindkey -v
 bindkey ^R history-incremental-search-backward
-
-PATH=/usr/local/bin:$PATH
 
 alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
@@ -63,3 +64,5 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh )"
