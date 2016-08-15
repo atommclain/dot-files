@@ -95,6 +95,9 @@ alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 -
 
 alias myip='ifconfig en0'
 
+# wifi on/off
+alias wifi="networksetup -setairportpower en0"
+
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
 alias r='fc -s'
@@ -133,7 +136,7 @@ function gdelb {
 export -f gdelb
 
 # perform ls after cd
-function cl () {
+function cdl () {
     cd "$@" && ls
     }
 
