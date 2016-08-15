@@ -1,4 +1,4 @@
-source ~/.workalias 
+source ~/.workalias
 
 ##general
 alias l='ls'
@@ -141,7 +141,7 @@ function cl () {
 # {
 #    local tmp=$(mktemp)
 #    local repo_name
-# 
+#
 #    if [ "$1" = clone ] ; then
 #      /usr/bin/git "$@" | tee $tmp
 #      repo_name=$(awk -F\' '/Cloning into/ {print $2}' $tmp)
