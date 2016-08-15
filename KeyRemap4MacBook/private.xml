@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root>
-	<!Deck keyboard at work>
+	<!--Deck keyboard at work-->
 	<devicevendordef>
 		<vendorname>DECK</vendorname>
 		<vendorid>0x0a34</vendorid>
@@ -10,7 +10,7 @@
 		<productid>0x0110</productid>
 	</deviceproductdef>
 	
-	<!PS/2 adapter>
+	<!--PS/2 adapter-->
 	<devicevendordef>
 		<vendorname>PS2</vendorname>
 		<vendorid>0x0d3d</vendorid>
@@ -20,9 +20,20 @@
 		<productid>0x0001</productid>
 	</deviceproductdef>
 
-	<!nothing> ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L<!nothing>
+
+	<!--Tex Yoda-->
+	<devicevendordef>
+		<vendorname>Holtek_Semiconductor</vendorname>
+		<vendorid>0x04d9</vendorid>
+	</devicevendordef>
+	<deviceproductdef>
+		<productname>Tex_Yoda</productname>
+		<productid>0x0114</productid>
+	</deviceproductdef>
+
+	<!--nothing ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L-->
 	
-<!org.vim.MacVim>
+<!--org.vim.MacVim-->
 
 <item>
 <name>MacVIM</name>

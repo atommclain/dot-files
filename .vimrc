@@ -13,6 +13,8 @@ set number		" show line number
 set hidden		" allow buffers to be hidden without write
 set scrolloff=6
 set linebreak		" wrap lines without inserting newline
+set gdefault		" by default substitutions have 'g' flag
+set modeline		" turn on modelines
 
 syntax on
 filetype on
@@ -35,6 +37,11 @@ if has("macunix")
   " Change cursor shape in different modesFor iTerm2 on OS X
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
 endif
 
 " current directory is always matching the

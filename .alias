@@ -1,15 +1,17 @@
-source ~/.workalias 
+source ~/.workalias
 
 ##general
 alias l='ls'
 alias lsa='ls -goah'
 alias c='clear'
-alias v='vim'
-alias e='vim'
+alias v=$EDITOR
+alias e=$EDITOR
 alias mvim='mvim -v'
+alias up='cd ..'
+alias upp='cd ../..'
 alias cdd='cd ~/git/dot-files/'
 
-alias ea='vim ~/.alias'
+alias ea='vim ~/.alias && sa'
 alias sa='source ~/.alias'
 
 alias tcopy="tr -d '\n' | pbcopy"
@@ -74,7 +76,8 @@ alias grba='git rebase --abort'
 # alias grb2='git reset HEAD .'
 # git rebase split
 alias grbs='git reset HEAD^'
-alias grh='git reset --hard'
+# alias grh='git reset --hard'
+alias grh='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
 alias gmt='git mergetool '
 alias gshortsham='git rev-parse --short origin/master'
 alias gshortshab='git rev-parse --short origin/$BRANCH'
@@ -82,15 +85,51 @@ alias gsham='export MASTERSHA=`gshortsham` && gshortsham | tcopy && pbw "Set mas
 alias gshab='export BRANCHSHA=`gshortshab` && gshortshab | tcopy && pbw "Set branchCommitSHA $BRANCHSHA"'
 alias gshas='gsham && gshab'
 #alias gsham='git rev-parse --short origin/master | tcopy && git rev-parse --short origin/master'
-alias gst='git stash'
-alias gstn='git stash save'
-alias gstl='git stash list'
-alias gstp='git stash pop'
-alias gstd='git stash drop'
 alias gg='git grep '
 alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
+alias gst='git stash'
+# alias gstl='git --no-pager stash list'
+alias gstl='git --no-pager stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"'
+alias gstn='git stash save'
+alias gstnp='git stash save -p'
+alias gstp='git stash pop'
+alias gsta='git stash apply'
+alias gsta0='git stash apply stash@{0}'
+alias gsta1='git stash apply stash@{1}'
+alias gsta2='git stash apply stash@{2}'
+alias gsta3='git stash apply stash@{3}'
+alias gsta4='git stash apply stash@{4}'
+alias gsta5='git stash apply stash@{5}'
+alias gsta6='git stash apply stash@{6}'
+alias gsta7='git stash apply stash@{7}'
+alias gsta8='git stash apply stash@{8}'
+alias gsta9='git stash apply stash@{9}'
+alias gstd='git stash drop'
+alias gstd0='git stash drop stash@{0}'
+alias gstd1='git stash drop stash@{1}'
+alias gstd2='git stash drop stash@{2}'
+alias gstd3='git stash drop stash@{3}'
+alias gstd4='git stash drop stash@{4}'
+alias gstd5='git stash drop stash@{5}'
+alias gstd6='git stash drop stash@{6}'
+alias gstd7='git stash drop stash@{7}'
+alias gstd8='git stash drop stash@{8}'
+alias gstd9='git stash drop stash@{9}'
+alias gsts0='git show stash@{0}'
+alias gsts1='git show stash@{1}'
+alias gsts2='git show stash@{2}'
+alias gsts3='git show stash@{3}'
+alias gsts4='git show stash@{4}'
+alias gsts5='git show stash@{5}'
+alias gsts6='git show stash@{6}'
+alias gsts7='git show stash@{7}'
+alias gsts8='git show stash@{8}'
+alias gsts9='git show stash@{9}'
 
 alias myip='ifconfig en0'
+
+# wifi on/off
+alias wifi="networksetup -setairportpower en0"
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
@@ -130,7 +169,7 @@ function gdelb {
 export -f gdelb
 
 # perform ls after cd
-function cl () {
+function cdl () {
     cd "$@" && ls
     }
 
@@ -140,7 +179,7 @@ function cl () {
 # {
 #    local tmp=$(mktemp)
 #    local repo_name
-# 
+#
 #    if [ "$1" = clone ] ; then
 #      /usr/bin/git "$@" | tee $tmp
 #      repo_name=$(awk -F\' '/Cloning into/ {print $2}' $tmp)
@@ -151,3 +190,22 @@ function cl () {
 #      /usr/bin/git "$@"
 #    fi
 # }
+
+#function lazyclone {
+#    url=$1;
+#    reponame=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+#    git clone $url $reponame;
+#    cd $reponame;
+#}
+
+#### Get os name via uname ###
+#_myos="$(uname)"
+#
+#### add alias as per os using $_myos ###
+#case $_myos in
+#   Linux) alias foo='/path/to/linux/bin/foo';;
+#   FreeBSD|OpenBSD) alias foo='/path/to/bsd/bin/foo' ;;
+#   SunOS) alias foo='/path/to/sunos/bin/foo' ;;
+#   Darwin) alias foo='' ;;
+#   *) ;;
+#esac
