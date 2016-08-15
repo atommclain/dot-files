@@ -2,6 +2,7 @@ source ~/.workalias
 
 ##general
 alias l='ls'
+# alias lsa="ls -la"
 alias lsa='ls -goah'
 alias c='clear'
 alias v=$EDITOR
@@ -9,12 +10,33 @@ alias e=$EDITOR
 alias mvim='mvim -v'
 alias up='cd ..'
 alias upp='cd ../..'
+alias uppp='cd ../../..'
+alias cdh='cd ~/'
+alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
+alias cddv='cd ~/.vim'
 
 alias ea='vim ~/.alias && sa'
 alias sa='source ~/.alias'
 
 alias tcopy="tr -d '\n' | pbcopy"
+alias grep="grep --color=always"
+alias irc="irssi"
+
+# Neovim
+alias nvim="~/git/neovim/build/bin/nvim"
+alias nvimc="~/git/neovim/build/bin/nvim -u NONE"
+alias cdv="cd ~/git/neovim"
+alias cdvs="cd ~/git/neovim/src/nvim"
+alias nvlog="vim ~/.nvimlog"
+alias elog="vim ~/.nvimlog"
+alias clog="echo \"\" > ~/.nvimlog"
+alias ascii="man ascii"
+
+mcd () {
+	mkdir -p $1
+	cd $1
+}
 
 ##set $H (hash) for grbh
 function grbsh {
@@ -209,3 +231,5 @@ function cdl () {
 #   Darwin) alias foo='' ;;
 #   *) ;;
 #esac
+
+# vim: filetype=sh
