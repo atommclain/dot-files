@@ -157,3 +157,22 @@ function cdl () {
 #      /usr/bin/git "$@"
 #    fi
 # }
+
+#function lazyclone {
+#    url=$1;
+#    reponame=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+#    git clone $url $reponame;
+#    cd $reponame;
+#}
+
+#### Get os name via uname ###
+#_myos="$(uname)"
+#
+#### add alias as per os using $_myos ###
+#case $_myos in
+#   Linux) alias foo='/path/to/linux/bin/foo';;
+#   FreeBSD|OpenBSD) alias foo='/path/to/bsd/bin/foo' ;;
+#   SunOS) alias foo='/path/to/sunos/bin/foo' ;;
+#   Darwin) alias foo='' ;;
+#   *) ;;
+#esac
