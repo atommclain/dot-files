@@ -59,4 +59,4 @@ if version >= 500
 endif
 
 set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1 " doesn't seem to work :\
