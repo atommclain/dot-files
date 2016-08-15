@@ -240,13 +240,13 @@ nmap K i<CR><Esc>d^==kg_lD
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Listchars
-set listchars=nbsp:·,trail:·,eol:¬,precedes:«,extends:»,tab:▸\
+set listchars=nbsp:·,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
 " set listchars=nbsp:·,tab:⟶\ ,trail:·,eol:¬
 if has("patch-7.4-711")	" This works as of Vim 7.4.711
 set listchars+=space:␣
 endif
-" Toggle viewing listchars
-nnoremap <silent> <LEADER>. :set nolist!<CR>
+" Toggle viewing listchars ⇥
+nnoremap <silent> <LEADER>. :set list!<CR>
 
 " http://stackoverflow.com/questions/19233184/vim-using-listchars-to-show-leading-whitespace#comment28479060_19233184
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
