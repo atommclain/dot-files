@@ -4,12 +4,14 @@ source ~/.workalias
 alias l='ls'
 alias lsa='ls -goah'
 alias c='clear'
-alias v='vim'
-alias e='vim'
+alias v=$EDITOR
+alias e=$EDITOR
 alias mvim='mvim -v'
+alias up='cd ..'
+alias upp='cd ../..'
 alias cdd='cd ~/git/dot-files/'
 
-alias ea='vim ~/.alias'
+alias ea='vim ~/.alias && sa'
 alias sa='source ~/.alias'
 
 alias tcopy="tr -d '\n' | pbcopy"
