@@ -1,4 +1,3 @@
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -8,7 +7,6 @@ set directory=~/.tmp,~/
 
 set autoread		" reload files when changed outside of Vim
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
 set number		" show line number
 set hidden		" allow buffers to be hidden without write
 set scrolloff=6
@@ -24,13 +22,14 @@ set background=dark
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set clipboard=unnamed " use system clipboard
+set iskeyword-=_	" don't count `_` as part of a 'word'
 
 set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
 
 set showmatch		" highlight matching [{()}]
-" Visual selection of current line minus indentation blockwise
+" Visual selection of current line minus indentation, blockwise
 nnoremap vv ^<C-v>g_
 
 if has("macunix")
@@ -214,8 +213,8 @@ nnoremap <LEADER>q @q
 nnoremap <LEADER>r ^yg_:!<C-r>"
 " Split line before cursor
 nnoremap <LEADER>s hmzli<Enter><Esc>`z
-" Split line before cursor
-nnoremap <LEADER>S i<Enter><Esc>ddkP
+" Split line after cursor
+nnoremap <LEADER>S mza<Enter><Esc>`z
 " Move beginning brace to next line
 nnoremap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
 " Move end brace to next line
@@ -224,6 +223,8 @@ nnoremap <LEADER>} mz0f}r<Enter>i}<Esc>`z
 nnoremap <LEADER>tb yy:!<C-r>"<BS><Enter>
 " Write buffer and return to shell
 nnoremap <LEADER>tz :w<Enter><C-z>
+" Write q register to vimrc
+nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Append '.0f' to flaot
 nnoremap <LEADER>f ea.0f<Esc>
 
@@ -243,7 +244,7 @@ nmap K i<CR><Esc>d^==kg_lD
 " /\(\S\+\)\@<=\s\+$
 " Remove trailing whitespace from line
 " nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-" Remove trailing whitespace from line, and convert tabs to spaces
+" Remove trailing whitespace from line, and convert tabs to 4 spaces
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Listchars
@@ -312,6 +313,34 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 " }}}
+" Macros {{{
+"
+" insert literal register <C-r><C-r>[register]
+" insert special characters with <C-v>[special]
+" There are issues with registers that end in a <CR> or <NL>
+" setreg vs let @q = difference in let '' vs let ""
+
+" saved macros
+
+function! ADMSaveQMacro()
+	execute "edit " . $MYVIMRC
+	normal! gg
+	normal! zR
+	let _s=@/
+	execute "normal! / saved macros\<CR>"
+	let @/=_s
+	execute "set textwidth=0"
+	execute "set wrapmargin=0"
+	execute 'normal! oq'
+	" 'noautocmd' allows the next command to run without
+	" autocmds, in this case sourcing .vimrc during write
+	execute 'noautocmd w'
+	execute 'bd'
+endfunction
+
+"https://stackoverflow.com/questions/2024443/saving-vim-macros#comment32271394_2024537
+endfunction
+" }}}
 
 " highlight last inserted text
 nnoremap gV `[v`]
@@ -323,3 +352,8 @@ nnoremap gV `[v`]
 
 " Debugging
 " :verbose map [keycombo] OR :map [keycombo]
+
+" A key with the Ctrl key modifier is represented using the <C-key> notation.
+" A key with the Shift key modifier is represented using the <S-key> notation.
+" A key with the Alt key modifier is represented using <A-key> or <M-key> notation.
+" Super is represented <D-key> in MacVim and <T-key> in gtk2 gvim. In gvim it doesn't work with all the keys.

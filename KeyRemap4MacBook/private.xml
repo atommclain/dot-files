@@ -31,6 +31,16 @@
 		<productid>0x0114</productid>
 	</deviceproductdef>
 
+	<!--Kinesis Freestyle-->
+	<devicevendordef>
+		<vendorname>Kinesis</vendorname>
+		<vendorid>0x058f</vendorid>
+	</devicevendordef>
+	<deviceproductdef>
+		<productname>Freestyle</productname>
+		<productid>0x09410</productid>
+	</deviceproductdef>
+
 	<!--nothing ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L-->
 	
 <!--org.vim.MacVim-->

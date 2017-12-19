@@ -4,6 +4,6 @@ export PATH=~/bin:$PATH
 
 LSCOLORS="exfxcxdxbxegedabagacad"
 
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+#alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 #export EDITOR='mate -w'
-export EDITOR='mvim -v'
+export EDITOR='vim'

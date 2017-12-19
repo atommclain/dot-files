@@ -4,6 +4,7 @@ source ~/.workalias
 alias l='ls'
 # alias lsa="ls -la"
 alias lsa='ls -goah'
+alias lsd='ls -d */'
 alias c='clear'
 alias v=$EDITOR
 alias e=$EDITOR
@@ -15,6 +16,7 @@ alias cdh='cd ~/'
 alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
 alias cddv='cd ~/.vim'
+alias h='history'
 
 alias ea='vim ~/.alias && sa'
 alias sa='source ~/.alias'
@@ -67,6 +69,7 @@ alias gca='git commit --amend'
 alias gf='git fetch '
 alias gfp='git fetch --prune'
 alias gd='git diff'
+alias gds='git diff --staged'
 # alias gdc='git diff --word-diff-regex=.'
 alias gdc='git diff --cached'
 alias gdelbb='gdelb $BRANCH'
@@ -78,18 +81,22 @@ alias gorc='git checkout $RC '
 alias gorcu='git checkout $RCU '
 alias gp='git pull '
 alias gpu='git push'
+alias gpu1='git push origin HEAD^:$(git rev-parse --abbrev-ref HEAD)'
+alias gpu2='git push origin HEAD^^:$(git rev-parse --abbrev-ref HEAD)'
 alias gm='git merge '
 alias gmm='git merge origin master '
 alias gms='git merge --squash '
 alias gmsb='git merge --squash $BRANCH '
 alias gk='gitk --all&'
 alias gx='gitx --all'
+alias gl='git log'
 alias gcp='git cherry-pick '
 alias gcpc='git cherry-pick --continue'
 alias gcpa='git cherry-pick --abort'
 alias grm='git rebase master'
 alias grrc='git rebase $RC '
 alias grb='git rebase -i'
+alias grbsh10='grbsh HEAD~10'
 alias grbh='git rebase -i $H'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
@@ -109,6 +116,7 @@ alias gshas='gsham && gshab'
 #alias gsham='git rev-parse --short origin/master | tcopy && git rev-parse --short origin/master'
 alias gg='git grep '
 alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
+
 alias gst='git stash'
 # alias gstl='git --no-pager stash list'
 alias gstl='git --no-pager stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"'
@@ -153,8 +161,14 @@ alias myip='ifconfig en0'
 # wifi on/off
 alias wifi="networksetup -setairportpower en0"
 
+# kill Xcode and nuke derived data
+alias nukederiveddata='rm -rf $HOME/build/Xcode/DerivedData'
+alias killxcode='killall - Xcode && nukederiveddata'
+
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
+# $ cc
+# $ r sudo # would execute r cc
 alias r='fc -s'
 
 # read -p "Are you sure? " -n 1 -r
