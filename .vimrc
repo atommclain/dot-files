@@ -228,6 +228,9 @@ nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Append '.0f' to flaot
 nnoremap <LEADER>f ea.0f<Esc>
 
+vnoremap <LEADER>s :s/_/self->_/<CR>
+vnoremap <LEADER>w :s/_/weakSelf->_/<CR>
+
 " }}}
 " Splitting/Joining Lines {{{
 
@@ -320,6 +323,18 @@ inoremap <right> <nop>
 " There are issues with registers that end in a <CR> or <NL>
 " setreg vs let @q = difference in let '' vs let ""
 
+function! ADMSHOHit()
+	execute "s/%20/ /"
+	execute "s/%2C/,/"
+	execute "s/%5B/[/"
+	execute "s/%5D/]/"
+	execute "s/%3A/:/"
+	execute "s/?/\r/"
+	normal! j
+	execute "s/&/\r/"
+	execute "%sort"
+endfunction
+
 " saved macros
 
 function! ADMSaveQMacro()
@@ -339,11 +354,25 @@ function! ADMSaveQMacro()
 endfunction
 
 "https://stackoverflow.com/questions/2024443/saving-vim-macros#comment32271394_2024537
+let @w = "magg/sholllyt.'a"
+let @q = '0:s/UIAlertView/UIAlertController/f=hd0iUIAlertController *alertf[xWdExvecalertControllerWithTitlejjXCCSpreferredStyle:UIAlertControllerStyleAlertodebugTag:<#tag#>]; 0wdt:iUIAlert €ü€kbAction *cancelAction = [UIAlertAction actionWithTitleostyle:UIAlertActionStyleCancel"zPjjo[aerlt€kb€kb€kb€kblert addAction:cancelAction];jg^df:f;:call AdamMacro()@w'
+let @z = "handler:^(UIAlertAction * _Nonnull action) {" . "\n" . " <#code#>" . "\n" . "}];" 
+
+function! AdamMacro()
+	normal! xx0f,
+    " Get current letter.
+    normal! yl
+    if @" =~# '[,]'
+        execute "normal! $xxxxxIUIAlertAction *otherAction = [UIAlertAction actionWithTitle:\<ESC>ostyle:UIAlertActionStyleDefault\<CR>handler:^(UIAlertAction * _Nonnull action) { <#code#> }]; [alert addAction:otherAction];"
+    else
+        execute "normal! dd"
+    endif
 endfunction
 " }}}
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
 
 " TODO:
 " * https://github.com/ktonga/vim-follow-my-lead show list of all leader keys

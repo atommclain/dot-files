@@ -16,7 +16,11 @@ fi
 
 source ~/.alias
 
-export PS1="\[\033[01;34m\] \w \$\[\033[00m\] "
+if [ "$(hostname)" = "USSEASGMCLAIN2" ]; then
+	export PS1="\[\033[01;34m\] \! \w \$\[\033[00m\] "
+else
+	export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
+fi
 
 # Put your fun stuff here.
 # Enables ^s and ^q in rTorrent, when running in screen

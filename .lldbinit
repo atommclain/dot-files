@@ -1,1 +1,45 @@
+# DEBUGGING: command source ~/.lldbinit
+
+
+#http://androidkr.blogspot.com/2013/06/interesting-lldb-features-and-wwdc.html
+#http://stackoverflow.com/questions/7677613/can-anyone-share-a-sample-lldbinit-file
+
+
+# print recursive description with or with out variable
+# http://jeffreysambells.com/2013/01/24/debugging-layouts-with-recursive-view-descriptions-in-xcode
 command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/po [%1 recursiveDescription]/'
+
+# print exception
+command alias poexc po *(id *)($esp + 4)
+
+command alias uikit expr @import UIKit
+command alias foundation expr @import Foundation
+
+# display/i $pc
+# display/x $edx
+# display/x $ecx
+# display/x $ebx
+# display/x $eax
+# display/32wx $ebp-92
+# display/32wx $esp
+# display/s $edx
+# display/s $ecx
+# display/s $ebx
+# display/s $eax
+# display/s $ebp-92
+# display/s $esp
+# 
+# define regpo
+#   po $eax
+#   po $ebx
+#   po $ecx
+#   po $edx
+#   po $ebp-92
+#   po $esp
+# end
+# 
+# document regpo
+#   objC print-object display registers
+# end
+# 
+command script import /usr/local/opt/chisel/libexec/fblldb.py

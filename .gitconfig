@@ -1,0 +1,52 @@
+[user]
+	name = Adam McLain
+	email = atommclain@gmail.com
+[color]
+	diff = true
+	status = auto
+	branch = auto
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	safecrlf = true
+    #whitespace = trailing-space,space-before-tab,tab-in-indent
+[alias]
+	co = checkout
+ 	ci = commit
+	st = status
+ 	br = branch
+ 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	d = difftool
+	diff-highlight = "!f() { git diff \"$@\" | ~/bin/diff-highlight; }; f" --color | less
+	# show all comits/branches except stashes
+	#git log --branches --remotes --tags --graph --oneline --decorate
+
+	# Get the current branch name (not so useful in itself, but used in
+	# other aliases)
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	# Push the current branch to the remote "origin", and set it to track
+	# the upstream branch
+	publish = "!git push -u origin $(git branch-name)"
+	# Delete the remote version of the current branch
+	unpublish = "!git push origin :$(git branch-name)"
+[branch]
+	autosetuprebase = always
+[rerere]
+	enabled = true
+[difftool "kdiff3"]
+    path = /Applications/kdiff3.app/Content --initial
+[help]
+	autocorrect = 1
+[push]
+	default = current
+[grep]
+	lineNumber = true
+	extendRegexp = true
+[commit]
+	gpgsign = false
+[credential]
+	helper = osxkeychain
