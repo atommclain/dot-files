@@ -160,7 +160,7 @@ let g:ctrlp_custom_ignore = {
 "}}}
 " Leader {{{
 " set leader key to spacebar
-let mapleader = "\<space>"
+" let mapleader = "\<space>"
 
 " Insert space
 nnoremap <LEADER><SPACE> i <Esc>l

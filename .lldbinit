@@ -10,7 +10,7 @@
 command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/po [%1 recursiveDescription]/'
 
 # print exception
-command alias poexc po *(id *)($esp + 4)
+# command alias poexc po *(id *)($esp + 4)
 
 command alias uikit expr @import UIKit
 command alias foundation expr @import Foundation
@@ -42,4 +42,14 @@ command alias foundation expr @import Foundation
 #   objC print-object display registers
 # end
 # 
+
 command script import /usr/local/opt/chisel/libexec/fblldb.py
+command script import ~/git/dot-files/nudge.py
+command script import ~/git/dot-files/swiftError.py
+command script import ~/git/dot-files/my_commands.py
+command script add -f my_commands.printSwiftError swiftError
+command script add -f my_commands.printSwiftErrorEarly early
+command alias -H "Print description in ObjC context" -h "Print in ObjC" -- cpo expression -l objc -O --
+command alias -H "Print description in Swift context" -h "Print in Swift" -- spo expression -l swift -O --
+command alias -H "Refresh .lldbinit" -h "Refresh .lldbinit" -- refresh command source ~/.lldbinit
+command alias -H "List registers" -h "List registers" -- rr register read

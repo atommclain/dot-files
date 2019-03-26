@@ -6,16 +6,16 @@
 	status = auto
 	branch = auto
 	ui = auto
+[color "status"]
+	branch = yellow
+	upstream = bold blue
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
 	safecrlf = true
-    #whitespace = trailing-space,space-before-tab,tab-in-indent
+	whitespace = blank-at-eol,space-before-tab,tab-in-indent
 [alias]
-	co = checkout
- 	ci = commit
-	st = status
- 	br = branch
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
  	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
@@ -30,9 +30,13 @@
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	# Push the current branch to the remote "origin", and set it to track
 	# the upstream branch
-	publish = "!git push -u origin $(git branch-name)"
+	publish = "!git push --set-upstream origin $(git branch-name)"
 	# Delete the remote version of the current branch
 	unpublish = "!git push origin :$(git branch-name)"
+	safeforce = push --force-with-lease
+	# The first commit of a repository can not be rebased like regular commits,
+	# so it’s good practice to create an empty commit as your repository root. 
+	it = !git init && git commit -m “root” --allow-empty
 [branch]
 	autosetuprebase = always
 [rerere]
@@ -48,5 +52,8 @@
 	extendRegexp = true
 [commit]
 	gpgsign = false
+	template = /Users/adam/.gitmessage
 [credential]
 	helper = osxkeychain
+[status]
+  showUntrackedFiles = all
