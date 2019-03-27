@@ -1,0 +1,209 @@
+System Preferences
+General
+	Show scroll bars: Always
+Displays
+	Change monitor arrangement to reflect real world display arrangement
+	Night Shift
+		Schedule Sunset to Sunrise
+		Color Temperature 75%
+Mouse 
+	Pair bluetooth mouse
+	Enable secondary click
+	Enable Scroll direction: Natural
+	Increase tracking speed to about middle
+Keyboard
+	Shortcuts
+		Full Keyboard Access All controls
+		App Shortcuts
+			Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
+	Keyboard
+		Modifier Keys…
+			Change Caps Lock key to control key
+			Swap option and command key for Kinesis freestyle PC keyboarded
+Sound
+	Show volume in menu bar
+Bluetooth
+	Show Bluetooth in the menu bar
+Touch ID -> Setup
+User & Groups
+	Login Options
+		Disable Show fast user switching menu
+Date & Time
+	Clock
+		Use a 24-hour clock
+		Disable Show dates and time in menubar (use itsycal instead)
+Accessibility
+	Zoom
+		Enable Use scroll gesture with modifier keys to zoom
+
+itsycal
+https://www.mowglii.com/itsycal/
+Preferences -> General -> Launch at login
+Preferences -> Appearance -> E MMM d h:mm
+Preferences -> Appearance -> Hide icon
+
+Activity Monitor
+Open at login
+Change Activity Monitor.app icon to show cpu history
+Change Activity Monitor.app to show all processes View Menu -> All Processes
+
+Finder Preferences
+General
+	Change new finder window to always open in home folder
+	Don’t show Hard disks on desktop
+Sidebar
+	Show these items in the sidebar:
+		Disable Recents
+		Disable AirDrop
+		Disable Desktop
+		Disable Documents
+		Enable Home
+		Disable iCloud Drive
+		Disable CDs, DVDs, and iPods
+		Disable Bonjour computers
+		Disable Recent Tags
+Advanced	
+	Show all filename extensions
+	Disable show warning before changing an extension
+	Keep folders on top when sorting by name
+	When performing search: search the current folder
+
+Finder General
+View
+	Show status bar
+Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
+Show batter percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+Move dock to left side of main monitor
+
+Finder View
+Show Library Folder
+	Navigate to home -> Show view options (command + j) -> Enable Show Library Folder
+Switch to List View (command +2)
+Calculate all sizes
+Use as Defaults
+
+Finder Toolbar
+Add Open in MacVim
+Remove everything except for Search and Back/Forward buttons
+
+Go2Shell
+https://zipzapmac.com/Go2Shell
+Open terminal In: New Tab
+Add Go2Shell to Finder
+Use once to add to System Preferences -> Security & Privacy -> Accessibility
+
+Vim
+http://macvim-dev.github.io/macvim/
+Change extensions .txt .m .h to be opened with MacVim
+
+Terminal
+Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
+Install power line fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
+$ mkdir ~/.tmp
+$ mkdir ~/git; cd ~/git
+$ git clone https://github.com/atommclain/dot-files.git; cd dot-files
+// ./clink.sh .files
+Manually copy over .vim folder
+Manually copy over .ssh folder
+
+Shell Junk
+Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
+Install home-brew https://brew.sh
+Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
+Install cocoapods sudo gem install cocoapods
+	run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
+
+Work Shell Junk
+change email in ~.gitconfig to work
+change email in ~/git/dot-files to personal
+	git config --local user.email [personal email]
+	git config --local --get user.email
+create or copy over ~/.workalias
+add local git aliases for opening project and creating a pull request
+	git config --local alias.op '!open myworkspace.xcworkspace'
+	git config --local alias.pr '!open https://www.pull-request-url.com’
+
+Mac App Store
+Install Clipboard History
+	Start at login
+	Use once to add to System Preferences -> Security & Privacy -> Accessibility
+Install Markdown Pro
+Install Xcode
+
+FastsSripts
+https://red-sweater.com/fastscripts/
+Start at login
+Create open terminal script, assign keyboard shortcut option + space in FastScripts
+
+Move from ~/Library/
+Scripts
+Services
+Charles
+Colors
+ColorPickers	— install developer color picker https://download.panic.com/picker/
+Preferences/com.apple.dt.xcode*
+Developer/Xcode/UserData
+Application Support
+LittleSnitch
+
+Charles
+https://www.charlesproxy.com/
+Help -> SSL Proxying -> Install Charles Root Certificate
+Tools -> Import Settings
+Help -> Register Charles
+
+Safari Settings
+General
+	New windows open with: Favorites
+	New tabs open with: Empty Page
+	Don’t Open “safe” files after downloading
+Tabs
+	Disable Use command-1 through command-9 to switch tabs
+Search
+	Search engine: DuckDuckGo
+Security
+	Block pop-up windows
+Privacy
+	Allow from current website only
+	Ask websites not to track me
+Websites
+	Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
+Extensions
+	daring fireball with comments: http://daringfireballwithcomments.net
+	1password https://agilebits.com/onepassword/extensions
+	uBlock Origin (no longer supported?) https://github.com/el1t/uBlock-Safari
+	(look into… adguard) https://adguard.com/en/welcome.html
+Advanced
+	Show full website address
+	Show Develop menu in menu bar
+
+Safari View
+Show status bar
+Show favorites bar
+Show tab bar
+
+Create open in MacVim application, add to finder toolbar by dragging with option + command
+
+Manually move over all applications
+
+Karabiner
+https://pqrs.org/osx/karabiner/
+Kinesis remap option -> command
+Kinesis remap command -> option
+Kinesis remap capslock -> control
+Kinesis remap F10/F11/F12 -> mute/volume increase & decrease
+
+Hammerspoon (OS automation)
+http://www.hammerspoon.org
+Install script to automatically select last used audio input (to fix problem with AirPods input and sound) http://ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html
+
+Download
+VLC https://www.videolan.org/vlc/index.html
+Download TripMode: https://www.tripmode.ch/download-purchase/
+
+TODO
+Recreate show package contents program thing
+Version control .vim folder
+Make clink.sh link the correct files it should
+See https://apple.stackexchange.com/a/337179 for some good defaults

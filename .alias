@@ -1,4 +1,6 @@
-source ~/.workalias
+if [ -f ~/.workalias ]; then
+	source ~/.workalias
+fi
 
 ##general
 alias l='ls'
@@ -163,7 +165,7 @@ alias pu='pod repo update'
 alias wifi="networksetup -setairportpower en0"
 
 # kill Xcode and nuke derived data
-alias nukederiveddata='rm -rf $HOME/build/Xcode/DerivedData'
+alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
 alias killxcode='killall - Xcode && nukederiveddata'
 alias killSimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 
