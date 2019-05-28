@@ -1,3 +1,6 @@
+
+
+
 # /etc/skel/.bashrc
 #
 # This file is sourced by all *interactive* bash shells on startup,
@@ -20,6 +23,14 @@ if [ "$(hostname)" = "USSEASGMCLAIN2" ]; then
 	export PS1="\[\033[01;34m\] \! \w \$\[\033[00m\] "
 else
 	export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
+fi
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && $TERM_PROGRAM = "Apple_Terminal" && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 # Put your fun stuff here.
