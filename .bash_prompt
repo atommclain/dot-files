@@ -1,3 +1,9 @@
+
+
+
+
+
+
 #!/usr/bin/env bash
 # Sexy bash prompt by twolfson
 # https://github.com/twolfson/sexy-bash-prompt
@@ -77,12 +83,12 @@ if [[ -n "$PROMPT_SYMBOL_COLOR" ]]; then sexy_bash_prompt_symbol_color="$PROMPT_
 # Set up symbols
 sexy_bash_prompt_synced_symbol=""
 sexy_bash_prompt_dirty_synced_symbol="*"
-sexy_bash_prompt_unpushed_symbol="b3"
-sexy_bash_prompt_dirty_unpushed_symbol="b2"
-sexy_bash_prompt_unpulled_symbol="b="
-sexy_bash_prompt_dirty_unpulled_symbol="b<"
-sexy_bash_prompt_unpushed_unpulled_symbol="b,!"
-sexy_bash_prompt_dirty_unpushed_unpulled_symbol="b,""
+sexy_bash_prompt_unpushed_symbol="△"
+sexy_bash_prompt_dirty_unpushed_symbol="▲"
+sexy_bash_prompt_unpulled_symbol="▽"
+sexy_bash_prompt_dirty_unpulled_symbol="▼"
+sexy_bash_prompt_unpushed_unpulled_symbol="⬡"
+sexy_bash_prompt_dirty_unpushed_unpulled_symbol="⬢"
 
 # Apply symbol overrides that have been set in the environment
 # DEV: Working unicode symbols can be determined via the following gist
