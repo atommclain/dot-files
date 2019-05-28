@@ -22,6 +22,14 @@ else
 	export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
 fi
 
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && $TERM_PROGRAM = "Apple_Terminal" && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 # Put your fun stuff here.
 # Enables ^s and ^q in rTorrent, when running in screen
 stty -ixon -ixoff
