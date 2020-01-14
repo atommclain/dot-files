@@ -12,14 +12,19 @@ Mouse
 	Enable Scroll direction: Natural
 	Increase tracking speed to about middle
 Keyboard
+	Keyboard
+		Touch Bar Shows -> App Controls -> Show Control Strip
+		Customize Touch Bar...
+			Remove Siri control
 	Shortcuts
 		Full Keyboard Access All controls
 		App Shortcuts
 			Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
+			Create app shortcut for Safari "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab
 	Keyboard
 		Modifier Keys…
 			Change Caps Lock key to control key
-			Swap option and command key for Kinesis freestyle PC keyboarded
+			Swap option and command key for Kinesis freestyle PC keyboard
 Sound
 	Show volume in menu bar
 Bluetooth
@@ -35,6 +40,14 @@ Date & Time
 Accessibility
 	Zoom
 		Enable Use scroll gesture with modifier keys to zoom
+Spotlight
+	Disable
+		Conversion
+		Mail & Messages
+		Movies
+		Music
+		Spotlight Suggestions
+	Allow Spotlight Suggestions in Look up - disable
 
 itsycal
 https://www.mowglii.com/itsycal/
@@ -73,7 +86,7 @@ View
 	Show status bar
 Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
-Show batter percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
 Move dock to left side of main monitor
 
 Finder View
@@ -100,6 +113,8 @@ Change extensions .txt .m .h to be opened with MacVim
 Terminal
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
 Install power line fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
+Settings -> General -> New Windows Open With: Same Profile
+Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 $ mkdir ~/.tmp
 $ mkdir ~/git; cd ~/git
 $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
@@ -125,11 +140,14 @@ add local git aliases for opening project and creating a pull request
 	git config --local alias.pr '!open https://www.pull-request-url.com’
 
 Mac App Store
+Install Deliveries
 Install Clipboard History
 	Start at login
 	Use once to add to System Preferences -> Security & Privacy -> Accessibility
 Install Markdown Pro
 Install Xcode
+	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
+	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
 
 FastsSripts
 https://red-sweater.com/fastscripts/
@@ -155,6 +173,7 @@ Help -> Register Charles
 
 Safari Settings
 General
+	Safari opens with: All windows from last session
 	New windows open with: Favorites
 	New tabs open with: Empty Page
 	Don’t Open “safe” files after downloading
@@ -169,6 +188,7 @@ Privacy
 	Ask websites not to track me
 Websites
 	Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
+	Disable Allow websites to ask for permission to send push notifications
 Extensions
 	daring fireball with comments: http://daringfireballwithcomments.net
 	1password https://agilebits.com/onepassword/extensions
@@ -198,12 +218,27 @@ Hammerspoon (OS automation)
 http://www.hammerspoon.org
 Install script to automatically select last used audio input (to fix problem with AirPods input and sound) http://ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html
 
+ToothFairy - MAS
+Preferences
+	Show batter status in the menu bar
+	Launch at login
+	Hide Dock icon
+	Advanced
+		Improve sound quality by disabliing audio from device
+
 Download
 VLC https://www.videolan.org/vlc/index.html
 Download TripMode: https://www.tripmode.ch/download-purchase/
+Feedly Background Tabs Safari Etension (open tabs in the background) http://nikonratm.github.io/feedlybackgroundtabs/
+BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
 
 TODO
 Recreate show package contents program thing
 Version control .vim folder
 Make clink.sh link the correct files it should
 See https://apple.stackexchange.com/a/337179 for some good defaults
+Add powerline config to repo
+clean up dot files (consolodate, review everything it is doing)
+add empty .workalias and then add to git ignore
+DON'T SYMLINK .bash_prompt
+
