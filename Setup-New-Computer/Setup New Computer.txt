@@ -20,7 +20,9 @@ Keyboard
 		Full Keyboard Access All controls
 		App Shortcuts
 			Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
-			Create app shortcut for Safari "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab
+			Create app shortcut for Safari "Quit Safari" and
+assign to something else to avoid accidently quiting Safari when trying to
+close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
 	Keyboard
 		Modifier Keys…
 			Change Caps Lock key to control key
@@ -121,12 +123,14 @@ $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
 // ./clink.sh .files
 Manually copy over .vim folder
 Manually copy over .ssh folder
+$ sudo nvram StartupMute=%00 // reenable startup chime in catalina
 
 Shell Junk
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Install home-brew https://brew.sh
 Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
+	This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
 	run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
 
 Work Shell Junk
@@ -159,8 +163,8 @@ Scripts
 Services
 Charles
 Colors
-ColorPickers	— install developer color picker https://download.panic.com/picker/
-Preferences/com.apple.dt.xcode*
+ColorPickers	— install developer color picker
+https://download.panic.com/picker/ // potentially fix code signing $ Preferences/com.apple.dt.xcode*
 Developer/Xcode/UserData
 Application Support
 LittleSnitch
@@ -231,6 +235,14 @@ VLC https://www.videolan.org/vlc/index.html
 Download TripMode: https://www.tripmode.ch/download-purchase/
 Feedly Background Tabs Safari Etension (open tabs in the background) http://nikonratm.github.io/feedlybackgroundtabs/
 BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
+
+After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
+Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver 
+Desktop & Screen Saver
+	Screen Saver
+		Start after: 5 Minutes
+		Hot Coners... - Set upper right hand corner to start screen saver
+Energy Saver (Power Adapter) - Turn display off after: 20 minutes
 
 TODO
 Recreate show package contents program thing

@@ -126,7 +126,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 "if &t_Co > 2 || has("gui_running")
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 colorscheme solarized
 "endif
 
@@ -135,8 +135,10 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 
 " Airline
-if has("macunix") && $TERM_PROGRAM != "Apple_Terminal"
-" if has("gui_macvim")
+let os=substitute(system('uname'), '\n', '', '')
+let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Terminal"
+
+if OSXTerminal || has("gui_macvim")
 " if $TERM_PROGRAM == "iTerm.app"
   let g:airline_powerline_fonts = 1
 endif
@@ -386,3 +388,5 @@ nnoremap gV `[v`]
 " A key with the Shift key modifier is represented using the <S-key> notation.
 " A key with the Alt key modifier is represented using <A-key> or <M-key> notation.
 " Super is represented <D-key> in MacVim and <T-key> in gtk2 gvim. In gvim it doesn't work with all the keys.
+
+" read !date +"\%Y/\%m/\%d \%A"
