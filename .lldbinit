@@ -47,6 +47,8 @@ command script import /usr/local/opt/chisel/libexec/fblldb.py
 command script import ~/git/dot-files/nudge.py
 command script import ~/git/dot-files/swiftError.py
 command script import ~/git/dot-files/my_commands.py
+# disables breakpoint
+command script import ~/git/dot-files/disthis.py
 command script add -f my_commands.printSwiftError swiftError
 command script add -f my_commands.printSwiftErrorEarly early
 command alias -H "Print description in ObjC context" -h "Print in ObjC" -- cpo expression -l objc -O --

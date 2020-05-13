@@ -116,7 +116,9 @@ augroup END
 " Plugins {{{
 
 " Pathogen
- execute pathogen#infect()
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+  execute pathogen#infect()
+endif
  syntax on
  filetype plugin indent on
 
