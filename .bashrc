@@ -16,11 +16,12 @@ fi
 
 source ~/.alias
 
-if [ "$(hostname)" = "USSEASGMCLAIN2" ]; then
-	export PS1="\[\033[01;34m\] \! \w \$\[\033[00m\] "
-else
-	export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
-fi
+#-if [ "$(hostname)" = "USSEASGMCLAIN2" ]; then
+export PS1="\[\033[01;34m\]\!\w\$\[\033[00m\]"
+# mini prompt // [command #] [pwd]
+#export PS1="\[\033[01;34m\] \! \w \$\[\033[00m\] "
+# micro prompt
+#export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)
@@ -42,12 +43,3 @@ export TZ="/usr/share/zoneinfo/PST8PDT"
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS='Exgxfxfxcxdxdxhbadbxbx'
-
-function parse_git_dirty {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-}
-
-function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
-#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '

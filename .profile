@@ -6,6 +6,5 @@ fi
 
 LSCOLORS="exfxcxdxbxegedabagacad"
 
-#alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-#export EDITOR='mate -w'
 export EDITOR='vim'
+export VISUAL='vim'

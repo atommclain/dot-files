@@ -13,6 +13,7 @@ set scrolloff=6
 set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
+set modelines=5
 
 syntax on
 filetype on
