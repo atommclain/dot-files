@@ -131,7 +131,7 @@ alias grbshb='grbsh `git merge-base develop HEAD`'
 ##set $H (hash) for grbh
 function grbsh {
 	export H="$1";
-	#grbh;
+#grbh;
 }
 export -f grbsh
 
@@ -165,6 +165,7 @@ alias pu='pod repo update'
 alias unquarantine='xattr -d com.apple.quarantine'
 # wifi on/off
 alias wifi="networksetup -setairportpower en0"
+alias wifiToggle="wifi off && sleep 10 && wifi on"
 
 # kill Xcode and nuke derived data
 alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
@@ -172,6 +173,9 @@ alias killxcode='killall - Xcode && nukederiveddata'
 alias killSimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 
 alias beep="echo -ne '\007'"
+
+# kill and relaunch Streaks.app (hopefully this is temporary)
+alias killstreaks='killall - Streaks && open /Applications/Streaks.app/'
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
