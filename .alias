@@ -8,6 +8,7 @@ alias l='ls'
 alias lsa='ls -goah'
 alias lsd='ls -d */'
 alias lsb='ls ~/bin'
+alias ls.='ls -a | grep "^\."'
 alias c='clear'
 alias v=$EDITOR
 alias e=$EDITOR
@@ -24,6 +25,7 @@ alias h='history'
 function aliashelp {
 echo "expand alias: <ESC> <C-e>"
 echo "\$type -a [command] returns info on the command (function/alias/script/etc.)"
+echo "~ . <RETURN> to exit a stuck SSH session"
 }
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
@@ -133,7 +135,6 @@ function grbsh {
 	export H="$1";
 #grbh;
 }
-export -f grbsh
 
 alias gst='git stash --include-untracked'
 alias gstl='git --no-pager stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)" && echo'
@@ -192,24 +193,17 @@ alias r='fc -s'
 
 # alias tail_ls="ls -l $1 | tail"
 
-## plistpuddy
-alias pb='/usr/libexec/PlistBuddy'
-alias pbw='pb ~/workflow.plist -c '
-alias pbp='pbw Print'
-
 ## create branch then set $BRANCH
 function gcbt {
 ~/bin/gcb `pbw "Print jiraTicketNum"`_"$1";
 gbsb;
 }
-export -f gcbt
 
 ## create branch then set $BRANCH
 function gcb {
 ~/bin/gcb "$1";
 gbsb;
 }
-export -f gcb
 
 function gdelbn () {
 if [ $# -eq 0 ]
