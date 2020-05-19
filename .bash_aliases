@@ -1,11 +1,12 @@
-if [[ $TERM == "LINUX" ]]; then
+if [[ $TERM == "linux" ]]; then
 	setterm -foreground black -background white -store
 	setfont ~/git/fonts/Terminus/PSF/ter-powerline-v16b.psf.gz
 fi
 
-alias el='vim ~/.bash_aliases && . ~/.bash_aliases'
+alias el='$EDITOR ~/.bash_aliases && . ~/.bash_aliases'
 alias light='setterm -foreground black -background white -store'
 alias dark='setterm -foreground white -background black -store'
+alias sysver='lsb_release -a'
 
 # show man for the nth listing in /usr/bin based on the offset of start_ts
 function dailyMan () {
