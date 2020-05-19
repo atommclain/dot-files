@@ -9,7 +9,7 @@ set autoread		" reload files when changed outside of Vim
 set history=50		" keep 50 lines of command line history
 set number		" show line number
 set hidden		" allow buffers to be hidden without write
-set scrolloff=6
+set scrolloff=6		" start scrolling at 6 lines from edge
 set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
@@ -20,9 +20,9 @@ filetype on
 filetype indent on	" load filetype-specific indent files
 filetype plugin on
 set background=dark
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set clipboard=unnamed " use system clipboard
+set laststatus=2	" Always show the statusline
+set encoding=utf-8	" Necessary to show Unicode glyphs
+set clipboard=unnamed	" use system clipboard
 set iskeyword-=_	" don't count `_` as part of a 'word'
 
 set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
@@ -118,20 +118,22 @@ augroup END
 
 " Pathogen
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
-  execute pathogen#infect()
+    "execute pathogen#infect()
 endif
  syntax on
  filetype plugin indent on
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
 " Solarize
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-"if &t_Co > 2 || has("gui_running")
+" if &t_Co > 2 || has("gui_running")
 " let g:solarized_termcolors=256
 colorscheme solarized
-"endif
+" endif
+endif
 
 " You complete me
 let g:ycm_collect_identifiers_from_tags_files = 1
