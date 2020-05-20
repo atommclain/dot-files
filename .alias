@@ -21,12 +21,7 @@ alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
 alias cddv='cd ~/.vim'
 alias h='history'
-
-function aliashelp {
-echo "expand alias: <ESC> <C-e>"
-echo "\$type -a [command] returns info on the command (function/alias/script/etc.)"
-echo "~ . <RETURN> to exit a stuck SSH session"
-}
+alias myhelp='cat ~/git/dot-files/shellReminders.txt'
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
 

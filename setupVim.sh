@@ -14,3 +14,4 @@ cd $HOME/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
 git clone git://github.com/vim-airline/vim-airline.git
 git clone git://github.com/vim-airline/vim-airline-themes.git
+git clone git://github.com/arcticicestudio/nord-vim.git

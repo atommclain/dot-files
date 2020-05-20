@@ -14,16 +14,14 @@ set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
 set modelines=5
-set encoding=utf-8
-set fileencoding=utf-8
 
 syntax on
 filetype on
 filetype indent on	" load filetype-specific indent files
 filetype plugin on
 set background=dark
-set laststatus=2	" Always show the statusline
-set encoding=utf-8	" Necessary to show Unicode glyphs
+set laststatus=2	" always show the statusline
+set encoding=utf-8	" necessary to show Unicode glyphs
 set clipboard=unnamed	" use system clipboard
 set iskeyword-=_	" don't count `_` as part of a 'word'
 
@@ -37,9 +35,15 @@ nnoremap vv ^<C-v>g_
 
 " Boolean values for terminal/OS logic
 let os=substitute(system('uname'), '\n', '', '')
+let hostname=substitute(system('hostname'), '\n', '', '')
 let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Terminal"
 let linuxConsole = (g:os == "Linux" && $TERM != "xterm-256color")
 let linuxXterm = (g:os == "Linux" && $TERM == "xterm-256color")
+let slowVim = hostname == "ereader"
+
+if slowVim
+  set synmaxcol=200	" stop highlighting after 200 columns
+endif
 
 if has("macunix")
   " Change cursor shape in different modesFor iTerm2 on OS X
@@ -101,7 +105,7 @@ augroup LeaveInsert
     autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
 augroup END
 
-if g:os != "Linux"
+if !slowVim
 augroup CursorLine
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
@@ -129,17 +133,15 @@ if filereadable(expand("~/.vim/autoload/pathogen.vim"))
     let g:solarized_termcolors=256
   endif
   colorscheme solarized
+  if linuxConsole
+    colorscheme nord
+  endif
 " endif
 endif
-
-" You complete me
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_confirm_extra_conf = 0
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 if OSXTerminal || has("gui_macvim")
-" if $TERM_PROGRAM == "iTerm.app"
   let g:airline_powerline_fonts = 1
 endif
 "if !exists('g:airline_powerline_fonts')
@@ -155,6 +157,9 @@ if linuxXterm
   endif
   let g:airline_symbols.linenr = '¶'
   let g:airline_symbols.whitespace = 'Ξ'
+endif
+if slowVim
+  let g:airline_highlighting_cache = 1
 endif
 
 " Vim Hard Mode

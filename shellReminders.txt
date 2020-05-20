@@ -1,0 +1,3 @@
+expand alias: macOS=> <ESC> <C-e> linux=> <C-A-e>
+% type -a [command] // returns info on the command (function/alias/script/etc.)
+exit a stuck SSH session: ~ . <RETURN> 
