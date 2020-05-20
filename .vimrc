@@ -82,6 +82,8 @@ augroup vimrcEx
   au!
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+  autocmd FileType yaml setlocal sts=2 sw=2
+  autocmd FileType sh setlocal ts=4 sts=4 sw=4 et
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
