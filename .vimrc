@@ -14,6 +14,8 @@ set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
 set modelines=5
+set encoding=utf-8
+set fileencoding=utf-8
 
 syntax on
 filetype on
@@ -32,6 +34,12 @@ set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.
 set showmatch		" highlight matching [{()}]
 " Visual selection of current line minus indentation, blockwise
 nnoremap vv ^<C-v>g_
+
+" Boolean values for terminal/OS logic
+let os=substitute(system('uname'), '\n', '', '')
+let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Terminal"
+let linuxConsole = (g:os == "Linux" && $TERM != "xterm-256color")
+let linuxXterm = (g:os == "Linux" && $TERM == "xterm-256color")
 
 if has("macunix")
   " Change cursor shape in different modesFor iTerm2 on OS X
@@ -67,7 +75,6 @@ endif
 " Auto Command Groups {{{
 augroup vimrcEx
   au!
-
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
@@ -85,15 +92,7 @@ augroup vimrcEx
   autocmd BufReadPost .vimrc setlocal noexpandtab
   " Source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
-
 augroup END
-
-" set 'updatetime' to 3 seconds when in insert mode
-" au InsertEnter * let updaterestore=&updatetime | set updatetime=3000
-" au InsertLeave * let &updatetime=updaterestore
-
-" automatically leave insert mode after 'updatetime' milliseconds of inaction
-" au CursorHoldI * stopinsert
 
 augroup LeaveInsert
     au!
@@ -102,36 +101,34 @@ augroup LeaveInsert
     autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
 augroup END
 
+if g:os != "Linux"
 augroup CursorLine
     au!
-    au VimEnter * setlocal cursorline
-    au VimEnter * setlocal cursorcolumn
-    au WinEnter * setlocal cursorline
-    au WinEnter * setlocal cursorcolumn
-    au BufWinEnter * setlocal cursorline
-    au BufWinEnter * setlocal cursorcolumn
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
     au WinLeave * setlocal nocursorline
     au WinLeave * setlocal nocursorcolumn
 augroup END
-" }}}
+endif
+
 " Plugins {{{
 
 " Pathogen
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
-    "execute pathogen#infect()
+  execute pathogen#infect()
+  syntax on
+  filetype plugin indent on
 endif
- syntax on
- filetype plugin indent on
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
 " Solarize
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 " if &t_Co > 2 || has("gui_running")
-" let g:solarized_termcolors=256
-colorscheme solarized
+  if g:os == "Linux"
+    let g:solarized_termcolors=256
+  endif
+  colorscheme solarized
 " endif
 endif
 
@@ -140,18 +137,25 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 
 " Airline
-let os=substitute(system('uname'), '\n', '', '')
-let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Terminal"
-
+let g:airline#extensions#tabline#enabled = 1
 if OSXTerminal || has("gui_macvim")
 " if $TERM_PROGRAM == "iTerm.app"
   let g:airline_powerline_fonts = 1
 endif
 "if !exists('g:airline_powerline_fonts')
-"    let g:airline_left_sep='â€º'
-"    let g:airline_right_sep='â€¹'
+"    let g:airline_left_sep='Ã¢Â€Âº'
+"    let g:airline_right_sep='Ã¢Â€Â¹'
 "endif
-let g:airline#extensions#tabline#enabled = 1
+if linuxConsole
+  let g:airline_symbols_ascii = 1
+endif
+if linuxXterm
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.linenr = 'Â¶'
+  let g:airline_symbols.whitespace = 'Îž'
+endif
 
 " Vim Hard Mode
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
@@ -184,7 +188,6 @@ vnoremap <LEADER>- "_
 nnoremap <LEADER>; mzA;<ESC>`z
 
 
-nnoremap <LEADER>lw :CtrlP<CR><C-\>w
 " take previously deleted text, create line above current line, paste text,
 " user sets variable
 " nnoremap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
@@ -331,49 +334,46 @@ inoremap <right> <nop>
 " setreg vs let @q = difference in let '' vs let ""
 
 function! ADMSHOHit()
-	execute "s/%20/ /"
-	execute "s/%2C/,/"
-	execute "s/%5B/[/"
-	execute "s/%5D/]/"
-	execute "s/%3A/:/"
-	execute "s/?/\r/"
-	normal! j
-	execute "s/&/\r/"
-	execute "%sort"
+  execute "s/%20/ /"
+  execute "s/%2C/,/"
+  execute "s/%5B/[/"
+  execute "s/%5D/]/"
+  execute "s/%3A/:/"
+  execute "s/?/\r/"
+  normal! j
+  execute "s/&/\r/"
+  execute "%sort"
 endfunction
 
 " saved macros
 
 function! ADMSaveQMacro()
-	execute "edit " . $MYVIMRC
-	normal! gg
-	normal! zR
-	let _s=@/
-	execute "normal! / saved macros\<CR>"
-	let @/=_s
-	execute "set textwidth=0"
-	execute "set wrapmargin=0"
-	execute 'normal! oq'
-	" 'noautocmd' allows the next command to run without
-	" autocmds, in this case sourcing .vimrc during write
-	execute 'noautocmd w'
-	execute 'bd'
+  execute "edit " . $MYVIMRC
+  normal! gg
+  normal! zR
+  let _s=@/
+  execute "normal! / saved macros\<CR>"
+  let @/=_s
+  execute "set textwidth=0"
+  execute "set wrapmargin=0"
+  execute 'normal! oq'
+  " 'noautocmd' allows the next command to run without
+  " autocmds, in this case sourcing .vimrc during write
+  execute 'noautocmd w'
+  execute 'bd'
 endfunction
 
 "https://stackoverflow.com/questions/2024443/saving-vim-macros#comment32271394_2024537
-let @w = "magg/sholllyt.'a"
-let @q = '0:s/UIAlertView/UIAlertController/f=hd0iUIAlertController *alertf[xWdExvecalertControllerWithTitlejjXCCSpreferredStyle:UIAlertControllerStyleAlertodebugTag:<#tag#>]; 0wdt:iUIAlert €ü€kbAction *cancelAction = [UIAlertAction actionWithTitleostyle:UIAlertActionStyleCancel"zPjjo[aerlt€kb€kb€kb€kblert addAction:cancelAction];jg^df:f;:call AdamMacro()@w'
-let @z = "handler:^(UIAlertAction * _Nonnull action) {" . "\n" . " <#code#>" . "\n" . "}];" 
 
 function! AdamMacro()
-	normal! xx0f,
-    " Get current letter.
-    normal! yl
-    if @" =~# '[,]'
-        execute "normal! $xxxxxIUIAlertAction *otherAction = [UIAlertAction actionWithTitle:\<ESC>ostyle:UIAlertActionStyleDefault\<CR>handler:^(UIAlertAction * _Nonnull action) { <#code#> }]; [alert addAction:otherAction];"
-    else
-        execute "normal! dd"
-    endif
+  normal! xx0f,
+  " Get current letter.
+  normal! yl
+  if @" =~# '[,]'
+    execute "normal! $xxxxxIUIAlertAction *otherAction = [UIAlertAction actionWithTitle:\<ESC>ostyle:UIAlertActionStyleDefault\<CR>handler:^(UIAlertAction * _Nonnull action) { <#code#> }]; [alert addAction:otherAction];"
+  else
+    execute "normal! dd"
+  endif
 endfunction
 " }}}
 
