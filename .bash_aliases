@@ -6,8 +6,8 @@ alias el='$EDITOR ~/.bash_aliases && . ~/.bash_aliases'
 alias light='setterm -foreground black -background white -store'
 alias dark='setterm -foreground white -background black -store'
 alias sysver='lsb_release -a'
-alias githubssh='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/github_rsa"'
-alias et='vim ~/todo.txt'
+alias githubssh='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/github_rsa'
+alias et='vim ~/git/dot-files/todo.txt'
 
 # show man for the nth listing in /usr/bin based on the offset of start_ts
 function dailyMan () {
@@ -27,3 +27,7 @@ function dailyMan () {
 	ls /usr/bin | man `sed -n $commandNum`
 }
 
+alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
+alias profvim="rm profile.log & vim  --cmd 'profile start profile.log'     --cmd 'profile func *'     --cmd 'profile file *'     -c 'profdel func *'     -c 'profdel file *' ~/git/dot-files/todo.txt"
+ #test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+#compgen -b | less
