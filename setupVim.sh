@@ -12,6 +12,8 @@ echo "Installing bundles"
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
+git clone git://github.com/arcticicestudio/nord-vim.git
 git clone git://github.com/vim-airline/vim-airline.git
 git clone git://github.com/vim-airline/vim-airline-themes.git
-git clone git://github.com/arcticicestudio/nord-vim.git
+git clone git://git@github.com:vim-scripts/a.vim.git
+git clone git://git@github.com:can3p/incbool.vim.git

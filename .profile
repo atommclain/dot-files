@@ -32,6 +32,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+export CDPATH=".:$HOME:$HOME/git"
+
 LSCOLORS="exfxcxdxbxegedabagacad"
 
 export EDITOR='vim'

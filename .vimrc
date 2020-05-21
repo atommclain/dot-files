@@ -271,6 +271,7 @@ endif
 " Toggle viewing listchars ⇥
 nnoremap <silent> <LEADER>. :set list!<CR>
 nnoremap <silent> <LEADER>, :set nolist number! <BAR> AirlineToggle <BAR> nohlsearch<CR>
+set showbreak=↪\ 	" indicator to show wrapped line
 
 " http://stackoverflow.com/questions/19233184/vim-using-listchars-to-show-leading-whitespace#comment28479060_19233184
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
