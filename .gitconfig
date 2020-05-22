@@ -2,7 +2,7 @@
 	name = Adam McLain
 	email = atommclain@gmail.com
 [color]
-	diff = true
+	diff = auto
 	status = auto
 	branch = auto
 	ui = auto
@@ -13,20 +13,17 @@
 	excludesfile = ~/.gitignore
 	autocrlf = input
 	safecrlf = true
-	whitespace = blank-at-eol,space-before-tab,tab-in-indent
+	whitespace = trailing-space,space-before-tab,tab-in-indent
 [alias]
+	# list git aliases
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
- 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	d = difftool
 	diff-highlight = "!f() { git diff \"$@\" | ~/bin/diff-highlight; }; f" --color | less
-	# show all comits/branches except stashes
-	#git log --branches --remotes --tags --graph --oneline --decorate
-
-	# Get the current branch name (not so useful in itself, but used in
-	# other aliases)
+	# Get the current branch name (not so useful in itself, but used in other aliases)
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	# Push the current branch to the remote "origin", and set it to track
 	# the upstream branch
@@ -35,7 +32,7 @@
 	unpublish = "!git push origin :$(git branch-name)"
 	safeforce = push --force-with-lease
 	# The first commit of a repository can not be rebased like regular commits,
-	# so it’s good practice to create an empty commit as your repository root. 
+	# so it’s good practice to create an empty commit as your repository root.
 	it = !git init && git commit -m “root” --allow-empty
 	# List your most recently-used branches using Git
 	# http://ses4j.github.io/2020/04/01/git-alias-recent-branches/
@@ -44,8 +41,6 @@
 	autosetuprebase = always
 [rerere]
 	enabled = true
-[difftool "kdiff3"]
-	path = /Applications/kdiff3.app/Content --initial
 [help]
 	autocorrect = 1
 [push]
@@ -62,3 +57,8 @@
 	showUntrackedFiles = all
 [advice]
 	statusHints = false
+[interactive]
+	# apparently you need to install some perl crap for this to work
+	singleKey = true
+[diff]
+	wsErrorHighlight = all

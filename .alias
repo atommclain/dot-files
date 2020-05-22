@@ -2,9 +2,8 @@ if [ -f ~/.workalias ]; then
 	source ~/.workalias
 fi
 
-##general
+## general
 alias l='ls'
-# alias lsa="ls -la"
 alias lsa='ls -goah'
 alias lsd='ls -d */'
 alias lsb='ls ~/bin'
@@ -19,7 +18,7 @@ alias uppp='cd ../../..'
 alias cdh='cd ~/'
 alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
-alias cddv='cd ~/.vim'
+alias cdv='cd ~/.vim'
 alias h='history'
 alias myhelp='cat ~/git/dot-files/shellReminders.txt'
 
@@ -29,41 +28,33 @@ alias tcopy="tr -d '\n' | pbcopy"
 alias grep="grep --color=always"
 alias irc="irssi"
 
-# Bluetooth
+# bluetooth
 alias bton="blueutil --power 1"
 alias btoff="blueutil --power 0"
 
-# Make and change directory
-mcd () {
-	mkdir -p $1;
-	cd $1;
-	pwd;
-}
+# make and change directory
+function mcd () { mkdir -p $1; cd $1; }
+
+# perform ls after cd
+function cdl () { cd "$@" && ls; }
 
 alias gitx='open -a GitX .'
 
-##git alias
+## git alias
 alias git-short-sha='git rev-parse --short HEAD'
 alias git-current-branch='git rev-parse --abbrev-ref HEAD'
-alias gpush='git push && echo $(git-current-branch) $(git-short-sha) && git-short-sha | tcopy'
 alias eg='git config -e'
 alias egg='git config --global -e'
-alias eb='echo $BRANCH'
-alias ebc='echo $BRANCH | tr -d '\n' | pbcopy'
 alias g='git '
 alias gs='git status '
 alias ga='git add '
 alias gaa='git add .'
 alias gap='git add -p'
 alias gai='git add -i '
-alias gpm='cdp && git checkout master && git pull'
 alias gb='git branch --all -vv'
 alias gbc='git rev-parse --abbrev-ref HEAD '
-#alias gcb='~/bin/gcb '
-alias gbsb='export BRANCH=`git rev-parse --abbrev-ref HEAD` && export B=$BRANCH && pbw "Set branchName $B"'
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
-alias gcamt='git commit -a -m `pbw "Print jiraTicketNum"` -m '
 alias gca='git commit --amend'
 alias gf='git fetch --prune'
 # open all conflict files in editor
@@ -72,15 +63,10 @@ alias gd='git diff'
 alias gds='git diff --staged'
 # alias gdc='git diff --word-diff-regex=.'
 alias gdc='git diff --cached'
-alias gdelbb='gdelb $BRANCH'
 alias go='git checkout '
-alias gon='git-checkout-branch-n'
 alias gom='git checkout master '
 alias god='git checkout develop '
-#alias gob='git checkout $BRANCH '
 alias gob='git checkout -B '
-alias gorc='git checkout $RC '
-alias gorcu='git checkout $RCU '
 alias gp='git pull '
 alias gpu='git push'
 # push to remote and set upstream at the same time https://stackoverflow.com/a/6089415/640338
@@ -90,31 +76,19 @@ alias gpu2='git push origin HEAD^^:$(git rev-parse --abbrev-ref HEAD)'
 alias gm='git merge '
 alias gmm='git merge origin master '
 alias gms='git merge --squash '
-alias gmsb='git merge --squash $BRANCH '
-alias gmx='git merge X' #project specific, can probably delete
-alias gk='gitk --all&'
-alias gx='gitx --all'
 alias gl='git log'
 alias gcp='git cherry-pick '
 alias gcpc='git cherry-pick --continue'
 alias gcpa='git cherry-pick --abort'
-# alias grbs='git rebase --skip'
 # alias grb1='git reset --soft HEAD^'
 # alias grb2='git reset HEAD .'
 # git rebase split
 alias grbs='git reset HEAD^'
-# alias grh='git reset --hard'
+# safe git reset hard avoiding commit hooks
 alias grh='git add -A && git commit -qm "WIPE SAVEPOINT" --no-verify && git reset HEAD~1 --hard'
-alias gmt='git mergetool '
-alias gshortsham='git rev-parse --short origin/master'
-alias gshortshab='git rev-parse --short origin/$BRANCH'
-alias gsha='git-short-sha | tcopy && git-short-sha'
-alias gsham='export MASTERSHA=`gshortsham` && gshortsham | tcopy && pbw "Set masterCommitSHA $MASTERSHA"'
-alias gshab='export BRANCHSHA=`gshortshab` && gshortshab | tcopy && pbw "Set branchCommitSHA $BRANCHSHA"'
-alias gshas='gsham && gshab'
-#alias gsham='git rev-parse --short origin/master | tcopy && git rev-parse --short origin/master'
-alias gg='git grep '
 alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
+alias gmt='git mergetool '
+alias gg='git grep '
 
 # git rebase
 alias grb='git rebase -i'
@@ -125,12 +99,10 @@ alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 # set $H to common ancestor or HEAD and develop
 alias grbshb='grbsh `git merge-base develop HEAD`'
-##set $H (hash) for grbh
-function grbsh {
-	export H="$1";
-#grbh;
-}
+# set $H (hash) for grbh
+function grbsh { export H="$1"; }
 
+# git stash
 alias gst='git stash --include-untracked'
 alias gstl='git --no-pager stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)" && echo'
 alias gstn='git stash save'
@@ -141,24 +113,15 @@ alias gsta0='git stash apply stash@{0}'
 alias gstd='git-stash-drop '
 alias gstd0='git stash drop stash@{0}'
 alias gsts='git-stash-show '
-
-function git-stash-apply () {
-	git stash apply stash@{"$1"};
-}
-
-function git-stash-drop () {
-	git stash drop stash@{"$1"};
-}
-
-function git-stash-show () {
-	git show stash@{"$1"};
-}
+function git-stash-apply () { git stash apply stash@{"$1"}; }
+function git-stash-drop () { git stash drop stash@{"$1"}; }
+function git-stash-show () { git show stash@{"$1"}; }
 
 alias myip='ifconfig en0'
 alias pi='pod install'
 alias pu='pod repo update'
-
 alias unquarantine='xattr -d com.apple.quarantine'
+
 # wifi on/off
 alias wifi="networksetup -setairportpower en0"
 alias wifiToggle="wifi off && sleep 10 && wifi on"
@@ -166,12 +129,9 @@ alias wifiToggle="wifi off && sleep 10 && wifi on"
 # kill Xcode and nuke derived data
 alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
 alias killxcode='killall - Xcode && nukederiveddata'
-alias killSimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
+alias killsimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 
 alias beep="echo -ne '\007'"
-
-# kill and relaunch Streaks.app (hopefully this is temporary)
-alias killstreaks='killall - Streaks && open /Applications/Streaks.app/'
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
@@ -188,32 +148,15 @@ alias r='fc -s'
 
 # alias tail_ls="ls -l $1 | tail"
 
-## create branch then set $BRANCH
-function gcbt {
-~/bin/gcb `pbw "Print jiraTicketNum"`_"$1";
-gbsb;
-}
-
-## create branch then set $BRANCH
-function gcb {
-~/bin/gcb "$1";
-gbsb;
-}
-
 function gdelbn () {
-if [ $# -eq 0 ]
-then
-echo "No arguments supplied"
-return
-fi
+	if [ $# -eq 0 ]
+	then
+		echo "No arguments supplied"
+		return
+	fi
 	branchToDelete=$(git branch | sed -n "$1"p)
 	read -p "Will delete branch $branchToDelete. Proceed? (Enter) - (^C to abort)"
 	git branch -D $branchToDelete;
-}
-
-# perform ls after cd
-function cdl () {
-	cd "$@" && ls
 }
 
 # from `git branch` check out branch N
@@ -223,29 +166,28 @@ function git-checkout-branch-n () {
 
 # Show the Nth commit in the project
 function hockeyNumberToHash() {
-re='^[0-9]+$'
-if ! [[ $1 =~ $re ]] ; then
-   echo "error: Not a number" >&2; return
-fi
-totalCommits=$(git rev-list HEAD --count)
-reverseCommit=$(expr $totalCommits - "$1") # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
-echo Total commits: $totalCommits, Commits behind HEAD: $reverseCommit
-git log --skip=$reverseCommit --max-count=1
+	re='^[0-9]+$'
+	if ! [[ $1 =~ $re ]] ; then
+		echo "error: Not a number" >&2; return
+	fi
+	totalCommits=$(git rev-list HEAD --count)
+	reverseCommit=$(expr $totalCommits - "$1") # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
+	echo Total commits: $totalCommits, Commits behind HEAD: $reverseCommit
+	git log --skip=$reverseCommit --max-count=1
 }
 
 function hockeyHashToNumber() {
-if test $(git cat-file -t $1) == commit; then
-totalCommits=$(git rev-list HEAD --count)
-thisCommit=$(git rev-list "$1" --count)
-reverseCommit=$(expr $totalCommits - $thisCommit) # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
-echo Total commits: $totalCommits, Commit behind HEAD: $reverseCommit, Commit number: $thisCommit
-else
-echo "error: Input not a commit" >&2; return
-fi
+	if test $(git cat-file -t $1) == commit; then
+		totalCommits=$(git rev-list HEAD --count)
+		thisCommit=$(git rev-list "$1" --count)
+		reverseCommit=$(expr $totalCommits - $thisCommit) # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
+		echo Total commits: $totalCommits, Commit behind HEAD: $reverseCommit, Commit number: $thisCommit
+	else
+		echo "error: Input not a commit" >&2; return
+	fi
 }
 
 # get current branch "TICKET-123/aBranchDescription" and return "TICKET-123"
-# by from forward slash until end of line
 alias ticket-number-of-current-branch='git-current-branch | sed -e "s/\/.*$//g"'
 alias openticket-of-current-branch='open $JIRA_INSTANCE_URL`ticket-number-of-current-branch`'
 
@@ -276,7 +218,7 @@ alias openticket-of-current-branch='open $JIRA_INSTANCE_URL`ticket-number-of-cur
 
 #### Get os name via uname ###
 #_myos="$(uname)"
-#
+
 #### add alias as per os using $_myos ###
 #case $_myos in
 #   Linux) alias foo='/path/to/linux/bin/foo';;
