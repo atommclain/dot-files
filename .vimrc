@@ -101,7 +101,18 @@ augroup vimrcEx
   autocmd bufwritepost .vimrc source $MYVIMRC
   " Open files with folds open
   autocmd BufWinEnter * silent! :%foldopen!
+
+  autocmd BufReadPost Podfile setlocal filetype=ruby
+  autocmd BufReadPost Fastfile setlocal filetype=ruby
+  autocmd BufReadPost Appfile setlocal filetype=ruby
 augroup END
+
+" set 'updatetime' to 3 seconds when in insert mode
+" au InsertEnter * let updaterestore=&updatetime | set updatetime=3000
+" au InsertLeave * let &updatetime=updaterestore
+
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+" au CursorHoldI * stopinsert
 
 augroup LeaveInsert
     au!
@@ -119,6 +130,7 @@ augroup CursorLine
     au WinLeave * setlocal nocursorcolumn
 augroup END
 endif
+" }}}
 
 " Plugins {{{
 
@@ -128,6 +140,8 @@ if filereadable(expand("~/.vim/autoload/pathogen.vim"))
   syntax on
   filetype plugin indent on
 endif
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
 " Solarize
@@ -150,8 +164,8 @@ if OSXTerminal || has("gui_macvim")
   let g:airline_powerline_fonts = 1
 endif
 "if !exists('g:airline_powerline_fonts')
-"    let g:airline_left_sep='âº'
-"    let g:airline_right_sep='â¹'
+"    let g:airline_left_sep='›'
+"    let g:airline_right_sep='‹'
 "endif
 if linuxConsole
   let g:airline_symbols_ascii = 1
@@ -196,7 +210,6 @@ vnoremap <LEADER>- "_
 
 " Add semi colon to the end of current line
 nnoremap <LEADER>; mzA;<ESC>`z
-
 " A.vim alternative file
 nnoremap <LEADER>a <ESC>:A<CR>
 " Buffer management: list buffers
