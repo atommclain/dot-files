@@ -8,8 +8,22 @@ $endif
 "\C-p":history-search-backward
 "\C-n":history-search-forward
 set colored-stats On	# use LS_COLORS
+set visible-stats On
 set completion-ignore-case On
 set completion-prefix-display-length 3
 set mark-symlinked-directories On
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
+set blink-matching-paren On
+set match-hidden-files On
+set show-mode-in-prompt On
+"\e\C-w": alias-expand-line
+"\e\C-u": "\C-a\C-k"	#kill-whole-line
+"\e\C-p": "\C-p'\" >> .alias\C-aecho \"#alias ='\C-b"	# prepare last command for appending to alias file
+Control-j: menu-complete	# when multiple completions tap to cycle through options
+
+# F1, F2, F3 - calls alias1, alias2, alias3, helpful if you are executig the same ommands over and over
+"OP": "alias1\r"
+"OQ": "alias2\r"
+"OR": "alias3\r"
+

@@ -23,6 +23,7 @@ alias h='history'
 alias myhelp='cat ~/git/dot-files/shellReminders.txt'
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
+alias ein='$EDITOR ~/.inputrc && bind -f  ~/.inputrc && echo "<C-x><C-r> to resource .inputrc"'
 
 alias tcopy="tr -d '\n' | pbcopy"
 alias grep="grep --color=always"
