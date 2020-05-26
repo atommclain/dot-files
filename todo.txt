@@ -16,6 +16,10 @@ todo
     	.alias
 		.gitconfig
 	for dailyman, see if theres a way to check if info/man/help has an entry before calling it
+	learn about shopt
+	https://news.ycombinator.com/item?id=20077580
+	2021 Update from bash to zsh
+	aliases, how to appened text to a file at a specific point (two lines before the last line)
 
 
 # vim: ts=4 fdm=indent foldcolumn=4 

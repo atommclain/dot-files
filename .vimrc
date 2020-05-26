@@ -30,6 +30,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
 
 set showmatch		" highlight matching [{()}]
+set matchtime=1		" 1/10s timeout to find match
 " Visual selection of current line minus indentation, blockwise
 nnoremap vv ^<C-v>g_
 
@@ -68,7 +69,6 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 " will buffer screen updates instead of updating all the time
-set lazyredraw
 
 " Show diff to a file, use :diffoff to turn off
  if !exists(":DiffOrig")
@@ -96,6 +96,8 @@ augroup vimrcEx
   autocmd BufReadPost .vimrc setlocal noexpandtab
   " Source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
+  " Open files with folds open
+  autocmd BufWinEnter * silent! :%foldopen!
 augroup END
 
 augroup LeaveInsert
@@ -192,13 +194,6 @@ vnoremap <LEADER>- "_
 " Add semi colon to the end of current line
 nnoremap <LEADER>; mzA;<ESC>`z
 
-
-" take previously deleted text, create line above current line, paste text,
-" user sets variable
-" nnoremap <LEADER>a mz<ESC>O<ESC>p$a;<ESC>^mxi = <ESC>`x
-" Script moves to begining of word then yanks variable name then
-" pastes it at previous yark
-" nnoremap <LEADER>aa <ESC>bye`zP
 " A.vim alternative file
 nnoremap <LEADER>a <ESC>:A<CR>
 " Buffer management: list buffers
@@ -207,41 +202,34 @@ nnoremap <LEADER>b :buffers<CR>:buffer<Space>
 nnoremap <LEADER>d :bd<CR>
 " Buffer management: delete current buffer discarding changes
 nnoremap <LEADER>D :bd!<CR>
-" edit Foo.m
-nnoremap <LEADER>em :e ~/objctest/Foo.m<CR>
+" Buffer management: next buffer
+nnoremap <LEADER>n :bn<CR>
+" Buffer management: previous buffer
+nnoremap <LEADER>p :bp<CR>
 " Edit .vimrc
 nnoremap <LEADER>ev :e $MYVIMRC<CR>
+" Reload .vimrc
+nnoremap <LEADER>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echom ".vrimrc sourced"<CR>
 "Fugitive
 nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>go <C-W><C-O>:diffoff<CR>
 nnoremap <LEADER>gs :Gstatus<CR>
-" Buffer management: next buffer
-nnoremap <LEADER>n :bn<CR>
-" Reload .vimrc
-nnoremap <LEADER>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echom ".vrimrc sourced"<CR>
-" Buffer management: previous buffer
-nnoremap <LEADER>p :bp<CR>
 " Run marco stored in q register
 nnoremap <LEADER>q @q
-" execute line as shell command
 " yank line without whitespace, paste into ex command line
 nnoremap <LEADER>r ^yg_:!<C-r>"
 " Split line before cursor
 nnoremap <LEADER>s hmzli<Enter><Esc>`z
 " Split line after cursor
 nnoremap <LEADER>S mza<Enter><Esc>`z
-" Move beginning brace to next line
-nnoremap <LEADER>{ mz0f{r<Enter>i{<Esc>`z
-" Move end brace to next line
-nnoremap <LEADER>} mz0f}r<Enter>i}<Esc>`z
 " Terminal run current line as command
 nnoremap <LEADER>tb yy:!<C-r>"<BS><Enter>
 " Write buffer and return to shell
 nnoremap <LEADER>tz :w<Enter><C-z>
 " Write q register to vimrc
 nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
-" Append '.0f' to flaot
-nnoremap <LEADER>f ea.0f<Esc>
+" Insert Date
+nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>
 
 vnoremap <LEADER>s :s/_/self->_/<CR>
 vnoremap <LEADER>w :s/_/weakSelf->_/<CR>
@@ -267,12 +255,19 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let 
 
 " Listchars
 set listchars=nbsp:·,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
-" set listchars=nbsp:·,tab:⟶\ ,trail:·,eol:¬
 if has("patch-7.4-711")	" This works as of Vim 7.4.711
-set listchars+=space:␣
+  set listchars+=space:␣
 endif
+if linuxConsole
+set listchars=nbsp:∅,trail:ж,eol:¬,precedes:«,extends:»,tab:┣→
+if has("patch-7.4-711")	" This works as of Vim 7.4.711
+  set listchars+=space:·
+endif
+endif
+
 " Toggle viewing listchars ⇥
 nnoremap <silent> <LEADER>. :set list!<CR>
+nnoremap <silent> <LEADER>, :set nolist number! <BAR> AirlineToggle <BAR> nohlsearch<CR>
 
 " http://stackoverflow.com/questions/19233184/vim-using-listchars-to-show-leading-whitespace#comment28479060_19233184
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
@@ -350,7 +345,18 @@ function! ADMSHOHit()
   execute "%sort"
 endfunction
 
-" saved macros
+" Used to pretify profile.log generated from alias profvim
+command! -bar ADMProfileTiminings let timings=[]
+command! -bar ADMProfileg g/^SCRIPT/call add(timings, [getline('.')[len('SCRIPT  '):], matchstr(getline(line('.')+1), '^Sourced \zs\d\+')]+map(getline(line('.')+2, line('.')+3), 'matchstr(v:val, ''\d\+\.\d\+$'')'))
+command! -bar ADMProfileNew enew
+command! -bar ADMProfileLine call setline('.', ['count total (s)   self (s)  script']+map(copy(timings), 'printf("%5u %9s   %8s  %s", v:val[1], v:val[2], v:val[3], v:val[0])'))
+command! ADMProfile ADMProfileTiminings|ADMProfileg|ADMProfileNew|ADMProfileLine
+
+" saved macros  -- place cursor below then call Loadqregister to load it
+" Gllllxgvhhhh~lGlx0GIi0"py$@pjqkbj
+" Gllllxgvhhhh~lGlx0GIi
+" Gllllxgvhhhh~lGlx0GIi0
+" 0"py$@pld$j
 
 function! ADMSaveQMacro()
   execute "edit " . $MYVIMRC
@@ -366,6 +372,13 @@ function! ADMSaveQMacro()
   " autocmds, in this case sourcing .vimrc during write
   execute 'noautocmd w'
   execute 'bd'
+endfunction
+
+command! Loadqregister :call ADMLoadQRegister()
+function! ADMLoadQRegister()
+  normal! 0
+  normal! w
+  normal! "qy$
 endfunction
 
 "https://stackoverflow.com/questions/2024443/saving-vim-macros#comment32271394_2024537
@@ -399,4 +412,3 @@ nnoremap gV `[v`]
 " A key with the Alt key modifier is represented using <A-key> or <M-key> notation.
 " Super is represented <D-key> in MacVim and <T-key> in gtk2 gvim. In gvim it doesn't work with all the keys.
 
-" read !date +"\%Y/\%m/\%d \%A"
