@@ -1,11 +1,7 @@
 todo
 	move *almost* everything in .profile to .bashrc
-	create help file
 	find out how to install perl module for single key git add -p
 	vimrc
-		make trailing space a giant ugly block
-			always show trailing white space?
-		update listchars in .vimrc for ascii set
 		refresh airline whitespace without saving
 			a:au airline_whitespace
 		figure out why indent is always 8 chars

@@ -20,7 +20,7 @@ set show-mode-in-prompt On
 "\e\C-w": alias-expand-line
 "\e\C-u": "\C-a\C-k"	#kill-whole-line
 "\e\C-p": "\C-p'\" >> .alias\C-aecho \"#alias ='\C-b"	# prepare last command for appending to alias file
-Control-j: menu-complete	# when multiple completions tap to cycle through options
+# "\t": menu-complete	# when multiple completions tap to cycle through options
 
 # F1, F2, F3 - calls alias1, alias2, alias3, helpful if you are executig the same ommands over and over
 "OP": "alias1\r"

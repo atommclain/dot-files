@@ -14,6 +14,7 @@ set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
 set modelines=5
+set ttimeoutlen=10
 
 syntax on
 filetype on
