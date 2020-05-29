@@ -6,7 +6,7 @@ Displays
 	Night Shift
 		Schedule Sunset to Sunrise
 		Color Temperature 75%
-Mouse 
+Mouse
 	Pair bluetooth mouse
 	Enable secondary click
 	Enable Scroll direction: Natural
@@ -77,7 +77,7 @@ Sidebar
 		Disable CDs, DVDs, and iPods
 		Disable Bonjour computers
 		Disable Recent Tags
-Advanced	
+Advanced
 	Show all filename extensions
 	Disable show warning before changing an extension
 	Keep folders on top when sorting by name
@@ -114,7 +114,8 @@ Change extensions .txt .m .h to be opened with MacVim
 
 Terminal
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
-Install power line fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
+Install powerline fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
+Install Nerdfont: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
 Settings -> General -> New Windows Open With: Same Profile
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 $ mkdir ~/.tmp
@@ -124,7 +125,9 @@ $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
 Manually copy over .vim folder
 Manually copy over .ssh folder
 $ sudo nvram StartupMute=%00 // reenable startup chime in catalina
-$ brew cask install provisionql // install provioning profile quick look
+$ brew cask install provisionql // install provioning profile quicklook
+$ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //https://github.com/whomwah/qlstephen 
+xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 System Preferences ->  Security & Privacy -> Privacy -> Scroll down and select Developer Tools and add Terminal
 
 Shell Junk
@@ -170,6 +173,8 @@ https://download.panic.com/picker/ // potentially fix code signing $ Preferences
 Developer/Xcode/UserData
 Application Support
 LittleSnitch
+QuickLook
+	https://github.com/sindresorhus/quick-look-plugins
 
 Charles
 https://www.charlesproxy.com/
@@ -239,12 +244,16 @@ Feedly Background Tabs Safari Etension (open tabs in the background) http://niko
 BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
 
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
-Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver 
+Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
 Desktop & Screen Saver
 	Screen Saver
 		Start after: 5 Minutes
 		Hot Coners... - Set upper right hand corner to start screen saver
 Energy Saver (Power Adapter) - Turn display off after: 20 minutes
+
+Little Snitch
+	https://www.obdev.at/products/littlesnitch/index.html
+	Disable syspolicyd per https://lapcatsoftware.com/articles/catalina-executables.html // this is temporary, not sure if it will work or not, don't blindly adopt
 
 TODO
 Recreate show package contents program thing
@@ -255,4 +264,8 @@ Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
 add empty .workalias and then add to git ignore
 DON'T SYMLINK .bash_prompt
+Tokyo Train Sound
+	https://www.adiumxtras.com/index.php?a=xtras&xtra_id=602
+	https://www.adiumxtras.com/download/602
 
+# vim: ts=4 textwidth=0 wrapmargin=0

@@ -15,6 +15,8 @@ set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
 set modelines=5
 set ttimeoutlen=10
+set splitright
+set splitbelow
 
 syntax on
 filetype on
@@ -97,6 +99,7 @@ augroup vimrcEx
 
   " Don't expand tabs when editing vimrc
   autocmd BufReadPost .vimrc setlocal noexpandtab
+  autocmd BufReadPost .gvimrc setlocal noexpandtab
   " Source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
   " Open files with folds open
@@ -224,8 +227,8 @@ nnoremap <LEADER>n :bn<CR>
 nnoremap <LEADER>p :bp<CR>
 " Edit .vimrc
 nnoremap <LEADER>ev :e $MYVIMRC<CR>
-" Reload .vimrc
-nnoremap <LEADER>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echom ".vrimrc sourced"<CR>
+" Edit .gvimrc
+nnoremap <LEADER>eg :e $MYGVIMRC<CR>
 "Fugitive
 nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>go <C-W><C-O>:diffoff<CR>

@@ -1,3 +1,8 @@
+Linux - Lenovo s10-2
+Lunbuntu
+Wifi, install b43-fwcutter from installer drive /cdrom/main/.. something then
+follow these steps https://askubuntu.com/a/730813
+http://rvm.io/integration/lxterminal
 https://www.emacswiki.org/emacs/MovingTheCtrlKey#toc5
 git clone https://aur.archlinux.org/powerline-console-fonts.git
 git clone --depth 1 https://github.com/powerline/powerline.git

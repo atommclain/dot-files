@@ -21,6 +21,7 @@ alias cdd='cd ~/git/dot-files/'
 alias cdv='cd ~/.vim'
 alias h='history'
 alias myhelp='cat ~/git/dot-files/shellReminders.txt'
+alias killlast='kill -9 %%'
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
 alias et='vim ~/git/dot-files/todo.txt'
@@ -70,6 +71,9 @@ alias gon='git-checkout-branch-n'
 alias gom='git checkout master '
 alias god='git checkout develop '
 alias gob='git checkout -B '
+# not intended to be called directly. Copy text with jira ticket and expand this command to
+# populate the prompt with a new branch template
+alias gobj='git checkout -B $(echo "$(pbpaste)" | command grep -Eo "[A-Z]+-\d+")/'
 alias gp='git pull '
 alias gpu='git push'
 # push to remote and set upstream at the same time https://stackoverflow.com/a/6089415/640338
@@ -83,7 +87,7 @@ alias gl='git log'
 alias gcp='git cherry-pick '
 alias gcpc='git cherry-pick --continue'
 alias gcpa='git cherry-pick --abort'
-# alias grbs='git rebase --skip'
+alias grbsk='git rebase --skip'
 # alias grb1='git reset --soft HEAD^'
 # alias grb2='git reset HEAD .'
 # git rebase split
@@ -96,15 +100,16 @@ alias gg='git grep '
 
 # git rebase
 alias grb='git rebase -i'
-alias grbsh10='grbsh HEAD~10'
 alias grbh='git rebase -i $H'
 alias grbd='git rebase -i develop'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
-# set $H to common ancestor or HEAD and develop
+# set $H to common ancestor of HEAD and develop
 alias grbshb='grbsh `git merge-base develop HEAD`'
 # set $H (hash) for grbh
 function grbsh { export H="$1"; }
+# Function to take git interactive rebase argument. e.g.: grbn 2
+grbn() { git rebase -i HEAD~$1; }
 
 # git stash
 alias gst='git stash --include-untracked'
@@ -134,6 +139,7 @@ alias wifiToggle="wifi off && sleep 10 && wifi on"
 alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
 alias killxcode='killall - Xcode && nukederiveddata'
 alias killsimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
+alias cd-provisioning-profiles='cd ~/Library/MobileDevice/Provisioning\ Profiles/'
 
 alias beep="echo -ne '\007'"
 
@@ -277,5 +283,29 @@ function dateDiff() {
 
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
+
+function systemInfoADM(){
+    if [ "$(uname)" == "Darwin" ]; then
+        printf "Mac OS X 10.0    Cheetah         March 24, 2001\n"
+        printf "Mac OS X 10.1    Puma            September 25, 2001\n"
+        printf "Mac OS X 10.2    Jaguar          August 24, 2002\n"
+        printf "Mac OS X 10.3    Panther         October 24, 2003\n"
+        printf "Mac OS X 10.4    Tiger           April 29, 2005\n"
+        printf "Mac OS X 10.5    Leopard         October 26, 2007\n"
+        printf "Mac OS X 10.6    Snow Leopard    August 28, 2009\n"
+        printf "Mac OS X 10.7    Lion            July 20, 2011\n"
+        printf "OS X 10.8        Mountain Lion   July 25, 2012\n"
+        printf "OS X 10.9        Mavericks       October 22, 2013\n"
+        printf "OS X 10.10       Yosemite        October 16, 2014\n"
+        printf "OS X 10.11       El Capitan      September 30, 2015\n"
+        printf "macOS 10.12      Sierra          September 20, 2016\n"
+        printf "macOS 10.13      High Sierra     September 25, 2017\n"
+        printf "macOS 10.14      Mojave          September 24, 2018\n"
+        printf "macOS 10.15      Catalina        October 7, 2019\n"
+        sw_vers
+    else
+        echo "update system_info function to handle this system: $(uname)"
+    fi
+}
 
 # vim: filetype=sh

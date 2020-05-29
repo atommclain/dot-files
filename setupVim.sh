@@ -17,3 +17,5 @@ git clone git://github.com/vim-airline/vim-airline.git
 git clone git://github.com/vim-airline/vim-airline-themes.git
 git clone git://git@github.com:vim-scripts/a.vim.git
 git clone git://git@github.com:can3p/incbool.vim.git
+git clone https://tpope.io/vim/fugitive.git
+vim -u NONE -c "helptags fugitive/doc" -c q
