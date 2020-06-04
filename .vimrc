@@ -18,7 +18,6 @@ set ttimeoutlen=10
 set splitright
 set splitbelow
 
-syntax on
 filetype on
 filetype indent on	" load filetype-specific indent files
 filetype plugin on

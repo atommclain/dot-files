@@ -1,0 +1,6 @@
+Setup SSH
+	Ctrl-F4
+	cd /boot
+	touch ssh
+	sudo reboot now
+

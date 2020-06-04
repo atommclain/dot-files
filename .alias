@@ -244,8 +244,9 @@ function dailyman() {
 	offset=$(dateDiff $startDate)
 	commandNum="${offset}p"
 	commandName=$( ls /usr/bin | sed -n $commandNum)
+    total=$( ls /usr/bin | wc -l )
 	man $commandName
-	echo $commandName
+	echo day $offset of $total, $commandName
 }
 
 # return the nth builtin command of the offset of startDate
@@ -254,7 +255,8 @@ function dailybuiltin() {
 	offset=$(dateDiff $startDate)
 	commandNum="${offset}p"
 	todaysCommand=$(compgen -b | sed -n $commandNum)
-	echo "info|man|help $todaysCommand"
+    total=$( compgen -b | wc -l )
+	echo "day $offset of $total, $todaysCommand:   info | man | help"
 }
 
 # takes a date string in the format "yyyy-mm-dd" and returns the number

@@ -5,7 +5,7 @@ todo
 	git
 		is it possible to list branches without the current branch prepended with a *
 		git branch | cut -c 3-
-		return git branch with appeneded numbers?
+		return git branch with appeneded numbers? ls | nl
 		update git hist to color head and remote head
 	vimrc
 		refresh airline whitespace without saving

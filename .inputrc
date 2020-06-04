@@ -14,6 +14,8 @@ set completion-prefix-display-length 3
 set mark-symlinked-directories On
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
+TAB:menu-complete
+set menu-complete-display-prefix on
 set blink-matching-paren On
 set match-hidden-files On
 set show-mode-in-prompt On

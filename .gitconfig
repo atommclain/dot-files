@@ -71,3 +71,4 @@
 	singleKey = true
 [diff]
 	wsErrorHighlight = all
+	mnemonicprefix = true
