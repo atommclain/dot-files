@@ -1,0 +1,40 @@
+After
+Setup SSH
+	Ctrl-F4
+	cd /boot
+	touch ssh
+	sudo reboot now
+
+ssh-copy-id pi@ipAddress
+
+sudo ./RetroPid-Setup/retropie_setup.sh
+sudo raspi-config localization keyboard other blah blah blah
+
+Copy the following:
+	/opt/retropie/configs
+	/home/RetroPie/
+		move roms
+		move splashscreens
+		move bios
+
+RetroPie GUI
+	RetroPie Setup
+	change splash screen to random
+	Manage Packages
+		Manage optional packages
+			install scraper
+			install dosbox
+	Configuration
+		enable samba
+		scraper setup
+
+sudo ./retropie_pacages.sh dosbox configure
+sudo vim /boot/config.txt
+	hdmi group  uncomment
+	hdmi_mode=16 // force 1080p @ 60hz for faster menus
+
+Gui => Main Menu (start)
+	Game ccollection settings => enable favorites and last played
+
+cd /opt/retropie/emulators/dosbox/bin
+./dosbox -startmapper
