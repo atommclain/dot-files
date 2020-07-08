@@ -220,6 +220,8 @@ nnoremap <LEADER>b :buffers<CR>:buffer<Space>
 nnoremap <LEADER>d :bd<CR>
 " Buffer management: delete current buffer discarding changes
 nnoremap <LEADER>D :bd!<CR>
+" Buffer management: delete current buffer without closing window
+nnoremap <LEADER>bc :bp<bar>sp<bar>bn<bar>bd<CR>
 " Buffer management: next buffer
 nnoremap <LEADER>n :bn<CR>
 " Buffer management: previous buffer
@@ -228,6 +230,8 @@ nnoremap <LEADER>p :bp<CR>
 nnoremap <LEADER>ev :e $MYVIMRC<CR>
 " Edit .gvimrc
 nnoremap <LEADER>eg :e $MYGVIMRC<CR>
+" Reload .vimrc
+nnoremap <LEADER>vs :so $MYVIMRC<CR>:nohlsearch<CR>:echom ".vrimrc sourced"<CR>
 "Fugitive
 nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>go <C-W><C-O>:diffoff<CR>
@@ -247,7 +251,7 @@ nnoremap <LEADER>tz :w<Enter><C-z>
 " Write q register to vimrc
 nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Insert Date
-nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>
+nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i=<ESC>
 
 vnoremap <LEADER>s :s/_/self->_/<CR>
 vnoremap <LEADER>w :s/_/weakSelf->_/<CR>
@@ -418,6 +422,15 @@ endfunction
 nnoremap gV `[v`]
 
 
+command! DiffScratchADM :call ADMScratchDiff()
+" http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
+function! ADMScratchDiff()
+	execute "vsp"
+	execute "ene"
+	execute "windo diffthis"
+	normal! h
+	normal! "*p
+endfunction
 " TODO:
 " * https://github.com/ktonga/vim-follow-my-lead show list of all leader keys
 " * create shortcut/function to map a keycommand to open the current filetypes

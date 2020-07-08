@@ -127,6 +127,8 @@ Manually copy over .ssh folder
 $ sudo nvram StartupMute=%00 // reenable startup chime in catalina
 $ brew cask install provisionql // install provioning profile quicklook
 $ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //https://github.com/whomwah/qlstephen 
+$ brew install youtube-dl
+$ brew install ffmpeg
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 System Preferences ->  Security & Privacy -> Privacy -> Scroll down and select Developer Tools and add Terminal
 
@@ -137,6 +139,13 @@ Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
 	This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
 	run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
+
+Install Node js, https://nodejs.org/en/download/
+install newman npm install -g newman
+Setup local apache server https://discussions.apple.com/docs/DOC-3083
+							https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
+
+Install FSMonitor.app
 
 Work Shell Junk
 change email in ~.gitconfig to work
@@ -157,6 +166,7 @@ Install Markdown Pro
 Install Xcode
 	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
 	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
+Install 1Blocker
 
 FastsSripts
 https://red-sweater.com/fastscripts/
@@ -175,6 +185,8 @@ Application Support
 LittleSnitch
 QuickLook
 	https://github.com/sindresorhus/quick-look-plugins
+
+Bartender 3 https://www.macbartender.com
 
 Charles
 https://www.charlesproxy.com/
@@ -226,6 +238,7 @@ Kinesis remap capslock -> control
 Kinesis remap F10/F11/F12 -> mute/volume increase & decrease
 
 Hammerspoon (OS automation)
+Hammerspoon Preferences - Luanch at login, enable accessibility in system preferences
 http://www.hammerspoon.org
 Install script to automatically select last used audio input (to fix problem with AirPods input and sound) http://ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html
 
