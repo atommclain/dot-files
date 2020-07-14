@@ -286,6 +286,7 @@ function dateDiff() {
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
 
+alias whatami='systemInfoADM'
 function systemInfoADM(){
     if [ "$(uname)" == "Darwin" ]; then
         printf "Mac OS X 10.0    Cheetah         March 24, 2001\n"
@@ -307,6 +308,10 @@ function systemInfoADM(){
         printf "macOS    11.00   Big Sur         TBD\n"
         printf "=====================================================\n"
         sw_vers
+    elif [ "$(uname)" == "Linux" ]; then
+        uname -a
+        cat /etc/os-release
+        cat /proc/device-tree/model
     else
         echo "update system_info function to handle this system: $(uname)"
     fi
