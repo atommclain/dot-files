@@ -26,6 +26,7 @@
 	type = cat-file -t
 	dump = cat-file -p
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgtest = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %<(72,trunc) %s %Cgreen(%cd, %cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 	d = difftool
 	diff-highlight = "!f() { git diff \"$@\" | ~/bin/diff-highlight; }; f" --color | less
 	# Get the current branch name (not so useful in itself, but used in other aliases)
@@ -44,7 +45,7 @@
 	lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
 	fix-conflicts = "!$EDITOR `git diff --name-only --diff-filter=U`"
 	# update develop branch from remote even if on a different branch
-	update-develop = "get fetch origin develop:develop"
+	update-develop = "!git fetch origin develop:develop"
 [branch]
 	autosetuprebase = always
 [rerere]

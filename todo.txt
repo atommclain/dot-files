@@ -1,31 +1,43 @@
 todo
-	turn up mac keyboard repeat rate a ton
 	move *almost* everything in .profile to .bashrc
 	find out how to install perl module for single key git add -p
+	mac
+		make a script/daemon to sweep/clean the desktop each week
+		turn up mac keyboard repeat rate a ton
+		setup hammer spoon for outlook reminders
 	git
 		is it possible to list branches without the current branch prepended with a *
 		git branch | cut -c 3-
 		return git branch with appeneded numbers? ls | nl
 		update git hist to color head and remote head
+		add todo git commit hook https://github.com/pimterry/git-confirm
 	vimrc
 		refresh airline whitespace without saving
 			a:au airline_whitespace
 		figure out why indent is always 8 chars
 		does airline show git status?
 		after sourcing vimrc if gvim source .gvimrc after this
+		make a command to find a line with # vim: and move it to the end of the file
 	linux
 		merge linux bashrc to dot-files
 		clean up all dot files
 		.alias
 		.gitconfig
 	bash
-		play around with completions: https://iridakos.com/programming/2018/03/01/bash-programmable-completion-tutorial
-	for dailyman, see if theres a way to check if info/man/help has an entry before calling it
-	learn about shopt
-	https://news.ycombinator.com/item?id=20077580
-	2021 Update from bash to zsh
-	aliases, how to appened text to a file at a specific point (two lines before the last line)
-	https://github.com/ThePrimeagen/vim-be-good // vim trainer to get fast
+		play around with completions: https://iridakos.com/programming/2018/03/01/bash-programmable-completion-tutorial for dailyman, see if theres a way to check if info/man/help has an entry before calling it
+		learn about shopt
+		https://news.ycombinator.com/item?id=20077580
+		2021 Update from bash to zsh
+		aliases, how to appened text to a file at a specific point (two lines before the last line)
+		https://github.com/ThePrimeagen/vim-be-good // vim trainer to get fast
+	networkConnectivit.sh
+		use zero padded numbers https://stackoverflow.com/questions/8789729/how-to-zero-pad-a-sequence-of-integers-in-bash-so-that-all-have-the-same-width
+		hide extra line when in failing and wifi toggling mode
+	mac terminal
+		update tab to show branch when aplicable
+	tex keyboard
+		replace controller
+			find replacement controller
 
 
-# vim: ts=4 fdm=indent foldcolumn=4 textwidth=0 wrapmargin=0
+# vim: ts=4 fdm=indent foldcolumn=4 textwidth=0 wrapmargin=0 breakindent

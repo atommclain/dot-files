@@ -7,6 +7,21 @@ Setup SSH
 
 ssh-copy-id pi@ipAddress
 
+3.5" LCD hat
+	xpt2046 3.5inch RPi Display
+	https://github.com/goodtft/LCD-show
+
+Swift
+	https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
+	OR
+	sudo apt install swift5
+
+Node
+	https://github.com/nodesource/distributions/blob/master/README.md#debinstall	
+
+Newman
+	sudo npm install -g newman
+
 sudo ./RetroPid-Setup/retropie_setup.sh
 sudo raspi-config localization keyboard other blah blah blah
 

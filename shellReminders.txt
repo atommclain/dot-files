@@ -5,3 +5,4 @@ $ type -a [command] // returns info on the command (function/alias/script/etc.)
 exit a stuck SSH session: ~ . <RETURN> 
 $ bind -P | less // shows all readline bindings
 info searching: s then enter repeats last search
+macOS use opensnoop and fs_usage to monitor the file system
