@@ -308,10 +308,12 @@ function systemInfoADM(){
         printf "macOS    11.00   Big Sur         TBD\n"
         printf "=====================================================\n"
         sw_vers
+        uname -a
     elif [ "$(uname)" == "Linux" ]; then
         uname -a
         cat /etc/os-release
         cat /proc/device-tree/model
+        hostnamectl
     else
         echo "update system_info function to handle this system: $(uname)"
     fi
