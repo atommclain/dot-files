@@ -1,55 +1,65 @@
 System Preferences
-General
-	Show scroll bars: Always
-Displays
-	Change monitor arrangement to reflect real world display arrangement
-	Night Shift
-		Schedule Sunset to Sunrise
-		Color Temperature 75%
-Mouse
-	Pair bluetooth mouse
-	Enable secondary click
-	Enable Scroll direction: Natural
-	Increase tracking speed to about middle
-Keyboard
+	General
+		Show scroll bars: Always
+	Desktop & Screen Saver
+		Screen Saver
+			Start after: 5 Minutes
+			Hot Coners... - Set upper right hand corner to start screen saver
+	Spotlight
+		Disable
+			Conversion
+			Mail & Messages
+			Movies
+			Music
+			Spotlight Suggestions
+		Allow Spotlight Suggestions in Look up - disable
+	Touch ID -> Setup
+	User & Groups
+		Login Options
+			Disable Show fast user switching menu
+	Accessibility
+		Zoom
+			Enable Use scroll gesture with modifier keys to zoom
+	Security & Privacy
+		Privacy
+			Scroll down and select Developer Tools and add Terminal
+	Mouse
+		Pair bluetooth mouse
+		Enable secondary click
+		Enable Scroll direction: Natural
+		Increase tracking speed to about middle
 	Keyboard
-		Touch Bar Shows -> App Controls -> Show Control Strip
-		Customize Touch Bar...
-			Remove Siri control
-	Shortcuts
-		Full Keyboard Access All controls
-		App Shortcuts
-			Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
-			Create app shortcut for Safari "Quit Safari" and
-assign to something else to avoid accidently quiting Safari when trying to
-close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
-	Keyboard
-		Modifier Keys…
-			Change Caps Lock key to control key
-			Swap option and command key for Kinesis freestyle PC keyboard
-Sound
-	Show volume in menu bar
-Bluetooth
-	Show Bluetooth in the menu bar
-Touch ID -> Setup
-User & Groups
-	Login Options
-		Disable Show fast user switching menu
-Date & Time
-	Clock
-		Use a 24-hour clock
-		Disable Show dates and time in menubar (use itsycal instead)
-Accessibility
-	Zoom
-		Enable Use scroll gesture with modifier keys to zoom
-Spotlight
-	Disable
-		Conversion
-		Mail & Messages
-		Movies
-		Music
-		Spotlight Suggestions
-	Allow Spotlight Suggestions in Look up - disable
+		Keyboard
+			Touch Bar Shows -> App Controls -> Show Control Strip
+			Customize Touch Bar...
+				Remove Siri control
+		Shortcuts
+			Full Keyboard Access All controls
+			App Shortcuts
+				Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
+				Create app shortcut for Safari "Quit Safari" and
+	assign to something else to avoid accidently quiting Safari when trying to
+	close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
+		Keyboard
+			Modifier Keys…
+				Change Caps Lock key to control key
+				Swap option and command key for Kinesis freestyle PC keyboard
+	Sound
+		Show volume in menu bar
+	Bluetooth
+		Show Bluetooth in the menu bar
+	Displays
+		Change monitor arrangement to reflect real world display arrangement
+		Night Shift
+			Schedule Sunset to Sunrise
+			Color Temperature 75%
+	Energy Saver
+		Power Adapter
+			Turn display off after: 20 minutes
+	Date & Time
+		Clock
+			Use a 24-hour clock
+			Disable Show dates and time in menubar (use itsycal instead)
 
 itsycal
 https://www.mowglii.com/itsycal/
@@ -57,50 +67,81 @@ Preferences -> General -> Launch at login
 Preferences -> Appearance -> E MMM d h:mm
 Preferences -> Appearance -> Hide icon
 
+Finder
+	Preferences
+		General
+			Change new finder window to always open in home folder
+			Don’t show Hard disks on desktop
+		Sidebar
+			Show these items in the sidebar:
+				Disable Recents
+				Disable AirDrop
+				Disable Desktop
+				Disable Documents
+				Enable Home
+				Disable iCloud Drive
+				Disable CDs, DVDs, and iPods
+				Disable Bonjour computers
+				Disable Recent Tags
+		Advanced
+			Show all filename extensions
+			Disable show warning before changing an extension
+			Keep folders on top when sorting by name
+			When performing search: search the current folder
+	View
+		Show status bar
+		Switch to List View (command +2)
+		Navigate to home -> Show view options (command + j)
+			Show Library Folder
+			Calculate all sizes
+			Use as Defaults
+	Toolbar
+		Add Open in MacVim
+		Remove everything except for Search and Back/Forward buttons
+	Terminal Commands
+		Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+		Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
+		Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+Safari
+	Settings
+		General
+			Safari opens with: All windows from last session
+			New windows open with: Favorites
+			New tabs open with: Empty Page
+			Don’t Open “safe” files after downloading
+		Tabs
+			Disable Use command-1 through command-9 to switch tabs
+			Disable show website icon in tabs
+		Search
+			Search engine: DuckDuckGo
+		Security
+			Block pop-up windows
+		Privacy
+			Allow from current website only
+			Ask websites not to track me
+		Websites
+			Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
+			Disable Allow websites to ask for permission to send push notifications
+		Extensions
+			daring fireball with comments: http://daringfireballwithcomments.net
+			1password https://agilebits.com/onepassword/extensions
+			uBlock Origin (no longer supported?) https://github.com/el1t/uBlock-Safari
+			(look into… adguard) https://adguard.com/en/welcome.html
+		Advanced
+			Show full website address
+			Show Develop menu in menu bar
+	View
+		Show status bar
+		Show favorites bar
+		Show tab bar
+		Turn off tab preview in Safari 14
+			defaults write com.apple.Safari IncludeInternalDebugMenu 1
+			Tab Features > Show Tab Preview on Hover
+
 Activity Monitor
 Open at login
 Change Activity Monitor.app icon to show cpu history
 Change Activity Monitor.app to show all processes View Menu -> All Processes
-
-Finder Preferences
-General
-	Change new finder window to always open in home folder
-	Don’t show Hard disks on desktop
-Sidebar
-	Show these items in the sidebar:
-		Disable Recents
-		Disable AirDrop
-		Disable Desktop
-		Disable Documents
-		Enable Home
-		Disable iCloud Drive
-		Disable CDs, DVDs, and iPods
-		Disable Bonjour computers
-		Disable Recent Tags
-Advanced
-	Show all filename extensions
-	Disable show warning before changing an extension
-	Keep folders on top when sorting by name
-	When performing search: search the current folder
-
-Finder General
-View
-	Show status bar
-Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
-Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
-Move dock to left side of main monitor
-
-Finder View
-Show Library Folder
-	Navigate to home -> Show view options (command + j) -> Enable Show Library Folder
-Switch to List View (command +2)
-Calculate all sizes
-Use as Defaults
-
-Finder Toolbar
-Add Open in MacVim
-Remove everything except for Search and Back/Forward buttons
 
 Go2Shell
 https://zipzapmac.com/Go2Shell
@@ -113,10 +154,10 @@ http://macvim-dev.github.io/macvim/
 Change extensions .txt .m .h to be opened with MacVim
 
 Terminal
+Settings -> General -> New Windows Open With: Same Profile
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
 Install powerline fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
 Install Nerdfont: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
-Settings -> General -> New Windows Open With: Same Profile
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 $ mkdir ~/.tmp
 $ mkdir ~/git; cd ~/git
@@ -129,19 +170,20 @@ $ brew cask install provisionql // install provioning profile quicklook
 $ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //https://github.com/whomwah/qlstephen 
 $ brew install youtube-dl
 $ brew install ffmpeg
+$ brew install fortune
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
-System Preferences ->  Security & Privacy -> Privacy -> Scroll down and select Developer Tools and add Terminal
 
 Shell Junk
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Install home-brew https://brew.sh
+	possible fix for bundle failing: https://stackoverflow.com/a/65481787
 Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
 	This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
 	run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
 
 Install Node js, https://nodejs.org/en/download/
-install newman npm install -g newman
+Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
 							https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
 
@@ -194,38 +236,6 @@ Help -> SSL Proxying -> Install Charles Root Certificate
 Tools -> Import Settings
 Help -> Register Charles
 
-Safari Settings
-General
-	Safari opens with: All windows from last session
-	New windows open with: Favorites
-	New tabs open with: Empty Page
-	Don’t Open “safe” files after downloading
-Tabs
-	Disable Use command-1 through command-9 to switch tabs
-Search
-	Search engine: DuckDuckGo
-Security
-	Block pop-up windows
-Privacy
-	Allow from current website only
-	Ask websites not to track me
-Websites
-	Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
-	Disable Allow websites to ask for permission to send push notifications
-Extensions
-	daring fireball with comments: http://daringfireballwithcomments.net
-	1password https://agilebits.com/onepassword/extensions
-	uBlock Origin (no longer supported?) https://github.com/el1t/uBlock-Safari
-	(look into… adguard) https://adguard.com/en/welcome.html
-Advanced
-	Show full website address
-	Show Develop menu in menu bar
-
-Safari View
-Show status bar
-Show favorites bar
-Show tab bar
-
 Create open in MacVim application, add to finder toolbar by dragging with option + command
 
 Manually move over all applications
@@ -258,15 +268,12 @@ BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
 
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
 Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
-Desktop & Screen Saver
-	Screen Saver
-		Start after: 5 Minutes
-		Hot Coners... - Set upper right hand corner to start screen saver
-Energy Saver (Power Adapter) - Turn display off after: 20 minutes
 
 Little Snitch
 	https://www.obdev.at/products/littlesnitch/index.html
 	Disable syspolicyd per https://lapcatsoftware.com/articles/catalina-executables.html // this is temporary, not sure if it will work or not, don't blindly adopt
+	https://tinyapps.org/blog/202010210700_whose_computer_is_it.html
+	https://medium.com/tripmode/apple-started-hiding-the-traffic-of-its-own-mac-apps-9dc83c5a9c5b
 
 TODO
 Recreate show package contents program thing
