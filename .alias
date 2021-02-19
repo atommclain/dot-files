@@ -292,8 +292,8 @@ alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
 
 alias whatami='systemInfoADM'
-function systemInfoADM(){
-    if [ "$(uname)" == "Darwin" ]; then
+function systemInfoADM() {
+    if [[ "$(uname)" == "Darwin" ]]; then
         printf "Mac OS X 10.0    Cheetah         March 24, 2001\n"
         printf "Mac OS X 10.1    Puma            September 25, 2001\n"
         printf "Mac OS X 10.2    Jaguar          August 24, 2002\n"

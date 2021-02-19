@@ -159,6 +159,7 @@ Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solar
 Install powerline fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
 Install Nerdfont: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
+Oh my zsh https://ohmyz.sh/#install
 $ mkdir ~/.tmp
 $ mkdir ~/git; cd ~/git
 $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
