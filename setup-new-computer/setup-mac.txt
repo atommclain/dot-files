@@ -208,6 +208,8 @@ Install Markdown Pro
 Install Xcode
 	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
 	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
+	Console: defaults write com.apple.dt.Xcode ShowDVTDebugMenu YES // show xcode build number on icon
+	brew install chisel // facebook lldb tool
 Install 1Blocker
 
 FastsSripts

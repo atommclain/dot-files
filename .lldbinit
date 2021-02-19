@@ -42,6 +42,8 @@ command alias foundation expr @import Foundation
 #   objC print-object display registers
 # end
 # 
+#
+# #https://stackoverflow.com/questions/14370632/ignore-certain-exceptions-when-using-xcodes-all-exceptions-breakpoint
 
 command script import /usr/local/opt/chisel/libexec/fblldb.py
 command script import ~/git/dot-files/nudge.py
