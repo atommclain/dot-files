@@ -15,7 +15,6 @@ alias mvim='mvim -v'
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
-alias cdh='cd ~/'
 alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
 alias cdv='cd ~/.vim'
@@ -67,7 +66,7 @@ alias gds='git diff --staged'
 # alias gdc='git diff --word-diff-regex=.'
 alias gdc='git diff --cached'
 alias go='git checkout '
-alias gon='git-checkout-branch-n'
+alias gon='git_checkout-branch_n'
 alias gom='git checkout master '
 alias god='git checkout develop '
 alias gob='git checkout -B '
@@ -117,18 +116,19 @@ alias gstl='git --no-pager stash list --pretty=format:"%C(red)%h%C(reset) - %C(d
 alias gstn='git stash save'
 alias gstnp='git stash save -p'
 alias gstp='git stash pop'
-alias gsta='git-stash-apply'
+alias gsta='git_stash_apply'
 alias gsta0='git stash apply stash@{0}'
-alias gstd='git-stash-drop '
+alias gstd='git_stash_drop '
 alias gstd0='git stash drop stash@{0}'
-alias gsts='git-stash-show '
-function git-stash-apply () { git stash apply stash@{"$1"}; }
-function git-stash-drop () { git stash drop stash@{"$1"}; }
-function git-stash-show () { git show stash@{"$1"}; }
+alias gsts='git_stash_show '
+function git_stash_apply () { git stash apply stash@{"$1"}; }
+function git_stash_drop () { git stash drop stash@{"$1"}; }
+function git_stash_show () { git show stash@{"$1"}; }
 
 alias myip='ifconfig en0'
 alias pi='pod install'
 alias pu='pod repo update'
+# gatekeeper
 alias unquarantine='xattr -d com.apple.quarantine'
 
 # wifi on/off
@@ -175,7 +175,7 @@ function gdelbn () {
 }
 
 # from `git branch` check out branch N
-function git-checkout-branch-n () {
+function git_checkout-branch_n () {
 	git checkout `git branch | sed -n "$1"p`;
 }
 
