@@ -66,7 +66,7 @@ alias gds='git diff --staged'
 # alias gdc='git diff --word-diff-regex=.'
 alias gdc='git diff --cached'
 alias go='git checkout '
-alias gon='git_checkout-branch_n'
+alias gon='git_checkout_branch_n'
 alias gom='git checkout master '
 alias god='git checkout develop '
 alias gob='git checkout -B '
@@ -175,7 +175,7 @@ function gdelbn () {
 }
 
 # from `git branch` check out branch N
-function git_checkout-branch_n () {
+function git_checkout_branch_n () {
 	git checkout `git branch | sed -n "$1"p`;
 }
 
