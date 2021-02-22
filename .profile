@@ -53,5 +53,7 @@ fi
 
 if [ "$SHELL" == "/bin/ash" ]; then
     . .alias
+    unalias lsa
+    alias lsa='ls -a'
 fi
 
