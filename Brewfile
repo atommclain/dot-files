@@ -27,3 +27,9 @@ mas "Attributed String Creator Pro", id: 730928349
 mas "ClipboardHistory", id: 420939835
 mas "Markdown Pro", id: 465965038
 mas "Deliveries", id: 290986013
+mas "ToothFairy", id: 1191449274
+mas "Skitch", id: 425955336
+mas "Tweetbot", id: 557168941
+mas "SwitchGlass", id: 1498546559
+mas "Key Codes", id:  414568915
+mas "Developer", id: 640199958

@@ -105,6 +105,7 @@ Finder
 		Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
 		Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
 		Big Sur 10.X toolbar defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
+		Reenable startup chime in catalina sudo nvram StartupMute=%00
 
 Safari
 	Settings
@@ -127,10 +128,7 @@ Safari
 			Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
 			Disable Allow websites to ask for permission to send push notifications
 		Extensions
-			daring fireball with comments: http://daringfireballwithcomments.net
 			1password https://agilebits.com/onepassword/extensions
-			uBlock Origin (no longer supported?) https://github.com/el1t/uBlock-Safari
-			(look into… adguard) https://adguard.com/en/welcome.html
 		Advanced
 			Show full website address
 			Show Develop menu in menu bar
@@ -145,6 +143,7 @@ Safari
 Activity Monitor
 Open at login
 Change Activity Monitor.app icon to show cpu history
+defaults write  com.Apple.ActivityMonitor IconType 6
 Change Activity Monitor.app to show all processes View Menu -> All Processes
 
 Go2Shell
@@ -164,7 +163,6 @@ Manually copy over .ssh folder
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
-$ sudo nvram StartupMute=%00 // reenable startup chime in catalina
 Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
 
 Shell Junk
@@ -201,7 +199,6 @@ Install Xcode
 	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
 	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
 	Console: defaults write com.apple.dt.Xcode ShowDVTDebugMenu YES // show xcode build number on icon
-	brew install chisel // facebook lldb tool
 Install 1Blocker
 
 FastsSripts
