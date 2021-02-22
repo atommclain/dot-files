@@ -102,6 +102,7 @@ Finder
 		Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 		Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
 		Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+
 Safari
 	Settings
 		General
@@ -149,29 +150,20 @@ Open terminal In: New Tab
 Add Go2Shell to Finder
 Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
-Vim
-http://macvim-dev.github.io/macvim/
-Change extensions .txt .m .h to be opened with MacVim
-
 Terminal
 Settings -> General -> New Windows Open With: Same Profile
-Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
-Install powerline fonts: https://github.com/powerline/fonts [[Meslo\ LG\ M\ Regular\ for\ Powerline:h14]]
-Install Nerdfont: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/M/Regular/complete/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf
-Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
-Oh my zsh https://ohmyz.sh/#install
-$ mkdir ~/.tmp
+Settings -> Profiles -> Text -> Set font to Meslo LG M Regular for Powerline 11 pt
 $ mkdir ~/git; cd ~/git
 $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
-// ./clink.sh .files
-Manually copy over .vim folder
+// clink .files
+$ ./setupVim.sh
 Manually copy over .ssh folder
+Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
+Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
+Install Oh my zsh https://ohmyz.sh/#install
 $ sudo nvram StartupMute=%00 // reenable startup chime in catalina
 $ brew cask install provisionql // install provioning profile quicklook
 $ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //https://github.com/whomwah/qlstephen 
-$ brew install youtube-dl
-$ brew install ffmpeg
-$ brew install fortune
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 Set associated file types/extenstions
 $ duti ~/git/dot-files/dutiSettings
@@ -207,7 +199,6 @@ Install Deliveries
 Install Clipboard History
 	Start at login
 	Use once to add to System Preferences -> Security & Privacy -> Accessibility
-Install Markdown Pro
 Install Xcode
 	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
 	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
@@ -226,14 +217,13 @@ Services
 Charles
 Colors
 ColorPickers	— install developer color picker
-https://download.panic.com/picker/ // potentially fix code signing $ Preferences/com.apple.dt.xcode*
+https://download.panic.com/picker/ // potentially fix code signing $ xattr -d com.apple.quarantine ~/Library/ColorPickers/DeveloperColorPicker.colorPicker/
+Preferences/com.apple.dt.xcode*
 Developer/Xcode/UserData
 Application Support
 LittleSnitch
 QuickLook
 	https://github.com/sindresorhus/quick-look-plugins
-
-Bartender 3 https://www.macbartender.com
 
 Charles
 https://www.charlesproxy.com/
@@ -266,24 +256,16 @@ Preferences
 		Improve sound quality by disabliing audio from device
 
 Download
-VLC https://www.videolan.org/vlc/index.html
 Download TripMode: https://www.tripmode.ch/download-purchase/
 Feedly Background Tabs Safari Etension (open tabs in the background) http://nikonratm.github.io/feedlybackgroundtabs/
 BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
-
+Bartender 3 https://www.macbartender.com
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
-Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
-
-Little Snitch
-	https://www.obdev.at/products/littlesnitch/index.html
-	Disable syspolicyd per https://lapcatsoftware.com/articles/catalina-executables.html // this is temporary, not sure if it will work or not, don't blindly adopt
-	https://tinyapps.org/blog/202010210700_whose_computer_is_it.html
-	https://medium.com/tripmode/apple-started-hiding-the-traffic-of-its-own-mac-apps-9dc83c5a9c5b
+	Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
+Little Snitch https://www.obdev.at/products/littlesnitch/index.html
 
 TODO
 Recreate show package contents program thing
-Version control .vim folder
-Make clink.sh link the correct files it should
 See https://apple.stackexchange.com/a/337179 for some good defaults
 Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
