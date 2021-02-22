@@ -46,11 +46,11 @@ command alias foundation expr @import Foundation
 # #https://stackoverflow.com/questions/14370632/ignore-certain-exceptions-when-using-xcodes-all-exceptions-breakpoint
 
 command script import /usr/local/opt/chisel/libexec/fblldb.py
-command script import ~/git/dot-files/nudge.py
-command script import ~/git/dot-files/swiftError.py
-command script import ~/git/dot-files/my_commands.py
+command script import ~/git/dot-files/lldb/nudge.py
+command script import ~/git/dot-files/lldb/swiftError.py
+command script import ~/git/dot-files/lldb/my_commands.py
 # disables breakpoint
-command script import ~/git/dot-files/disthis.py
+command script import ~/git/dot-files/lldb/disthis.py
 command script add -f my_commands.printSwiftError swiftError
 command script add -f my_commands.printSwiftErrorEarly early
 command alias -H "Print description in ObjC context" -h "Print in ObjC" -- cpo expression -l objc -O --
