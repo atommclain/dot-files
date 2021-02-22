@@ -19,6 +19,7 @@ cask "provisionql"
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
+cask "qlvideo"
 cask "rowanj-gitx"
 cask "vlc"
 mas "1Blocker", id: 1107421413
