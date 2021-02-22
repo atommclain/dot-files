@@ -14,14 +14,18 @@ cask "cyberduck"
 cask "font-meslo-lg-nerd-font"
 cask "font-meslo-for-powerline"
 cask "homebrew/cask/macvim"
-cask "pusher"
+cask "pusher", args: { appdir: "/Applications/developer" }
 cask "provisionql"
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "qlvideo"
-cask "rowanj-gitx"
+cask "inloop-qlplayground"
+cask "quicklook-json"
+cask "quicklook-csv"
+cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
 cask "vlc"
+cask "swiftdefaultappsprefpane"
 mas "1Blocker", id: 1107421413
 mas "Attributed String Creator Pro", id: 730928349
 mas "ClipboardHistory", id: 420939835

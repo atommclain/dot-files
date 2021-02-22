@@ -1,4 +1,5 @@
 # duti -x txt // show current app domain
+# mdls -name kMDItemContentType filename // show file UTI
 org.vim.MacVim	txt	all
 org.vim.MacVim	h	all
 org.vim.MacVim	m	all
