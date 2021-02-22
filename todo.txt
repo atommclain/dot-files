@@ -14,7 +14,6 @@ todo
 	vimrc
 		refresh airline whitespace without saving
 			a:au airline_whitespace
-		figure out why indent is always 8 chars
 		does airline show git status?
 		after sourcing vimrc if gvim source .gvimrc after this
 		make a command to find a line with # vim: and move it to the end of the file

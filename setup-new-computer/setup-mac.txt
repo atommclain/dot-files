@@ -20,6 +20,8 @@ System Preferences
 	Accessibility
 		Zoom
 			Enable Use scroll gesture with modifier keys to zoom
+		Display
+			Reduce transparency
 	Security & Privacy
 		Privacy
 			Scroll down and select Developer Tools and add Terminal
@@ -102,6 +104,7 @@ Finder
 		Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 		Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
 		Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+		Big Sur 10.X toolbar defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
 Safari
 	Settings
@@ -162,17 +165,13 @@ Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solar
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
 $ sudo nvram StartupMute=%00 // reenable startup chime in catalina
-$ brew cask install provisionql // install provioning profile quicklook
-$ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //https://github.com/whomwah/qlstephen 
-xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
-Set associated file types/extenstions
-$ duti ~/git/dot-files/dutiSettings
-$ ./brewIt.sh
+Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
 
 Shell Junk
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Install home-brew https://brew.sh
 	possible fix for bundle failing: https://stackoverflow.com/a/65481787
+$ ./brewIt.sh
 Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
 	This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
@@ -182,7 +181,6 @@ Install Node js, https://nodejs.org/en/download/
 Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
 							https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
-
 
 Work Shell Junk
 change email in ~.gitconfig to work
@@ -264,6 +262,8 @@ After Dark Flying toasters screesaver https://www.screensaversplanet.com/screens
 	Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
 Little Snitch https://www.obdev.at/products/littlesnitch/index.html
 Install FSMonitor.app
+Suspicious package https://mothersruin.com/software/SuspiciousPackage/
+BlockBlock alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
 
 TODO
 Recreate show package contents program thing
@@ -276,4 +276,4 @@ Tokyo Train Sound
 	https://www.adiumxtras.com/index.php?a=xtras&xtra_id=602
 	https://www.adiumxtras.com/download/602
 
-# vim: ts=4 textwidth=0 wrapmargin=0
+# vim: ts=4 textwidth=0 shiftwidth=4 wrapmargin=0
