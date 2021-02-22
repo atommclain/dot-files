@@ -7,3 +7,5 @@ apk upgrade
 apk add git
 apk add vim
 apk add curl
+# fix concurrency issue
+git config --global pack.threads "1"
