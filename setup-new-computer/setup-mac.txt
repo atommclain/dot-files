@@ -167,6 +167,7 @@ $ brew cask install qlstephen   // install README/INSTALL/CHANGELOG quicklook //
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 Set associated file types/extenstions
 $ duti ~/git/dot-files/dutiSettings
+$ ./brewIt.sh
 
 Shell Junk
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
@@ -182,7 +183,6 @@ Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
 							https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
 
-Install FSMonitor.app
 
 Work Shell Junk
 change email in ~.gitconfig to work
@@ -263,6 +263,7 @@ Bartender 3 https://www.macbartender.com
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
 	Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
 Little Snitch https://www.obdev.at/products/littlesnitch/index.html
+Install FSMonitor.app
 
 TODO
 Recreate show package contents program thing
