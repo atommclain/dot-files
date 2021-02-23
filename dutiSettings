@@ -1,5 +1,6 @@
-# duti -x txt // show current app domain
-# mdls -name kMDItemContentType filename // show file UTI
+# duti -x txt // show currently linked bundle id
+# lsappinfo info -only bundleid MacVim // show bundle id
+# mdls -name kMDItemContentType readme.txt  // show file UTI
 org.vim.MacVim	txt	all
 org.vim.MacVim	h	all
 org.vim.MacVim	m	all
