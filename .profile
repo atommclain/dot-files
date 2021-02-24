@@ -51,7 +51,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-if [ "$SHELL" == "/bin/ash" ]; then
+if [ "$SHELL" = "/bin/ash" ]; then
     export ENV=$HOME/.ashinit
 fi
 
