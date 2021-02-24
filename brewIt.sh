@@ -1,5 +1,6 @@
-# /bin/sh
+#!/bin/sh
 
+brew analytics off
 brew bundle
 
 # after install settings
@@ -13,4 +14,5 @@ killall Finder
 defaults write org.n8gray.QLColorCode extraHLFlags '-l -W'
 defaults write org.n8gray.QLColorCode lightTheme edit-xcode
 
+# set file type associations
 duti dutiSettings
