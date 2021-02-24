@@ -141,6 +141,7 @@ alias killxcode='killall - Xcode && nukederiveddata'
 alias killsimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 alias cd-provisioning-profiles='cd ~/Library/MobileDevice/Provisioning\ Profiles/'
 function simInfo () {
+    echo "iPhone 12 Pro"
     echo "iPhone XS"
     echo "iPhone X"
     echo "iPad Air 2"
