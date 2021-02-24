@@ -89,6 +89,32 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export GOPATH=/usr/local
+function powerline_precmd() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0} \
+	    -cwd-mode semifancy -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root")"
+
+    # Uncomment the following line to automatically clear errors after s
+    # them once. This not only clears the error for powerline-go, but al
+    # everything else you run in that shell. Don't enable this if you're
+    # sure this is what you want.
+
+    #set "?"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    install_powerline_precmd
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
