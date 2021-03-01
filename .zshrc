@@ -17,8 +17,7 @@ HISTFILE=~/.zsh_history
 bindkey -v
 bindkey ^R history-incremental-search-backward
 
-alias ez='vim ~/.zshrc'
-alias sz='source ~/.zshrc'
+alias ez='vim ~/.zshrc; source ~/.zshrc'
 
 __git_files () { 
         _wanted files expl 'local files' _files  }
@@ -89,8 +88,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export GOPATH=/usr/local
-if [ -d "$HOME/usr/bin/bin/powerline-go" ] ; then
+#export GOPATH=/usr/local
+if [ -f "$GOPATH/bin/powerline-go" ] ; then
 	function powerline_precmd() {
 	    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0} \
 		    -cwd-mode semifancy -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root")"
