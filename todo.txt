@@ -5,6 +5,7 @@ todo
 		make a script/daemon to sweep/clean the desktop each week
 		turn up mac keyboard repeat rate a ton
 		setup hammer spoon for outlook reminders
+		convert manual seetings in setupMac.txt to defaults write https://github.com/dirtymouse/defaultswrite
 	git
 		is it possible to list branches without the current branch prepended with a *
 		git branch | cut -c 3-

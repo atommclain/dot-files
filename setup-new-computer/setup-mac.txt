@@ -1,6 +1,4 @@
 System Preferences
-	General
-		Show scroll bars: Always
 	Desktop & Screen Saver
 		Screen Saver
 			Start after: 5 Minutes
@@ -15,6 +13,9 @@ System Preferences
 		Allow Spotlight Suggestions in Look up - disable
 	Touch ID -> Setup
 	User & Groups
+		Current User
+			Login Items
+				Activity Monitor
 		Login Options
 			Disable Show fast user switching menu
 	Accessibility
@@ -70,9 +71,6 @@ Preferences -> Appearance -> Hide icon
 
 Finder
 	Preferences
-		General
-			Change new finder window to always open in home folder
-			Don’t show Hard disks on desktop
 		Sidebar
 			Show these items in the sidebar:
 				Disable Recents
@@ -139,13 +137,6 @@ Safari
 			defaults write com.apple.Safari IncludeInternalDebugMenu 1
 			Tab Features > Show Tab Preview on Hover
 
-Activity Monitor
-Open at login
-Change Activity Monitor.app icon to show cpu history
-defaults write  com.Apple.ActivityMonitor IconType 6
-Change Activity Monitor.app to show all processes View Menu -> All Processes
-defaults write com.Apple.ActivityMonitor ShowCategory 100
-
 Go2Shell
 https://zipzapmac.com/Go2Shell
 Open terminal In: New Tab
@@ -167,6 +158,8 @@ Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
 
 Shell Junk
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
+Setup Touch ID to use sudo
+	sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
 Install home-brew https://brew.sh
 	possible fix for bundle failing: https://stackoverflow.com/a/65481787
 $ ./brewIt.sh

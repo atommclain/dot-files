@@ -40,6 +40,9 @@ function mcd () { mkdir -p $1; cd $1; }
 # perform ls after cd
 function cdl () { cd "$@" && ls; }
 
+alias dfr='defaults read'
+alias dfw='defaults write'
+
 alias gitx='open -a GitX .'
 
 ## git alias
