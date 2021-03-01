@@ -3,8 +3,7 @@ Run macExport.sh on old mac
 System Preferences
 	Desktop & Screen Saver
 		Screen Saver
-			Start after: 5 Minutes
-			Hot Coners... - Set upper right hand corner to start screen saver
+			Set to either Word of the day or Flying Toasters
 	Spotlight
 		Disable
 			Conversion

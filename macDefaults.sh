@@ -4,6 +4,26 @@
 # Show scroll bars: Always
 defaults write -g AppleShowScrollBars -string "Always"
 
+# System Preferences - Desktop & Screen Saver - Screen Saver
+# Start after: 5 Minutes
+defaults -currentHost write com.apple.screensaver idleTime -int 300
+
+# System Preferences - Desktop & Screen Saver - Screen Saver - Hot Corners
+# Top right screen corner → Start Screen Saver
+defaults write com.apple.dock wvous-tr-corner -int 5
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+# Bottom right screen corner → Disable Screen Saver
+defaults write com.apple.dock wvous-bl-corner -int 6
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# System Preferences - Siri
+# Enable Ask Siri
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false
+
+# Show Siri in menu bar
+defaults write com.apple.Siri StatusMenuVisible -bool false
+
 # System Preferences - Accessibility
 # Zoom - Enable Use scroll gesture with modifier keys to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
