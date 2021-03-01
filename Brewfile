@@ -38,3 +38,4 @@ mas "Tweetbot", id: 557168941
 mas "SwitchGlass", id: 1498546559
 mas "Key Codes", id:  414568915
 mas "Developer", id: 640199958
+mas "Accelerate for Safari", id: 1459809092
