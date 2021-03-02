@@ -106,33 +106,12 @@ Finder
 
 Safari
 	Settings
-		General
-			Safari opens with: All windows from last session
-			New windows open with: Favorites
-			New tabs open with: Empty Page
-			Don’t Open “safe” files after downloading
-		Tabs
-			Disable Use command-1 through command-9 to switch tabs
-			Disable show website icon in tabs
-		Search
-			Search engine: DuckDuckGo
-		Security
-			Block pop-up windows
-		Privacy
-			Allow from current website only
-			Ask websites not to track me
 		Websites
 			Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
 			Disable Allow websites to ask for permission to send push notifications
 		Extensions
 			1password https://agilebits.com/onepassword/extensions
-		Advanced
-			Show full website address
-			Show Develop menu in menu bar
 	View
-		Show status bar
-		Show favorites bar
-		Show tab bar
 		Turn off tab preview in Safari 14
 			defaults write com.apple.Safari IncludeInternalDebugMenu 1
 			Tab Features > Show Tab Preview on Hover
