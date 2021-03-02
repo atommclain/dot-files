@@ -176,20 +176,6 @@ https://red-sweater.com/fastscripts/
 Start at login
 Create open terminal script, assign keyboard shortcut option + space in FastScripts
 
-Move from ~/Library/
-Scripts
-Services
-Charles
-Colors
-ColorPickers	— install developer color picker
-https://download.panic.com/picker/ // potentially fix code signing $ xattr -d com.apple.quarantine ~/Library/ColorPickers/DeveloperColorPicker.colorPicker/
-Preferences/com.apple.dt.xcode*
-Developer/Xcode/UserData
-Application Support
-LittleSnitch
-QuickLook
-	https://github.com/sindresorhus/quick-look-plugins
-
 Charles
 https://www.charlesproxy.com/
 Help -> SSL Proxying -> Install Charles Root Certificate
