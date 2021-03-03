@@ -45,7 +45,7 @@ defaults write -g AppleShowAllExtensions -bool true
 # Show warning before changing an extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Keep folders on top: In windows when sorting by name
-com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # When performing a serach: Search the Current Folder
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
