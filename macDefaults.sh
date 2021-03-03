@@ -39,9 +39,25 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # New Finder windows show:
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
+# Finder - Preferences - Advanced
+# Show all filename extensions
+defaults write -g AppleShowAllExtensions -bool true
+# Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# Keep folders on top: In windows when sorting by name
+com.apple.finder _FXSortFoldersFirst -bool true
+# When performing a serach: Search the Current Folder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Finder - View
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+# Default Finder view is List
+defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
+
 # Activity Monitor
 # Icon shows CPU History
-defaults write  com.Apple.ActivityMonitor IconType 6
+defaults write com.Apple.ActivityMonitor IconType 6
 # View -> All Processes
 defaults write com.Apple.ActivityMonitor ShowCategory 100
 
@@ -73,5 +89,13 @@ defaults write com.apple.Safari ShowStatusBar -bool true
 defaults write com.apple.Safari ShowFavoritesBar -bool true
 # Show tab bar
 defaults write com.apple.Safari AlwaysShowTabBar -bool true
+
+# Xcode
+# Show build times in xcode
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+# Show Xcode build number on icon
+defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 # Add counterparts to Xcode https://twitter.com/peterfriese/status/1364544309878534144
 defaults write http://com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "ViewModel" "View" "Screen"
+
+killall cfprefsd

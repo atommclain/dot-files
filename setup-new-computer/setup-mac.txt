@@ -78,14 +78,7 @@ Finder
 				Disable CDs, DVDs, and iPods
 				Disable Bonjour computers
 				Disable Recent Tags
-		Advanced
-			Show all filename extensions
-			Disable show warning before changing an extension
-			Keep folders on top when sorting by name
-			When performing search: search the current folder
 	View
-		Show status bar
-		Switch to List View (command +2)
 		Navigate to home -> Show view options (command + j)
 			Show Library Folder
 			Calculate all sizes
@@ -154,7 +147,7 @@ change email in ~/git/dot-files to personal
 	git config --local --get user.email
 create or copy over ~/.workalias
 add local git aliases for opening project and creating a pull request
-	git config --local alias.op '!open myworkspace.xcworkspace'
+	git config --local alias.op '!xed .'
 	git config --local alias.pr '!open https://www.pull-request-url.com’
 
 Mac App Store
@@ -162,9 +155,8 @@ Install Clipboard History
 	Start at login
 	Use once to add to System Preferences -> Security & Privacy -> Accessibility
 Install Xcode
-	Console: defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES // show build times in xcode
-	Console: sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
-	Console: defaults write com.apple.dt.Xcode ShowDVTDebugMenu YES // show xcode build number on icon
+	https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
+	sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
 
 FastsSripts
 https://red-sweater.com/fastscripts/
@@ -214,7 +206,9 @@ Suspicious package https://mothersruin.com/software/SuspiciousPackage/
 BlockBlock alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
 
 TODO
-See https://apple.stackexchange.com/a/337179 for some good defaults
+See for some good defaults
+	https://apple.stackexchange.com/a/337179
+	https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
 add empty .workalias and then add to git ignore
