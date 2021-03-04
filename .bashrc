@@ -16,12 +16,10 @@ fi
 
 source ~/.alias
 
-#-if [ "$(hostname)" = "USSEASGMCLAIN2" ]; then
-export PS1="\[\033[01;34m\]\!\w\$\[\033[00m\]"
 # mini prompt // [command #] [pwd]
 #export PS1="\[\033[01;34m\] \! \w \$\[\033[00m\] "
 # micro prompt
-#export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
+export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)

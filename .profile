@@ -32,6 +32,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/usr/bin" ] ; then
+    PATH="$HOME/usr/bin:$PATH"
+fi
+
 export CDPATH=".:$HOME:$HOME/git"
 
 LSCOLORS="exfxcxdxbxegedabagacad"
@@ -46,3 +50,8 @@ if [ -n "$BASH_VERSION" ]; then
         . "$HOME/.bashrc"
     fi
 fi
+
+if [ "$SHELL" = "/bin/ash" ]; then
+    export ENV=$HOME/.ashinit
+fi
+

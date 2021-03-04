@@ -10,12 +10,17 @@ curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "Installing bundles"
 mkdir -p $HOME/.vim/bundle
+pushd .
 cd $HOME/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
 git clone git://github.com/arcticicestudio/nord-vim.git
 git clone git://github.com/vim-airline/vim-airline.git
 git clone git://github.com/vim-airline/vim-airline-themes.git
-git clone git://git@github.com:vim-scripts/a.vim.git
-git clone git://git@github.com:can3p/incbool.vim.git
+git clone git://github.com/vim-scripts/a.vim.git
+git clone git://github.com/can3p/incbool.vim.git
 git clone https://tpope.io/vim/fugitive.git
 vim -u NONE -c "helptags fugitive/doc" -c q
+popd
+
+mkdir -p $HOME/.tmp
+mkdir -p $HOME/.bak

@@ -2,14 +2,26 @@ After
 Setup SSH
 	Ctrl-F4
 	cd /boot
-	touch ssh
+	sudo touch ssh
 	sudo reboot now
 
 ssh-copy-id pi@ipAddress
 
+Setup SSH
+	mkdir ~/.ssh
+	ssh-keygen -t rsa -C "me@me.com"
+	git clone ssh:/blahblahblah --config core.sshCommand="ssh -i ~/.ssh/special_id_rsa"
+
+Log2Ram https://github.com/azlux/log2ram
+
 3.5" LCD hat
 	xpt2046 3.5inch RPi Display
 	https://github.com/goodtft/LCD-show
+	git clone https://github.com/goodtft/LCD-show
+	chmod -R 755 LCD-show
+	cd LCD-show/
+	sudo ./LCD35-show
+	sudo ./rotate.sh 90
 
 Swift
 	https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
@@ -21,6 +33,19 @@ Node
 
 Newman
 	sudo npm install -g newman
+
+HTTP Server
+	sudo apt update
+	sudo apt install apache2 -y
+	hostname -I
+	change root http dir: https://stackoverflow.com/a/23175981/640338
+
+sudo apt-get upgrade -y
+// Adding -y to the end of apt-get commands instructs the program to automatically answer yes to any questions rather than waiting for you to type Y or N.
+
+
+Retro Pi Junk
+=============
 
 sudo ./RetroPid-Setup/retropie_setup.sh
 sudo raspi-config localization keyboard other blah blah blah

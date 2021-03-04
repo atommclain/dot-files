@@ -201,4 +201,4 @@ def __lldb_init_module(debugger, dict):
 
     # Add the command to LLDB.
     debugger.HandleCommand('command script add -c nudge.NudgeCommand nudge')
-    print 'The "nudge" command has been installed, type "help nudge" for detailed help.'
+    print('The "nudge" command has been installed, type "help nudge" for detailed help.')
