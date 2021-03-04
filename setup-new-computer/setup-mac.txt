@@ -20,11 +20,6 @@ System Preferences
 				Activity Monitor
 		Login Options
 			Disable Show fast user switching menu
-	Accessibility
-		Zoom
-			Enable Use scroll gesture with modifier keys to zoom
-		Display
-			Reduce transparency
 	Security & Privacy
 		Privacy
 			Scroll down and select Developer Tools and add Terminal
@@ -125,19 +120,18 @@ Add Go2Shell to Finder
 Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
 Terminal
-Settings -> General -> New Windows Open With: Same Profile
-Settings -> Profiles -> Text -> Set font to Meslo LG M Regular for Powerline 11 pt
 $ mkdir ~/git; cd ~/git
 $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
 // clink .files
 $ ./setupVim.sh
-Manually copy over .ssh folder
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
+Preferences -> Profiles -> Text -> Set font to Meslo LG M Regular for Powerline 11 pt
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
 Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
 
 Shell Junk
+Manually copy over .ssh folder
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Setup Touch ID to use sudo
 	sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
