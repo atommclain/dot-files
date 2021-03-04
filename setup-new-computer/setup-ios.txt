@@ -1,6 +1,9 @@
 App store
 	Wireguard
-	1blocker
+	1Blocker
+
+Settings
+	Safari => Search Engne => DuckDuckGo
 
 VPN
 	cloud.google.com/console
