@@ -1,3 +1,5 @@
+# for use with the Almquist shell
+
 . .alias
 unalias lsa
 alias lsa='ls -a'

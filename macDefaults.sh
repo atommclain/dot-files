@@ -47,3 +47,5 @@ defaults write com.apple.Safari ShowStatusBar -bool true
 defaults write com.apple.Safari ShowFavoritesBar -bool true
 # Show tab bar
 defaults write com.apple.Safari AlwaysShowTabBar -bool true
+# Add counterparts to Xcode https://twitter.com/peterfriese/status/1364544309878534144
+defaults write http://com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "ViewModel" "View" "Screen"

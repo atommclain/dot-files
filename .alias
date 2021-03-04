@@ -43,6 +43,10 @@ function cdl () { cd "$@" && ls; }
 alias dfr='defaults read'
 alias dfw='defaults write'
 
+enable-sudo-touchid() {
+    sudo sed -i -e '1s;^;auth       sufficient     pam_tid.so\n;' /etc/pam.d/sudo
+}
+
 alias gitx='open -a GitX .'
 
 ## git alias

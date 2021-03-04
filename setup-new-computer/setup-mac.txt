@@ -1,3 +1,5 @@
+Run macExport.sh on old mac
+
 System Preferences
 	Desktop & Screen Saver
 		Screen Saver
