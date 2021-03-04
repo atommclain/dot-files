@@ -131,7 +131,7 @@ alias gstd0='git stash drop stash@{0}'
 alias gsts='git_stash_show '
 function git_stash_apply () { git stash apply stash@{"$1"}; }
 function git_stash_drop () { git stash drop stash@{"$1"}; }
-function git_stash_show () { git show stash@{"$1"}; }
+function git_stash_show () { git stash show stash@{"$1"}; }
 
 alias myip='ifconfig en0'
 alias pu='pod repo update'

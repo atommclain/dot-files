@@ -62,6 +62,8 @@
 	# template = ~/.gitmessage
 [credential]
 	helper = osxkeychain
+[stash]
+	showPatch = true
 [status]
 	showUntrackedFiles = all
 	showStash = true
