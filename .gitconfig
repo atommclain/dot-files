@@ -15,7 +15,7 @@
 	branch = yellow
 	upstream = bold blue
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	safecrlf = true
 	whitespace = trailing-space,space-before-tab,tab-in-indent
