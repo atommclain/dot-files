@@ -421,6 +421,16 @@ endfunction
 " highlight last inserted text
 nnoremap gV `[v`]
 
+command! LoadWork :call ADMLoadWork()
+command! WorkLoad :call ADMLoadWork()
+function! ADMLoadWork()
+	execute "edit ~/Downloads/Work-TODO.txt"
+	execute "60vsp ~/Downloads/scratch.txt"
+	normal! G
+	normal! h
+	execute "tabedit ~/git/dot-files/Setup-New-Computer/setup-mac.txt"
+	normal! gt
+endfunction
 
 command! DiffScratchADM :call ADMScratchDiff()
 " http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
