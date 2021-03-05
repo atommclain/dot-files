@@ -101,6 +101,10 @@ augroup vimrcEx
   autocmd BufReadPost .gvimrc setlocal noexpandtab
   " Source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc silent! :AirlineRefresh
+
+  " Source .tmux.conf on save
+  autocmd bufwritepost .tmux.conf silent! :call system('tmux source-file ~/.tmux.conf &')
   " Open files with folds open
   autocmd BufWinEnter * silent! :%foldopen!
 
@@ -164,11 +168,18 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 if OSXTerminal || has("gui_macvim")
   let g:airline_powerline_fonts = 1
-  " Italics support
+endif
+
+if has("macunix")
+" Italics support
   let &t_ZH="\e[3m"
   let &t_ZR="\e[23m"
   highlight Comment cterm=italic gui=italic
+" mouse support
+  set ttymouse=xterm2
+  set mouse=a
 endif
+
 "if !exists('g:airline_powerline_fonts')
 "    let g:airline_left_sep='›'
 "    let g:airline_right_sep='‹'
