@@ -4,6 +4,9 @@ if [[ $TERM == "linux" ]]; then
 : #	setfont ~/git/fonts/Terminus/PSF/ter-powerline-v16b.psf.gz
 fi
 
+alias wcard='lspci -vnn | grep 14e4'
+unalias myip
+alias myip='ifconfig wlan0 | grep inet | awk "{ print $2 }" | head -n 1'
 alias el='$EDITOR ~/.bash_aliases && . ~/.bash_aliases'
 alias light='setterm -foreground black -background white -store'
 alias dark='setterm -foreground white -background black -store'
