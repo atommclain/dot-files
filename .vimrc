@@ -164,6 +164,10 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 if OSXTerminal || has("gui_macvim")
   let g:airline_powerline_fonts = 1
+  " Italics support
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
+  highlight Comment cterm=italic gui=italic
 endif
 "if !exists('g:airline_powerline_fonts')
 "    let g:airline_left_sep='›'
