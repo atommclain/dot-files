@@ -292,15 +292,15 @@ nmap K i<CR><Esc>d^==kg_lD
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Listchars
-set listchars=nbsp:·,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
+set listchars=nbsp:∅,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
 if has("patch-7.4-711")	" This works as of Vim 7.4.711
   set listchars+=space:␣
 endif
 if linuxConsole
-set listchars=nbsp:∅,trail:ж,eol:¬,precedes:«,extends:»,tab:┣→
-if has("patch-7.4-711")	" This works as of Vim 7.4.711
-  set listchars+=space:·
-endif
+  set listchars=nbsp:∅,trail:ж,eol:¬,precedes:«,extends:»,tab:┣→
+  if has("patch-7.4-711")	" This works as of Vim 7.4.711
+    set listchars+=space:·
+  endif
 endif
 
 " Toggle viewing listchars ⇥
