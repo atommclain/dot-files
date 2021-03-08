@@ -70,6 +70,10 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" Maintain undo history between sessions
+set undofile
+set undodir=~/.vim/undodir
+
 " will buffer screen updates instead of updating all the time
 
 " Show diff to a file, use :diffoff to turn off
@@ -268,9 +272,6 @@ nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Insert Date
 nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i=<ESC>
 
-vnoremap <LEADER>s :s/_/self->_/<CR>
-vnoremap <LEADER>w :s/_/weakSelf->_/<CR>
-
 " }}}
 " Splitting/Joining Lines {{{
 
@@ -306,6 +307,12 @@ endif
 nnoremap <silent> <LEADER>. :set list!<CR>
 nnoremap <silent> <LEADER>, :set nolist number! <BAR> AirlineToggle <BAR> nohlsearch<CR>
 set showbreak=↪\ 	" indicator to show wrapped line
+
+" quick highlight
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
 
 " http://stackoverflow.com/questions/19233184/vim-using-listchars-to-show-leading-whitespace#comment28479060_19233184
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
