@@ -18,10 +18,12 @@ git clone git://github.com/vim-airline/vim-airline.git
 git clone git://github.com/vim-airline/vim-airline-themes.git
 git clone git://github.com/vim-scripts/a.vim.git
 git clone git://github.com/can3p/incbool.vim.git
-git clone git://tpope.io/vim/fugitive.git
+git clone https://tpope.io/vim/fugitive.git
 git clone git://github.com/christoomey/vim-tmux-navigator.git
+git clone https://github.com/t9md/vim-quickhl
 vim -u NONE -c "helptags fugitive/doc" -c q
 popd
 
+mkdir -p $HOME/.vim/undodir
 mkdir -p $HOME/.tmp
 mkdir -p $HOME/.bak
