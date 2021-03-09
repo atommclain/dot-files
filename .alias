@@ -327,6 +327,8 @@ function systemInfoADM() {
         sw_vers
         uname -a
     elif [ "$(uname)" == "Linux" ]; then
+        " https://stackoverflow.com/a/246012 get true 32/64 bit info
+        echo "Installed os is $(getconf LONG_BIT)"
         uname -a
         cat /etc/os-release
         cat /proc/device-tree/model
