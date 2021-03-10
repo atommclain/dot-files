@@ -87,7 +87,7 @@ endif
 augroup vimrcEx
   au!
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  autocmd FileType text setlocal textwidth=78 expandtab shiftwidth=4
   autocmd FileType yaml setlocal sts=2 sw=2
   autocmd FileType sh setlocal ts=4 sts=4 sw=4 et
 
