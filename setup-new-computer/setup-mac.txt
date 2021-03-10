@@ -138,7 +138,8 @@ Install cocoapods sudo gem install cocoapods
 Install Node js, https://nodejs.org/en/download/
 Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
-							https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
+						  https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
+						  https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/
 
 Work Shell Junk
 change email in ~.gitconfig to work
@@ -181,8 +182,8 @@ Kinesis remap capslock -> control
 Kinesis remap F10/F11/F12 -> mute/volume increase & decrease
 
 Hammerspoon (OS automation)
-Hammerspoon Preferences - Luanch at login, enable accessibility in system preferences
 http://www.hammerspoon.org
+Hammerspoon Preferences - Launch at login, enable accessibility in system preferences
 Install script to automatically select last used audio input (to fix problem with AirPods input and sound) http://ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html
 
 ToothFairy - MAS
