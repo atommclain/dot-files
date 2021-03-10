@@ -476,3 +476,13 @@ endfunction
 " A key with the Alt key modifier is represented using <A-key> or <M-key> notation.
 " Super is represented <D-key> in MacVim and <T-key> in gtk2 gvim. In gvim it doesn't work with all the keys.
 
+if executable('sourcekit-lsp')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'sourcekit-lsp',
+        \ 'cmd': {server_info->['sourcekit-lsp']},
+        \ 'whitelist': ['swift'],
+        \ })
+    autocmd FileType swift setlocal omnifunc=lsp#complete
+    autocmd FileType swift nnoremap <C-]> :LspDefinition<CR>
+endif
+
