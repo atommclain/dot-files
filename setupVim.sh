@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "Checking for required commands"
-command -v git >/dev/null 2>&1 || { echo >&2 "git required but not available" exit 1; }
-command -v curl >/dev/null 2>&1 || { echo >&2 "curl required but not available" exit 1; }
+command -v git >/dev/null 2>&1 || { echo >&2 "git required but not available"; exit 1; }
+command -v curl >/dev/null 2>&1 || { echo >&2 "curl required but not available"; exit 1; }
 
 echo "Installing Pathogen"
 mkdir -p $HOME/.vim/autoload
