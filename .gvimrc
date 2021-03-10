@@ -63,6 +63,7 @@ augroup gvimrcEx
   autocmd bufwritepost .gvimrc source $MYGVIMRC
   " Source .gvimrc after saving .vimrc
   autocmd bufwritepost .vimrc source $MYGVIMRC
+  autocmd bufwritepost .vimrc silent! :AirlineRefresh
 augroup END
 
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
