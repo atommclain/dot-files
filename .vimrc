@@ -299,6 +299,10 @@ nmap K i<CR><Esc>d^==kg_lD
 " Remove trailing whitespace from line, and convert tabs to 4 spaces
 nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" Nice vertical split
+hi VertSplit ctermbg=None
+set fillchars+=vert:│
+
 " Listchars
 set listchars=nbsp:∅,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
 if has("patch-7.4-711")	" This works as of Vim 7.4.711
