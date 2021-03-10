@@ -327,7 +327,7 @@ function systemInfoADM() {
         sw_vers
         uname -a
     elif [ "$(uname)" == "Linux" ]; then
-        #1 https://stackoverflow.com/a/246012 get true 32/64 bit info
+        # https://stackoverflow.com/a/246012 get true 32/64 bit info
         echo "Installed os is $(getconf LONG_BIT)"
         uname -a
         cat /etc/os-release
@@ -344,18 +344,21 @@ function clink() {
         exit 1
     fi
 
-    FIRST_ARGUMENT="$1"
+    for var in "$@"
+    do
+        file="$var"
 
-    # only create folder if it doesn't exist
-    mkdir -p ~/.bak
+        # only create folder if it doesn't exist
+        mkdir -p ~/.bak
 
-    # if file already exists, move it .bak
-    if [ -e  ~/$FIRST_ARGUMENT ]; then
-        cp ~/$FIRST_ARGUMENT ~/.bak
-        rm ~/$FIRST_ARGUMENT
-    fi
+        # if file already exists, move it .bak
+        if [ -e  ~/$file ]; then
+            cp ~/$file ~/.bak
+            rm ~/$file
+        fi
 
-    ln -s $(pwd)/$FIRST_ARGUMENT ~/$FIRST_ARGUMENT
+        ln -s $(pwd)/$file ~/$file
+    done
 }
 
 # vim: filetype=sh
