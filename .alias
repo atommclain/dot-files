@@ -187,6 +187,16 @@ function termColors256() {
         [ "$i" -lt 256 ]
     do :; done
 }
+function termTextStyles() {
+    printf "\e[1mbold\n\e[0m"
+    printf "\e[2mdim\n\e[0m"
+    printf "\e[3mitalic\n\e[0m"
+    printf "\e[4munderlined\n\e[0m"
+    printf "\e[5mblink\n\e[0m"
+    printf "\e[7minverted\n\e[0m"
+    printf "hidden: \e[8msecret!\n\e[0m"
+    printf "\e[9mstrikethrough\n\e[0m"
+}
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
