@@ -43,6 +43,7 @@ let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Termi
 let linuxConsole = (g:os == "Linux" && $TERM != "xterm-256color")
 let linuxXterm = (g:os == "Linux" && $TERM == "xterm-256color")
 let slowVim = hostname == "ereader" || $SHELL == "/bin/ash"
+let sixteenColor = $SHELL == "/bin/ash"
 
 if slowVim
   set synmaxcol=200	" stop highlighting after 200 columns
@@ -164,6 +165,10 @@ if filereadable(expand("~/.vim/autoload/pathogen.vim"))
   colorscheme solarized
   if linuxConsole
     colorscheme nord
+  endif
+  if sixteenColor
+    colorscheme slate
+    let g:airline_theme='nord'
   endif
 " endif
 endif
