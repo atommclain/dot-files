@@ -204,6 +204,7 @@ if linuxXterm
   let g:airline_symbols.whitespace = 'Ξ'
 endif
 if slowVim
+  let g:airline_theme='dark_minimal'
   let g:airline_highlighting_cache = 1
 endif
 
