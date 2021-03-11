@@ -42,7 +42,7 @@ let hostname=substitute(system('hostname'), '\n', '', '')
 let OSXTerminal=(os == 'Darwin' || os == 'Mac') && $TERM_PROGRAM == "Apple_Terminal"
 let linuxConsole = (g:os == "Linux" && $TERM != "xterm-256color")
 let linuxXterm = (g:os == "Linux" && $TERM == "xterm-256color")
-let slowVim = hostname == "ereader"
+let slowVim = hostname == "ereader" || $SHELL == "/bin/ash"
 
 if slowVim
   set synmaxcol=200	" stop highlighting after 200 columns
