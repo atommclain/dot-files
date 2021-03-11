@@ -1,8 +1,14 @@
-expand shell: macOS=> <ESC> <C-e> linux=> <C-A-e>
+expand shell:
+	macOS: <ESC> <C-e>
+	linux: <C-A-e>
 edit last command: <C-x-e>
 reload inputrc: <C-x-r>
 $ type -a [command] // returns info on the command (function/alias/script/etc.)
 exit a stuck SSH session: ~ . <RETURN> 
 $ bind -P | less // shows all readline bindings
 info searching: s then enter repeats last search
-macOS use opensnoop and fs_usage to monitor the file system
+!! last full command
+!^ first argument
+!$ last argument
+!:* all arguments
+!:0 command
