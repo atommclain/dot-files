@@ -379,12 +379,16 @@ function systemInfoADM() {
 function clink() {
     if [ $# -eq 0 ]; then
         echo "No arguments supplied"
-        exit 1
+        return 1
     fi
 
     for var in "$@"
     do
         file="$var"
+        if [ ! -f "$file" ]; then
+            echo "File doesn't exist"
+            return 1
+        fi
 
         # only create folder if it doesn't exist
         mkdir -p ~/.bak
