@@ -176,12 +176,16 @@ done
 echo
 }
 function termColors256() {
-    for i in {0..255} ; do
-    printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
-    if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
-        printf "\n";
-    fi
-done
+    i=0
+    while
+        printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
+        if [ "$i" -eq 15 ] || [ "$i" -gt 15 ] && [ $(($((i-15)) % 6)) -eq 0 ]
+        then
+            printf "\n";
+        fi
+        i="$((i+1))"
+        [ "$i" -lt 256 ]
+    do :; done
 }
 
 # for repeating the last command
