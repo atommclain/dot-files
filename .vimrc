@@ -192,6 +192,8 @@ endif
 "if !exists('g:airline_powerline_fonts')
 "    let g:airline_left_sep='›'
 "    let g:airline_right_sep='‹'
+"airline…
+"showfonts…
 "endif
 if linuxConsole
   let g:airline_symbols_ascii = 1
