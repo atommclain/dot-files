@@ -22,7 +22,7 @@ set show-mode-in-prompt On
 "\e\C-w": alias-expand-line
 "\e\C-u": "\C-a\C-k"	#kill-whole-line
 # https://news.ycombinator.com/item?id=24659282
- "\e\C-p": "!:q\" >> ~/.alias\C-aecho \"#alias="	# prepare last command for appending to alias file
+ "\e\C-p": "!:q\" >> ~/.alias\C-aecho \"#alias ="	# prepare last command for appending to alias file
 # "\e\C-p": "\C-p'\" >> ~/.alias\C-aecho \"#alias ='\C-b"	# prepare last command for appending to alias file
 # "\e\C-p": "\C-p'\" >> .alias\C-aprintf \'%q\\n\' \"#alias ='\C-b\C-b"	# prepare last command for appending to alias file
 
