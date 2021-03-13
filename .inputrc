@@ -5,24 +5,31 @@ $if Bash
 $endif
 
 # Completion https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/
-"\C-p":history-search-backward
-"\C-n":history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+set blink-matching-paren On
 set colored-stats On	# use LS_COLORS
-set visible-stats On
 set completion-ignore-case On
+set completion-map-case On	# _ and - are the same
 set completion-prefix-display-length 3
 set mark-symlinked-directories On
+set match-hidden-files On
+set menu-complete-display-prefix on
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
-TAB:menu-complete
-set menu-complete-display-prefix on
-set blink-matching-paren On
-set match-hidden-files On
 set show-mode-in-prompt On
+set visible-stats On
+TAB: menu-complete
 "\e\C-w": alias-expand-line
-"\e\C-u": "\C-a\C-k"	#kill-whole-line
+"\e\C-u": kill-whole-line 	#kill-whole-line
+
 # https://news.ycombinator.com/item?id=24659282
- "\e\C-p": "!:q\" >> ~/.alias\C-aecho \"#alias ="	# prepare last command for appending to alias file
+ # 1. !:q \C-a#\C-j 	Insert last command quoted, move to begining, add "#", execute
+ # 2. !:q >> .alias\C-a Insert last command quoted, add ">> .alias" to the end, move to begining
+ # 3. echo \C-f\C-f\C-h Type "echo " move forward two characters, delete "#"
+ # 4. alias =\C-b 	Type "alias =" move back one character
+ "\e\C-p": "!:q \C-a#\C-j!:q >> .alias\C-aecho \C-f\C-f\C-halias =\C-b"
+ #"\e\C-p": "!:q\" >> ~/.alias\C-aecho \"#alias ="	# prepare last command for appending to alias file
 # "\e\C-p": "\C-p'\" >> ~/.alias\C-aecho \"#alias ='\C-b"	# prepare last command for appending to alias file
 # "\e\C-p": "\C-p'\" >> .alias\C-aprintf \'%q\\n\' \"#alias ='\C-b\C-b"	# prepare last command for appending to alias file
 
