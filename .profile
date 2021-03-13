@@ -42,6 +42,7 @@ LSCOLORS="exfxcxdxbxegedabagacad"
 
 export EDITOR='vim'
 export VISUAL='vim'
+export FCEDIT='vim'
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
