@@ -31,6 +31,10 @@
 	diff-highlight = "!f() { git diff \"$@\" | ~/bin/diff-highlight; }; f" --color | less
 	# Get the current branch name (not so useful in itself, but used in other aliases)
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	# Current branch url encoded
+	# Rev and cut are to remove trailing whitespace since git is using #/bin/sh, also exta / added to sed
+	# If running from bash we could remove rev/cut and use echo -ne
+	branch-urlencode = !echo $(git rev-parse --abbrev-ref HEAD) | xxd -plain | rev | cut -c3- | rev | tr -d '\n' | sed 's/\\(..\\)/%\\1/g'
 	# Push the current branch to the remote "origin", and set it to track
 	# the upstream branch
 	publish = "!git push --set-upstream origin $(git branch-name)"
