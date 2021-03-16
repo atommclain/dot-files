@@ -19,8 +19,8 @@ bindkey ^R history-incremental-search-backward
 
 alias ez='vim ~/.zshrc; source ~/.zshrc'
 
-__git_files () { 
-        _wanted files expl 'local files' _files  }
+__git_files () {
+	_wanted files expl 'local files' _files  }
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,11 +83,12 @@ __git_files () {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
 	zsh-autosuggestions
+	zsh-syntax-highlighting
+	globalias
 )
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=14'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=236'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,24 +97,24 @@ source $ZSH/oh-my-zsh.sh
 #export GOPATH=/usr/local
 if [ -f "$GOPATH/bin/powerline-go" ] ; then
 	function powerline_precmd() {
-	    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0} \
-		    -cwd-mode semifancy -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root")"
+		PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0} \
+		-cwd-mode semifancy -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root")"
 
-	    # Uncomment the following line to automatically clear errors after s
-	    # them once. This not only clears the error for powerline-go, but al
-	    # everything else you run in that shell. Don't enable this if you're
-	    # sure this is what you want.
+		# Uncomment the following line to automatically clear errors after s
+		# them once. This not only clears the error for powerline-go, but al
+		# everything else you run in that shell. Don't enable this if you're
+		# sure this is what you want.
 
-	    #set "?"
+		#set "?"
 	}
 
 	function install_powerline_precmd() {
-	  for s in "${precmd_functions[@]}"; do
-	    if [ "$s" = "powerline_precmd" ]; then
-	      return
-	    fi
-	  done
-	  precmd_functions+=(powerline_precmd)
+		for s in "${precmd_functions[@]}"; do
+			if [ "$s" = "powerline_precmd" ]; then
+				return
+			fi
+		done
+	precmd_functions+=(powerline_precmd)
 	}
 
 	if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
@@ -121,6 +122,22 @@ if [ -f "$GOPATH/bin/powerline-go" ] ; then
 	fi
 fi
 
+source ~/.alias
+
+# Edit line in vim with ctrl-v
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
+alias -g _gf1="`git --no-pager diff --name-only | sed -n 1p | sed 's/ /\\\\ /g'`"
+alias -g _gf2="`git --no-pager diff --name-only | sed -n 2p | sed 's/ /\\\\ /g'`"
+alias -g _gf3="`git --no-pager diff --name-only | sed -n 3p | sed 's/ /\\\\ /g'`"
+alias -g _gf4="`git --no-pager diff --name-only | sed -n 4p | sed 's/ /\\\\ /g'`"
+alias -g _gf5="`git --no-pager diff --name-only | sed -n 5p | sed 's/ /\\\\ /g'`"
+alias -g _gf6="`git --no-pager diff --name-only | sed -n 6p | sed 's/ /\\\\ /g'`"
+alias -g _gf7="`git --no-pager diff --name-only | sed -n 7p | sed 's/ /\\\\ /g'`"
+alias -g _gf8="`git --no-pager diff --name-only | sed -n 8p | sed 's/ /\\\\ /g'`"
+alias -g _gf9="`git --no-pager diff --name-only | sed -n 9p | sed 's/ /\\\\ /g'`"
+alias -g _gf10="`git --no-pager diff --name-only | sed -n 10p | sed 's/ /\\\\ /g'`"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
