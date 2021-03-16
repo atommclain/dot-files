@@ -6,6 +6,7 @@ todo
 		turn up mac keyboard repeat rate a ton
 		setup hammer spoon for outlook reminders
 		convert manual seetings in setupMac.txt to defaults write https://github.com/dirtymouse/defaultswrite
+		https://github.com/MartinHarding/macOSuckless
 	git
 		is it possible to list branches without the current branch prepended with a *
 		git branch | cut -c 3-
