@@ -24,13 +24,17 @@ TAB: menu-complete
 "\e\C-u": kill-whole-line 	#kill-whole-line
 
 # https://news.ycombinator.com/item?id=24659282
- # 1. !:q \C-a#\C-j 	Insert last command quoted, move to begining, add "#", execute
- # 2. !:q >> .alias\C-a Insert last command quoted, add ">> .alias" to the end, move to begining
- # 3. echo \C-f\C-f\C-h Type "echo " move forward two characters, delete "#"
- # 4. alias =\C-b 	Type "alias =" move back one character
- "\e\C-p": "!:q \C-a#\C-j!:q >> .alias\C-aecho \C-f\C-f\C-halias =\C-b"
- #"\e\C-p": "!:q\" >> ~/.alias\C-aecho \"#alias ="	# prepare last command for appending to alias file
-# "\e\C-p": "\C-p'\" >> ~/.alias\C-aecho \"#alias ='\C-b"	# prepare last command for appending to alias file
+ # 1. Insert last command quoted, move to beggining, add "#", execute
+ # !:q \C-a#\C-j
+ # 2. Insert last command quoted, add ">> .alias && source ~/.alias" to the end, move to beggining
+ # !:q >> ~/.alias && source ~/.alias \C-a
+ # 3. Type "echo " move forward two characters, delete "#"
+ # echo \C-f\C-f\C-h
+ # 4. Type "alias =" move back one character
+ # alias =\C-b
+ "\e\C-p": "!:q \C-a#\C-j!:q >> ~/.alias && source ~/.alias\C-aecho \C-f\C-f\C-halias =\C-b"
+ # Create temporary alias
+ "\e\C-a": "!:q \C-aalias alias=\C-b"
 # "\e\C-p": "\C-p'\" >> .alias\C-aprintf \'%q\\n\' \"#alias ='\C-b\C-b"	# prepare last command for appending to alias file
 
 # F1, F2, F3 - calls alias1, alias2, alias3, helpful if you are executig the same ommands over and over
