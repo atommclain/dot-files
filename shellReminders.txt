@@ -1,14 +1,14 @@
 expand shell:
 	macOS: <ESC> <C-e>
 	linux: <C-A-e>
-edit last command: <C-x-e>
 reload inputrc: <C-x-r>
-$ type -a [command] // returns info on the command (function/alias/script/etc.)
-exit a stuck SSH session: ~ . <RETURN> 
 $ bind -P | less // shows all readline bindings
+$ type -a [command] // returns info on the command (function/alias/script/etc.)
+exit a stuck SSH session: ~ . <RETURN>
 info searching: s then enter repeats last search
+edit current command: <C-x-e>
 !! last full command
 !^ first argument
 !$ last argument
-!:* all arguments
-!:0 command
+!:* all previous arguments
+!:0 last command

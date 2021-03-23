@@ -35,7 +35,8 @@ TAB: menu-complete
  "\e\C-p": "!:q \C-a#\C-j!:q >> ~/.alias && source ~/.alias\C-aecho \C-f\C-f\C-halias =\C-b"
  # Create temporary alias
  "\e\C-a": "!:q \C-aalias alias=\C-b"
-# "\e\C-p": "\C-p'\" >> .alias\C-aprintf \'%q\\n\' \"#alias ='\C-b\C-b"	# prepare last command for appending to alias file
+ # Store last command (see above)
+ "\e\C-s": "echo !:q >> ~/.alias\C-j"
 
 # F1, F2, F3 - calls alias1, alias2, alias3, helpful if you are executig the same ommands over and over
 "OP": "alias1\r"

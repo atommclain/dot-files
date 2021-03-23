@@ -27,9 +27,17 @@ Swift
 	https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
 	OR
 	sudo apt install swift5
+	swift sourcekit on arm 32
+		manually clone indextore-db, swit-package-manger
+		rename swift-package-manager to swiftpm
+		get both to build // swift-package will need a patch from the swift repo
+		make sure both can build
+		change sourcekit-lsp/Package.swift to use the local repos
+		build: env CCC_OVERRIDE_OPTIONS="#x-fmodules s/-fmodules-cache-path.*//" swift build -Xcxx -I/home/pi/usr/lib/swift -Xcxx -I/home/pi/usr/lib/swift/Blocks -Xcxx -I/home/pi/
+
 
 Node
-	https://github.com/nodesource/distributions/blob/master/README.md#debinstall	
+	https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 
 Newman
 	sudo npm install -g newman
