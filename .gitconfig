@@ -79,3 +79,5 @@
 [diff]
 	wsErrorHighlight = all
 	mnemonicprefix = true
+[submodule]
+	recurse = true
