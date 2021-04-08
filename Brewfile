@@ -30,7 +30,7 @@ cask "quicklook-csv"
 cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
 cask "vlc"
 cask "swiftdefaultappsprefpane"
-mas "1Blocker", id: 1107421413
+mas "1Blocker", id: 1365531024
 mas "Attributed String Creator Pro", id: 730928349
 mas "ClipboardHistory", id: 420939835
 mas "Markdown Pro", id: 465965038
