@@ -4,6 +4,7 @@
 org.vim.MacVim	txt	all
 org.vim.MacVim	h	all
 org.vim.MacVim	m	all
+org.vim.MacVim public.shell-script all
 org.vim.MacVim	public.swift-source all
 com.radsense.markdown	net.daringfireball.markdown	all
 org.videolan.vlc	3gp	all
