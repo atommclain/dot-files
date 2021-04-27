@@ -5,7 +5,7 @@ mkdir ~/Desktop/Library
 pushd .
 cd ~/Desktop/Library
 
-items=(Scripts Services Colors ColorPickers QuickLook "Keyboard Layouts" StickiesDatabase)
+items=(Scripts Services Colors ColorPickers QuickLook "Sounds" "Keyboard Layouts" StickiesDatabase)
 for item in "${items[@]}"
 do
     cp -r ~/Library/"$item" .
