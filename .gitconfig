@@ -9,7 +9,6 @@
 [color "diff"]
 	meta = white
 	frag = white
-	commit = reverse white
 	new = green
 [color "status"]
 	branch = yellow
@@ -51,6 +50,7 @@
 	fix-conflicts = "!$EDITOR `git diff --name-only --diff-filter=U`"
 	# update develop branch from remote even if on a different branch
 	update-develop = "!git fetch origin develop:develop"
+	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs  git branch -D | echo \"Done.\"
 [branch]
 	autosetuprebase = always
 [rerere]

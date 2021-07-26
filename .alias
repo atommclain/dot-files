@@ -152,6 +152,7 @@ function simInfo () {
     echo "iPhone XS"
     echo "iPhone X"
     echo "iPad Air 2"
+    echo "Apple TV 4k (at 1080p)"
 }
 
 alias beep="echo -ne '\007'"
@@ -361,6 +362,7 @@ function systemInfoADM() {
         printf "macOS    10.14   Mojave          September 24, 2018\n"
         printf "macOS    10.15   Catalina        October 7, 2019\n"
         printf "macOS    11.00   Big Sur         November 12, 2020\n"
+        printf "macOS    12.00   Monterey        TBD\n"
         printf "=====================================================\n"
         sw_vers
         uname -a

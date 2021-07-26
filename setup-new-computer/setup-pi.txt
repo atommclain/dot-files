@@ -21,7 +21,7 @@ Log2Ram https://github.com/azlux/log2ram
 	chmod -R 755 LCD-show
 	cd LCD-show/
 	sudo ./LCD35-show
-	sudo ./rotate.sh 90
+	sudo ./rotate.sh 180
 
 Swift
 	https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
