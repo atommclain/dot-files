@@ -13,6 +13,8 @@ brew "youtube-dl"
 brew "tmux"
 brew "tree"
 brew "powerline-go"
+# https://swiftpackageindex.com/faberNovel/xcresource-cli
+brew "brew fabernovel/formulae/xcresource"
 cask "karabiner-elements"
 cask "cyberduck"
 cask "font-meslo-lg-nerd-font"

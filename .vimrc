@@ -278,7 +278,7 @@ nnoremap <LEADER>tz :w<Enter><C-z>
 " Write q register to vimrc
 nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Insert Date
-nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i=<ESC>
+nnoremap <LEADER>id :read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i=<ESC>o<ESC>k
 
 " }}}
 " Splitting/Joining Lines {{{
