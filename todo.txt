@@ -1,6 +1,5 @@
 todo
 	move *almost* everything in .profile to .bashrc
-	find out how to install perl module for single key git add -p
 	mac
 		make a script/daemon to sweep/clean the desktop each week
 		turn up mac keyboard repeat rate a ton
@@ -13,6 +12,7 @@ todo
 		return git branch with appeneded numbers? ls | nl
 		update git hist to color head and remote head
 		add todo git commit hook https://github.com/pimterry/git-confirm
+        find out how to install perl module for single key git add -p
 	vimrc
 		refresh airline whitespace without saving
 			a:au airline_whitespace
