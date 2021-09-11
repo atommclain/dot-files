@@ -78,7 +78,7 @@
 	# apparently you need to install some perl crap for this to work
 	singleKey = true
 [diff]
-	wsErrorHighlight = all
+	wsErrorHighlight = new
 	mnemonicprefix = true
 [submodule]
 	recurse = true
