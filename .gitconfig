@@ -76,14 +76,16 @@
 [advice]
 	statusHints = false
 [interactive]
-	# apparently you need to install some perl crap for this to work
 	singleKey = true
 [diff]
 	wsErrorHighlight = new
 	mnemonicprefix = true
+	algorithm = histogram
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
 [submodule]
 	recurse = true
 [rebase]
 	autostash = true
+	autosquash = true
+	missingCommitsCheck = warn
