@@ -64,6 +64,8 @@ alias gai='git add -i '
 # add all tracked files
 alias gat='git add -u'
 alias gb='git branch --all -vv'
+alias gbm='git branch --merged'
+alias gbmn='git branch --no-merged'
 alias gbc='git rev-parse --abbrev-ref HEAD '
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
@@ -94,6 +96,10 @@ alias gm='git merge '
 alias gmm='git merge origin master '
 alias gms='git merge --squash '
 alias gl='git log'
+alias glp='git log -p'
+alias gcf='git commit --patch --fixup'
+# todo: make a function to apply a fixup and then rebase it
+# git rebase -i --committer-date-is-author-date `git rev-parse 0d3290d1^`
 alias gcp='git cherry-pick '
 alias gcpc='git cherry-pick --continue'
 alias gcpa='git cherry-pick --abort'
@@ -112,9 +118,9 @@ alias gmt='git mergetool '
 alias gg='git grep '
 
 # git rebase
-alias grb='git rebase -i'
+alias grb='git rebase -i --committer-date-is-author-date'
 alias grbh='git rebase -i $H'
-alias grbd='git rebase -i develop'
+alias grbd='git rebase -i --committer-date-is-author-date develop'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 # set $H to common ancestor of HEAD and develop
