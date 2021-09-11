@@ -90,3 +90,5 @@
 	autostash = true
 	autosquash = true
 	missingCommitsCheck = warn
+[diff "exif"]
+	textconv = exiftool -s -G --File:FileModifyDate --File:FileInodeChangeDate --File:Directory --File:FileName --File:FileAccessDate --PNG:ModifyDate --PNG:Datecreate --PNG:Datemodify

@@ -1,1 +1,5 @@
 *.plist diff=plist
+*.png diff=exif
+*.gif diff=exif
+*.jpeg diff=exif
+*.jpg diff=exif
