@@ -208,6 +208,8 @@ Install FSMonitor.app
 Suspicious package https://mothersruin.com/software/SuspiciousPackage/
 BlockBlock alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
 
+Add <string>dyn.ah62d4rv4ge80g55eqz3064pusbw1k</string> to QLColorCode info.plist to allow it to preview xcode codesnippet files
+
 TODO
 See for some good defaults
 	https://apple.stackexchange.com/a/337179
