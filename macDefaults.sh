@@ -90,6 +90,10 @@ defaults write com.apple.Safari ShowFavoritesBar -bool true
 # Show tab bar
 defaults write com.apple.Safari AlwaysShowTabBar -bool true
 
+# FileMerge
+# Convert plists from binary to text
+defaults write com.apple.FileMerge Filters -array-add '{ Apply = 0; Display = 0; Extension = plist; Filter = "/usr/bin/plutil -convert xml1 -o -  \$(FILE)"; }'
+
 # Xcode
 # Show build times in xcode
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
