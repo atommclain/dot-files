@@ -28,6 +28,7 @@
 	dump = cat-file -p
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	lgtest = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %<(72,trunc) %s %Cgreen(%cd, %cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+	devlog = !git --no-pager log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short develop..$(git branch-name)
 	d = difftool
 	diff-highlight = "!f() { git diff \"$@\" | ~/bin/diff-highlight; }; f" --color | less
 	# Get the current branch name (not so useful in itself, but used in other aliases)
@@ -42,7 +43,7 @@
 	publish = "!git push --set-upstream origin $(git branch-name)"
 	# Delete the remote version of the current branch
 	unpublish = "!git push origin :$(git branch-name)"
-	safeforce = push --force-with-lease
+	safe-force = push --force-with-lease
 	# The first commit of a repository can not be rebased like regular commits,
 	# so it’s good practice to create an empty commit as your repository root.
 	it = !git init && git commit -m “root” --allow-empty

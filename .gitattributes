@@ -7,3 +7,4 @@
 *.jpeg diff=exif
 *.jpg diff=exif
 *.pbxproj whitespace=-tab-in-indent
+.gitconfig whitespace=-tab-in-indent
