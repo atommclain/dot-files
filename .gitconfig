@@ -84,6 +84,9 @@
 	algorithm = histogram
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
+[diff "swift"]
+#	xfuncname = ^[ \t]*((class|struct|enum|protocol|extension|func)[ \t].*)$
+	xfuncname = "^ *((\\w+ +)*(((class|struct|enum|protocol|extension|func|(de)?init)\\b.*)|((var|let)\\b.*\\{)))$"
 [submodule]
 	recurse = true
 [rebase]

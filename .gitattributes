@@ -1,5 +1,9 @@
-*.plist diff=plist
+# https://stackoverflow.com/a/57244091/640338
+
+*.swift diff=swift
+*.plist diff=plist whitespace=-tab-in-indent
 *.png diff=exif
 *.gif diff=exif
 *.jpeg diff=exif
 *.jpg diff=exif
+*.pbxproj whitespace=-tab-in-indent
