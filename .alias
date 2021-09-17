@@ -405,7 +405,7 @@ function clink() {
     for var in "$@"
     do
         file="$var"
-        if [ ! -f "$file" ]; then
+        if [[ ! -f "$file" && ! -d "$file" ]]; then
             echo "File doesn't exist"
             return 1
         fi
