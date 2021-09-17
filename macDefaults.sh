@@ -101,5 +101,15 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 # Add counterparts to Xcode https://twitter.com/peterfriese/status/1364544309878534144
 defaults write http://com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "ViewModel" "View" "Screen"
+# Show Indexing numeric progress
+defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool YES
+# Show invisibles
+defaults write com.apple.dt.Xcode DVTTextShowInvisibleCharacters -bool true
+# Set page guide column to 120
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation integer 120
+# Editor Overscroll small
+defaults write com.apple.dt.Xcode DVTTextOverscrollAmount -float 0.25
+# Trim trailing whitespace on whitespace-only lines
+defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
 
 killall cfprefsd
