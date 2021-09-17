@@ -70,7 +70,7 @@ alias gbc='git rev-parse --abbrev-ref HEAD '
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
 alias gca='git commit --amend'
-alias gf='git fetch --prune'
+alias gf='git fetch --all'
 # open all conflict files in editor
 alias gfix='$EDITOR `git diff --name-only | uniq`'
 alias gd='git diff'
