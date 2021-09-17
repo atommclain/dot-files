@@ -1,0 +1,14 @@
+#! /bin/sh
+
+RED=$(tput setab 1)
+NORMAL=$(tput sgr0)
+
+CONFLICT_MARKERS='<<<<<<<|=======|>>>>>>>'
+CHECK=$(git diff --staged | grep "^+" | grep -Ei "$CONFLICT_MARKERS" -c)
+if [ "$CHECK" -gt 0 ]
+then
+    echo "$RED WARNING $NORMAL Conflict markers sill preset"
+    git diff --name-only -G"$CONFLICT_MARKERS"
+    # uncomment the below line if you need the commit to not go through at all
+    exit 1
+fi

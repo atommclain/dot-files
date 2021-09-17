@@ -20,6 +20,8 @@
 	safecrlf = true
 	whitespace = trailing-space,space-before-tab,tab-in-indent
 	attributesfile = ~/.gitattributes
+[init]
+	templateDir = ~/.git_template
 [alias]
 	# list git aliases
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
