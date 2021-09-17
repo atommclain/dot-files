@@ -196,6 +196,9 @@ Preferences
 	Advanced
 		Improve sound quality by disabliing audio from device
 
+iTerm2
+    theme: https://github.com/keith/parsec/blob/master/iterm2/parsec.itermcolors
+
 Download
 Download TripMode: https://www.tripmode.ch/download-purchase/
 Feedly Background Tabs Safari Etension (open tabs in the background) http://nikonratm.github.io/feedlybackgroundtabs/
