@@ -135,7 +135,15 @@ source ~/.alias
 
 # Edit line in vim with ctrl-v
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^v' edit-command-line
+#bindkey '^v' edit-command-line
+
+# Use control v to see what a key is for binding
+
+# Fkeys to alias
+bindkey -s '[OP' 'alias1^M'
+bindkey -s '^[OQ' 'alias2^M'
+bindkey -s '^[OR' 'alias3^M'
+bindkey -s '^[OS' 'alias4^M'
 
 #alias -g _gf1="`git --no-pager diff --name-only | sed -n 1p | sed 's/ /\\\\ /g'`"
 #alias -g _gf2="`git --no-pager diff --name-only | sed -n 2p | sed 's/ /\\\\ /g'`"
