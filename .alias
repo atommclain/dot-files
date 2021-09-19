@@ -129,7 +129,9 @@ alias grbshb='grbsh `git merge-base develop HEAD`'
 function grbsh { export H="$1"; }
 # Function to take git interactive rebase argument. e.g.: grbn 2
 grbn() { git rebase -i HEAD~$1; }
-alias mg='meta git'
+alias mg='meta git '
+alias me='meta exec '
+alias mgs='meta git status'
 
 # git stash
 alias gst='git stash --include-untracked'
