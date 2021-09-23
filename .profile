@@ -36,6 +36,10 @@ if [ -d "$HOME/usr/bin" ] ; then
     PATH="$HOME/usr/bin:$PATH"
 fi
 
+export "GEM_HOME=$HOME/.gem"
+export PATH="$GEM_HOME/bin:$PATH"
+export BUNDLE_PATH="$HOME/.bundle"
+
 export CDPATH=".:$HOME:$HOME/git"
 
 # lscolors https://gist.github.com/thomd/7667642
