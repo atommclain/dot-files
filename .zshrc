@@ -140,7 +140,7 @@ autoload edit-command-line; zle -N edit-command-line
 # Use control v to see what a key is for binding
 
 # Fkeys to alias
-bindkey -s '[OP' 'alias1^M'
+bindkey -s '^[OP' 'alias1^M'
 bindkey -s '^[OQ' 'alias2^M'
 bindkey -s '^[OR' 'alias3^M'
 bindkey -s '^[OS' 'alias4^M'
