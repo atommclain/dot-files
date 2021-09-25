@@ -154,9 +154,6 @@ add local git aliases for opening project and creating a pull request
 	git config --local alias.pr '!open https://www.pull-request-url.com’
 
 Mac App Store
-Install Clipboard History
-	Start at login
-	Use once to add to System Preferences -> Security & Privacy -> Accessibility
 Install Xcode
 	https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
 	sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
@@ -171,6 +168,10 @@ https://www.charlesproxy.com/
 Help -> SSL Proxying -> Install Charles Root Certificate
 Tools -> Import Settings
 Help -> Register Charles
+
+Install PasteBot https://tapbots.net/pastebot2/Pastebot.dmg
+    Change shortcut to command + option + v
+    Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
 Create open in MacVim application, add to finder toolbar by dragging with option + command
 
