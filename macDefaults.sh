@@ -106,10 +106,13 @@ defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool YE
 # Show invisibles
 defaults write com.apple.dt.Xcode DVTTextShowInvisibleCharacters -bool true
 # Set page guide column to 120
-defaults write com.apple.dt.Xcode DVTTextPageGuideLocation integer 120
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -integer 120
 # Editor Overscroll small
 defaults write com.apple.dt.Xcode DVTTextOverscrollAmount -float 0.25
 # Trim trailing whitespace on whitespace-only lines
 defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+# Make tabs work normally
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_DoubleClick "SameAsClick"
+defaults write com.apple.dt.Xcode IDEEditorNavigationStyle_DefaultsKey "IDEEditorNavigationStyle_OpenInPlace"
 
 killall cfprefsd
