@@ -75,3 +75,19 @@ if [ "$SHELL" = "/bin/ash" ]; then
     export ENV=$HOME/.ashinit
 fi
 
+if hash fortune 2>/dev/null; then
+    echo "Today's fortune:"
+    fortune
+    echo ''
+    if [ -d "$HOME/git/obliqueMOTD" ] ; then
+        echo "Today's oblique strategy:"
+        fortune ~/git/obliqueMOTD/obliquestrategies ~/git/obliqueMOTD/diebenkorn_notes
+        echo ''
+    fi
+    if [ -d "$HOME/git/fortune" ] ; then
+        echo "Adam's Fortune:"
+        fortune ~/git/fortune/fortune
+        echo ''
+    fi
+fi
+
