@@ -44,6 +44,10 @@ export EDITOR='vim'
 export VISUAL='vim'
 export FCEDIT='vim'
 
+if [ -d "$HOME/.rvm" ] ; then
+    export BUNDLE_PATH="$HOME/.rvm"
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
