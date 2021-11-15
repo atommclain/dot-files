@@ -81,6 +81,7 @@
 	statusHints = false
 [interactive]
 	singleKey = true
+	#diffFilter = delta --color-only --features=interactive
 [diff]
 	wsErrorHighlight = new
 	mnemonicprefix = true
@@ -95,6 +96,27 @@
 	autostash = true
 	autosquash = true
 	missingCommitsCheck = warn
+[pager]
+	#diff = delta
+	#log = delta
+	#reflog = delta
+	#show = delta
+[delta]
+	features = decorations
+	#plus-style = "syntax #012800"
+	#minus-style = "syntax #340001"
+	syntax-theme = zenburn
+	navigate = true
+	line-numbers = true
+	colorMoved = default
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax
 [diff "exif"]
 	textconv = exiftool -s -G --File:FileModifyDate --File:FileInodeChangeDate --File:Directory --File:FileName --File:FileAccessDate --PNG:ModifyDate --PNG:Datecreate --PNG:Datemodify
 [fetch]
