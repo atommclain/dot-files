@@ -38,6 +38,7 @@ fi
 
 export CDPATH=".:$HOME:$HOME/git"
 
+# lscolors https://gist.github.com/thomd/7667642
 LSCOLORS="exfxcxdxbxegedabagacad"
 
 export EDITOR='vim'
