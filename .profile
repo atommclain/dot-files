@@ -49,6 +49,20 @@ if [ -d "$HOME/.rvm" ] ; then
     export BUNDLE_PATH="$HOME/.rvm"
 fi
 
+if hash python 2>/dev/null; then
+    PYTHON_PATH="$(python -c 'import site; print(site.USER_BASE)')/bin"
+    if [ -d "$PYTHON_PATH" ] ; then
+        PATH="$PYTHON_PATH:$PATH"
+    fi
+fi
+
+if hash python3 2>/dev/null; then
+    PYTHON3_PATH="$(python3 -c 'import site; print(site.USER_BASE)')/bin"
+    if [ -d "$PYTHON3_PATH" ] ; then
+        PATH="$PYTHON3_PATH:$PATH"
+    fi
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
