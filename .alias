@@ -214,6 +214,17 @@ function termTextStyles() {
     printf "hidden: \e[8msecret!\n\e[0m"
     printf "\e[9mstrikethrough\n\e[0m"
 }
+function termColorsAnsi() {
+    echo -e "\033[0mNC (No color)"
+    echo -e "\033[0;30mBLACK\t\033[1;30mBOLD_BLACK"
+    echo -e "\033[0;31mRED\t\033[1;31mBOLD_RED"
+    echo -e "\033[0;32mGREEN\t\033[1;32mBOLD_GREEN"
+    echo -e "\033[0;33mYELLOW\t\033[1;33mBOLD_YELLOW"
+    echo -e "\033[0;34mBLUE\t\033[1;34mBOLD_BLUE"
+    echo -e "\033[0;35mMAGENTA\t\033[1;35mBOLD_MAGENTA"
+    echo -e "\033[0;36mCYAN\t\033[1;36mBOLD_CYAN"
+    echo -e "\033[0;37mWHITE\t\033[1;37mBOLD_WHITE"
+}
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
