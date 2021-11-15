@@ -95,6 +95,8 @@ Finder
 
 Safari
 	Settings
+        Tabs
+            Show color in tab bar
 		Websites
 			Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
 			Disable Allow websites to ask for permission to send push notifications

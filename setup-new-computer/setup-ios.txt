@@ -4,6 +4,8 @@ App store
 
 Settings
 	Safari => Search Engne => DuckDuckGo
+    Apple ID => iCloud => iCloud Backup => Back Up Over Cellular OFF
+    Privacy => Record App Activity => ON
 
 VPN
 	cloud.google.com/console
