@@ -392,8 +392,8 @@ function systemInfoADM() {
         printf "macOS    10.13   High Sierra     September 25, 2017\n"
         printf "macOS    10.14   Mojave          September 24, 2018\n"
         printf "macOS    10.15   Catalina        October 7, 2019\n"
-        printf "macOS    11.00   Big Sur         November 12, 2020\n"
-        printf "macOS    12.00   Monterey        TBD\n"
+        printf "macOS    11.0    Big Sur         November 12, 2020\n"
+        printf "macOS    12.0    Monterey        October 25, 2021\n"
         printf "=====================================================\n"
         sw_vers
         uname -a
