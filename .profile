@@ -45,8 +45,12 @@ export EDITOR='vim'
 export VISUAL='vim'
 export FCEDIT='vim'
 
-if [ -d "$HOME/.rvm" ] ; then
-    export BUNDLE_PATH="$HOME/.rvm"
+if [ -d "$HOME/.bundle" ] ; then
+    export BUNDLE_PATH="$HOME/.bundle"
+fi
+
+if [ -d "/usr/local/opt/ruby/bin" ] ; then
+    PATH="/usr/local/opt/ruby/bin:$PATH"
 fi
 
 if hash python 2>/dev/null; then
