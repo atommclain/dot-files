@@ -133,6 +133,7 @@ Setup Touch ID to use sudo
 	sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
 Install home-brew https://brew.sh
 	possible fix for bundle failing: https://stackoverflow.com/a/65481787
+    https://stackify.com/install-ruby-on-your-mac-everything-you-need-to-get-going/
 $ ./brewIt.sh
 Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
