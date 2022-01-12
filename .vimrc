@@ -185,7 +185,9 @@ if has("macunix")
   let &t_ZR="\e[23m"
   highlight Comment cterm=italic gui=italic
 " mouse support
-  set ttymouse=xterm2
+  if !has('nvim')
+    set ttymouse=xterm2
+  endif
   set mouse=a
 endif
 
