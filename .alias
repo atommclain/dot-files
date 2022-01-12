@@ -22,6 +22,7 @@ alias cdv='cd ~/.vim'
 alias h='history'
 alias myhelp='cat ~/git/dot-files/shellReminders.txt'
 alias killlast='kill -9 %%'
+alias info='info --vi-keys'
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
 alias et='vim ~/git/dot-files/todo.txt'
@@ -340,10 +341,11 @@ function dailyman() {
 # return the nth builtin command of the offset of startDate
 function dailybuiltin() {
 	startDate="2020-05-20"
+    total=$( compgen -b | wc -l )
 	offset=$(dateDiff $startDate)
+    offset=$(( offset % total ))
 	commandNum="${offset}p"
 	todaysCommand=$(compgen -b | sed -n $commandNum)
-    total=$( compgen -b | wc -l )
 	echo "day $offset of $total, $todaysCommand:   info | man | help"
 }
 
