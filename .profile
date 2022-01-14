@@ -9,31 +9,31 @@
 #umask 022
 
 if [ -d "/opt/local/bin" ] ; then
-	export PATH="/opt/local/bin:$PATH"
+    export PATH="/opt/local/bin:$PATH"
 fi
 
 if [ -d "/opt/local/sbin" ] ; then
-	export PATH="/opt/local/sbin:$PATH"
+    export PATH="/opt/local/sbin:$PATH"
 fi
 
 if [ -d "/usr/local/bin" ] ; then
-	export PATH="/usr/local/bin:$PATH"
+    export PATH="/usr/local/bin:$PATH"
 fi
 
 if [ -d "/usr/local/sbin" ] ; then
-	export PATH="/usr/local/sbin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
 fi
 
 if [ -d "$HOME/bin" ] ; then
-	export PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "$HOME/usr/bin" ] ; then
-    PATH="$HOME/usr/bin:$PATH"
+    export PATH="$HOME/usr/bin:$PATH"
 fi
 
 export "GEM_HOME=$HOME/.gem"
@@ -78,6 +78,11 @@ if hash python3 2>/dev/null; then
     if [ -d "$PYTHON3_PATH" ] ; then
         PATH="$PYTHON3_PATH:$PATH"
     fi
+fi
+
+# Cargo rust
+if [ -d "$HOME/.cargo" ] ; then
+    . "$HOME/.cargo/env"
 fi
 
 # if running bash
