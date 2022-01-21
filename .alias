@@ -69,6 +69,10 @@ alias gb='git branch --all -vv'
 alias gbm='git branch --merged'
 alias gbmn='git branch --no-merged'
 alias gbc='git rev-parse --abbrev-ref HEAD '
+# rename current branch to a different name
+alias gbr='git branch -m $(git rev-parse --abbrev-ref HEAD) '
+# show only remote tags
+alias gtr='git ls-remote --tags origin'
 alias gc='git commit -m '
 alias gcam='git commit -a -m '
 alias gca='git commit --amend'
