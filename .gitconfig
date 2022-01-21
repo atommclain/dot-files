@@ -2,6 +2,18 @@
 [user]
 	name = Adam McLain
 	email = atommclain@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	safecrlf = true
+	whitespace = trailing-space,space-before-tab,tab-in-indent
+	attributesfile = ~/.gitattributes
+[init]
+	templateDir = ~/.git_template
+[advice]
+	statusHints = false
+[branch]
+	autosetuprebase = always
 [color]
 	diff = auto
 	status = auto
@@ -14,16 +26,52 @@
 [color "status"]
 	branch = yellow
 	upstream = bold blue
-[core]
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
-	safecrlf = true
-	whitespace = trailing-space,space-before-tab,tab-in-indent
-	attributesfile = ~/.gitattributes
-[init]
-	templateDir = ~/.git_template
 [commit]
 	verbose = true
+	gpgsign = false
+	# template = ~/.gitmessage
+[credential]
+	helper = osxkeychain
+[diff]
+	wsErrorHighlight = new
+	mnemonicprefix = true
+	algorithm = histogram
+[diff "exif"]
+	textconv = exiftool -s -G --File:FileModifyDate --File:FileInodeChangeDate --File:Directory --File:FileName --File:FileAccessDate --PNG:ModifyDate --PNG:Datecreate --PNG:Datemodify
+[diff "plist"]
+	textconv = plutil -convert xml1 -o -
+[diff "swift"]
+	xfuncname = "^ *(\\w+ +)*((class|struct|enum|protocol|extension|func) +|(de)?init\\b).*$"
+[fetch]
+	prune = true
+[grep]
+	lineNumber = true
+	extendRegexp = true
+[help]
+	autocorrect = 1
+[interactive]
+	singleKey = true
+	#diffFilter = delta --color-only --features=interactive
+[pager]
+	#diff = delta
+	#log = delta
+	#reflog = delta
+	#show = delta
+[push]
+	default = current
+[rerere]
+	enabled = true
+[rebase]
+	autostash = true
+	autosquash = true
+	missingCommitsCheck = warn
+[stash]
+	showPatch = true
+[status]
+	showUntrackedFiles = all
+	showStash = true
+[submodule]
+	recurse = true
 [alias]
 	# list git aliases
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
@@ -58,51 +106,6 @@
 	# update develop branch from remote even if on a different branch
 	update-develop = "!git fetch origin develop:develop"
 	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs  git branch -D | echo \"Done.\"
-[branch]
-	autosetuprebase = always
-[rerere]
-	enabled = true
-[help]
-	autocorrect = 1
-[push]
-	default = current
-[grep]
-	lineNumber = true
-	extendRegexp = true
-[commit]
-	gpgsign = false
-	# template = ~/.gitmessage
-[credential]
-	helper = osxkeychain
-[stash]
-	showPatch = true
-[status]
-	showUntrackedFiles = all
-	showStash = true
-[advice]
-	statusHints = false
-[interactive]
-	singleKey = true
-	#diffFilter = delta --color-only --features=interactive
-[diff]
-	wsErrorHighlight = new
-	mnemonicprefix = true
-	algorithm = histogram
-[diff "plist"]
-	textconv = plutil -convert xml1 -o -
-[diff "swift"]
-	xfuncname = "^ *(\\w+ +)*((class|struct|enum|protocol|extension|func) +|(de)?init\\b).*$"
-[submodule]
-	recurse = true
-[rebase]
-	autostash = true
-	autosquash = true
-	missingCommitsCheck = warn
-[pager]
-	#diff = delta
-	#log = delta
-	#reflog = delta
-	#show = delta
 [delta]
 	features = decorations
 	#plus-style = "syntax #012800"
@@ -119,7 +122,3 @@
 	hunk-header-decoration-style = blue box
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax
-[diff "exif"]
-	textconv = exiftool -s -G --File:FileModifyDate --File:FileInodeChangeDate --File:Directory --File:FileName --File:FileAccessDate --PNG:ModifyDate --PNG:Datecreate --PNG:Datemodify
-[fetch]
-	prune = true
