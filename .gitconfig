@@ -22,6 +22,8 @@
 	attributesfile = ~/.gitattributes
 [init]
 	templateDir = ~/.git_template
+[commit]
+	verbose = true
 [alias]
 	# list git aliases
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
