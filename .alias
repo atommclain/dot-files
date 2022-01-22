@@ -426,13 +426,19 @@ function clink() {
         # only create folder if it doesn't exist
         mkdir -p ~/.bak
 
+        # if file is a symlink
+        notSymlink=true
+        if [ -L ~/$file ]; then
+            notSymlink=false
+        fi
+
         # if file already exists, move it .bak
-        if [ -e  ~/$file ]; then
+        if [ -e ~/$file -a $notSymlink = true ]; then
             cp ~/$file ~/.bak
             rm ~/$file
         fi
 
-        ln -s $(pwd)/$file ~/$file
+        ln -sf $(pwd)/$file ~/$file
     done
 }
 
