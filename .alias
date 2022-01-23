@@ -1,5 +1,5 @@
 if [ -f ~/.workalias ]; then
-	source ~/.workalias
+    source ~/.workalias
 fi
 
 ## general
