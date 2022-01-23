@@ -1,5 +1,7 @@
 # for use with the Almquist shell
 
+PS1="\w# "
+
 . .alias
 unalias lsa
 alias lsa='ls -a'
