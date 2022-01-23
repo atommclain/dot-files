@@ -114,5 +114,7 @@ defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool tru
 # Make tabs work normally
 defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_DoubleClick "SameAsClick"
 defaults write com.apple.dt.Xcode IDEEditorNavigationStyle_DefaultsKey "IDEEditorNavigationStyle_OpenInPlace"
+# Check for spelling automatically
+defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool true
 
 killall cfprefsd
