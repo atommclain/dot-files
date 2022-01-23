@@ -3,3 +3,11 @@
 . .alias
 unalias lsa
 alias lsa='ls -a'
+
+function fc() {
+    LAST_COMMAND=$(tail -2 $HOME/.ash_history | head -1)
+    TEMP_FILE=$(mktemp)
+    echo "$LAST_COMMAND" >> $TEMP_FILE
+    $EDITOR $TEMP_FILE
+    eval $(head -1 $TEMP_FILE)
+}
