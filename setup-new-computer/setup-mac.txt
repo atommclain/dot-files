@@ -120,7 +120,9 @@ $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
 // clink .files
 $ ./setupVim.sh
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
-Preferences -> Profiles -> Text -> Set font to Meslo LG M Regular for Powerline 11 pt
+Preferences -> Profiles -> Text
+    Set font to Meslo LG M Regular for Powerline 11 pt
+    Enable bold fonts
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
 Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
@@ -216,6 +218,10 @@ Suspicious package https://mothersruin.com/software/SuspiciousPackage/
 BlockBlock alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
 
 Add <string>dyn.ah62d4rv4ge80g55eqz3064pusbw1k</string> to QLColorCode info.plist to allow it to preview xcode codesnippet files
+
+Bundler
+    https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
+    sudo gem install bundler
 
 TODO
 See for some good defaults
