@@ -19,6 +19,7 @@ mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 $GIT_CLONE_PULL git://github.com/altercation/vim-colors-solarized.git
 $GIT_CLONE_PULL git://github.com/arcticicestudio/nord-vim.git
+$GIT_CLONE_PULL git://github.com/shaunsingh/nord.nvim.git
 $GIT_CLONE_PULL git://github.com/vim-airline/vim-airline.git
 $GIT_CLONE_PULL git://github.com/vim-airline/vim-airline-themes.git
 $GIT_CLONE_PULL git://github.com/vim-scripts/a.vim.git
@@ -31,4 +32,3 @@ vim -u NONE -c "helptags fugitive/doc" -c q
 mkdir -p $HOME/.vim/undodir
 mkdir -p $HOME/.tmp
 mkdir -p $HOME/.bak
-
