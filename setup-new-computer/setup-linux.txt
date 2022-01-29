@@ -6,3 +6,5 @@ http://rvm.io/integration/lxterminal
 https://www.emacswiki.org/emacs/MovingTheCtrlKey#toc5
 git clone https://aur.archlinux.org/powerline-console-fonts.git
 git clone --depth 1 https://github.com/powerline/powerline.git
+
+# vim: ts=4 textwidth=0 wrapmargin=0

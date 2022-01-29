@@ -1,63 +1,63 @@
 Run macExport.sh on old mac
 
 System Preferences
-	Desktop & Screen Saver
-		Screen Saver
-			Set to either Word of the day or Flying Toasters
-	Spotlight
-		Disable
-			Conversion
-			Mail & Messages
-			Movies
-			Music
-			Spotlight Suggestions
-		Allow Spotlight Suggestions in Look up - disable
-	Touch ID -> Setup
-	User & Groups
-		Current User
-			Login Items
-				Activity Monitor
-		Login Options
-			Disable Show fast user switching menu
-	Security & Privacy
-		Privacy
-			Scroll down and select Developer Tools and add Terminal
-	Mouse
-		Pair bluetooth mouse
-		Enable secondary click
-		Enable Scroll direction: Natural
-		Increase tracking speed to about middle
-	Keyboard
-		Keyboard
-			Touch Bar Shows -> App Controls -> Show Control Strip
-			Customize Touch Bar...
-				Remove Siri control
-		Shortcuts
-			Full Keyboard Access All controls
-			App Shortcuts
-				Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
-				Create Finder shortcut for "Show Package Contents" and assign it to command + option + O
-				Create Safari shortcut for "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
-		Keyboard
-			Modifier Keys…
-				Change Caps Lock key to control key
-				Swap option and command key for Kinesis freestyle PC keyboard
-	Sound
-		Show volume in menu bar
-	Bluetooth
-		Show Bluetooth in the menu bar
-	Displays
-		Change monitor arrangement to reflect real world display arrangement
-		Night Shift
-			Schedule Sunset to Sunrise
-			Color Temperature 75%
-	Energy Saver
-		Power Adapter
-			Turn display off after: 20 minutes
-	Date & Time
-		Clock
-			Use a 24-hour clock
-			Disable Show dates and time in menubar (use itsycal instead)
+    Desktop & Screen Saver
+        Screen Saver
+            Set to either Word of the day or Flying Toasters
+    Spotlight
+        Disable
+            Conversion
+            Mail & Messages
+            Movies
+            Music
+            Spotlight Suggestions
+        Allow Spotlight Suggestions in Look up - disable
+    Touch ID -> Setup
+    User & Groups
+        Current User
+            Login Items
+                Activity Monitor
+        Login Options
+            Disable Show fast user switching menu
+    Security & Privacy
+        Privacy
+            Scroll down and select Developer Tools and add Terminal
+    Mouse
+        Pair bluetooth mouse
+        Enable secondary click
+        Enable Scroll direction: Natural
+        Increase tracking speed to about middle
+    Keyboard
+        Keyboard
+            Touch Bar Shows -> App Controls -> Show Control Strip
+            Customize Touch Bar...
+                Remove Siri control
+        Shortcuts
+            Full Keyboard Access All controls
+            App Shortcuts
+                Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
+                Create Finder shortcut for "Show Package Contents" and assign it to command + option + O
+                Create Safari shortcut for "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
+        Keyboard
+            Modifier Keys…
+                Change Caps Lock key to control key
+                Swap option and command key for Kinesis freestyle PC keyboard
+    Sound
+        Show volume in menu bar
+    Bluetooth
+        Show Bluetooth in the menu bar
+    Displays
+        Change monitor arrangement to reflect real world display arrangement
+        Night Shift
+            Schedule Sunset to Sunrise
+            Color Temperature 75%
+    Energy Saver
+        Power Adapter
+            Turn display off after: 20 minutes
+    Date & Time
+        Clock
+            Use a 24-hour clock
+            Disable Show dates and time in menubar (use itsycal instead)
 
 itsycal
 https://www.mowglii.com/itsycal/
@@ -66,47 +66,47 @@ Preferences -> Appearance -> E MMM d h:mm
 Preferences -> Appearance -> Hide icon
 
 Finder
-	Preferences
-		Sidebar
-			Show these items in the sidebar:
-				Disable Recents
-				Disable AirDrop
-				Disable Desktop
-				Disable Documents
-				Enable Home
-				Disable iCloud Drive
-				Disable CDs, DVDs, and iPods
-				Disable Bonjour computers
-				Disable Recent Tags
-	View
-		Navigate to home -> Show view options (command + j)
-			Show Library Folder
-			Calculate all sizes
-			Use as Defaults
-	Toolbar
-		Add Open in MacVim
-		Remove everything except for Search and Back/Forward buttons
-	Terminal Commands
-		Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-		Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
-		Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
-		Big Sur 10.X toolbar defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
-		Reenable startup chime in catalina sudo nvram StartupMute=%00
+    Preferences
+        Sidebar
+            Show these items in the sidebar:
+                Disable Recents
+                Disable AirDrop
+                Disable Desktop
+                Disable Documents
+                Enable Home
+                Disable iCloud Drive
+                Disable CDs, DVDs, and iPods
+                Disable Bonjour computers
+                Disable Recent Tags
+    View
+        Navigate to home -> Show view options (command + j)
+            Show Library Folder
+            Calculate all sizes
+            Use as Defaults
+    Toolbar
+        Add Open in MacVim
+        Remove everything except for Search and Back/Forward buttons
+    Terminal Commands
+        Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+        Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
+        Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
+        Big Sur 10.X toolbar defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
+        Reenable startup chime in catalina sudo nvram StartupMute=%00
 
 Safari
-	Settings
+    Settings
         Tabs
             Show color in tab bar
-		Websites
-			Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
-			Disable Allow websites to ask for permission to send push notifications
-		Extensions
-			1password https://agilebits.com/onepassword/extensions
-	View
-		Turn off tab preview in Safari 14
-			defaults write com.apple.Safari IncludeInternalDebugMenu 1
-			Tab Features > Show Tab Preview on Hover
-			Tab Features > Narrow Tabs
+        Websites
+            Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
+            Disable Allow websites to ask for permission to send push notifications
+        Extensions
+            1password https://agilebits.com/onepassword/extensions
+    View
+        Turn off tab preview in Safari 14
+            defaults write com.apple.Safari IncludeInternalDebugMenu 1
+            Tab Features > Show Tab Preview on Hover
+            Tab Features > Narrow Tabs
 
 Go2Shell
 https://zipzapmac.com/Go2Shell
@@ -132,21 +132,21 @@ Shell Junk
 Manually copy over .ssh folder
 Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Setup Touch ID to use sudo
-	sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
+    sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
 Install home-brew https://brew.sh
-	possible fix for bundle failing: https://stackoverflow.com/a/65481787
+    possible fix for bundle failing: https://stackoverflow.com/a/65481787
     https://stackify.com/install-ruby-on-your-mac-everything-you-need-to-get-going/
 $ ./brewIt.sh
 Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
 Install cocoapods sudo gem install cocoapods
-	This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
-	run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
+    This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
+    run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
 
 Install Node js, https://nodejs.org/en/download/
 Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
-						https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
-						https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/
+                        https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
+                        https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/
 Setup cargo
     curl https://sh.rustup.rs -sSf | sh
 Install bropages
@@ -155,17 +155,17 @@ Install bropages
 Work Shell Junk
 change email in ~.gitconfig to work
 change email in ~/git/dot-files to personal
-	git config --local user.email [personal email]
-	git config --local --get user.email
+    git config --local user.email [personal email]
+    git config --local --get user.email
 create or copy over ~/.workalias
 add local git aliases for opening project and creating a pull request
-	git config --local alias.op '!xed .'
-	git config --local alias.pr '!open https://www.pull-request-url.com’
+    git config --local alias.op '!xed .'
+    git config --local alias.pr '!open https://www.pull-request-url.com’
 
 Mac App Store
 Install Xcode
-	https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
-	sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
+    https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
+    sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
 
 FastsSripts
 https://red-sweater.com/fastscripts/
@@ -200,11 +200,11 @@ Install script to automatically select last used audio input (to fix problem wit
 
 ToothFairy - MAS
 Preferences
-	Show batter status in the menu bar
-	Launch at login
-	Hide Dock icon
-	Advanced
-		Improve sound quality by disabliing audio from device
+    Show batter status in the menu bar
+    Launch at login
+    Hide Dock icon
+    Advanced
+        Improve sound quality by disabliing audio from device
 
 iTerm2
     theme: https://github.com/keith/parsec/blob/master/iterm2/parsec.itermcolors
@@ -215,7 +215,7 @@ Feedly Background Tabs Safari Etension (open tabs in the background) http://niko
 BetterZip Quick Look https://macitbetter.com/BetterZip-Quick-Look-Generator/
 Bartender 3 https://www.macbartender.com
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
-	Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
+    Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
 Little Snitch https://www.obdev.at/products/littlesnitch/index.html
 Install FSMonitor.app
 Suspicious package https://mothersruin.com/software/SuspiciousPackage/
@@ -229,14 +229,14 @@ Bundler
 
 TODO
 See for some good defaults
-	https://apple.stackexchange.com/a/337179
-	https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+    https://apple.stackexchange.com/a/337179
+    https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
 add empty .workalias and then add to git ignore
 DON'T SYMLINK .bash_prompt
 Tokyo Train Sound
-	https://www.adiumxtras.com/index.php?a=xtras&xtra_id=602
-	https://www.adiumxtras.com/download/602
+    https://www.adiumxtras.com/index.php?a=xtras&xtra_id=602
+    https://www.adiumxtras.com/download/602
 
 # vim: ts=4 textwidth=0 shiftwidth=4 wrapmargin=0

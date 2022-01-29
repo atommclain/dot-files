@@ -1,57 +1,59 @@
 After
 Setup SSH
-	Ctrl-F4
-	cd /boot
-	sudo touch ssh
-	sudo reboot now
+    Ctrl-F4
+    cd /boot
+    sudo touch ssh
+    sudo reboot now
 
 ssh-copy-id pi@ipAddress
+sudo nano /etc/ssh/sshd_config
+PasswordAuthentication no
 
 Setup SSH
-	mkdir ~/.ssh
-	ssh-keygen -t rsa -C "me@me.com"
-	git clone ssh:/blahblahblah --config core.sshCommand="ssh -i ~/.ssh/special_id_rsa"
+    mkdir ~/.ssh
+    ssh-keygen -t rsa -C "me@me.com"
+    git clone ssh:/blahblahblah --config core.sshCommand="ssh -i ~/.ssh/special_id_rsa"
 
 Log2Ram https://github.com/azlux/log2ram
 
 3.5" LCD hat
-	xpt2046 3.5inch RPi Display
-	https://github.com/goodtft/LCD-show
-	git clone https://github.com/goodtft/LCD-show
-	chmod -R 755 LCD-show
-	cd LCD-show/
-	sudo ./LCD35-show
-	sudo ./rotate.sh 180
+    xpt2046 3.5inch RPi Display
+    https://github.com/goodtft/LCD-show
+    git clone https://github.com/goodtft/LCD-show
+    chmod -R 755 LCD-show
+    cd LCD-show/
+    sudo ./LCD35-show
+    sudo ./rotate.sh 180
 
 Swift
-	https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
-	OR
-	sudo apt install swift5
-	swift sourcekit on arm 32
-		manually clone indextore-db, swit-package-manger
-		rename swift-package-manager to swiftpm
-		get both to build // swift-package will need a patch from the swift repo
-		make sure both can build
-		change sourcekit-lsp/Package.swift to use the local repos
-		build: env CCC_OVERRIDE_OPTIONS="#x-fmodules s/-fmodules-cache-path.*//" swift build -Xcxx -I/home/pi/usr/lib/swift -Xcxx -I/home/pi/usr/lib/swift/Blocks -Xcxx -I/home/pi/
+    https://github.com/uraimo/buildSwiftOnARM#prebuilt-binaries
+    OR
+    sudo apt install swift5
+    swift sourcekit on arm 32
+        manually clone indextore-db, swit-package-manger
+        rename swift-package-manager to swiftpm
+        get both to build // swift-package will need a patch from the swift repo
+        make sure both can build
+        change sourcekit-lsp/Package.swift to use the local repos
+        build: env CCC_OVERRIDE_OPTIONS="#x-fmodules s/-fmodules-cache-path.*//" swift build -Xcxx -I/home/pi/usr/lib/swift -Xcxx -I/home/pi/usr/lib/swift/Blocks -Xcxx -I/home/pi/
 
 
 Node
-	https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+    https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 
 Newman
-	sudo npm install -g newman
+    sudo npm install -g newman
 
 tmux
-	sudo apt install tmux
+    sudo apt install tmux
 
 sudo apt install vim ctags vim-doc vim-scripts
 
 HTTP Server
-	sudo apt update
-	sudo apt install apache2 -y
-	hostname -I
-	change root http dir: https://stackoverflow.com/a/23175981/640338
+    sudo apt update
+    sudo apt install apache2 -y
+    hostname -I
+    change root http dir: https://stackoverflow.com/a/23175981/640338
 
 sudo apt-get upgrade -y
 // Adding -y to the end of apt-get commands instructs the program to automatically answer yes to any questions rather than waiting for you to type Y or N.
@@ -64,30 +66,32 @@ sudo ./RetroPid-Setup/retropie_setup.sh
 sudo raspi-config localization keyboard other blah blah blah
 
 Copy the following:
-	/opt/retropie/configs
-	/home/RetroPie/
-		move roms
-		move splashscreens
-		move bios
+    /opt/retropie/configs
+    /home/RetroPie/
+        move roms
+        move splashscreens
+        move bios
 
 RetroPie GUI
-	RetroPie Setup
-	change splash screen to random
-	Manage Packages
-		Manage optional packages
-			install scraper
-			install dosbox
-	Configuration
-		enable samba
-		scraper setup
+    RetroPie Setup
+    change splash screen to random
+    Manage Packages
+        Manage optional packages
+            install scraper
+            install dosbox
+    Configuration
+        enable samba
+        scraper setup
 
 sudo ./retropie_pacages.sh dosbox configure
 sudo vim /boot/config.txt
-	hdmi group  uncomment
-	hdmi_mode=16 // force 1080p @ 60hz for faster menus
+    hdmi group  uncomment
+    hdmi_mode=16 // force 1080p @ 60hz for faster menus
 
 Gui => Main Menu (start)
-	Game ccollection settings => enable favorites and last played
+    Game ccollection settings => enable favorites and last played
 
 cd /opt/retropie/emulators/dosbox/bin
 ./dosbox -startmapper
+
+# vim: ts=4 textwidth=0 wrapmargin=0
