@@ -116,5 +116,7 @@ defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_DoubleClick "SameAs
 defaults write com.apple.dt.Xcode IDEEditorNavigationStyle_DefaultsKey "IDEEditorNavigationStyle_OpenInPlace"
 # Check for spelling automatically
 defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool true
+ # "...a new mode that better utilizes available cores, resulting in faster builds for Swift projects"
+defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
 killall cfprefsd
