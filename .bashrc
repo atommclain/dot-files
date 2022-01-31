@@ -34,6 +34,8 @@ fi
 stty -ixon -ixoff
 # verify command before execcuting
 shopt -s histverify
+# append to history, don't overwrite it
+shopt -s histappend
 HISTSIZE= HISTFILESIZE= # Infinite
 HISTCONTROL=ignoredups
 
