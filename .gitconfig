@@ -52,6 +52,11 @@
 [interactive]
 	singleKey = true
 	#diffFilter = delta --color-only --features=interactive
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+	keepBackup = false
 [pager]
 	#diff = delta
 	#log = delta
