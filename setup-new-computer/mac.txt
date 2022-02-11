@@ -206,6 +206,9 @@ Preferences
     Advanced
         Improve sound quality by disabliing audio from device
 
+TextSniper - MAS
+    launch then approve screen recording in System Preferences -> Security
+
 iTerm2
     theme: https://github.com/keith/parsec/blob/master/iterm2/parsec.itermcolors
 
