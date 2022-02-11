@@ -44,3 +44,4 @@ HISTCONTROL=ignoredups
 
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
+export BASH_SILENCE_DEPRECATION_WARNING=1 # https://support.apple.com/kb/HT208050
