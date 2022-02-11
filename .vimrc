@@ -482,7 +482,7 @@ function! ADMLoadWork()
 	execute "60vsp ~/Downloads/scratch.txt"
 	normal! G
 	normal! h
-	execute "tabedit ~/git/dot-files/Setup-New-Computer/setup-mac.txt"
+	execute "tabedit ~/git/dot-files/Setup-New-Computer/mac.txt"
 	normal! gt
 endfunction
 
