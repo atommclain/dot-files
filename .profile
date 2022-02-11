@@ -47,7 +47,7 @@ LSCOLORS="exfxcxdxbxegedabagacad"
 
 export EDITOR='vim'
 export VISUAL='vim'
-export FCEDIT='vim'
+export FCEDIT='vim -u .minivimrc'
 export MANPAGER='less -s -M +Gg'
 
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
