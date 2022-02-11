@@ -99,14 +99,7 @@ fi
 
 if hash fortune 2>/dev/null; then
     if [ -d "$HOME/git/fortune" ] ; then
-        echo "Adam's Fortune:"
-        fortune ~/git/fortune/fortune
-        echo ''
-    fi
-    if [ -d "$HOME/git/obliqueMOTD" ] ; then
-        echo "Today's oblique strategy:"
-        fortune ~/git/obliqueMOTD/obliquestrategies ~/git/obliqueMOTD/diebenkorn_notes
-        echo ''
+        $HOME/git/fortune/fortune.sh
     fi
 fi
 
