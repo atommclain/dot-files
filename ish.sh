@@ -16,4 +16,6 @@ apk add make gcc build-base abuild binutils util-linux npm fortune
 # fix concurrency issue
 git config --global pack.threads "1"
 # remove login message
-rm /etc/motd
+if [ -f "/etc/motd" ]; then
+    rm /etc/motd
+fi

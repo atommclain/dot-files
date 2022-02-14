@@ -1,5 +1,6 @@
 #!/bin/sh
 
+git branch --set-upstream-to origin/master
 source .alias
 clink .profile
 clink .alias
