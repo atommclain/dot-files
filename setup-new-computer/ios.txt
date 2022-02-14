@@ -4,6 +4,9 @@ App store
     Vinegar
     SponsorBlock
     Streaks
+    Notion
+    Spotify
+    Prompt
 
 Settings
     Safari => Search Engne => DuckDuckGo
