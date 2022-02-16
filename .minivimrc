@@ -38,6 +38,11 @@ set esckeys
 set ttimeoutlen=20
 set timeoutlen=1000
 
+" backup
+set backup
+set backupdir=~/.tmp,~/
+set directory=~/.tmp,~/
+
 " allow syntax and filetype plugins
 syntax enable
 filetype plugin indent on
@@ -51,6 +56,9 @@ endif
 nnoremap <silent> <LEADER>. :set list!<CR>
 " git conflict seperator search
 nnoremap <LEADER>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+" Edit .vimrc
+let $MYVIMRC="$HOME/.minivimrc"
+nnoremap <LEADER>ev :e $MYVIMRC<CR>
 
 " autocmds
 "---------
@@ -68,4 +76,8 @@ augroup languages
 	autocmd BufNewFile,BufRead *.bash set syntax=sh
 	autocmd FileType html,javascript,css,json,yaml,sh
 				\ setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+augroup vimrc
+	autocmd bufwritepost .minivimrc source $MYVIMRC
 augroup END
