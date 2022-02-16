@@ -10,6 +10,7 @@ set history=50		" keep 50 lines of command line history
 set number		" show line number
 set hidden		" allow buffers to be hidden without write
 set scrolloff=6		" start scrolling at 6 lines from edge
+set wrap		" soft wrap on edge of window (default on)
 set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
@@ -26,7 +27,6 @@ set laststatus=2	" always show the statusline
 set encoding=utf-8	" necessary to show Unicode glyphs
 set clipboard=unnamed	" use system clipboard
 set iskeyword-=_	" don't count `_` as part of a 'word'
-
 set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
@@ -320,7 +320,9 @@ endif
 " Toggle viewing listchars ⇥
 nnoremap <silent> <LEADER>. :set list!<CR>
 nnoremap <silent> <LEADER>, :set nolist number! <BAR> AirlineToggle <BAR> nohlsearch<CR>
-set showbreak=↪\ 	" indicator to show wrapped line
+"set showbreak=↪\ 	" indicator to show wrapped line
+"let g:airline_section_z = "%p%% %l %v %{strlen(getline('.'))}"		" show real linke length
+"let g:airline_section_z = "%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v %{strlen(getline('.'))}"		" show real line length with default formatting
 
 " quick highlight
 nmap <Space>m <Plug>(quickhl-manual-this)
