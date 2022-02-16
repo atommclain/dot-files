@@ -334,14 +334,14 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
 let g:whitespace_syntax_type = 0
 function! ToggleWhitespaceSyntax()
-   if g:whitespace_syntax_type == 0
-      let g:whitespace_previous_syntax=&syntax
-      set syntax=whitespace
-      let g:whitespace_syntax_type = 1
-   else
-      let &syntax=g:whitespace_previous_syntax
-      let g:whitespace_syntax_type = 0
-   endif
+  if g:whitespace_syntax_type == 0
+    let g:whitespace_previous_syntax=&syntax
+    set syntax=whitespace
+    let g:whitespace_syntax_type = 1
+  else
+    let &syntax=g:whitespace_previous_syntax
+    let g:whitespace_syntax_type = 0
+  endif
 endfunction
 
 " http://dougblack.io/words/a-good-vimrc.html
@@ -480,22 +480,22 @@ nnoremap gV `[v`]
 command! LoadWork :call ADMLoadWork()
 command! WorkLoad :call ADMLoadWork()
 function! ADMLoadWork()
-	execute "edit ~/Downloads/Work-TODO.txt"
-	execute "60vsp ~/Downloads/scratch.txt"
-	normal! G
-	normal! h
-	execute "tabedit ~/git/dot-files/Setup-New-Computer/mac.txt"
-	normal! gt
+  execute "edit ~/Downloads/Work-TODO.txt"
+  execute "60vsp ~/Downloads/scratch.txt"
+  normal! G
+  normal! h
+  execute "tabedit ~/git/dot-files/Setup-New-Computer/mac.txt"
+  normal! gt
 endfunction
 
 command! DiffScratchADM :call ADMScratchDiff()
 " http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
 function! ADMScratchDiff()
-	execute "vsp"
-	execute "ene"
-	execute "windo diffthis"
-	normal! h
-	normal! "*p
+  execute "vsp"
+  execute "ene"
+  execute "windo diffthis"
+  normal! h
+  normal! "*p
 endfunction
 " TODO:
 " * https://github.com/ktonga/vim-follow-my-lead show list of all leader keys
