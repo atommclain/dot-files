@@ -24,12 +24,6 @@ defaults write com.apple.assistant.support "Assistant Enabled" -bool false
 # Show Siri in menu bar
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
-# System Preferences - Accessibility
-# Zoom - Enable Use scroll gesture with modifier keys to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-# Display - Reduce transparency
-#defaults write com.apple.universalaccess reduceTransparency -bool true
-
 # Finder - Preferences - General
 # Show these items on desktop:
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false

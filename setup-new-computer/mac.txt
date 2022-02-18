@@ -13,6 +13,11 @@ System Preferences
             Spotlight Suggestions
         Allow Spotlight Suggestions in Look up - disable
     Touch ID -> Setup
+    Accessibility
+       Zoom -> Use scroll gesture with modifier keys to zoom 
+       Display
+           Reduce transparency
+           Show window title icons 
     User & Groups
         Current User
             Login Items
