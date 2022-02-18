@@ -384,8 +384,8 @@ function copyssh() {
     if [ "$(uname)" == "Darwin" ]; then 
         cat ~/.ssh/id_rsa.pub | pbcopy
     elif [ "$(uname)" == "Linux" ]; then
-        if [ -d "/dev/clipboard" ] ; then
-            cat ~/.ssh/id_rsa.pup | /dev/clipboard
+        if [ -e "/dev/clipboard" ] ; then
+            cat ~/.ssh/id_rsa.pub > /dev/clipboard
         else
             echo "/dev/clipboard does not exist"
         fi
