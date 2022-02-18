@@ -380,6 +380,20 @@ function dateDiff() {
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
 
+function copyssh() {
+    if [ "$(uname)" == "Darwin" ]; then 
+        cat ~/.ssh/id_rsa.pub | pbcopy
+    elif [ "$(uname)" == "Linux" ]; then
+        if [ -d "/dev/clipboard" ] ; then
+            cat ~/.ssh/id_rsa.pup | /dev/clipboard
+        else
+            echo "/dev/clipboard does not exist"
+        fi
+    else
+        echo "unknown"
+    fi
+}
+
 alias whatami='systemInfoADM'
 function systemInfoADM() {
     if [[ "$(uname)" == "Darwin" ]]; then
