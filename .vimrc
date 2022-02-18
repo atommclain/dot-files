@@ -239,6 +239,8 @@ nnoremap <LEADER><S-CR> mzO<Esc>`z
 nnoremap <LEADER>- "_
 vnoremap <LEADER>- "_
 
+" Insert line of "="
+nnoremap <LEADER>= o<ESC>40i=<ESC>
 " Add semi colon to the end of current line
 nnoremap <LEADER>; mzA;<ESC>`z
 " A.vim alternative file
