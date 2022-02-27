@@ -38,11 +38,6 @@ set esckeys
 set ttimeoutlen=20
 set timeoutlen=1000
 
-" backup
-set backup
-set backupdir=~/.tmp,~/
-set directory=~/.tmp,~/
-
 " allow syntax and filetype plugins
 syntax enable
 filetype plugin indent on
