@@ -7,7 +7,7 @@ alias l='ls'
 alias lsa='ls -goah'
 alias lsd='ls -d */'
 alias lsb='ls ~/bin'
-alias ls.='ls -la | tr -s " " | cut -d " " -f 9-20 | grep ^[.]'
+alias ls.='ls -lA | tr -s " " | cut -d " " -f 9-20 | grep ^[.]'
 alias c='clear'
 alias v=$EDITOR
 alias e=$EDITOR
@@ -31,6 +31,13 @@ alias ein='$EDITOR ~/.inputrc && bind -f ~/.inputrc && echo "Loaded new entries,
 alias tcopy="tr -d '\n' | pbcopy"
 alias grep="grep --color=always"
 alias irc="irssi"
+
+# Almquist shell
+if [ "$SHELL" = "/bin/ash" ]; then
+	alias ls='ls --color=auto'
+	unalias lsa
+	alias lsa='ls -a'
+fi
 
 # bluetooth
 alias bton="blueutil --power 1"
