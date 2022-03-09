@@ -19,7 +19,7 @@ brew "shellcheck"
 brew "tmux"
 brew "tree"
 brew "youtube-dl"
-brew "yt-dl"
+brew "brew install yt-dlp/taps/yt-dlp"
 # https://swiftpackageindex.com/faberNovel/xcresource-cli
 brew "xcresource"
 cask "cyberduck"
@@ -39,9 +39,11 @@ cask "qlstephen"
 cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
+cask "unexpectedly", args: { appdir: "/Applications/developer" }
 cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
 cask "stay"
 cask "swiftdefaultappsprefpane"
+cask "vanilla"
 cask "vlc"
 mas "1Blocker", id: 1365531024
 mas "Accelerate for Safari", id: 1459809092
