@@ -22,6 +22,7 @@ brew "youtube-dl"
 brew "brew install yt-dlp/taps/yt-dlp"
 # https://swiftpackageindex.com/faberNovel/xcresource-cli
 brew "xcresource"
+cask "blockblock"
 cask "cyberduck"
 cask "font-meslo-for-powerline"
 cask "font-meslo-lg-nerd-font"
