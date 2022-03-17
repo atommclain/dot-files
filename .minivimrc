@@ -16,6 +16,7 @@ set ruler
 set wildmenu
 set showcmd
 set showmatch
+set hidden		" allow buffers to be hidden without write
 
 " encoding/format
 set encoding=utf-8
