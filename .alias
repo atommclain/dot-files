@@ -2,6 +2,10 @@ if [ -f ~/.workalias ]; then
     source ~/.workalias
 fi
 
+if [ -f ~/.alias_local ]; then
+    source ~/.alias_local
+fi
+
 ## general
 alias l='ls'
 alias lsa='ls -goah'
