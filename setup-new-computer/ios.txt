@@ -14,6 +14,7 @@ Settings
     Safari => Search Engne => DuckDuckGo
     Apple ID => iCloud => iCloud Backup => Back Up Over Cellular OFF
     Privacy => Record App Activity => ON
+    Sounds => toggle off Fixed Position Volume Controls (iPad)
 
 VPN
     cloud.google.com/console
