@@ -24,6 +24,10 @@ defaults write com.apple.assistant.support "Assistant Enabled" -bool false
 # Show Siri in menu bar
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
+# System Preferences - Accessibility
+# Show window title icons
+defaults write com.apple.universalaccess showWindowTitlebarIcons -bool YES
+
 # Finder - Preferences - General
 # Show these items on desktop:
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
