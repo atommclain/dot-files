@@ -14,11 +14,11 @@ System Preferences
         Allow Spotlight Suggestions in Look up - disable
     Touch ID -> Setup
     Accessibility
-       Zoom -> Use scroll gesture with modifier keys to zoom 
+       Zoom -> Use scroll gesture with modifier keys to zoom
        Display
            Reduce transparency
            Increase Contrast
-           Show window title icons 
+           Show window title icons
     User & Groups
         Current User
             Login Items
@@ -172,7 +172,8 @@ Mac App Store
 Install Xcode
     https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
     sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
-
+    Preferences
+        Navigation - Navigation: Open in Place
 FastsSripts
 https://red-sweater.com/fastscripts/
 Start at login
