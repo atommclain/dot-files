@@ -13,6 +13,7 @@ Settings
     Display and Brightness => Night Shift
     Safari => Search Engne => DuckDuckGo
     Apple ID => iCloud => iCloud Backup => Back Up Over Cellular OFF
+	Messages => Notifications => Customize Notifications => Repeat Alerts => Never
     Privacy => Record App Activity => ON
     Sounds => toggle off Fixed Position Volume Controls (iPad)
 
