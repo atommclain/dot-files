@@ -35,6 +35,7 @@ System Preferences
         Increase tracking speed to about middle
     Keyboard
         Keyboard
+            Turn keyboard backlight off -> 5 min // only for touch bar macs
             Touch Bar Shows -> App Controls -> Show Control Strip
             Customize Touch Bar...
                 Remove Siri control
@@ -129,6 +130,8 @@ Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solar
 Preferences -> Profiles -> Text
     Set font to Meslo LG M Regular for Powerline 11 pt
     Enable bold fonts
+Preferences -> Profiles -> Window
+    Window  Size 160x60 
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
 Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
