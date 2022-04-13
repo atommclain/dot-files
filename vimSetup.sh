@@ -28,6 +28,7 @@ $GIT_CLONE_PULL https://github.com/tpope/vim-fugitive.git
 $GIT_CLONE_PULL git://github.com/christoomey/vim-tmux-navigator.git
 $GIT_CLONE_PULL https://github.com/t9md/vim-quickhl
 vim -u NONE -c "helptags fugitive/doc" -c q
+$GIT_CLONE_PULL git@github.com:markabe/vim-jira-open.git
 
 mkdir -p $HOME/.vim/undodir
 mkdir -p $HOME/.tmp
