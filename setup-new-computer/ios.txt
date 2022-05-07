@@ -1,5 +1,6 @@
 App Store
     1Blocker
+    1Password
     UserScripts
     Vinegar - Tube Cleaner https://apps.apple.com/us/app/vinegar-tube-cleaner/id1591303229
     SponsorBlock for YouTube https://apps.apple.com/us/app/sponsorblock-for-youtube/id1573461917
