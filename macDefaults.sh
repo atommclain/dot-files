@@ -53,6 +53,11 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # Default Finder view is List
 defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 
+# Finder - Other
+# Move window with cmd + ctrl with click and drag
+# Requires user to log out to take effect
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 # Activity Monitor
 # Icon shows CPU History
 defaults write com.Apple.ActivityMonitor IconType 6
