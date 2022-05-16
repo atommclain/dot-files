@@ -8,7 +8,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
     fi
     sudo softwareupdate -ia
 elif [ "$(uname)" == "Linux" ]; then
-    echo "update Linux"
+    # Alpine Package Keeper
+    if hash brew 2>/dev/null; then
+      apk update
+      apk upgrade
+    else
+      echo "update Linux"
+    fi
 else
     echo "unknown system: $(uname)"
 fi
