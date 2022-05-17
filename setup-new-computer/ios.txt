@@ -17,6 +17,7 @@ Settings
 	Messages => Notifications => Customize Notifications => Repeat Alerts => Never
     Privacy => Record App Activity => ON
     Sounds => toggle off Fixed Position Volume Controls (iPad)
+    Accessibility => Touch => Call Audio Routing => Bluetooth Headset
 
 VPN
     cloud.google.com/console
