@@ -5,6 +5,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     if hash brew 2>/dev/null; then
         brew update
         brew upgrade
+    else
+        echo "Homebrew not installed"
     fi
     sudo softwareupdate -ia
 elif [ "$(uname)" == "Linux" ]; then
