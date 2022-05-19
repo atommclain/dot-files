@@ -9,7 +9,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     sudo softwareupdate -ia
 elif [ "$(uname)" == "Linux" ]; then
     # Alpine Package Keeper
-    if hash brew 2>/dev/null; then
+    if hash apk 2>/dev/null; then
       apk update
       apk upgrade
     else
