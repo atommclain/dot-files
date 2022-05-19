@@ -13,6 +13,8 @@ apk update
 apk upgrade
 apk add git vim curl
 apk add make gcc build-base abuild binutils util-linux npm fortune openssh
+apk add man-pages mandoc
+apk add less less-doc
 # fix concurrency issue
 git config --global pack.threads "1"
 # remove login message
