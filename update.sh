@@ -1,7 +1,7 @@
 #!/bin/sh
 # a script to update packages and system software
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if [ "$(uname)" = "Darwin" ]; then
     if hash brew 2>/dev/null; then
         brew update
         brew upgrade
@@ -9,7 +9,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
         echo "Homebrew not installed"
     fi
     sudo softwareupdate -ia
-elif [ "$(uname)" == "Linux" ]; then
+elif [ "$(uname)" = "Linux" ]; then
     # Alpine Package Keeper
     if hash apk 2>/dev/null; then
       apk update
