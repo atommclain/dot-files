@@ -23,15 +23,20 @@ brew "brew install yt-dlp/taps/yt-dlp"
 # https://swiftpackageindex.com/faberNovel/xcresource-cli
 brew "xcresource"
 cask "blockblock"
+cask "charles"
 cask "cyberduck"
+cask "fastscripts"
 cask "font-meslo-for-powerline"
 cask "font-meslo-lg-nerd-font"
+cask "go2shell"
 cask "homebrew/cask/macvim"
 cask "inloop-qlplayground"
 cask "iterm2"
+cask "itsycal"
 cask "karabiner-elements"
 cask "macvim"
 cask "monitorcontrol"
+cask "pastebot"
 cask "provisionql"
 cask "pusher", args: { appdir: "/Applications/developer" }
 cask "qlcolorcode"
@@ -61,3 +66,4 @@ mas "SwitchGlass", id: 1498546559
 mas "TextSniper", id: 1528890965
 mas "ToothFairy", id: 1191449274
 mas "Tweetbot", id: 557168941
+mas "Userscripts", id: 1463298887
