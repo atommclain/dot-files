@@ -18,13 +18,14 @@ brew "powerline-go"
 brew "shellcheck"
 brew "tmux"
 brew "tree"
-brew "youtube-dl"
-brew "yt-dlp"
 # https://swiftpackageindex.com/faberNovel/xcresource-cli
 brew "xcresource"
+brew "youtube-dl"
+brew "yt-dlp"
 cask "blockblock"
 cask "charles"
 cask "cyberduck"
+cask "disk-inventory-x"
 cask "fastscripts"
 cask "font-meslo-for-powerline"
 cask "font-meslo-lg-nerd-font"
@@ -37,6 +38,7 @@ cask "karabiner-elements"
 cask "macvim"
 cask "monitorcontrol"
 cask "pastebot"
+cask "postman"
 cask "provisionql"
 cask "pusher", args: { appdir: "/Applications/developer" }
 cask "qlcolorcode"
@@ -47,10 +49,13 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "unexpectedly", args: { appdir: "/Applications/developer" }
 cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
+cask "slack"
 cask "stay"
 cask "swiftdefaultappsprefpane"
+cask "the-unarchiver"
 cask "vanilla"
 cask "vlc"
+cask "zoom.us"
 mas "1Blocker", id: 1365531024
 mas "Accelerate for Safari", id: 1459809092
 mas "Attributed String Creator Pro", id: 730928349
