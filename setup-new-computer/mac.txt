@@ -194,6 +194,11 @@ PasteBot - cask install
     Change shortcut to command + option + v
     Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
+Stay - cask install
+    work secondary screen window arangement
+    Preferences -> Start at login
+    Use once to add to System Preferences -> Security & Privacy -> Accessibility
+
 Create open in MacVim application, add to finder toolbar by dragging with option + command
 
 Manually move over all applications
