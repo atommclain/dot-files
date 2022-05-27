@@ -69,7 +69,7 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Show all files in finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
 # Show battery percentage defaults write
-com.apple.menuextra.battery ShowPercent -bool true
+defaults write com.apple.menuextra.battery ShowPercent -bool true
 # Big Sur 10.X toolbar
 defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
