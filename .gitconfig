@@ -42,6 +42,8 @@
 	textconv = plutil -convert xml1 -o -
 [diff "swift"]
 	xfuncname = "^ *(\\w+ +)*((class|struct|enum|protocol|extension|func) +|(de)?init\\b).*$"
+[difftool]
+	prompt = false
 [fetch]
 	prune = true
 [grep]
@@ -54,6 +56,7 @@
 	#diffFilter = delta --color-only --features=interactive
 [merge]
 	tool = vimdiff
+	guitool = Kaleidoscope
 [mergetool]
 	prompt = false
 	keepBackup = false
@@ -127,3 +130,8 @@
 	hunk-header-decoration-style = blue box
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
