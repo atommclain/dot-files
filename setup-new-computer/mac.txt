@@ -94,10 +94,6 @@ Finder
         Add Open in MacVim
         Remove everything except for Search and Back/Forward buttons
     Terminal Commands
-        Show full path in finder defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-        Show all files in finder defaults write com.apple.finder AppleShowAllFiles YES; kill all Finder
-        Show battery percentage defaults write com.apple.menuextra.battery ShowPercent YES; killall SystemUIServer
-        Big Sur 10.X toolbar defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
         Reenable startup chime in catalina sudo nvram StartupMute=%00
 
 Safari
@@ -135,7 +131,6 @@ Preferences -> Profiles -> Window
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
 Install Oh my zsh https://ohmyz.sh/#install
 Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
-Install youtube autoskip https://github.com/squgeim/yt-ad-autoskipper-safari see https://github.com/jhen0409/react-native-debugger/issues/567 for homebrew
 
 Shell Junk
 Manually copy over .ssh folder
@@ -201,14 +196,18 @@ Stay - cask install
 
 Create open in MacVim application, add to finder toolbar by dragging with option + command
 
-Manually move over all applications
-
-Karabiner
+Karabiner - cask install
 https://pqrs.org/osx/karabiner/
 Kinesis remap option -> command
 Kinesis remap command -> option
 Kinesis remap capslock -> control
 Kinesis remap F10/F11/F12 -> mute/volume increase & decrease
+
+BlockBlock - cask install
+alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
+    Use once to add to System Preferences -> Security & Privacy -> Full Disk Access
+
+Manually move over all applications
 
 Hammerspoon (OS automation)
 http://www.hammerspoon.org
@@ -241,7 +240,7 @@ After Dark Flying toasters screesaver https://www.screensaversplanet.com/screens
 Little Snitch https://www.obdev.at/products/littlesnitch/index.html
 Install FSMonitor.app
 Suspicious package https://mothersruin.com/software/SuspiciousPackage/
-BlockBlock alert to changes to LaunchAgents LaunchDaemons https://www.objective-see.com/products.html
+
 
 Add <string>dyn.ah62d4rv4ge80g55eqz3064pusbw1k</string> to QLColorCode info.plist to allow it to preview xcode codesnippet files
 
