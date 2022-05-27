@@ -1,15 +1,60 @@
+System Preferences
+    Security & Privacy
+        Privacy
+            Scroll down and select Developer Tools and add Terminal
+
+Terminal
+$ mkdir ~/git; cd ~/git
+$ git clone https://github.com/atommclain/dot-files.git; cd dot-files
+$ source ./unixSetup.sh
+$ ./brewIt.sh
+$ ./macDefaults.sh
+$ ./setupVim.sh
+Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
+    Make Default
+Preferences -> Profiles -> Text
+    # Set font to Meslo LG M Regular for Powerline 11 pt
+    Set font to MesloLGS NF Regular 11
+    Enable bold fonts
+Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
+    cd to homebrew install location
+    ./pip3 install powerline-shell
+    $ cd ~/git; git clone https://github.com/b-ryan/powerline-shell # support for theme
+Install Oh my zsh https://ohmyz.sh/#install
+    $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    install powerline10k https://github.com/romkatv/powerlevel10k#installation
+SSH
+    $ ./sshSetup.sh
+    add key to github
+
+Restart computer
+
 Run macExport.sh on old mac
 
 System Preferences
     Desktop & Screen Saver
         Screen Saver
             Set to either Word of the day or Flying Toasters
+    Dock & Menu Bar
+        Bluetooth disable
+        Now Playing disable
+        Clock
+            Show date never
+            Show the day of the week disable
+            Time Options digital
+            Use a 24-hour clock
+        Spotlight disable
+        Siri disable
     Spotlight
         Disable
+            Bookmarks & History
+            Contacts
             Conversion
+            Fonts
             Mail & Messages
             Movies
             Music
+            Siri Suggestions
             Spotlight Suggestions
         Allow Spotlight Suggestions in Look up - disable
     Touch ID -> Setup
@@ -19,15 +64,13 @@ System Preferences
            Reduce transparency
            Increase Contrast
            Show window title icons
+           Show toolbar button shapes
     User & Groups
         Current User
             Login Items
                 Activity Monitor
         Login Options
             Disable Show fast user switching menu
-    Security & Privacy
-        Privacy
-            Scroll down and select Developer Tools and add Terminal
     Mouse
         Pair bluetooth mouse
         Enable secondary click
@@ -118,30 +161,16 @@ Go2Shell - cask install
     Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
 Terminal
-$ mkdir ~/git; cd ~/git
-$ git clone https://github.com/atommclain/dot-files.git; cd dot-files
-// clink .files
-$ ./setupVim.sh
-Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
-Preferences -> Profiles -> Text
-    Set font to Meslo LG M Regular for Powerline 11 pt
-    Enable bold fonts
 Preferences -> Profiles -> Window
     Window  Size 160x60
-Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
-Install Oh my zsh https://ohmyz.sh/#install
-Install oblique strategies https://github.com/threemachines/obliqueMOTD.git
 
 Shell Junk
-Manually copy over .ssh folder
-Setup SSH to use keychain to prevent git from always asking for passphrase https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
 Setup Touch ID to use sudo
     sudo vim /etc/pam.d/sudo -> paste at top: auth sufficient pam_tid.so
-Install home-brew https://brew.sh
-    possible fix for bundle failing: https://stackoverflow.com/a/65481787
-    https://stackify.com/install-ruby-on-your-mac-everything-you-need-to-get-going/
-$ ./brewIt.sh
-Install pip (python thing) https://pip.readthedocs.io/en/stable/installing/
+Clone oblique strategies https://github.com/threemachines/obliqueMOTD
+Clone fortune
+Clone bin
+    $ cd ~/git; clink bin ~/bin
 Install cocoapods sudo gem install cocoapods
     This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
     run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
@@ -151,6 +180,7 @@ Install newman npm install -g newman
 Setup local apache server https://discussions.apple.com/docs/DOC-3083
                         https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba //  uncomments in http.conf and username.conf
                         https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/
+
 Setup cargo
     curl https://sh.rustup.rs -sSf | sh
 Install bropages
