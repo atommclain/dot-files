@@ -27,6 +27,7 @@ export PS1="\[\033[01;34m\]\! \$\[\033[00m\] "
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)
+    #PS1="$(powerline-go -cwd-mode semifancy -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root" $?)"
 }
 
 if [[ $TERM != linux && $TERM_PROGRAM = "Apple_Terminal" && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
