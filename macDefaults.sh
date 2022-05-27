@@ -62,6 +62,16 @@ defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 # Move window with cmd + ctrl with click and drag
 # Requires user to log out to take effect
 defaults write -g NSWindowShouldDragOnGesture -bool true
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool true
+# Show full path in finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# Show all files in finder
+defaults write com.apple.finder AppleShowAllFiles -bool true
+# Show battery percentage defaults write
+com.apple.menuextra.battery ShowPercent -bool true
+# Big Sur 10.X toolbar
+defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
 # Activity Monitor
 # Icon shows CPU History
@@ -128,3 +138,5 @@ defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool tr
 defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
 killall cfprefsd
+killall Finder
+killall SystemUIServer
