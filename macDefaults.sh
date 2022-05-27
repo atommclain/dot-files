@@ -28,6 +28,11 @@ defaults write com.apple.Siri StatusMenuVisible -bool false
 # Show window title icons
 defaults write com.apple.universalaccess showWindowTitlebarIcons -bool YES
 
+# System Preferences - Keyboard
+# Key Repeat/Delay
+defaults write -g InitialKeyRepeat -int 25
+defaults write -g KeyRepeat -int 1
+
 # Finder - Preferences - General
 # Show these items on desktop:
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
