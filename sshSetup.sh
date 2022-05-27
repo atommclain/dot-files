@@ -11,11 +11,6 @@ else
         printf "[SSH] Creating ssh key\n"
         ssh-keygen -t rsa -b 4096 -C $ssh_email
         printf "\n"
-
-        printf "[SSH] Adding ssh key to ssh-agent\n"
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_rsa
-        printf "\n"
     fi
 fi
 
@@ -29,6 +24,22 @@ elif [ "$(uname)" == "Linux" ]; then
     else
         echo "[SSH] /dev/clipboard does not exist"
     fi
+    printf "\n"
+else
+    echo "[SSH] Unknown system: $(uname)"
+fi
+
+printf "[SSH] Setting up ssh key\n"
+if [ "$(uname)" == "Darwin" ]; then
+    printf "[SSH] Configuring .ssh/configure\n"
+    touch ~/.ssh/configure
+    echo "Host *" >> ~/.ssh/configure
+    echo "    UseKeychain yes" >> ~/.ssh/configure
+elif [ "$(uname)" == "Linux" ]; then
+    printf "[SSH] Adding ssh key to ssh-agent\n"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+    printf "\n"
 else
     echo "[SSH] Unknown system: $(uname)"
 fi
