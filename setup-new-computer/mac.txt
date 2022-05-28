@@ -11,14 +11,16 @@ $ ./brewIt.sh
 $ ./macDefaults.sh
 $ ./setupVim.sh
 Install Solarized Dark https://github.com/tomislav/osx-terminal.app-colors-solarized
-    Make Default
+    $ wget https://raw.githubusercontent.com/tomislav/osx-terminal.app-colors-solarized/master/Solarized%20Dark.terminal
+    Import, Make Default
 Preferences -> Profiles -> Text
     # Set font to Meslo LG M Regular for Powerline 11 pt
     Set font to MesloLGS NF Regular 11
     Enable bold fonts
 Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
     cd to homebrew install location
-    ./pip3 install powerline-shell
+    $ cd $(brew --prefix python3)/bin
+    $ ./pip3 install powerline-shell
     $ cd ~/git; git clone https://github.com/b-ryan/powerline-shell # support for theme
 Install Oh my zsh https://ohmyz.sh/#install
     $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -283,6 +285,7 @@ See for some good defaults
     https://apple.stackexchange.com/a/337179
     https://github.com/mathiasbynens/dotfiles/blob/main/.macos
     https://gist.github.com/romanhaa/9804183f242991007b316a59c4ba5e5a
+    https://github.com/geerlingguy/dotfiles/blob/master/.osx
 Script with menu to update computer https://danielsaidi.com/blog/2018/08/26/automate-setting-up-mac-os
 Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
