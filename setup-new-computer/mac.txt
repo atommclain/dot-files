@@ -286,6 +286,8 @@ See for some good defaults
     https://github.com/mathiasbynens/dotfiles/blob/main/.macos
     https://gist.github.com/romanhaa/9804183f242991007b316a59c4ba5e5a
     https://github.com/geerlingguy/dotfiles/blob/master/.osx
+Use dockutil to setup the Dock
+Use mysides to setup Finder sidebar
 Script with menu to update computer https://danielsaidi.com/blog/2018/08/26/automate-setting-up-mac-os
 Add powerline config to repo
 clean up dot files (consolodate, review everything it is doing)
