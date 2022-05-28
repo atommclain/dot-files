@@ -27,6 +27,8 @@ defaults write com.apple.Siri StatusMenuVisible -bool false
 # System Preferences - Accessibility
 # Show window title icons
 defaults write com.apple.universalaccess showWindowTitlebarIcons -bool YES
+# Reduce Transparency
+defaults write com.apple.universalaccess reduceTransparency 1
 
 # System Preferences - Keyboard
 # Key Repeat/Delay
@@ -57,6 +59,8 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder ShowStatusBar -bool true
 # Default Finder view is List
 defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
+# Show ~/Library folder
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo  ~/Library
 
 # Finder - Other
 # Move window with cmd + ctrl with click and drag
