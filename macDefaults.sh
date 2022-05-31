@@ -60,7 +60,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # Default Finder view is List
 defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 # Show ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo  ~/Library
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # Finder - Other
 # Move window with cmd + ctrl with click and drag
