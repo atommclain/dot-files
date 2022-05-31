@@ -14,6 +14,7 @@ clink .gitattributes
 clink .gitignore_global
 
 # editor
+echo "setting up vim"
 clink .minivimrc
 if [ ! -f ~/.vimrc ]; then
     ln -sf $(pwd)/.minivimrc ~/.vimrc
@@ -47,3 +48,9 @@ if [ "$SHELL" = "/bin/ash" ]; then
         rm /etc/motd
     fi
 fi
+
+# .config
+echo "setting up ~/.config"
+mkdir -p $HOME/.config
+clink .config/nvim
+clink .config/powerline-shell

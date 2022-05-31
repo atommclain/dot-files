@@ -1,0 +1,14 @@
+{
+  "segments": [
+    "ssh", 
+    "cwd", 
+    "git", 
+    "hg", 
+    "jobs", 
+    "root"
+  ],
+  "theme": "~/git/powerline-shell/powerline_shell/themes/solarized_dark.py",
+  "vcs": {
+    "show_symbol": "true"
+  }
+}

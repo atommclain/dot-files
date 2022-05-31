@@ -470,7 +470,13 @@ function clink() {
             rm ~/$file
         fi
 
-        ln -sf $(pwd)/$file ~/$file
+        # symlinking a folder
+        if [ -d "$file" ]; then
+            ln -sf $(pwd)/$file $HOME/$(dirname $file)
+            return
+        fi
+
+        ln -sf $(pwd)/$file $HOME/$file
     done
 }
 
