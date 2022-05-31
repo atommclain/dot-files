@@ -29,6 +29,7 @@ cask "charles"
 cask "cyberduck"
 cask "disk-inventory-x"
 cask "fastscripts"
+cask "FSMonitor"
 cask "font-meslo-for-powerline"
 cask "font-meslo-lg-nerd-font"
 cask "go2shell"
@@ -59,7 +60,6 @@ cask "swiftdefaultappsprefpane"
 cask "the-unarchiver"
 cask "vanilla"
 cask "vlc"
-cask "zoom"
 mas "1Blocker", id: 1365531024
 mas "Accelerate for Safari", id: 1459809092
 mas "Attributed String Creator Pro", id: 730928349
