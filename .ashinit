@@ -1,6 +1,9 @@
 # for use with the Almquist shell
 
-PS1="\w# "
+BOLD="\033[1m"
+NORM="\033[0m"
+DIM="\033[2m"
+PS1="${DIM}\w#${NORM} "
 
 . .alias
 
