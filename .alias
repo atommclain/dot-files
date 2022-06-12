@@ -426,6 +426,7 @@ function systemInfoADM() {
         printf "macOS    10.15   Catalina        October 7, 2019\n"
         printf "macOS    11.0    Big Sur         November 12, 2020\n"
         printf "macOS    12.0    Monterey        October 25, 2021\n"
+        printf "macOS    13.0    Ventura         TBA\n"
         printf "=====================================================\n"
         sw_vers
         uname -a
