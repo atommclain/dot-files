@@ -17,6 +17,19 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 6
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# System Preferncees - Mission Control
+# Displays have separate Spaces (menu bar only appears on main display)
+defaults write com.apple.spaces spans-displays -bool true
+# Hot Corners...
+# top left, Start Screen Saver
+defaults write com.apple.dock wvous-tl-corner -int 6
+# top left, Disable Screen Saver
+defaults write com.apple.dock wvous-tr-corner -int 5
+# bottom left, Desktop
+defaults write com.apple.dock wvous-bl-corner -int 4
+# bottom right, Disable Screen Saver
+defaults write com.apple.dock wvous-br-corner -int 6
+
 # System Preferences - Siri
 # Enable Ask Siri
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false
@@ -34,6 +47,10 @@ defaults write com.apple.universalaccess reduceTransparency 1
 # Key Repeat/Delay
 defaults write -g InitialKeyRepeat -int 25
 defaults write -g KeyRepeat -int 1
+
+# System Preferences - Time & Date
+# Time format 24-Hour Time
+defaults write -g AppleICUForce24HourTime -int 1
 
 # Finder - Preferences - General
 # Show these items on desktop:
@@ -88,6 +105,8 @@ defaults write com.Apple.ActivityMonitor ShowCategory 100
 defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch 1
 defaults write com.apple.Safari OpenPrivateWindowWhenNotRestoringSessionAtLaunch 0
 defaults write com.apple.Safari ExcludePrivateWindowWhenRestoringSessionAtLaunch 0
+# New windows open with: Start Page
+defaults write com.apple.Safari NewWindowBehavior 4
 # New tabs open with: Empty Page
 defaults write com.apple.Safari NewTabBehavior 1
 # Don’t Open “safe” files after downloading
@@ -96,6 +115,12 @@ defaults write com.apple.Safari AutoOpenSafeDownloads 0
 defaults write com.apple.Safari Command1Through9SwitchesTabs 0
 # Search engine: DuckDuckGo
 defaults write com.apple.Safari SearchProviderIdentifier "com.duckduckgo"
+# Preload Top Hit in the background
+defaults write com.apple.Safari PreloadTopHit 0
+# Allow websites to ask for permission to send notifications
+defaults write com.apple.Safari CanPromptForPushNotifications 0
+#Show color in compact tab bar
+defaults write com.apple.Safari NeverUseBackgroundColorInToolbar 1
 #Show full website address
 defaults write com.apple.Safari ShowFullURLInSmartSearchField 1
 defaults write com.apple.Safari UserStyleSheetEnabled 0
@@ -103,6 +128,10 @@ defaults write com.apple.Safari UserStyleSheetEnabled 0
 defaults write com.apple.Safari IncludeDevelopMenu 1
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey 1
 defaults write com.apple.Safari "WebKitPreferences.developerExtrasEnabled" 1
+# Enable internal developer menu
+defaults write com.apple.Safari IncludeInternalDebugMenu 1
+# Show favorites bar
+defaults write com.apple.Safari "ShowFavoritesBar-v2" 1
 
 # Safari - View
 # Show status bar
@@ -140,6 +169,10 @@ defaults write com.apple.dt.Xcode IDEEditorNavigationStyle_DefaultsKey "IDEEdito
 defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool true
  # "...a new mode that better utilizes available cores, resulting in faster builds for Swift projects"
 defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+
+# ItsyCal
+defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d h:mm"
+defaults write com.mowglii.ItsycalApp HideIcon -bool true
 
 killall cfprefsd
 killall Finder
