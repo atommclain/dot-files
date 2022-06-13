@@ -38,9 +38,9 @@ alias irc="irssi"
 
 # Almquist shell
 if [ "$SHELL" = "/bin/ash" ]; then
-	alias ls='ls --color=auto'
-	unalias lsa
-	alias lsa='ls -a'
+    alias ls='ls --color=auto'
+    unalias lsa
+    alias lsa='ls -a'
 fi
 
 # bluetooth
@@ -193,21 +193,21 @@ alias beep="echo -ne '\007'"
 alias colorPicker="osascript -e 'choose color' &"
 alias termColorsZSH='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
 function termColorsBash() {
-T='gYw'   # The test text
+    T='gYw'   # The test text
     echo -e "\n                 40m     41m     42m     43m\
-     44m     45m     46m     47m";
+        44m     45m     46m     47m";
 
-for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
-           '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
-           '  36m' '1;36m' '  37m' '1;37m';
-  do FG=${FGs// /}
-  echo -en " $FGs \033[$FG  $T  "
-  for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
-    do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
-  done
-  echo;
-done
-echo
+    for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
+        '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
+        '  36m' '1;36m' '  37m' '1;37m';
+        do FG=${FGs// /}
+            echo -en " $FGs \033[$FG  $T  "
+            for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+            do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+            done
+            echo;
+        done
+        echo
 }
 function termColors256() {
     i=0
@@ -259,42 +259,42 @@ alias r='fc -s'
 # alias tail_ls="ls -l $1 | tail"
 
 function gdelbn () {
-	if [ $# -eq 0 ]
-	then
-		echo "No arguments supplied"
-		return
-	fi
-	branchToDelete=$(git branch | sed -n "$1"p)
-	read -p "Will delete branch $branchToDelete. Proceed? (Enter) - (^C to abort)"
-	git branch -D $branchToDelete;
+    if [ $# -eq 0 ]
+    then
+        echo "No arguments supplied"
+        return
+    fi
+    branchToDelete=$(git branch | sed -n "$1"p)
+    read -p "Will delete branch $branchToDelete. Proceed? (Enter) - (^C to abort)"
+    git branch -D $branchToDelete;
 }
 
 # from `git branch` check out branch N
 function git_checkout_branch_n () {
-	git checkout `git branch | sed -n "$1"p`;
+    git checkout `git branch | sed -n "$1"p`;
 }
 
 # Show the Nth commit in the project
 function hockeyNumberToHash() {
-	re='^[0-9]+$'
-	if ! [[ $1 =~ $re ]] ; then
-		echo "error: Not a number" >&2; return
-	fi
-	totalCommits=$(git rev-list HEAD --count)
-	reverseCommit=$(expr $totalCommits - "$1") # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
-	echo Total commits: $totalCommits, Commits behind HEAD: $reverseCommit
-	git log --skip=$reverseCommit --max-count=1
+    re='^[0-9]+$'
+    if ! [[ $1 =~ $re ]] ; then
+        echo "error: Not a number" >&2; return
+    fi
+    totalCommits=$(git rev-list HEAD --count)
+    reverseCommit=$(expr $totalCommits - "$1") # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
+    echo Total commits: $totalCommits, Commits behind HEAD: $reverseCommit
+    git log --skip=$reverseCommit --max-count=1
 }
 
 function hockeyHashToNumber() {
-	if test $(git cat-file -t $1) == commit; then
-		totalCommits=$(git rev-list HEAD --count)
-		thisCommit=$(git rev-list "$1" --count)
-		reverseCommit=$(expr $totalCommits - $thisCommit) # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
-		echo Total commits: $totalCommits, Commit behind HEAD: $reverseCommit, Commit number: $thisCommit
-	else
-		echo "error: Input not a commit" >&2; return
-	fi
+    if test $(git cat-file -t $1) == commit; then
+        totalCommits=$(git rev-list HEAD --count)
+        thisCommit=$(git rev-list "$1" --count)
+        reverseCommit=$(expr $totalCommits - $thisCommit) # the following command skips from HEAD backwards so we need to find the number of commits from HEAD
+        echo Total commits: $totalCommits, Commit behind HEAD: $reverseCommit, Commit number: $thisCommit
+    else
+        echo "error: Input not a commit" >&2; return
+    fi
 }
 
 # get current branch "TICKET-123/aBranchDescription" and return "TICKET-123"
@@ -344,55 +344,55 @@ gclone() {
 
 # show man for the nth listing in /usr/bin based on the offset of startDate
 function dailyman() {
-	startDate="2020-05-15"
-	offset=$(dateDiff $startDate)
-	commandNum="${offset}p"
-	commandName=$( ls /usr/bin | sed -n $commandNum)
+    startDate="2020-05-15"
+    offset=$(dateDiff $startDate)
+    commandNum="${offset}p"
+    commandName=$( ls /usr/bin | sed -n $commandNum)
     total=$( ls /usr/bin | wc -l )
-	man $commandName
-	echo day $offset of $total, $commandName
+    man $commandName
+    echo day $offset of $total, $commandName
 }
 
 # return the nth builtin command of the offset of startDate
 function dailybuiltin() {
-	startDate="2020-05-20"
+    startDate="2020-05-20"
     total=$( compgen -b | wc -l )
-	offset=$(dateDiff $startDate)
+    offset=$(dateDiff $startDate)
     offset=$(( offset % total ))
-	commandNum="${offset}p"
-	todaysCommand=$(compgen -b | sed -n $commandNum)
-	echo "day $offset of $total, $todaysCommand:   info | man | help"
+    commandNum="${offset}p"
+    todaysCommand=$(compgen -b | sed -n $commandNum)
+    echo "day $offset of $total, $todaysCommand:   info | man | help"
 }
 
 # takes a date string in the format "yyyy-mm-dd" and returns the number
 # of days to now
 function dateDiff() {
-	if [ $# -eq 0 ]
-	then
-		echo "No arguments supplied"
-		return
-	fi
+    if [ $# -eq 0 ]
+    then
+        echo "No arguments supplied"
+        return
+    fi
 
-	startDate="$1"
-	start_ts=0
-	end_ts=0
-	if [ "$(uname)" == "Darwin" ]; then
-		start_ts=$(date -j -f "%Y-%m-%d" ${startDate} +"%s")
-		end_ts=$(date +"%s")
-	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-		start_ts=$(date -d ${startDate} '+%s')
-		end_ts=$(date -d `date +%F` '+%s')
-	fi
-	offset_ts=$(expr $end_ts - $start_ts)
-	offset=$(( $offset_ts/(60*60*24) ))
-	echo $offset
+    startDate="$1"
+    start_ts=0
+end_ts=0
+if [ "$(uname)" == "Darwin" ]; then
+    start_ts=$(date -j -f "%Y-%m-%d" ${startDate} +"%s")
+end_ts=$(date +"%s")
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    start_ts=$(date -d ${startDate} '+%s')
+end_ts=$(date -d `date +%F` '+%s')
+fi
+offset_ts=$(expr $end_ts - $start_ts)
+offset=$(( $offset_ts/(60*60*24) ))
+echo $offset
 }
 
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
 
 function copyssh() {
-    if [ "$(uname)" == "Darwin" ]; then 
+    if [ "$(uname)" == "Darwin" ]; then
         cat ~/.ssh/id_rsa.pub | pbcopy
     elif [ "$(uname)" == "Linux" ]; then
         if [ -e "/dev/clipboard" ] ; then
