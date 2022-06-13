@@ -190,6 +190,9 @@ function simInfo () {
 
 alias beep="echo -ne '\007'"
 
+alias yt-dlp720="yt-dlp -f 'bestvideo[height<=720]+bestaudio' "
+alias yt-dlp1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio' "
+
 alias colorPicker="osascript -e 'choose color' &"
 alias termColorsZSH='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
 function termColorsBash() {
