@@ -84,18 +84,19 @@ System Preferences
             Touch Bar Shows -> App Controls -> Show Control Strip
             Customize Touch Bar...
                 Remove Siri control
-        Shortcuts
-            Full Keyboard Access All controls
-            App Shortcuts
-                Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
-                Create Finder shortcut for "Show Package Contents" and assign it to command + option + O
-                Create Safari shortcut for "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
-        Keyboard
             Modifier Keys…
                 Change Caps Lock key to control key
                 Swap option and command key for Kinesis freestyle PC keyboard
+        Shortcuts
+            Full Keyboard Access All controls // Might not be in Monteray
+            App Shortcuts
+                Use keyboard navigation to move focus between controls
+                Create shortcut for “System Preferences…” and assign shortcut command + option + control + ,
+                Create Finder shortcut for "Show Package Contents" and assign it to command + option + O
+                Create Safari shortcut for "Quit Safari" and assign to something else to avoid accidently quiting Safari when trying to close a tab // look into this next time: https://daringfireball.net/2020/01/quit_confirmation_for_safari_on_macos
+                Create Safari shortcut for "Allow Unsigned Extensions" command + option + control + shift + E
     Sound
-        Show volume in menu bar
+        Show volume in menu bar -> always
     Bluetooth
         Show Bluetooth in the menu bar
     Displays
@@ -114,20 +115,14 @@ System Preferences
 itsycal - cask install
     https://www.mowglii.com/itsycal/
     Preferences -> General -> Launch at login
-    Preferences -> Appearance -> E MMM d h:mm
-    Preferences -> Appearance -> Hide icon
 
 Finder
     Preferences
+        General
+            New Finder windows show: Home
         Sidebar
             Show these items in the sidebar:
-                Disable Recents
-                Disable AirDrop
-                Disable Desktop
-                Disable Documents
-                Enable Home
                 Disable iCloud Drive
-                Disable CDs, DVDs, and iPods
                 Disable Bonjour computers
                 Disable Recent Tags
     View
@@ -136,25 +131,8 @@ Finder
             Calculate all sizes
             Use as Defaults
     Toolbar
-        Add Open in MacVim
+        Add Open in MacVim, add to finder toolbar by dragging with option + command
         Remove everything except for Search and Back/Forward buttons
-    Terminal Commands
-        Reenable startup chime in catalina sudo nvram StartupMute=%00
-
-Safari
-    Settings
-        Tabs
-            Show color in tab bar
-        Websites
-            Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
-            Disable Allow websites to ask for permission to send push notifications
-        Extensions
-            1password https://agilebits.com/onepassword/extensions
-    View
-        Turn off tab preview in Safari 14
-            defaults write com.apple.Safari IncludeInternalDebugMenu 1
-            Tab Features > Show Tab Preview on Hover
-            Tab Features > Narrow Tabs
 
 Go2Shell - cask install
     https://zipzapmac.com/Go2Shell
@@ -162,9 +140,19 @@ Go2Shell - cask install
     Add Go2Shell to Finder
     Use once to add to System Preferences -> Security & Privacy -> Accessibility
 
-Terminal
-Preferences -> Profiles -> Window
-    Window  Size 160x60
+Safari
+    Settings
+        Websites
+            Notifications - Allow websites to ask for permission to send push notifications (enable google voice)
+            Disable Allow websites to ask for permission to send push notifications
+        Extensions
+            enable all extensions
+            1password https://agilebits.com/onepassword/extensions
+    View
+        Turn off tab preview in Safari 14
+            defaults write com.apple.Safari IncludeInternalDebugMenu 1
+            Tab Features > Show Tab Preview on Hover
+            Tab Features > Narrow Tabs
 
 Shell Junk
 Setup Touch ID to use sudo
@@ -198,12 +186,15 @@ add local git aliases for opening project and creating a pull request
     git config --local alias.op '!xed .'
     git config --local alias.pr '!open https://www.pull-request-url.com’
 
+Work Junk
+Safari -> File -> Export passwords, bookmarks
+Charles -> Tools Export -> Import/Export Settings
+Charles -> Help -> SSL Proxying -> Export Root Certificate
+
 Mac App Store
 Install Xcode
     https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
     sudo /usr/sbin/DevToolsSecurity --enable // enable dev tools to stop password prompts
-    Preferences
-        Navigation - Navigation: Open in Place
 
 FastsSripts - cask install
     https://red-sweater.com/fastscripts/
@@ -212,8 +203,8 @@ FastsSripts - cask install
 
 Charles - cask install
     https://www.charlesproxy.com/
-    Help -> SSL Proxying -> Install Charles Root Certificate
     Tools -> Import Settings
+    Help -> SSL Proxying -> Install Charles Root Certificate
     Help -> Register Charles
 
 PasteBot - cask install
@@ -225,8 +216,6 @@ Stay - cask install
     work secondary screen window arangement
     Preferences -> Start at login
     Use once to add to System Preferences -> Security & Privacy -> Accessibility
-
-Create open in MacVim application, add to finder toolbar by dragging with option + command
 
 Karabiner - cask install
 https://pqrs.org/osx/karabiner/
@@ -255,6 +244,7 @@ Preferences
         Improve sound quality by disabliing audio from device
 
 TextSniper - MAS
+    Preferences -> Launch at Login
     launch then approve screen recording in System Preferences -> Security
 
 iTerm2 - cask install
@@ -270,9 +260,7 @@ Bartender 3 https://www.macbartender.com
 After Dark Flying toasters screesaver https://www.screensaversplanet.com/screensavers/after-dark-flying-toasters-1153/download
     Fix codesigning: $ xattr -d com.apple.quarantine  ~/Library/Screen\ Savers/After\ Dark\ Flying\ Toasters.saver
 Little Snitch https://www.obdev.at/products/littlesnitch/index.html
-Install FSMonitor.app
-Suspicious package https://mothersruin.com/software/SuspiciousPackage/
-
+Suspicious package - cask install - https://mothersruin.com/software/SuspiciousPackage/
 
 Add <string>dyn.ah62d4rv4ge80g55eqz3064pusbw1k</string> to QLColorCode info.plist to allow it to preview xcode codesnippet files
 
