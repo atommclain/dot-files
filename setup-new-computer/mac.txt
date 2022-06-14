@@ -74,12 +74,14 @@ System Preferences
         Login Options
             Disable Show fast user switching menu
     Mouse
-        Pair bluetooth mouse
+        Pair bluetooth mouse (connect via lightenting cable)
         Enable secondary click
-        Enable Scroll direction: Natural
+        Enable Scroll direction: Natural // not applicalbe in Monteray
         Increase tracking speed to about middle
     Keyboard
+        Pair bluetooth keyboard (connect via lightenting cable)
         Keyboard
+            Press fn key to Do Nothing
             Turn keyboard backlight off -> 5 min // only for touch bar macs
             Touch Bar Shows -> App Controls -> Show Control Strip
             Customize Touch Bar...
