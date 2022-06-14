@@ -56,6 +56,7 @@ cask "unexpectedly", args: { appdir: "/Applications/developer" }
 cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
 cask "slack"
 cask "stay"
+cask "suspicious-package"
 cask "swiftdefaultappsprefpane"
 cask "the-unarchiver"
 cask "vanilla"
