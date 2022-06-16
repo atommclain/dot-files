@@ -241,6 +241,8 @@ vnoremap <LEADER>- "_
 
 " Insert line of "="
 nnoremap <LEADER>= o<ESC>40i=<ESC>
+" Insert line of "-"
+nnoremap <LEADER>- o<ESC>40i-<ESC>
 " Add semi colon to the end of current line
 nnoremap <LEADER>; mzA;<ESC>`z
 " A.vim alternative file
@@ -483,6 +485,7 @@ command! LoadWork :call ADMLoadWork()
 command! WorkLoad :call ADMLoadWork()
 function! ADMLoadWork()
   execute "edit ~/Downloads/Work-TODO.txt"
+  execute "set foldexpr=(getline(v:lnum)=~'\\S')&&(getline(v:lnum+1)=~'^====')?'>1':1"
   execute "60vsp ~/Downloads/scratch.txt"
   normal! G
   normal! h
