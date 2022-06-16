@@ -485,12 +485,39 @@ command! LoadWork :call ADMLoadWork()
 command! WorkLoad :call ADMLoadWork()
 function! ADMLoadWork()
   execute "edit ~/Downloads/Work-TODO.txt"
-  execute "set foldexpr=(getline(v:lnum)=~'\\S')&&(getline(v:lnum+1)=~'^====')?'>1':1"
+  execute "setlocal foldexpr=WorkTodoFolding()"
+  execute "setlocal foldtext=WorkTodoFoldText()"
   execute "60vsp ~/Downloads/scratch.txt"
   normal! G
   normal! h
   execute "tabedit ~/git/dot-files/Setup-New-Computer/mac.txt"
   normal! gt
+endfunction
+
+function! WorkTodoFolding()
+  let thisline = getline(v:lnum)
+  let nextline = getline(v:lnum+1)
+  if match(thisline, '\S') >= 0 && match(nextline, '^-----') >= 0
+    return '>2'
+  elseif match(thisline, '\S') >= 0 && match(nextline, '^====') >= 0
+    return '>1'
+  else
+    return "="
+  endif
+endfunction
+
+function! WorkTodoFoldText()
+  let indent_level = foldlevel(v:foldstart)
+  if indent_level == 1
+    let indent = ''
+  else
+    let indent = repeat(' ',indent_level)
+  endif
+
+  let foldsize = (v:foldend-v:foldstart)
+  let foldtext = getline(v:foldstart).' ('. foldsize.' lines)'
+
+  return indent . foldtext
 endfunction
 
 command! DiffScratchADM :call ADMScratchDiff()
