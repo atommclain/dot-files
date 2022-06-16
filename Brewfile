@@ -77,3 +77,4 @@ mas "TextSniper", id: 1528890965
 mas "ToothFairy", id: 1191449274
 mas "Tweetbot", id: 557168941
 mas "Userscripts", id: 1463298887
+mas "Vinegar - Tube Cleaner", id: 1591303229
