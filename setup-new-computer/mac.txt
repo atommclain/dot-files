@@ -166,6 +166,10 @@ Clone bin
 Install cocoapods sudo gem install cocoapods
     This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
     run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
+    M1 mac:
+        sudo arch -x86_64 gem install ffi
+        arch -x86_64 pod install
+        https://github.com/CocoaPods/CocoaPods/issues/10723#issuecomment-866438218
 
 Install Node js, https://nodejs.org/en/download/
 Install newman npm install -g newman
