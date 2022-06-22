@@ -284,7 +284,7 @@ nnoremap <LEADER>tz :w<Enter><C-z>
 " Write q register to vimrc
 nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Insert Date
-nnoremap <LEADER>id o<ESC>:read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i=<ESC>j0
+nnoremap <LEADER>id o<ESC>:read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i-<ESC>j0
 
 " }}}
 " Splitting/Joining Lines {{{
@@ -499,7 +499,7 @@ function! WorkTodoFolding()
   let nextline = getline(v:lnum+1)
   if match(thisline, '\S') >= 0 && match(nextline, '^-----') >= 0
     return '>2'
-  elseif match(thisline, '\S') >= 0 && match(nextline, '^====') >= 0
+  elseif match(thisline, '\S') >= 0 && match(nextline, '^=====') >= 0
     return '>1'
   else
     return "="
