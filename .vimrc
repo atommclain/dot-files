@@ -116,6 +116,9 @@ augroup vimrcEx
   autocmd BufReadPost Podfile setlocal filetype=ruby
   autocmd BufReadPost Fastfile setlocal filetype=ruby
   autocmd BufReadPost Appfile setlocal filetype=ruby
+
+  " Private files don't write to disk https://vi.stackexchange.com/a/6678
+  au BufRead *.private setlocal history=0 nobackup noshelltemp noswapfile noundofile nowritebackup secure viminfo=""
 augroup END
 
 " set 'updatetime' to 3 seconds when in insert mode
