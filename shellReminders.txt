@@ -5,6 +5,7 @@ reload inputrc: <C-x-r>
 $ bind -P | less // shows all readline bindings
 $ type -a [command] // returns info on the command (function/alias/script/etc.)
 exit a stuck SSH session: ~ . <RETURN>
+	~? for help
 info searching: s then enter repeats last search
 edit current command: <C-x-e>
 !! last full command
