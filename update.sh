@@ -3,6 +3,7 @@
 
 if [ "$(uname)" = "Darwin" ]; then
     if hash brew 2>/dev/null; then
+        brew analytics off
         brew update
         brew upgrade
     else
