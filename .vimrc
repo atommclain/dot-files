@@ -18,6 +18,7 @@ set modelines=5
 set ttimeoutlen=10
 set splitright
 set splitbelow
+set shiftround
 
 filetype on
 filetype indent on	" load filetype-specific indent files
