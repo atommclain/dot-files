@@ -12,4 +12,5 @@ edit current command: <C-x-e>
 !^ first argument
 !$ last argument
 !:* all previous arguments
-!:0 last command
+!:0 last command, only first word
+!:0- last full command omitting last argument
