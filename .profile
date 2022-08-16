@@ -8,6 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# homebrew for m1 mac
 if [ -f "/opt/homebrew/bin/brew" ] ; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -40,10 +41,6 @@ if [ -d "$HOME/usr/bin" ] ; then
     export PATH="$HOME/usr/bin:$PATH"
 fi
 
-export "GEM_HOME=$HOME/.gem"
-export PATH="$GEM_HOME/bin:$PATH"
-export BUNDLE_PATH="$HOME/.bundle"
-
 export CDPATH=".:$HOME:$HOME/git"
 
 # lscolors https://gist.github.com/thomd/7667642
@@ -62,14 +59,27 @@ export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
 export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
 export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
 
-if [ -d "$HOME/.bundle" ] ; then
-    export BUNDLE_PATH="$HOME/.bundle"
-fi
+# gem
+export "GEM_HOME=$HOME/.gem"
+export "GEM_PATH=$HOME/.gem"
+export PATH="$GEM_HOME/bin:$PATH"
 
+# bundle
+export BUNDLE_PATH="$HOME/.bundle"
+
+# ruby
 if [ -d "/usr/local/opt/ruby/bin" ] ; then
-    PATH="/usr/local/opt/ruby/bin:$PATH"
+    export PATH="/usr/local/opt/ruby/bin:$PATH"
 fi
 
+if [ -d "/opt/homebrew/opt/ruby/bin" ] ; then
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    # fix for Cocoapods on m1 mac
+    export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+    export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+fi
+
+# python
 if hash python 2>/dev/null; then
     PYTHON_PATH="$(python -c 'import site; print(site.USER_BASE)')/bin"
     if [ -d "$PYTHON_PATH" ] ; then
