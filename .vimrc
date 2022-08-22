@@ -570,3 +570,6 @@ if has('macunix')
   endfunction
   nnoremap gx :call OpenURLUnderCursor()<CR>
 endif
+
+" Universal help
+nnoremap <silent> <F12> :sp<Bar>:e ~/git/dot-files/help/vim.txt<CR>

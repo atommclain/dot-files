@@ -1,0 +1,4 @@
+bind-key is C-b
+
+Ctrl+b % Split current pane horizontally into two panes
+Ctrl+b " Split current pane vertically into two panes
