@@ -6,6 +6,7 @@ if [ "$(uname)" = "Darwin" ]; then
         brew analytics off
         brew update
         brew upgrade
+        mas upgrade
     else
         echo "Homebrew not installed"
     fi
