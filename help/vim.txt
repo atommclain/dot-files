@@ -1,1 +1,7 @@
-test
+Vim Cheat Sheet
+
+Indentation
+========================================
+Insert mode indent one level	Ctrl-T
+Insert mode unindent one level	Ctrl-D
+
