@@ -24,7 +24,7 @@ alias cdg='cd ~/git'
 alias cdd='cd ~/git/dot-files/'
 alias cdv='cd ~/.vim'
 alias h='history'
-alias myhelp='cat ~/git/dot-files/shellReminders.txt'
+alias myhelp='cat ~/git/dot-files/help/shell.txt'
 alias killlast='kill -9 %%'
 alias info='info --vi-keys'
 

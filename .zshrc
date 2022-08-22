@@ -162,6 +162,9 @@ bindkey -s '^[OQ' 'alias2^M'
 bindkey -s '^[OR' 'alias3^M'
 bindkey -s '^[OS' 'alias4^M'
 
+# F12 Universal help
+bindkey -s '^[[24~' 'vim ~/git/dot-files/help/shell.txt^M'
+
 #alias -g _gf1="`git --no-pager diff --name-only | sed -n 1p | sed 's/ /\\\\ /g'`"
 #alias -g _gf2="`git --no-pager diff --name-only | sed -n 2p | sed 's/ /\\\\ /g'`"
 #alias -g _gf3="`git --no-pager diff --name-only | sed -n 3p | sed 's/ /\\\\ /g'`"
