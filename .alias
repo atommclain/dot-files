@@ -511,4 +511,24 @@ extract () {
     esac
 }
 
+universalHelp () {
+    help_dir="$HOME/git/dot-files/help/"
+    default_help="$help_dir"shell.txt
+
+    # No argument, edit default help
+    if [ $# -eq 0 ] ; then
+        $EDITOR "$default_help"
+        return 0
+    fi
+
+    # Have argument, try to load relevant help
+    file_path="$help_dir$1.txt"
+    if [ -f $file_path ] ; then
+        $EDITOR $file_path
+        return 0
+    fi
+
+    $EDITOR "$default_help"
+}
+
 # vim: filetype=sh
