@@ -1,4 +1,6 @@
 bind-key is C-b
 
+C-e     edit .tmux.conf
+
 Ctrl+b % Split current pane horizontally into two panes
 Ctrl+b " Split current pane vertically into two panes
