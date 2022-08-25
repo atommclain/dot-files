@@ -572,4 +572,4 @@ if has('macunix')
 endif
 
 " Universal help
-nnoremap <silent> <F12> :sp<Bar>:e ~/git/dot-files/help/vim.txt<CR>
+nnoremap <silent> <F12> :botright sp<Bar>:e ~/git/dot-files/help/vim.txt<CR>

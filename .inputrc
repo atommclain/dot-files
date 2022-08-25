@@ -44,4 +44,5 @@ TAB: menu-complete
 "OR": "alias3\r"
 
 # F12 Universal help
-"\e[24~": "vim ~/git/dot-files/help/shell.txt\r"
+#"\e[24~": "vim ~/git/dot-files/help/shell.txt\r"
+"\e[24~":"\C-auniversalHelp \ef\C-k\n"

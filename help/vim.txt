@@ -5,3 +5,15 @@ Indentation
 Insert mode indent one level	Ctrl-T
 Insert mode unindent one level	Ctrl-D
 
+Folding
+========================================
+Unfold everything       zR
+Unfold everything current level zr
+Fold everything         zM
+Fold everthing current level    zm
+Toggle current fold     za
+Toggle root fold        zA
+
+Splits
+========================================
+https://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/

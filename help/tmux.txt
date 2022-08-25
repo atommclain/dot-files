@@ -1,6 +1,23 @@
 bind-key is C-b
 
-C-e     edit .tmux.conf
+C-b e     edit .tmux.conf
 
-Ctrl+b % Split current pane horizontally into two panes
-Ctrl+b " Split current pane vertically into two panes
+Sessions
+========================================
+$ tmux new -s session_name / create a named session
+C-b d Detach session
+$ tmus ls / list tmux sessions
+$ tmux attach-session -t 0 / attach to session 0
+$ tmux attach-session -t session_name / attach to named session
+
+C-b % Split current pane horizontally into two panes
+C-b " Split current pane vertically into two panes
+C-b o Go to next pane
+C-b ; Toggle between current and prevoius pane
+C-b x Close current pane
+
+Scroll Back
+========================================
+C-b [   Enter copy mode
+        Use arrow keys or home/end to move
+        Exit with 'q' or 'Enter'
