@@ -145,6 +145,15 @@ augroup CursorLine
     au WinLeave * setlocal nocursorcolumn
 augroup END
 endif
+
+augroup Ledger
+  au!
+  " insert todays date
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>t :read !date +"\%Y/\%m/\%d"<CR>A !<ESC>
+  " insert yesterdays date
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>y :read !date -r $((`date +\%s` - 86400)) +"\%Y/\%m/\%d"<CR>A !<ESC>
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>a :call ledger#transaction_state_toggle(line('.'), ' *!')<CR>
+augroup END
 " }}}
 
 " Plugins {{{
@@ -231,6 +240,7 @@ let g:ctrlp_custom_ignore = {
 " Leader {{{
 " set leader key to spacebar
 " let mapleader = "\<space>"
+let maplocalleader = "["
 
 " Insert space
 nnoremap <LEADER><SPACE> i <Esc>l
