@@ -16,4 +16,17 @@ Toggle root fold        zA
 
 Splits
 ========================================
+
+Scrolling
+========================================
+Page down Ctrl-f; up Ctrl-b
+1/2 Page down Ctrl-d; up Ctrl-u
+
+Settings/Variables
+========================================
+:set listchars? " shows current settings of listchars
+
+$ vim -O foo.h foo.c # open files in vertical split
+$ vim -o foo.h foo.c # open files in horizontal split
+
 https://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
