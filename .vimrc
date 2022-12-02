@@ -11,6 +11,7 @@ set number		" show line number
 set hidden		" allow buffers to be hidden without write
 set scrolloff=6		" start scrolling at 6 lines from edge
 set wrap		" soft wrap on edge of window (default on)
+set breakindent		" lines that wrap keep previous indentation
 set linebreak		" wrap lines without inserting newline
 set gdefault		" by default substitutions have 'g' flag
 set modeline		" turn on modelines
@@ -31,6 +32,9 @@ set iskeyword-=_	" don't count `_` as part of a 'word'
 set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
+
+set printoptions=number:y,left:5pc,paper:letter
+set printfont=MesloLGM\ Nerd\ Font:h9
 
 set showmatch		" highlight matching [{()}]
 set matchtime=1		" 1/10s timeout to find match

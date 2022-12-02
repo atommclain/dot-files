@@ -114,7 +114,10 @@
 	fix-conflicts = "!$EDITOR `git diff --name-only --diff-filter=U`"
 	# update develop branch from remote even if on a different branch
 	update-develop = "!git fetch origin develop:develop"
-	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs  git branch -D | echo \"Done.\"
+	gone-old = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs  git branch -D | echo \"Done.\"
+	# delete local branches merged to remote
+	# https://stackoverflow.com/questions/6127328/how-do-i-delete-all-git-branches-which-have-been-merged
+	gone = ! git branch --merged | egrep -v \"(^\\*|master|main|dev)\" | xargs git branch -d
 [delta]
 	features = decorations
 	#plus-style = "syntax #012800"

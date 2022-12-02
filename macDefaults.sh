@@ -167,8 +167,10 @@ defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_DoubleClick "SameAs
 defaults write com.apple.dt.Xcode IDEEditorNavigationStyle_DefaultsKey "IDEEditorNavigationStyle_OpenInPlace"
 # Check for spelling automatically
 defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool true
- # "...a new mode that better utilizes available cores, resulting in faster builds for Swift projects"
+# "...a new mode that better utilizes available cores, resulting in faster builds for Swift projects"
 defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+# Don't show ad for Xcode Cloud
+defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
 
 # ItsyCal
 defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d h:mm"

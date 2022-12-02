@@ -67,7 +67,7 @@ augroup gvimrcEx
 augroup END
 
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
-set guifont=MesloLGM\ Nerd\ Font:h14
+set guifont=MesloLGM\ Nerd\ Font:h13
 let g:airline_powerline_fonts = 1 " doesn't seem to work :\
 " rounded separators; for fun!
 let g:airline_left_sep = "\uE0B4"

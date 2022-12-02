@@ -184,8 +184,8 @@ function simInfo () {
     echo "iPhone 12 Pro"
     echo "iPhone XS"
     echo "iPhone X"
-    echo "iPad Air 2"
     echo "iPad Air 5"
+    echo "iPad Air 2"
     echo "Apple TV 4k (at 1080p)"
 }
 
