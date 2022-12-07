@@ -23,6 +23,7 @@ brew "ticker"
 brew "tmux"
 brew "tree"
 brew "wget"
+brew "xcinfo"
 # https://swiftpackageindex.com/faberNovel/xcresource-cli
 brew "xcresource"
 brew "youtube-dl"
@@ -59,7 +60,6 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "unexpectedly", args: { appdir: "/Applications/developer" }
 cask "rowanj-gitx", args: { appdir: "/Applications/developer" }
-cask "slack"
 cask "stay"
 cask "suspicious-package"
 cask "swiftdefaultappsprefpane"
