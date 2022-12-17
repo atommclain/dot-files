@@ -1,4 +1,4 @@
-bind-key is bind-key
+bind-key is control-b
 
 bind-key e     edit .tmux.conf
 
@@ -19,8 +19,8 @@ bind-key ; Toggle between current and prevoius pane
 bind-key x Close current pane
 
 bind-key          c new-window
-bind-key          p previous-window
 bind-key          n next-window
+bind-key          p previous-window
 
 Scroll Back
 ========================================
