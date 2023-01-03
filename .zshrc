@@ -22,6 +22,7 @@ ZSH_THEME="robbyrussell"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+unsetopt sharehistory
 
 bindkey -v
 bindkey ^R history-incremental-search-backward
