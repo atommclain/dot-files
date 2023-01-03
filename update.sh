@@ -10,7 +10,7 @@ if [ "$(uname)" = "Darwin" ]; then
     else
         echo "Homebrew not installed"
     fi
-    sudo softwareupdate -ia
+    sudo softwareupdate --install --all --agree-to-license
 elif [ "$(uname)" = "Linux" ]; then
     # Alpine Package Keeper
     if hash apk 2>/dev/null; then
