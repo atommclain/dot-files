@@ -17,6 +17,9 @@ todo
         update git hist to color head and remote head
         add todo git commit hook https://github.com/pimterry/git-confirm
         find out how to install perl module for single key git add -p
+        Feedly open in background tab
+            https://greasyfork.org/en/scripts/394974-feedly-open-in-background-tab/code
+            https://github.com/bbbrrriiiaaannn/feedlybackgroundtab/blob/master/src/js/keypress.js
     vimrc
         refresh airline whitespace without saving
             a:au airline_whitespace
