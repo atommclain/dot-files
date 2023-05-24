@@ -14,6 +14,11 @@ Fold everthing current level    zm
 Toggle current fold     za
 Toggle root fold        zA
 
+Sessions
+========================================
+:mks(1) sessionName
+:so sessionName
+
 Splits
 ========================================
 $ vim -O foo.h foo.c # open files in vertical split
