@@ -28,6 +28,7 @@ Install Oh my zsh https://ohmyz.sh/#install
 SSH
     $ ./sshSetup.sh
     add key to github
+    https://jay.gooby.org/2022/11/01/re-enable-older-rsa-ssh-keys-after-upgrading-to-macos-ventura
 
 Restart computer
 
