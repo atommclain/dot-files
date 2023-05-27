@@ -16,8 +16,11 @@ elif [ "$(uname)" = "Linux" ]; then
     if hash apk 2>/dev/null; then
       apk update
       apk upgrade
+    elif hash apt 2>/dev/null; then
+      sudo apt update && sudo apt upgrade -y
+      sudo apt autoremove -y
     else
-      echo "update Linux"
+      echo "unknown package manager for Linux"
     fi
 else
     echo "unknown system: $(uname)"
