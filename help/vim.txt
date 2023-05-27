@@ -16,17 +16,24 @@ Toggle root fold        zA
 
 Splits
 ========================================
+$ vim -O foo.h foo.c # open files in vertical split
+$ vim -o foo.h foo.c # open files in horizontal split
+
+https://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
 
 Scrolling
 ========================================
 Page down Ctrl-f; up Ctrl-b
 1/2 Page down Ctrl-d; up Ctrl-u
 
+Sessions
+========================================
+:mksession! ~/mysession.vim
+:source ~/mysession.vim
+$ vim -S ~/mysession.vim
+Can omit ~/mysession.vim and defaults to Session.vim
+
 Settings/Variables
 ========================================
 :set listchars? " shows current settings of listchars
 
-$ vim -O foo.h foo.c # open files in vertical split
-$ vim -o foo.h foo.c # open files in horizontal split
-
-https://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
