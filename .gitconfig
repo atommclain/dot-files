@@ -10,6 +10,7 @@
 	attributesfile = ~/.gitattributes
 [init]
 	templateDir = ~/.git_template
+	defaultBranch = trunk
 [advice]
 	statusHints = false
 [branch]
