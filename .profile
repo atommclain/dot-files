@@ -49,8 +49,9 @@ LSCOLORS="exfxcxdxbxegedabagacad"
 export EDITOR='vim'
 export VISUAL='vim'
 export FCEDIT='vim -u .minivimrc'
-export MANPAGER='less -s -M +Gg'
 
+export MANPAGER='less -s -M +Gg'
+export LESS='-F'
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
 export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
