@@ -155,8 +155,19 @@ augroup Ledger
   " insert todays date
   autocmd FileType ledger nnoremap <silent> <buffer> <localleader>t :read !date +"\%Y/\%m/\%d"<CR>A !<ESC>
   " insert yesterdays date
-  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>y :read !date -r $((`date +\%s` - 86400)) +"\%Y/\%m/\%d"<CR>A !<ESC>
-  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>a :call ledger#transaction_state_toggle(line('.'), ' *!')<CR>
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>y :read !date -r $((`date +\%s` - 86400)) +"\%Y/\%m/\%d"<CR>A *<ESC>
+  " toggle transaction state betweeen * and !
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>a :call ledger#transaction_state_toggle(line('.'), '*!')<CR>
+  " insert mta fare
+  "autocmd FileType ledger nnoremap <silent> <buffer> <localleader>m :read !date +"\%Y/\%m/\%d"<CR>A * MTA<CR>mta<TAB><TAB><TAB><TAB><TAB><TAB><TAB>$2.75<CR>alaska<CR><ESC>
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>m :read !date -r $((`date +\%s` - 86400)) +"\%Y/\%m/\%d"<CR>A * MTA<CR>mta<TAB><TAB><TAB><TAB><TAB><TAB><TAB>$2.75<CR>alaska<CR><ESC>
+  " move cursor to day in yyyy/mm/dd
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>dd 04w
+  " make date today
+  "autocmd FileType ledger nnoremap <silent> <buffer> <localleader>dt 0dW:read !date +"\%Y/\%m/\%d"<CR>
+  autocmd FileType ledger nnoremap <silent> <buffer> <localleader>dt 0dW:read !echo -n `date +"\%Y/\%m/\%d"`<CR>
+
+  au FileType ledger 1SpeedDatingFormat %Y%[/-]%m%1%d
 augroup END
 " }}}
 
