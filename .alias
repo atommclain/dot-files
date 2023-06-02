@@ -247,6 +247,17 @@ function termColorsAnsi() {
     echo -e "\033[0;36mCYAN\t\033[1;36mBOLD_CYAN"
     echo -e "\033[0;37mWHITE\t\033[1;37mBOLD_WHITE"
 }
+function termami() {
+    if hash tput 2>/dev/null; then
+        echo "columns: $(tput cols) rows: $(tput lines)"
+    elif hash stty  2>/dev/null; then
+        echo "columns: $(stty size | cut -d " " -f2) rows: $(stty size | cut -d " " -f1)"
+    else
+        echo "tput and stty are not installed"
+    fi
+    echo "VT100 size 80x24"
+    env | \grep ^TERM
+}
 
 # for repeating the last command
 # see http://stackoverflow.com/questions/4956018/in-git-how-can-i-stage-a-file-i-have-just-diffed-without-manually-specifying-the/4956417#4956417
