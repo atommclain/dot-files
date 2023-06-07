@@ -44,9 +44,7 @@ if [ "$SHELL" = "/bin/ash" ]; then
     git config --global pack.threads "1"
 
     # remove login message
-    if [ -f "/etc/motd" ]; then
-        rm /etc/motd
-    fi
+    touch $HOME/.hushlogin
 fi
 
 # .config
