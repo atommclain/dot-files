@@ -29,12 +29,17 @@ else
     echo "[SSH] Unknown system: $(uname)"
 fi
 
+printf "[SSH] Configuring .ssh/configure\n"
+touch ~/.ssh/configure
+# disconnect after 6 seconds
+echo "ServerAliveInterval 3" >> ~/.ssh/configure
+echo "ServerAliveCountMax 2" >> ~/.ssh/configure
+printf "\n"
+
 printf "[SSH] Setting up ssh key\n"
 if [ "$(uname)" == "Darwin" ]; then
     # Setup SSH to use keychain to prevent git from always asking for passphrase
     # https://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
-    printf "[SSH] Configuring .ssh/configure\n"
-    touch ~/.ssh/configure
     echo "Host *" >> ~/.ssh/configure
     echo "    UseKeychain yes" >> ~/.ssh/configure
 elif [ "$(uname)" == "Linux" ]; then
