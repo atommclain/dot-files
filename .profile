@@ -60,14 +60,6 @@ export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
 export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
 export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
 
-# gem
-export "GEM_HOME=$HOME/.gem"
-export "GEM_PATH=$HOME/.gem"
-export PATH="$GEM_HOME/bin:$PATH"
-
-# bundle
-export BUNDLE_PATH="$HOME/.bundle"
-
 # ruby
 if [ -d "/usr/local/opt/ruby/bin" ] ; then
     export PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -79,6 +71,16 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ] ; then
     export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
     export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 fi
+
+# gem
+export GEM_HOME="$HOME/.gem"
+export GEM_PATH="$HOME/.gem"
+if [ -d "$GEM_HOME" ] ; then
+    export PATH="$GEM_HOME/bin:$PATH"
+fi
+
+# bundle
+export BUNDLE_PATH="$HOME/.bundle"
 
 # python
 if hash python 2>/dev/null; then
