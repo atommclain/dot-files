@@ -226,6 +226,7 @@ function termColors256() {
     do :; done
 }
 function termTextStyles() {
+    printf "\e[0mregular\n"
     printf "\e[1mbold\n\e[0m"
     printf "\e[2mdim\n\e[0m"
     printf "\e[3mitalic\n\e[0m"
@@ -236,7 +237,7 @@ function termTextStyles() {
     printf "\e[9mstrikethrough\n\e[0m"
 }
 function termColorsAnsi() {
-    echo -e "\033[0mNC (No color)"
+    echo -e "\033[0mNC\t\033[0;1mBOLD_NC"
     echo -e "\033[0;30mBLACK\t\033[1;30mBOLD_BLACK"
     echo -e "\033[0;31mRED\t\033[1;31mBOLD_RED"
     echo -e "\033[0;32mGREEN\t\033[1;32mBOLD_GREEN"
@@ -444,6 +445,9 @@ function systemInfoADM() {
         printf "macOS    13.0    Ventura         October 24, 2023\n"
         printf "macOS    14.0    Sonoma          TBD\n"
         printf "=====================================================\n"
+        # https://apple.stackexchange.com/a/333470
+        MARKETING_NAME=$(awk '/SOFTWARE LICENSE AGREEMENT FOR macOS/' '/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.rtf' | awk -F 'macOS ' '{print $NF}' | awk '{print substr($0, 0, length($0)-1)}')
+        printf "MarketingName:\t\t$MARKETING_NAME\n"
         sw_vers
         uname -a
     elif [ "$(uname)" == "Linux" ]; then
