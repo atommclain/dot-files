@@ -19,6 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
+export LESS="-FRX"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
@@ -26,6 +27,11 @@ unsetopt sharehistory
 
 bindkey -v
 bindkey ^R history-incremental-search-backward
+
+autoload -Uz compinit; compinit;
+bindkey "^Xa" _expand_alias
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' regular true
 
 alias ez='vim ~/.zshrc; source ~/.zshrc'
 
@@ -204,3 +210,4 @@ bindkey -s '^[[24~' '^auniversalHelp \ef^k^M'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
