@@ -141,6 +141,9 @@ defaults write com.apple.Safari ShowFavoritesBar -bool true
 # Show tab bar
 defaults write com.apple.Safari AlwaysShowTabBar -bool true
 
+# AppSore - Don't show rating prompts
+defaukts write com.apple.appstore InAppReviewEnabled -bool false
+
 # FileMerge
 # Convert plists from binary to text
 defaults write com.apple.FileMerge Filters -array-add '{ Apply = 0; Display = 0; Extension = plist; Filter = "/usr/bin/plutil -convert xml1 -o -  \$(FILE)"; }'
