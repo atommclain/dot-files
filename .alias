@@ -547,4 +547,16 @@ universalHelp () {
     $EDITOR "$default_help"
 }
 
+noti() {
+    if [[ "$(uname)" == "Darwin" ]]; then
+        if [[ $? = 0 ]]; then
+            afplay /System/Library/Sounds/Blow.aiff -v 10
+        else
+            printf '\a'
+        fi
+    else
+        printf '\a'
+    fi
+}
+
 # vim: filetype=sh
