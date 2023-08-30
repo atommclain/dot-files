@@ -424,7 +424,7 @@ function copyssh() {
 
 alias whatami='systemInfoADM'
 function systemInfoADM() {
-    if [[ "$(uname)" == "Darwin" ]]; then
+    if [ "$(uname)" = "Darwin" ]; then
         printf "Mac OS X 10.0    Cheetah         March 24, 2001\n"
         printf "Mac OS X 10.1    Puma            September 25, 2001\n"
         printf "Mac OS X 10.2    Jaguar          August 24, 2002\n"
@@ -451,7 +451,7 @@ function systemInfoADM() {
         printf "MarketingName:\t\t$MARKETING_NAME\n"
         sw_vers
         uname -a
-    elif [ "$(uname)" == "Linux" ]; then
+    elif [ "$(uname)" = "Linux" ]; then
         # https://stackoverflow.com/a/246012 get true 32/64 bit info
         echo "Installed OS is $(getconf LONG_BIT) bit"
         uname -a
@@ -472,7 +472,7 @@ function clink() {
     for var in "$@"
     do
         file="$var"
-        if [[ ! -f "$file" && ! -d "$file" ]]; then
+        if [ ! -f "$file" ] && [ ! -d "$file" ]; then
             echo "File doesn't exist"
             return 1
         fi
@@ -548,8 +548,8 @@ universalHelp () {
 }
 
 noti() {
-    if [[ "$(uname)" == "Darwin" ]]; then
-        if [[ $? = 0 ]]; then
+    if [ "$(uname)" = "Darwin" ]; then
+        if [ $? -eq 0 ]; then
             afplay /System/Library/Sounds/Blow.aiff -v 10
         else
             printf '\a'
