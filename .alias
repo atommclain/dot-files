@@ -1,9 +1,9 @@
 if [ -f ~/.workalias ]; then
-    source ~/.workalias
+    . ~/.workalias
 fi
 
 if [ -f ~/.alias_local ]; then
-    source ~/.alias_local
+    . ~/.alias_local
 fi
 
 ## general
@@ -48,16 +48,16 @@ alias bton="blueutil --power 1"
 alias btoff="blueutil --power 0"
 
 # make and change directory
-function mcd () { mkdir -p $1; cd $1; }
+mcd () { mkdir -p $1; cd $1; }
 
 # perform ls after cd
-function cdl () { cd "$@" && ls; }
+cdl () { cd "$@" && ls; }
 
 # defaults
 alias dfr='defaults read'
 alias dfw='defaults write'
 
-function enable_sudo_touchid () {
+enable_sudo_touchid () {
     sudo sed -i -e '1s;^;auth       sufficient     pam_tid.so\n;' /etc/pam.d/sudo
 }
 
@@ -144,7 +144,7 @@ alias grba='git rebase --abort'
 # set $H to common ancestor of HEAD and develop
 alias grbshb='grbsh `git merge-base develop HEAD`'
 # set $H (hash) for grbh
-function grbsh { export H="$1"; }
+grbsh() { export H="$1"; }
 # Function to take git interactive rebase argument. e.g.: grbn 2
 grbn() { git rebase -i HEAD~$1; }
 alias mg='meta git '
@@ -162,9 +162,9 @@ alias gsta0='git stash apply stash@{0}'
 alias gstd='git_stash_drop '
 alias gstd0='git stash drop stash@{0}'
 alias gsts='git_stash_show '
-function git_stash_apply () { git stash apply stash@{"$1"}; }
-function git_stash_drop () { git stash drop stash@{"$1"}; }
-function git_stash_show () { git stash show stash@{"$1"}; }
+git_stash_apply () { git stash apply stash@{"$1"}; }
+git_stash_drop () { git stash drop stash@{"$1"}; }
+git_stash_show () { git stash show stash@{"$1"}; }
 
 alias myip='ifconfig en0'
 alias pu='pod repo update'
@@ -181,7 +181,7 @@ alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
 alias killxcode='killall - Xcode && nukederiveddata'
 alias killsimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 alias cd-provisioning-profiles='cd ~/Library/MobileDevice/Provisioning\ Profiles/'
-function simInfo () {
+simInfo () {
     echo "iPhone 12 Pro"
     echo "iPhone XS"
     echo "iPhone X"
@@ -198,7 +198,7 @@ alias ytdlpmp3="youtube-dl -f bestaudio --extract-audio --audio-format mp3 "
 
 alias colorPicker="osascript -e 'choose color' &"
 alias termColorsZSH='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
-function termColorsBash() {
+termColorsBash() {
     T='gYw'   # The test text
     echo -e "\n                40m   41m   42m   43m   44m   45m   46m   47m";
 
@@ -214,7 +214,7 @@ function termColorsBash() {
         done
         echo
 }
-function termColors256() {
+termColors256() {
     i=0
     while
         printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
@@ -226,7 +226,7 @@ function termColors256() {
         [ "$i" -lt 256 ]
     do :; done
 }
-function termTextStyles() {
+termTextStyles() {
     printf "\e[0mregular\n"
     printf "\e[1mbold\n\e[0m"
     printf "\e[2mdim\n\e[0m"
@@ -237,7 +237,7 @@ function termTextStyles() {
     printf "hidden: \e[8msecret!\n\e[0m"
     printf "\e[9mstrikethrough\n\e[0m"
 }
-function termColorsAnsi() {
+termColorsAnsi() {
     echo -e "\033[0mNC\t\033[0;1mBOLD_NC"
     echo -e "\033[0;30mBLACK\t\033[1;30mBOLD_BLACK"
     echo -e "\033[0;31mRED\t\033[1;31mBOLD_RED"
@@ -248,7 +248,7 @@ function termColorsAnsi() {
     echo -e "\033[0;36mCYAN\t\033[1;36mBOLD_CYAN"
     echo -e "\033[0;37mWHITE\t\033[1;37mBOLD_WHITE"
 }
-function termami() {
+termami() {
     if hash tput 2>/dev/null; then
         echo "columns: $(tput cols) rows: $(tput lines)"
     elif hash stty  2>/dev/null; then
@@ -275,7 +275,7 @@ alias r='fc -s'
 
 # alias tail_ls="ls -l $1 | tail"
 
-function gdelbn () {
+gdelbn () {
     if [ $# -eq 0 ]
     then
         echo "No arguments supplied"
@@ -287,12 +287,12 @@ function gdelbn () {
 }
 
 # from `git branch` check out branch N
-function git_checkout_branch_n () {
+git_checkout_branch_n () {
     git checkout `git branch | sed -n "$1"p`;
 }
 
 # Show the Nth commit in the project
-function hockeyNumberToHash() {
+hockeyNumberToHash() {
     re='^[0-9]+$'
     if ! [[ $1 =~ $re ]] ; then
         echo "error: Not a number" >&2; return
@@ -303,7 +303,7 @@ function hockeyNumberToHash() {
     git log --skip=$reverseCommit --max-count=1
 }
 
-function hockeyHashToNumber() {
+hockeyHashToNumber() {
     if test $(git cat-file -t $1) == commit; then
         totalCommits=$(git rev-list HEAD --count)
         thisCommit=$(git rev-list "$1" --count)
@@ -360,7 +360,7 @@ gclone() {
 #esac
 
 # show man for the nth listing in /usr/bin based on the offset of startDate
-function dailyman() {
+dailyman() {
     startDate="2020-05-15"
     offset=$(dateDiff $startDate)
     commandNum="${offset}p"
@@ -371,7 +371,7 @@ function dailyman() {
 }
 
 # return the nth builtin command of the offset of startDate
-function dailybuiltin() {
+dailybuiltin() {
     startDate="2020-05-20"
     total=$( compgen -b | wc -l )
     offset=$(dateDiff $startDate)
@@ -383,7 +383,7 @@ function dailybuiltin() {
 
 # takes a date string in the format "yyyy-mm-dd" and returns the number
 # of days to now
-function dateDiff() {
+dateDiff() {
     if [ $# -eq 0 ]
     then
         echo "No arguments supplied"
@@ -408,7 +408,7 @@ echo $offset
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
 alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
 
-function copyssh() {
+copyssh() {
     if [ "$(uname)" == "Darwin" ]; then
         cat ~/.ssh/id_rsa.pub | pbcopy
     elif [ "$(uname)" == "Linux" ]; then
@@ -423,8 +423,8 @@ function copyssh() {
 }
 
 alias whatami='systemInfoADM'
-function systemInfoADM() {
-    if [ "$(uname)" = "Darwin" ]; then
+systemInfoADM() {
+    if [[ "$(uname)" == "Darwin" ]]; then
         printf "Mac OS X 10.0    Cheetah         March 24, 2001\n"
         printf "Mac OS X 10.1    Puma            September 25, 2001\n"
         printf "Mac OS X 10.2    Jaguar          August 24, 2002\n"
@@ -463,7 +463,7 @@ function systemInfoADM() {
     fi
 }
 
-function clink() {
+clink() {
     if [ $# -eq 0 ]; then
         echo "No arguments supplied"
         return 1
