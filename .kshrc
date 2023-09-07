@@ -11,3 +11,8 @@ alias lsa='ls -lA'
 alias l='ls'
 alias cdd='cd $HOME/src/dot-files'
 alias up='cd ..'
+
+for term in $(env | grep -i less_term | cut -f1 -d"=")
+do
+  unset $term
+done
