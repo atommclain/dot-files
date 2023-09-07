@@ -1,0 +1,13 @@
+# resource file for a-shell, needs to renamed to .bashrc to be automatically sourced
+
+export HOME="$HOME/Documents"
+export PS1='\w\$ '
+alias up='cd ..'
+alias cdd='cd $HOME/src/dot-files'
+alias ea='vim $HOME/.bashrc'
+alias ep='vim $HOME/.profile'
+alias l='ls'
+alias lsa='ls -A'
+alias gs='lg2 status'
+alias gp='lg2 pull'
+alias gr='lg2 checkout --force --'
