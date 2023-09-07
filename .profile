@@ -114,6 +114,10 @@ if [ -d "/proc/ish/" ] ; then
     export ENV=$HOME/.ashinit
 fi
 
+if [ $(basename $SHELL) = "ksh" ] ; then
+    export ENV=$HOME/.kshrc
+fi
+
 if hash fortune 2>/dev/null; then
     if [ -d "$HOME/git/fortune" ] ; then
         $HOME/git/fortune/fortune.sh
