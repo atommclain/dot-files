@@ -1,5 +1,5 @@
 EDITOR=/usr/pkg/bin/vim
-PS1="$ " 
+PS1='$(pwd | sed "s,^$HOME,~,")$ ' PS1='$(pwd | sed "s,^$HOME,~,")$ '
 
 TERM=vt100
 stty erase '^?' echoe
