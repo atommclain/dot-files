@@ -8,7 +8,7 @@ fi
 
 ## general
 alias l='ls'
-alias lsa='ls -goah'
+alias lsa='ls -goAh'
 alias lsd='ls -d */'
 alias lsb='ls ~/bin'
 alias ls.='ls -lA | tr -s " " | cut -d " " -f 9-20 | grep ^[.]'
