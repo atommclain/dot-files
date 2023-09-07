@@ -1,12 +1,11 @@
 # resource file for the korn shell
 
-EDITOR=/usr/pkg/bin/vim
-PS1='$(pwd | sed "s,^$HOME,~,")$ ' PS1='$(pwd | sed "s,^$HOME,~,")$ '
+PS1='$(pwd | sed "s,^$HOME,~,")$ '
 
 TERM=vt100
 stty erase '^?' echoe
 set -o emacs
-export MAIL PS1 TERM EDITOR VISUAL 
+export MAIL PS1 TERM
 
 alias lsa='ls -lA'
 alias l='ls'
