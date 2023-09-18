@@ -8,7 +8,8 @@ fi
 
 ## general
 alias l='ls'
-alias lsa='ls -goAh'
+alias lsa='ls -A'
+alias lsg='ls -goAh'
 alias lsd='ls -d */'
 alias lsb='ls ~/bin'
 alias ls.='ls -lA | tr -s " " | cut -d " " -f 9-20 | grep ^[.]'
@@ -40,7 +41,7 @@ alias irc="irssi"
 if [ "$SHELL" = "/bin/ash" ]; then
     alias ls='ls --color=auto'
     unalias lsa
-    alias lsa='ls -a'
+    alias lsa='ls -A'
 fi
 
 # bluetooth
