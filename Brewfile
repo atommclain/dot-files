@@ -73,6 +73,7 @@ mas "Accelerate for Safari", id: 1459809092
 mas "Attributed String Creator Pro", id: 730928349
 mas "Deliveries", id: 290986013
 mas "Developer", id: 640199958
+mas "Hush Nag Blocker", id: 1544743900
 mas "Key Codes", id: 414568915
 mas "Markdown Pro", id: 465965038
 mas "Peek", id: 1554235898
