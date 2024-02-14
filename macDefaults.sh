@@ -151,7 +151,7 @@ defaults write com.apple.Safari ShowFavoritesBar -bool true
 defaults write com.apple.Safari AlwaysShowTabBar -bool true
 
 # AppSore - Don't show rating prompts
-defaukts write com.apple.appstore InAppReviewEnabled -bool false
+defaults write com.apple.appstore InAppReviewEnabled -bool false
 
 # FileMerge
 # Convert plists from binary to text
