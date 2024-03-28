@@ -95,8 +95,8 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
 # Finder - Menubar Notch Icon Spacing
-defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
-defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 4
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 4
 # After running these commands, you need to log out and log back in
 # Revert to the original values
 # defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
