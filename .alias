@@ -193,9 +193,9 @@ simInfo () {
 
 alias beep="echo -ne '\007'"
 
-alias ytdlp720="yt-dlp --no-check-certificate -f 'bestvideo[height<=720]+bestaudio' "
-alias ytdlp1080="yt-dlp --no-check-certificate -f 'bestvideo[height<=1080]+bestaudio' "
-alias ytdlpmp3="youtube-dl -f bestaudio --extract-audio --audio-format mp3 "
+alias ytdlp720="yt-dlp --no-check-certificate -f 'bestvideo[height<=720]+bestaudio' -o \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
+alias ytdlp1080="yt-dlp --no-check-certificate -f 'bestvideo[height<=1080]+bestaudio' \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
+alias ytdlpmp3="youtube-dl -f bestaudio --extract-audio --audio-format mp3 \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
 
 alias colorPicker="osascript -e 'choose color' &"
 alias termColorsZSH='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
