@@ -6,6 +6,7 @@ if [ "$(uname)" = "Darwin" ]; then
         brew analytics off
         brew update
         brew upgrade
+        brew bundle
         # Streaks throws a warning when upgrading it when it's running, close and
         # reopen it to make this script run with less direct intervention
          if ps aux | grep -v grep | grep -q "Streaks"; then
@@ -16,6 +17,8 @@ if [ "$(uname)" = "Darwin" ]; then
         if [ -n "$OPEN_STREAKS" ]; then
             open /Applications/Streaks.app
         fi
+
+        ./macDefaults.sh
     else
         echo "Homebrew not installed"
     fi
