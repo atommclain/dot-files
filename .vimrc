@@ -339,9 +339,12 @@ hi VertSplit ctermbg=None
 set fillchars+=vert:│
 
 " Listchars
-set listchars=nbsp:∅,trail:·,eol:¬,precedes:«,extends:»,tab:▸›
-if has("patch-7.4-711")	" This works as of Vim 7.4.711
-  set listchars+=space:␣
+set listchars=nbsp:∅,trail:␣,eol:¬,precedes:«,extends:»,tab:▸›
+if has("patch-7.4.711")	" This works as of Vim 7.4.711
+  set listchars+=space:·
+endif
+if has("patch-9.0.0")
+  set listchars+=lead:␣
 endif
 if linuxConsole
   set listchars=nbsp:∅,trail:ж,eol:¬,precedes:«,extends:»,tab:┣→
