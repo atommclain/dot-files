@@ -30,6 +30,10 @@ defaults write com.apple.dock wvous-bl-corner -int 4
 # bottom right, Disable Screen Saver
 defaults write com.apple.dock wvous-br-corner -int 6
 
+# System Preferences - Desktop & Dock
+# Click wallpaper to reveal desktop → Only in Stage Manager
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
 # System Preferences - Siri
 # Enable Ask Siri
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false
