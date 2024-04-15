@@ -8,6 +8,11 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# load local profile if present
+if [ -f "$HOME/.profile.local" ] ; then
+    . "$HOME/.profile.local"
+fi
+
 # homebrew for m1 mac
 if [ -f "/opt/homebrew/bin/brew" ] ; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -41,7 +46,11 @@ if [ -d "$HOME/usr/bin" ] ; then
     export PATH="$HOME/usr/bin:$PATH"
 fi
 
-export CDPATH=".:$HOME:$HOME/git"
+if [ -z "$SRCDIR" ]; then
+    export SRCDIR="$HOME/src"
+fi
+
+export CDPATH=".:$HOME:$SRCDIR"
 
 # lscolors https://gist.github.com/thomd/7667642
 LSCOLORS="exfxcxdxbxegedabagacad"
@@ -119,8 +128,8 @@ if [ $(basename $SHELL) = "ksh" ] ; then
 fi
 
 if hash fortune 2>/dev/null; then
-    if [ -d "$HOME/git/fortune" ] ; then
-        $HOME/git/fortune/fortune.sh
+    if [ -d "$SRCDIR/fortune" ] ; then
+        $SRCDIR/fortune/fortune.sh
     fi
 fi
 
