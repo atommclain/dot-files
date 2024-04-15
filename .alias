@@ -180,6 +180,7 @@ alias wifiToggle="wifi off && sleep 10 && wifi on"
 # kill Xcode and nuke derived data
 alias nukederiveddata='rm -rf $HOME/Library/Developer/Xcode/DerivedData'
 alias killxcode='killall - Xcode && nukederiveddata'
+# Close Xcode and simulators kill $(ps aux | grep 'Xcode' | awk '{print $2}')
 alias killsimulator='sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 alias cd-provisioning-profiles='cd ~/Library/MobileDevice/Provisioning\ Profiles/'
 simInfo () {
@@ -193,8 +194,10 @@ simInfo () {
 
 alias beep="echo -ne '\007'"
 
-alias ytdlp720="yt-dlp --no-check-certificate -f 'bestvideo[height<=720]+bestaudio' -o \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
-alias ytdlp1080="yt-dlp --no-check-certificate -f 'bestvideo[height<=1080]+bestaudio' \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
+SPONSOR_BLOCK="--sponsorblock-mark default --sponsorblock-remove sponsor"
+TITLE_FORMAT="-o \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
+alias ytdlp720="yt-dlp --no-check-certificate -f 'bestvideo[height<=720]+bestaudio' $TITLE_FORMAT $SPONSOR_BLOCK"
+alias ytdlp1080="yt-dlp --no-check-certificate -f 'bestvideo[height<=1080]+bestaudio' $TITLE_FORMAT $SPONSOR_BLOCK"
 alias ytdlpmp3="youtube-dl -f bestaudio --extract-audio --audio-format mp3 \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
 
 alias colorPicker="osascript -e 'choose color' &"
