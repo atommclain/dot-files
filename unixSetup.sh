@@ -1,6 +1,7 @@
 # a script to setup a shell environment
 
 git branch --set-upstream-to origin/master
+git config pull.rebase true
 source .alias
 
 # all shells
