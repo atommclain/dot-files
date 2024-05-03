@@ -146,4 +146,4 @@
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [include]
-	path = ~/.gitconfig_work
+	path = ~/.gitconfig.work
