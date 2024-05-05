@@ -6,6 +6,10 @@ if [ -f ~/.alias_local ]; then
     . ~/.alias_local
 fi
 
+if [ -f ~/.alias.local ]; then
+    . ~/.alias.local
+fi
+
 ## general
 alias l='ls'
 alias lsa='ls -A'
