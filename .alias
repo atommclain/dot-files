@@ -453,6 +453,7 @@ systemInfoADM() {
         printf "macOS    12.0    Monterey        October 25, 2021\n"
         printf "macOS    13.0    Ventura         October 24, 2022\n"
         printf "macOS    14.0    Sonoma          September 26, 20023\n"
+        printf "macOS    15.0    Sequoia         TBD\n"
         printf "=====================================================\n"
         # https://apple.stackexchange.com/a/333470
         MARKETING_NAME=$(awk '/SOFTWARE LICENSE AGREEMENT FOR macOS/' '/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.rtf' | awk -F 'macOS ' '{print $NF}' | awk '{print substr($0, 0, length($0)-1)}')
