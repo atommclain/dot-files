@@ -20,6 +20,10 @@ ZSH_THEME="robbyrussell"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export LESS="-FRX"
+# Show current position within the file on the prompt
+LESS+="-M"
+# Show lines before a search
+LESS+="-j5"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
