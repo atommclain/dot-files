@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 
 # System Preferences - General
 # Show scroll bars: Always
@@ -105,6 +105,8 @@ defaults -currentHost write -globalDomain NSStatusItemSpacing -int 4
 # Revert to the original values
 # defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
 # defaults -currentHost delete -globalDomain NSStatusItemSpacing
+# Enable slow motion minimization
+defaults write com.apple.dock slow-motion-allowed -bool YES
 
 
 # Activity Monitor
@@ -193,5 +195,6 @@ defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d h:mm"
 defaults write com.mowglii.ItsycalApp HideIcon -bool true
 
 killall cfprefsd
+killall Dock
 killall Finder
 killall SystemUIServer
