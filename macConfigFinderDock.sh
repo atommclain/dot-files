@@ -1,6 +1,11 @@
 #!/bin/sh
 # configure finder sidebar and dock
 
+SKIP_KILL=false
+if [ "$1" = "--no-kill" ]; then
+    SKIP_KILL=true
+fi
+
 # Configure the finder sidebar
 if hash mysides 2>/dev/null; then
     mysides remove all
@@ -32,7 +37,10 @@ if hash dockutil 2>/dev/null; then
     dockutil --remove com.apple.AppStore --no-restart
     dockutil --remove com.apple.systempreferences --no-restart
 
-    killall Dock
+    # Skip kill if flag is set
+    if [ "$SKIP_KILL" = false ]; then
+        killall Dock
+    fi
 else
     echo "dockutil is not installed"
 fi

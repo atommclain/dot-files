@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Check if a flag was passed to skip killall commands
+SKIP_KILL=false
+if [ "$1" = "--no-kill" ]; then
+    SKIP_KILL=true
+fi
+
 # System Preferences - General
 # Show scroll bars: Always
 defaults write -g AppleShowScrollBars -string "Always"
@@ -194,7 +200,10 @@ defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
 defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d h:mm"
 defaults write com.mowglii.ItsycalApp HideIcon -bool true
 
-killall cfprefsd
-killall Dock
-killall Finder
-killall SystemUIServer
+# Don't kill if flag is set
+if [ "$SKIP_KILL" = false ]; then
+    killall cfprefsd
+    killall Dock
+    killall Finder
+    killall SystemUIServer
+fi
