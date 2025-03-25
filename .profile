@@ -128,9 +128,11 @@ if [ $(basename $SHELL) = "ksh" ] ; then
     export ENV=$HOME/.kshrc
 fi
 
-if hash fortune 2>/dev/null; then
-    if [ -d "$SRCDIR/fortune" ] ; then
-        $SRCDIR/fortune/fortune.sh
+if [ -t 0 ]; then
+    if hash fortune 2>/dev/null; then
+        if [ -d "$SRCDIR/fortune" ] ; then
+            $SRCDIR/fortune/fortune.sh
+        fi
     fi
 fi
 

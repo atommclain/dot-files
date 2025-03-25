@@ -44,7 +44,7 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 # Enable Ask Siri
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false
 
-# Show Siri in menu bar
+# Don't show Siri in menu bar
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
 # System Preferences - Accessibility
@@ -111,6 +111,8 @@ defaults -currentHost write -globalDomain NSStatusItemSpacing -int 4
 # Revert to the original values
 # defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
 # defaults -currentHost delete -globalDomain NSStatusItemSpacing
+# Change clock to analog
+defaults write com.apple.menuextra.clock IsAnalog -bool true
 # Enable slow motion minimization
 defaults write com.apple.dock slow-motion-allowed -bool YES
 
