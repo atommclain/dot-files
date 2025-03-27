@@ -27,7 +27,12 @@ LESS+="-j5"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+# Don't share history between sessions
 unsetopt sharehistory
+# Don't write each command to the history file immediately
+unsetopt inc_append_history
+# Don't ingore duplicate commands in history file
+unsetopt hist_ignore_dups
 
 bindkey -v
 bindkey ^R history-incremental-search-backward

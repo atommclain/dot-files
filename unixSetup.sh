@@ -31,8 +31,8 @@ fi
 # zsh
 if [ -n "$ZSH_VERSION" ]; then
     echo "setting up zsh"
+    clink .zprofile
     clink .zshrc
-    clink .zshenv
     clink .p10k.zsh
 fi
 
