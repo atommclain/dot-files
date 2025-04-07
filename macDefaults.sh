@@ -61,6 +61,8 @@ defaults write -g KeyRepeat -int 1
 # System Preferences - Time & Date
 # Time format 24-Hour Time
 defaults write -g AppleICUForce24HourTime -int 1
+# Change clock to analog
+defaults write com.apple.menuextra.clock IsAnalog -bool true
 
 # Finder - Preferences - General
 # Show these items on desktop:
@@ -105,14 +107,13 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
 # Finder - Menubar Notch Icon Spacing
-defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 4
-defaults -currentHost write -globalDomain NSStatusItemSpacing -int 4
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 12
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 8
 # After running these commands, you need to log out and log back in
 # Revert to the original values
 # defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
 # defaults -currentHost delete -globalDomain NSStatusItemSpacing
-# Change clock to analog
-defaults write com.apple.menuextra.clock IsAnalog -bool true
+
 # Enable slow motion minimization
 defaults write com.apple.dock slow-motion-allowed -bool YES
 
@@ -199,7 +200,7 @@ defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
 
 # ItsyCal
-defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d h:mm"
+defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d H:mm"
 defaults write com.mowglii.ItsycalApp HideIcon -bool true
 
 # Don't kill if flag is set
