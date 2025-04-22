@@ -134,9 +134,11 @@ alias grbs='git reset HEAD^'
 # safe git reset hard avoiding commit hooks
 alias grh='git add -A && git commit -qm "WIPE SAVEPOINT" --no-verify && git reset HEAD~1 --hard'
 alias gwipe='git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard'
+# safe git clean
+alias gclean='git clean-savepoint'
 # delete untracked files; dry run and actual
-alias gclean='git clean -d -n'
-alias gcleann='git clean -d -f'
+#alias gclean='git clean -d -n'
+#alias gcleann='git clean -d -f'
 alias gmt='git mergetool '
 alias gg='git grep '
 

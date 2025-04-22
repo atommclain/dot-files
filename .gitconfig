@@ -124,6 +124,20 @@
 	# delete local branches merged to remote
 	# https://stackoverflow.com/questions/6127328/how-do-i-delete-all-git-branches-which-have-been-merged
 	gone = ! git branch --merged | egrep -v \"(^\\*|master|main|dev)\" | xargs git branch -d
+	# clean untracked files, saving them to a detached commit, aborting if any are over 100MB
+	clean-savepoint = "!f(){ \
+		threshold=100M; \
+		if git ls-files --others --exclude-standard -z | \
+		xargs -0 -n1 find '{}' -maxdepth 0 -size +${threshold} -print -quit | \
+		grep -q .; then \
+		echo \"🚫 Error: untracked file > ${threshold} detected.\" >&2; \
+		return 1; \
+		fi; \
+		git add -A; \
+		git commit -qm \"CLEAN SAVEPOINT\" --no-verify; \
+		git reset --hard HEAD~1; \
+		echo \"✅ Clean complete (savepoint in reflog).\"; \
+		}; f"
 [delta]
 	features = decorations
 	#plus-style = "syntax #012800"
