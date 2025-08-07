@@ -52,6 +52,8 @@ defaults write com.apple.Siri StatusMenuVisible -bool false
 defaults write com.apple.universalaccess showWindowTitlebarIcons -bool YES
 # Reduce Transparency
 defaults write com.apple.universalaccess reduceTransparency 1
+# Differentiate without color
+defaults write com.apple.universalaccess differentiateWithoutColor 1
 
 # System Preferences - Keyboard
 # Key Repeat/Delay
@@ -62,6 +64,10 @@ defaults write -g KeyRepeat -int 1
 # Time format 24-Hour Time
 defaults write -g AppleICUForce24HourTime -int 1
 # Change clock to analog
+defaults write com.apple.menuextra.clock IsAnalog -bool true
+
+# System Preferences - Control Center
+# Clock Options, Time, Style, Analog
 defaults write com.apple.menuextra.clock IsAnalog -bool true
 
 # Finder - Preferences - General
@@ -89,7 +95,10 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # Default Finder view is List
 defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 # Show ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+chflags nohidden ~/Library
+if xattr -l ~/Library | grep -q com.apple.FinderInfo; then
+    xattr -d com.apple.FinderInfo ~/Library
+fi
 
 # Finder - Other
 # Move window with cmd + ctrl with click and drag
@@ -202,6 +211,10 @@ defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
 # ItsyCal
 defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d H:mm"
 defaults write com.mowglii.ItsycalApp HideIcon -bool true
+
+# Pastebot
+# Auto hide Dock Icon
+defaults write com.tapbots.Pastebot2Mac UIVisibilityState -integer 2
 
 # Don't kill if flag is set
 if [ "$SKIP_KILL" = false ]; then
