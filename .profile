@@ -58,7 +58,7 @@ LSCOLORS="exfxcxdxbxegedabagacad"
 export EDITOR='vim'
 export VISUAL='vim'
 export SUDO_EDITOR='vim'
-export FCEDIT='vim -u .minivimrc'
+export FCEDIT='vim -u $HOME/.minivimrc'
 
 export MANPAGER='less -s -M +Gg'
 export LESS='-F'
