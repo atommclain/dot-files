@@ -513,9 +513,9 @@ endfunction
 " highlight last inserted text
 nnoremap gV `[v`]
 
-command! DiffScratchADM :call ADMScratchDiff()
+command! DiffScratchADM :call ADAMScratchDiff()
 " http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
-function! ADMScratchDiff()
+function! ADAMScratchDiff()
   execute "vsp"
   execute "ene"
   execute "windo diffthis"
