@@ -187,7 +187,8 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 # Show Xcode build number on icon
 defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 # Add counterparts to Xcode https://twitter.com/peterfriese/status/1364544309878534144
-defaults write http://com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "ViewModel" "View" "Screen"
+defaults write http://com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "ViewModel" "View" "Screen" "Tests" "Coordinator"
+
 # Show Indexing numeric progress
 defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool YES
 # Show invisibles
@@ -207,6 +208,8 @@ defaults write com.apple.dt.Xcode AutomaticallyCheckSpellingWhileTyping -bool tr
 defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 # Don't show ad for Xcode Cloud
 defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
+# Disable "Print" keyboard shortcut
+defaults write com.apple.dt.Xcode NSUserKeyEquivalents -dict-add "Print..." "nil"
 
 # ItsyCal
 defaults write com.mowglii.ItsycalApp ClockFormat -string "E MMM d H:mm"

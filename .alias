@@ -457,6 +457,7 @@ systemInfoADM() {
         printf "macOS    13.0    Ventura         October 24, 2022\n"
         printf "macOS    14.0    Sonoma          September 26, 2023\n"
         printf "macOS    15.0    Sequoia         September 16, 2024\n"
+        printf "macOS    26.0    Tahoe           TBD\n"
         printf "=====================================================\n"
         # https://apple.stackexchange.com/a/333470
         MARKETING_NAME=$(awk '/SOFTWARE LICENSE AGREEMENT FOR macOS/' '/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.rtf' | awk -F 'macOS ' '{print $NF}' | awk '{print substr($0, 0, length($0)-1)}')
@@ -564,7 +565,7 @@ noti() {
         if [ $? -eq 0 ]; then
             afplay /System/Library/Sounds/Blow.aiff -v 10
         else
-            printf '\a'
+            afplay /System/Library/Sounds/Basso.aiff -v 10
         fi
     else
         printf '\a'
