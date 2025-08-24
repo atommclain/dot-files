@@ -36,6 +36,8 @@ set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.
 set printoptions=number:y,left:5pc,paper:letter
 set printfont=MesloLGM\ Nerd\ Font:h9
 
+set fileformats=unix,dos,mac
+
 set showmatch		" highlight matching [{()}]
 set matchtime=1		" 1/10s timeout to find match
 " Visual selection of current line minus indentation, blockwise
@@ -314,6 +316,9 @@ nnoremap <LEADER>tz :w<Enter><C-z>
 nnoremap <LEADER>wq :call ADMSaveQMacro()<CR>
 " Insert Date
 nnoremap <LEADER>id o<ESC>:read !date +"\%Y/\%m/\%d \%A"<CR>o<ESC>40i-<ESC>j0
+
+" format classic mac file format
+nnoremap <LEADER>m :set ffs=mac<BAR>set ff=mac<CR>:e!<CR>
 
 " }}}
 " Splitting/Joining Lines {{{

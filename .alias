@@ -572,4 +572,8 @@ noti() {
     fi
 }
 
+codeSearch() {
+    grep -riIn --include="*.c" --include="*.h" "$1" *
+}
+
 # vim: filetype=sh
