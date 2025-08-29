@@ -218,6 +218,8 @@ defaults write com.mowglii.ItsycalApp HideIcon -bool true
 # Pastebot
 # Auto hide Dock Icon
 defaults write com.tapbots.Pastebot2Mac UIVisibilityState -integer 2
+# Always paste plain text
+defaults write com.tapbots.Pastebot2Mac AlwaysPastePlainText  -integer 1
 
 # Don't kill if flag is set
 if [ "$SKIP_KILL" = false ]; then
