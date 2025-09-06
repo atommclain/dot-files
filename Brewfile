@@ -1,7 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/cask-fonts"
 tap "achannarasappa/tap"
 tap "yt-dlp/homebrew-taps"
 brew "blueutil"
