@@ -203,11 +203,16 @@ simInfo () {
 
 alias beep="echo -ne '\007'"
 
-SPONSOR_BLOCK="--sponsorblock-mark default --sponsorblock-remove sponsor"
 TITLE_FORMAT="-o \"%(channel)s - %(title)s [%(id)s].%(ext)s\""
-alias ytdlp720="yt-dlp --no-check-certificate -f 'bestvideo[height<=720]+bestaudio' $TITLE_FORMAT $SPONSOR_BLOCK"
+SPONSOR_BLOCK=""
+SPONSOR_BLOCK="--sponsorblock-mark default --sponsorblock-remove sponsor"
+#https://github.com/yt-dlp/yt-dlp/issues/4168
+FILTER_SHORTS=""
+FILTER_SHORTS="--match-filter 'original_url!*=/shorts/ & tags !*= shorts'"
+alias ytdlp720="yt-dlp --no-check-certificate --extractor-args 'youtube:player_client=default,-tv' $TITLE_FORMAT $SPONSOR_BLOCK"
 alias ytdlp1080="yt-dlp --no-check-certificate -f 'bestvideo[height<=1080]+bestaudio' $TITLE_FORMAT $SPONSOR_BLOCK"
 alias ytdlpmp3="yt-dlp -f bestaudio --extract-audio --audio-format mp3 $TITLE_FORMAT"
+alias ytchanneldownload="ytdlp720 $FILTER_SHORTS -a channels.txt --download-archive archive.txt --sleep-interval 7 --max-downloads 40 --limit-rate 1M; noti"
 
 alias colorPicker="osascript -e 'choose color' &"
 alias termColorsZSH='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
