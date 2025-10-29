@@ -18,6 +18,7 @@
 	#coloring = highlightRecent
 [branch]
 	autosetuprebase = always
+	autoSetupMerge = simple
 [color]
 	diff = auto
 	status = auto
