@@ -338,7 +338,20 @@ nmap K i<CR><Esc>d^==kg_lD
 " Remove trailing whitespace from line
 " nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Remove trailing whitespace from line, and convert tabs to 4 spaces
-nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /g<Bar>:let @/=_s<Bar>:nohl<CR>
+" nnoremap <silent> <F5> :let _s=@/<Bar>:s/\s\+$//e<Bar>:s/\t/\ \ \ \ /ge<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F5> :call CleanWhitespaceAndTabs()<CR>
+function! CleanWhitespaceAndTabs()
+    let _s = @/        		" Save current search pattern
+    let _pos = getpos(".")        " Save cursor position
+
+    silent! %s/\s\+$//e        	" Remove trailing whitespace
+    execute '%s/\t/' . repeat(' ', shiftwidth()) . '/ge'
+    " Convert tabs to spaces based on shiftwidth
+
+    let @/ = _s        		" Restore previous search pattern
+    call setpos(".", _pos)        " Restore cursor position
+    nohl        		" Clear search highlighting
+endfunction
 
 " Nice vertical split
 hi VertSplit ctermbg=None
