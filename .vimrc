@@ -1,20 +1,20 @@
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set backup		" keep backup files
+set backup        	" keep backup files
 set backupdir=~/.tmp,~/
 set directory=~/.tmp,~/
 
-set autoread		" reload files when changed outside of Vim
-set history=50		" keep 50 lines of command line history
-set number		" show line number
-set hidden		" allow buffers to be hidden without write
-set scrolloff=6		" start scrolling at 6 lines from edge
-set wrap		" soft wrap on edge of window (default on)
-set breakindent		" lines that wrap keep previous indentation
-set linebreak		" wrap lines without inserting newline
-set gdefault		" by default substitutions have 'g' flag
-set modeline		" turn on modelines
+set autoread        	" reload files when changed outside of Vim
+set history=50        	" keep 50 lines of command line history
+set number        	" show line number
+set hidden        	" allow buffers to be hidden without write
+set scrolloff=6        	" start scrolling at 6 lines from edge
+set wrap        	" soft wrap on edge of window (default on)
+set breakindent        	" lines that wrap keep previous indentation
+set linebreak        	" wrap lines without inserting newline
+set gdefault        	" by default substitutions have 'g' flag
+set modeline        	" turn on modelines
 set modelines=5
 set ttimeoutlen=10
 set splitright
@@ -22,13 +22,13 @@ set splitbelow
 set shiftround
 
 filetype on
-filetype indent on	" load filetype-specific indent files
+filetype indent on        " load filetype-specific indent files
 filetype plugin on
 set background=dark
-set laststatus=2	" always show the statusline
-set encoding=utf-8	" necessary to show Unicode glyphs
-set clipboard=unnamed	" use system clipboard
-set iskeyword-=_	" don't count `_` as part of a 'word'
+set laststatus=2        " always show the statusline
+set encoding=utf-8        " necessary to show Unicode glyphs
+set clipboard=unnamed        " use system clipboard
+set iskeyword-=_        " don't count `_` as part of a 'word'
 set wildignore+=*.o,*.obj,*.a,*.lib,*.elf,*.dll,*.exe " ignore binaries
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.html,*.doc,*.md5
 set wildignore+=*.mobileprovision,*.py,*.js,*.png,*.sh,*.entitlements,*.plist,*.pch,*.json,*.rb
@@ -40,6 +40,7 @@ set fileformats=unix,dos,mac
 
 set showmatch		" highlight matching [{()}]
 set matchtime=1		" 1/10s timeout to find match
+
 " Visual selection of current line minus indentation, blockwise
 nnoremap vv ^<C-v>g_
 
@@ -53,7 +54,7 @@ let slowVim = hostname == "ereader" || $SHELL == "/bin/ash"
 let sixteenColor = $SHELL == "/bin/ash"
 
 if slowVim
-  set synmaxcol=200	" stop highlighting after 200 columns
+  set synmaxcol=200        " stop highlighting after 200 columns
 endif
 
 if has("macunix")
@@ -345,7 +346,7 @@ set fillchars+=vert:│
 
 " Listchars
 set listchars=nbsp:∅,trail:␣,eol:¬,precedes:«,extends:»,tab:▸›
-if has("patch-7.4.711")	" This works as of Vim 7.4.711
+if has("patch-7.4.711")        " This works as of Vim 7.4.711
   set listchars+=space:·
 endif
 if has("patch-9.0.0")
@@ -353,7 +354,7 @@ if has("patch-9.0.0")
 endif
 if linuxConsole
   set listchars=nbsp:∅,trail:ж,eol:¬,precedes:«,extends:»,tab:┣→
-  if has("patch-7.4-711")	" This works as of Vim 7.4.711
+  if has("patch-7.4-711")        " This works as of Vim 7.4.711
     set listchars+=space:·
   endif
 endif
@@ -361,9 +362,9 @@ endif
 " Toggle viewing listchars ⇥
 nnoremap <silent> <LEADER>. :set list!<CR>
 nnoremap <silent> <LEADER>, :set nolist number! <BAR> AirlineToggle <BAR> nohlsearch<CR>
-"set showbreak=↪\ 	" indicator to show wrapped line
-"let g:airline_section_z = "%p%% %l %v %{strlen(getline('.'))}"		" show real linke length
-"let g:airline_section_z = "%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v %{strlen(getline('.'))}"		" show real line length with default formatting
+"set showbreak=↪\         " indicator to show wrapped line
+"let g:airline_section_z = "%p%% %l %v %{strlen(getline('.'))}"        	" show real linke length
+"let g:airline_section_z = "%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v %{strlen(getline('.'))}"        	" show real line length with default formatting
 
 " quick highlight
 nmap <Space>m <Plug>(quickhl-manual-this)
@@ -400,10 +401,10 @@ endfunction
 " }}}
 " Searching {{{
 " After searching, press Ctrl-o to jump back to your previous position (then Ctrl-i will jump forwards).
-set incsearch	" do incremental searching
+set incsearch        " do incremental searching
 set ignorecase
-set smartcase	" ignore case in search unless search contains uppercase
-set hlsearch	" highlight matches
+set smartcase        " ignore case in search unless search contains uppercase
+set hlsearch        " highlight matches
 " clear search highlighting
 nnoremap <silent> <LEADER>/ :nohlsearch<CR>
 
