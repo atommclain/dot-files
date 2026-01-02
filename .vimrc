@@ -422,7 +422,7 @@ set hlsearch        " highlight matches
 nnoremap <silent> <LEADER>/ :nohlsearch<CR>
 
 " git conflict seperator search
-nnoremap <LEADER>c /<<<<<<<\\|=======\\|>>>>>>><CR>
+nnoremap <LEADER>c /^<<<<<<<\\|^=======\\|^>>>>>>><CR>
 
 " WORD equivalent to * and #
 nnoremap q* /<C-r><C-a><CR>
