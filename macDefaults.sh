@@ -99,6 +99,8 @@ chflags nohidden ~/Library
 if xattr -l ~/Library | grep -q com.apple.FinderInfo; then
     xattr -d com.apple.FinderInfo ~/Library
 fi
+# Change Desktop Grid spacing
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 37" ~/Library/Preferences/com.apple.finder.plist
 
 # Finder - Other
 # Move window with cmd + ctrl with click and drag
