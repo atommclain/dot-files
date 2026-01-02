@@ -1,7 +1,4 @@
-What is the smallest screen resolution currently?
-
-screen resolutions:
-https://iosref.com/res
+screen resolutions: https://iosref.com/res
 
 https://hacknicity.medium.com/how-ios-apps-adapt-to-the-various-iphone-14-screen-sizes-b2504a39b58f
 
@@ -22,6 +19,6 @@ In iPhone simulator going to settings -> developer -> text size allows you to ad
 | iPhone 11 Pro Max, 11, XS Max, XR               | 414 × 896          | 375 x 812      |
 | iPhone SE (3rd gen), SE (2nd gen)               | 375 × 667          | 320 × 568      |
 
-iPhone 8, 8plus, X, highest ios 16.7.11
+iPhone 8, 8 Plus, X, highest iOS 16.7.11
 
-Note: sizing is weird between the iPhone 11 line and X* line (11 has same resolution of 11 Pro Max, etx)
+Note: sizing is weird between the iPhone 11 line and X* line (11 has same resolution of 11 Pro Max, etc)
