@@ -11,7 +11,7 @@ if hash mysides 2>/dev/null; then
     mysides remove all
     mysides add Downloads file:///Users/$(whoami)/Downloads/
     mysides add $(whoami) file:///Users/$(whoami)/
-    mysides add git file:///Users/$(whoami)/git/
+    mysides add src file:///Users/$(whoami)/src/
     mysides add Applications file:///Applications/
 else
     echo "mysides is not installed"

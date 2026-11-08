@@ -4,7 +4,7 @@ System Preferences
             Scroll down and select Developer Tools and add Terminal
 
 Terminal
-$ mkdir ~/git; cd ~/git
+$ mkdir ~/src; cd ~/src
 $ git clone https://github.com/atommclain/dot-files.git; cd dot-files
 $ source ./unixSetup.sh
 $ ./brewIt.sh
@@ -21,7 +21,7 @@ Install powerline-shell https://github.com/b-ryan/powerline-shell#bash
     cd to homebrew install location
     $ cd $(brew --prefix python3)/bin
     $ ./pip3 install powerline-shell
-    $ cd ~/git; git clone https://github.com/b-ryan/powerline-shell # support for theme
+    $ cd ~/src; git clone https://github.com/b-ryan/powerline-shell # support for theme
 Install Oh my zsh https://ohmyz.sh/#install
     $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     install powerline10k https://github.com/romkatv/powerlevel10k#installation
@@ -163,7 +163,7 @@ Setup Touch ID to use sudo
 Clone oblique strategies https://github.com/threemachines/obliqueMOTD
 Clone fortune
 Clone bin
-    $ cd ~/git; clink bin ~/bin
+    $ cd ~/src; clink bin ~/bin
 Install cocoapods sudo gem install cocoapods
     This ^ might not work with catalina, try sudo gem install -n /usr/local/bin cocoapods
     run “pod setup” to speed up “pod update command https://stackoverflow.com/a/25658514/640338
@@ -185,7 +185,7 @@ Install bropages
 
 Work Shell Junk
 change email in ~.gitconfig to work
-change email in ~/git/dot-files to personal
+change email in ~/src/dot-files to personal
     git config --local user.email [personal email]
     git config --local --get user.email
 create or copy over ~/.workalias

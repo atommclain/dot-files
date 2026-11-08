@@ -180,7 +180,7 @@ bindkey -s '^[OS' 'alias4^M'
 
 # F12 Universal help
 bindkey -s '^[[24~' '^auniversalHelp \ef^k^M'
-#bindkey -s '^[[24~' 'vim ~/git/dot-files/help/shell.txt^M'
+#bindkey -s '^[[24~' 'vim ~/src/dot-files/help/shell.txt^M'
 
 
 #alias -g _gf1="`git --no-pager diff --name-only | sed -n 1p | sed 's/ /\\\\ /g'`"

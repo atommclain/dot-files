@@ -25,16 +25,16 @@ alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
 alias c3='cal -3'
-alias cdg='cd ~/git'
-alias cdd='cd ~/git/dot-files/'
+alias cdg='cd ~/src'
+alias cdd='cd ~/src/dot-files/'
 alias cdv='cd ~/.vim'
 alias h='history'
-alias myhelp='cat ~/git/dot-files/help/shell.txt'
+alias myhelp='cat ~/src/dot-files/help/shell.txt'
 alias killlast='kill -9 %%'
 alias info='info --vi-keys'
 
 alias ea='$EDITOR ~/.alias && source ~/.alias'
-alias et='vim ~/git/dot-files/todo.txt'
+alias et='vim ~/src/dot-files/todo.txt'
 alias ep='$EDITOR ~/.profile'
 alias ein='$EDITOR ~/.inputrc && bind -f ~/.inputrc && echo "Loaded new entries, old entries persist, <C-x><C-r> to reload .inputrc"'
 
@@ -424,7 +424,7 @@ echo $offset
 }
 
 alias vimp='rm profile.log && vim ~/.vimrc --startuptime profile.log'
-alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/git/dot-files/todo.txt"
+alias profvim="rm profile.log & vim --cmd 'profile start profile.log' --cmd 'profile func *' --cmd 'profile file *' -c 'profdel func *' -c 'profdel file *' ~/src/dot-files/todo.txt"
 
 copyssh() {
     if [ "$(uname)" == "Darwin" ]; then
@@ -548,7 +548,7 @@ extract () {
 }
 
 universalHelp () {
-    help_dir="$HOME/git/dot-files/help/"
+    help_dir="$HOME/src/dot-files/help/"
     default_help="$help_dir"shell.txt
 
     # No argument, edit default help
